@@ -1514,3 +1514,59 @@ footer {
         margin-top: 0;
     }
 }
+
+/* ============================================================
+   AJUSTE HERO — "lugar" junto a "solo" + aire antes del buscador
+   ============================================================ */
+
+/* Damos más ancho al bloque izquierdo para que "lugar"
+   pueda quedar en la misma línea que "solo". */
+.hero-grid {
+    grid-template-columns: minmax(0, 1.18fr) minmax(0, .82fr);
+    gap: 3rem;
+}
+
+.hero h1 {
+    max-width: 680px;
+    margin-bottom: 2.25rem;
+}
+
+/* El buscador baja ligeramente respecto al título,
+   creando un espacio limpio y equilibrado. */
+.hero .dir-search-row {
+    margin-top: 1.25rem;
+}
+
+/* Si el HTML usa un salto de línea antes de "lugar",
+   permitimos que el texto ocupe el ancho necesario. */
+.hero h1 {
+    width: 100%;
+}
+
+/* En pantallas medianas reducimos un poco el tamaño para
+   conservar la composición sin romper el diseño. */
+@media (max-width: 1100px) and (min-width: 901px) {
+    .hero-grid {
+        grid-template-columns: minmax(0, 1.25fr) minmax(0, .75fr);
+        gap: 2rem;
+    }
+
+    .hero h1 {
+        font-size: clamp(2.5rem, 4.8vw, 4.2rem);
+    }
+}
+
+@media (max-width: 900px) {
+    .hero-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero h1 {
+        max-width: 100%;
+        margin-bottom: 1.75rem;
+    }
+
+    .hero .dir-search-row {
+        margin-top: .75rem;
+    }
+}

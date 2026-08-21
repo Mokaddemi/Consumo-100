@@ -1,16 +1,23 @@
-// Scroll reveal
-const reveals = document.querySelectorAll('.reveal');
+// ============================================================
+// SCROLL REVEAL
+// ============================================================
 
-const io = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-        if (e.isIntersecting) {
-            e.target.classList.add('visible');
-            io.unobserve(e.target);
-        }
-    });
-}, { threshold: 0.12 });
+const reveals = document.querySelectorAll(".reveal");
 
-reveals.forEach(el => io.observe(el));
+if ("IntersectionObserver" in window) {
+    const io = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("visible");
+                io.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.12 });
+
+    reveals.forEach(el => io.observe(el));
+} else {
+    reveals.forEach(el => el.classList.add("visible"));
+}
 
 
 // ============================================================
@@ -18,52 +25,32 @@ reveals.forEach(el => io.observe(el));
 // ============================================================
 
 (function () {
-
-    const navEl = document.querySelector('nav');
+    const navEl = document.querySelector("nav");
 
     if (!navEl) return;
 
     const burger =
-        navEl.querySelector('.nav-hamburger, .nav-burger');
+        navEl.querySelector(".nav-hamburger, .nav-burger");
 
     if (!burger) return;
 
-    burger.addEventListener('click', () => {
-        navEl.classList.toggle('mobile-open');
+    burger.addEventListener("click", () => {
+        navEl.classList.toggle("mobile-open");
     });
 
-    navEl.querySelectorAll('.nav-links a').forEach(link => {
-
-        link.addEventListener('click', () => {
-            navEl.classList.remove('mobile-open');
+    navEl.querySelectorAll(".nav-links a").forEach(link => {
+        link.addEventListener("click", () => {
+            navEl.classList.remove("mobile-open");
         });
-
     });
-
 })();
 
 
 // ============================================================
-// BUSCADOR DEL INICIO
+// SOCIOS
 // ============================================================
-//
-// En Inicio ya NO mostramos:
-// - categorías
-// - chips
-// - las 12 tarjetas
-//
-// Solo mostramos:
-// - buscador
-// - resultados desplegables
-// - botón "Ver todos los comercios"
-//
-// Los comercios utilizados aquí son los socios reales
-// que tenemos actualmente en los datos.
-// ============================================================
-
 
 const COMERCIOS = [
-
     {
         id: 1,
         nombre: "Limonlab",
@@ -102,7 +89,7 @@ const COMERCIOS = [
         nombre: "María Torres. Peluquería y estética",
         categoria: "Moda",
         tag: "Ropa & Accesorios",
-        direccion: "Avenida maestro puyg Valera 22 Santomera Murcis",
+        direccion: "Avenida maestro puyg Valera 22 Santomera Murcia",
         telefono: "968 86 01 23",
         correo: "mariatorrescanovas28@gmail.com",
         emoji: "💇"
@@ -113,7 +100,7 @@ const COMERCIOS = [
         nombre: "Lidia Pelu",
         categoria: "Moda",
         tag: "Ropa & Accesorios",
-        direccion: "Calle los huertanos Bajo( Parque Manolo )",
+        direccion: "Calle los huertanos Bajo (Parque Manolo)",
         telefono: "678 56 15 65",
         correo: "Lidiapelu@hotmail.es",
         emoji: "💇"
@@ -146,7 +133,7 @@ const COMERCIOS = [
         nombre: "La despensa de Pedro bodega",
         categoria: "Moda",
         tag: "Ropa & Accesorios",
-        direccion: "Avd Juan Carlos I N 51 bajo . Cp 30140 Santomera Murcia",
+        direccion: "Avd Juan Carlos I N 51 bajo. Cp 30140 Santomera Murcia",
         telefono: "620 34 06 93",
         correo: "Salazonespedro@hotmail.com",
         emoji: "🍷"
@@ -179,7 +166,7 @@ const COMERCIOS = [
         nombre: "Tamara Bellot Estilistas",
         categoria: "Moda",
         tag: "Ropa & Accesorios",
-        direccion: "Calle Del Tomillo ,7 bajo",
+        direccion: "Calle Del Tomillo, 7 bajo",
         telefono: "689 53 51 10",
         correo: "tamaracostaja@gmail.com",
         emoji: "💇"
@@ -195,27 +182,21 @@ const COMERCIOS = [
         correo: "libreriacirculosantomera@gmail.com",
         emoji: "📚"
     }
-
 ];
 
 
 // ============================================================
-// NORMALIZAR TEXTO
+// UTILIDADES
 // ============================================================
 
-function normalizeStr(texto) {
+function normalizeStr(value) {
 
-    return String(texto || "")
+    return String(value || "")
         .toLowerCase()
         .normalize("NFD")
         .replace(/[\u0300-\u036f]/g, "");
-
 }
 
-
-// ============================================================
-// SEGURIDAD PARA HTML
-// ============================================================
 
 function escapeHtml(value) {
 
@@ -225,8 +206,24 @@ function escapeHtml(value) {
         .replace(/>/g, "&gt;")
         .replace(/"/g, "&quot;")
         .replace(/'/g, "&#039;");
-
 }
+
+
+// ============================================================
+// ELEMENTOS DEL BUSCADOR
+// ============================================================
+
+const searchInput =
+    document.getElementById("homeSearchInput");
+
+const searchButton =
+    document.getElementById("homeSearchBtn");
+
+const searchResults =
+    document.getElementById("homeSearchResults");
+
+const searchBox =
+    document.getElementById("homeSearchBox");
 
 
 // ============================================================
@@ -243,17 +240,29 @@ function buscarComercios(query) {
 
     return COMERCIOS.filter(comercio => {
 
-        const textoBusqueda = normalizeStr([
+        const texto = normalizeStr([
             comercio.nombre,
             comercio.categoria,
             comercio.tag,
             comercio.direccion
         ].join(" "));
 
-        return textoBusqueda.includes(q);
-
+        return texto.includes(q);
     });
+}
 
+
+// ============================================================
+// OCULTAR RESULTADOS
+// ============================================================
+
+function ocultarResultados() {
+
+    if (!searchResults) return;
+
+    searchResults.innerHTML = "";
+
+    searchResults.classList.remove("show");
 }
 
 
@@ -261,109 +270,129 @@ function buscarComercios(query) {
 // MOSTRAR RESULTADOS
 // ============================================================
 
-function renderHomeSearchResults(query) {
+function mostrarResultados(query) {
 
-    const results =
-        document.getElementById("homeSearchResults");
+    if (!searchResults) return;
 
-    if (!results) return;
-
-
-    const q =
-        normalizeStr(query).trim();
+    const texto =
+        String(query || "").trim();
 
 
-    // Si no hay búsqueda
-    if (!q) {
+    // --------------------------------------------------------
+    // SI EL BUSCADOR ESTÁ VACÍO
+    // --------------------------------------------------------
 
-        results.innerHTML = "";
+    if (!texto) {
 
-        results.classList.remove("show");
+        ocultarResultados();
 
         return;
     }
 
 
-    // Buscar
-    const encontrados =
-        buscarComercios(query);
+    // --------------------------------------------------------
+    // BUSCAR
+    // --------------------------------------------------------
+
+    const resultados =
+        buscarComercios(texto);
 
 
-    // Sin resultados
-    if (encontrados.length === 0) {
+    // --------------------------------------------------------
+    // SIN RESULTADOS
+    // --------------------------------------------------------
 
-        results.innerHTML = `
+    if (resultados.length === 0) {
+
+        searchResults.innerHTML = `
 
             <div class="home-search-empty">
 
-                <span class="home-search-empty-icon">
-                    🔍
-                </span>
+                <span>🔍</span>
 
-                <span>
-                    No hemos encontrado ningún comercio
-                    para
-                    <strong>
-                        ${escapeHtml(query)}
-                    </strong>
-                </span>
+                No hemos encontrado ningún comercio para
+
+                <strong>
+                    ${escapeHtml(texto)}
+                </strong>.
 
             </div>
 
         `;
 
-        results.classList.add("show");
+        searchResults.classList.add("show");
 
         return;
     }
 
 
-    // Mostrar resultados
-    results.innerHTML = encontrados
-        .slice(0, 8)
-        .map(comercio => `
+    // --------------------------------------------------------
+    // RESULTADOS
+    // --------------------------------------------------------
 
-            <a
-                class="home-search-result"
-                href="./b*Socios/DIRECTORIO PREVIEW.htm"
-            >
+    searchResults.innerHTML =
+        resultados.map(comercio => {
 
-                <span class="home-search-result-icon">
-                    ${comercio.emoji}
-                </span>
+            return `
 
+                <a
+                    class="home-search-result"
+                    href="./b*Socios/DIRECTORIO PREVIEW.htm"
+                    data-comercio-id="${comercio.id}"
+                >
 
-                <span class="home-search-result-info">
+                    <span class="home-search-result-icon">
 
-                    <strong>
-                        ${escapeHtml(comercio.nombre)}
-                    </strong>
+                        ${comercio.emoji}
 
-                    <small>
-                        ${escapeHtml(comercio.categoria)}
-                        ·
-                        ${escapeHtml(comercio.tag)}
-                    </small>
-
-                    <em>
-                        ${escapeHtml(comercio.direccion)}
-                    </em>
-
-                </span>
+                    </span>
 
 
-                <span class="home-search-result-arrow">
-                    →
-                </span>
+                    <span class="home-search-result-info">
 
-            </a>
-
-        `)
-        .join("");
+                        <strong>
+                            ${escapeHtml(comercio.nombre)}
+                        </strong>
 
 
-    // Enlace para ver todos
-    results.innerHTML += `
+                        <small>
+
+                            ${escapeHtml(comercio.categoria)}
+
+                            ·
+
+                            ${escapeHtml(comercio.tag)}
+
+                        </small>
+
+
+                        <em>
+
+                            ${escapeHtml(comercio.direccion)}
+
+                        </em>
+
+                    </span>
+
+
+                    <span class="home-search-result-arrow">
+
+                        →
+
+                    </span>
+
+                </a>
+
+            `;
+
+        }).join("");
+
+
+    // --------------------------------------------------------
+    // VER TODOS
+    // --------------------------------------------------------
+
+    searchResults.innerHTML += `
 
         <a
             class="home-search-see-all"
@@ -377,84 +406,79 @@ function renderHomeSearchResults(query) {
     `;
 
 
-    results.classList.add("show");
+    searchResults.classList.add("show");
+}
+
+
+// ============================================================
+// EVENTO: ESCRIBIR EN EL BUSCADOR
+// ============================================================
+
+if (searchInput) {
+
+    searchInput.addEventListener("input", () => {
+
+        mostrarResultados(
+            searchInput.value
+        );
+
+    });
+
+
+    // --------------------------------------------------------
+    // TECLADO
+    // --------------------------------------------------------
+
+    searchInput.addEventListener("keydown", event => {
+
+
+        // ENTER
+
+        if (event.key === "Enter") {
+
+            event.preventDefault();
+
+            mostrarResultados(
+                searchInput.value
+            );
+
+        }
+
+
+        // ESCAPE
+
+        if (event.key === "Escape") {
+
+            searchInput.value = "";
+
+            ocultarResultados();
+
+            searchInput.blur();
+
+        }
+
+    });
 
 }
 
 
 // ============================================================
-// INPUT DEL BUSCADOR
+// EVENTO: BOTÓN BUSCAR
 // ============================================================
 
-const homeSearchInput =
-    document.getElementById("homeSearchInput");
+if (searchButton) {
 
+    searchButton.addEventListener("click", event => {
 
-const homeSearchBtn =
-    document.getElementById("homeSearchBtn");
+        event.preventDefault();
 
+        if (!searchInput) return;
 
-// Escribir
-if (homeSearchInput) {
+        mostrarResultados(
+            searchInput.value
+        );
 
-    homeSearchInput.addEventListener(
-        "input",
-        () => {
-
-            renderHomeSearchResults(
-                homeSearchInput.value
-            );
-
-        }
-    );
-
-
-    // Enter
-    homeSearchInput.addEventListener(
-        "keydown",
-        event => {
-
-            if (event.key === "Enter") {
-
-                event.preventDefault();
-
-                renderHomeSearchResults(
-                    homeSearchInput.value
-                );
-
-            }
-
-
-            // Escape
-            if (event.key === "Escape") {
-
-                homeSearchInput.value = "";
-
-                renderHomeSearchResults("");
-
-                homeSearchInput.blur();
-
-            }
-
-        }
-    );
-
-}
-
-
-// Botón Buscar
-if (homeSearchBtn && homeSearchInput) {
-
-    homeSearchBtn.addEventListener(
-        "click",
-        () => {
-
-            renderHomeSearchResults(
-                homeSearchInput.value
-            );
-
-        }
-    );
+    });
 
 }
 
@@ -465,21 +489,24 @@ if (homeSearchBtn && homeSearchInput) {
 
 document.addEventListener("click", event => {
 
-    const searchArea =
-        document.querySelector(".dir-search");
+    if (!searchResults) return;
 
-    const results =
-        document.getElementById("homeSearchResults");
 
-    if (!searchArea || !results) return;
+    const clickDentroDelBuscador =
+        searchBox &&
+        searchBox.contains(event.target);
+
+
+    const clickDentroResultados =
+        searchResults.contains(event.target);
 
 
     if (
-        !searchArea.contains(event.target) &&
-        !results.contains(event.target)
+        !clickDentroDelBuscador &&
+        !clickDentroResultados
     ) {
 
-        results.classList.remove("show");
+        ocultarResultados();
 
     }
 
@@ -487,36 +514,42 @@ document.addEventListener("click", event => {
 
 
 // ============================================================
-// NAV ACTIVE LINK
+// NAV ACTIVE
 // ============================================================
 
 const navLinks =
     document.querySelectorAll(".nav-links a");
 
-
 const sections =
     document.querySelectorAll("section[id]");
 
 
-if ("IntersectionObserver" in window) {
+if (
+    "IntersectionObserver" in window &&
+    sections.length
+) {
 
     const navObserver =
         new IntersectionObserver(
             entries => {
 
-                entries.forEach(e => {
+                entries.forEach(entry => {
 
-                    if (!e.isIntersecting) return;
+                    if (!entry.isIntersecting) {
+                        return;
+                    }
 
 
-                    navLinks.forEach(
-                        link => link.style.color = ""
-                    );
+                    navLinks.forEach(link => {
+
+                        link.style.color = "";
+
+                    });
 
 
                     const link =
                         document.querySelector(
-                            `.nav-links a[href="#${e.target.id}"]`
+                            `.nav-links a[href="#${entry.target.id}"]`
                         );
 
 
@@ -546,7 +579,7 @@ if ("IntersectionObserver" in window) {
 
 
 // ============================================================
-// CONTADOR DEL HERO
+// CONTADORES
 // ============================================================
 
 function animateCount(el, target) {
@@ -559,7 +592,9 @@ function animateCount(el, target) {
     const step = timestamp => {
 
         if (!start) {
+
             start = timestamp;
+
         }
 
 
@@ -571,7 +606,9 @@ function animateCount(el, target) {
 
 
         const value =
-            Math.floor(progress * target);
+            Math.floor(
+                progress * target
+            );
 
 
         el.textContent =
@@ -597,9 +634,12 @@ function animateCount(el, target) {
 
 
     requestAnimationFrame(step);
-
 }
 
+
+// ============================================================
+// OBSERVER DE CONTADORES
+// ============================================================
 
 const statsSection =
     document.querySelector(".hero-stats");
@@ -623,7 +663,7 @@ if (
 
                     document
                         .querySelectorAll(".stat strong")
-                        .forEach((el, i) => {
+                        .forEach((el, index) => {
 
                             const targets = [
                                 120,
@@ -639,13 +679,21 @@ if (
                             ];
 
 
+                            if (
+                                index >=
+                                targets.length
+                            ) {
+                                return;
+                            }
+
+
                             el.dataset.suffix =
-                                suffixes[i];
+                                suffixes[index];
 
 
                             animateCount(
                                 el,
-                                targets[i]
+                                targets[index]
                             );
 
                         });
@@ -662,6 +710,8 @@ if (
         );
 
 
-    statsObserver.observe(statsSection);
+    statsObserver.observe(
+        statsSection
+    );
 
 }

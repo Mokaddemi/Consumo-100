@@ -191,9 +191,9 @@ nav {
 /* Logo PNG oficial */
 .nav-logo-image {
     display: block;
-    width: 140px;
+    width: 280px;
     height: auto;
-    max-height: 58px;
+    max-height: 116px;
     object-fit: contain;
     flex-shrink: 0;
 }
@@ -274,8 +274,8 @@ nav {
 @media(max-width: 900px) {
 
     .nav-logo-image {
-        width: 120px;
-        max-height: 52px;
+        width: 240px;
+        max-height: 104px;
     }
 
     .nav-links,

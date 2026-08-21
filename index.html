@@ -126,8 +126,32 @@
 
     .directory-all-btn {
       flex: 0 0 auto;
+      height: 54px;
+      min-height: 54px;
+      box-sizing: border-box;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
       white-space: nowrap;
       margin-top: 0;
+      padding: 0 1.5rem;
+      line-height: 1;
+    }
+
+    @media (max-width: 760px) {
+      .directory-search-row {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .directory-search-row .dir-search,
+      .directory-all-btn {
+        width: 100%;
+      }
+
+      .directory-all-btn {
+        height: 54px;
+      }
     }
 
     .home-search-results {

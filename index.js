@@ -94,24 +94,17 @@
 
     function initMobileMenu() {
 
-        const nav =
+        const navEl =
             document.querySelector("nav");
 
-        if (!nav) return;
+        if (!navEl) return;
 
         const burger =
-            nav.querySelector(
+            navEl.querySelector(
                 ".nav-hamburger, .nav-burger"
             );
 
         if (!burger) return;
-
-        // Evita registrar el evento más de una vez
-        if (burger.dataset.mobileMenuReady === "true") {
-            return;
-        }
-
-        burger.dataset.mobileMenuReady = "true";
 
         burger.addEventListener(
             "click",
@@ -120,22 +113,22 @@
                 event.preventDefault();
                 event.stopPropagation();
 
-                nav.classList.toggle(
+                navEl.classList.toggle(
                     "mobile-open"
                 );
 
             }
         );
 
-        nav
+        navEl
             .querySelectorAll(".nav-links a")
             .forEach(link => {
 
                 link.addEventListener(
                     "click",
-                    () => {
+                    function () {
 
-                        nav.classList.remove(
+                        navEl.classList.remove(
                             "mobile-open"
                         );
 

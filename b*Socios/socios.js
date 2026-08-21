@@ -41,7 +41,7 @@ const COMERCIOS = [
         cierraM: "13:30",
         abreT: "17:30",
         cierraT: "19:00",
-        tag: "Viajes"
+        tag: "Servicios"
     },
     {
         id: 3,

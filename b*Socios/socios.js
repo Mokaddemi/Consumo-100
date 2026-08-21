@@ -28,7 +28,7 @@ const COMERCIOS = [
         cierraM: "21:30",
         abreT: "null",
         cierraT: "null",
-        tag: "Agencia"
+        tag: "Marketing"
     },
     {
         id: 2,
@@ -41,7 +41,7 @@ const COMERCIOS = [
         cierraM: "13:30",
         abreT: "17:30",
         cierraT: "19:00",
-        tag: "Carnicería"
+        tag: "Viajes"
     },
     {
         id: 3,
@@ -54,7 +54,7 @@ const COMERCIOS = [
         cierraM: "13:30",
         abreT: "17:30",
         cierraT: "19:00",
-        tag: "Ropa & Accesorios"
+        tag: "Servicios"
     },
     {
         id: 4,
@@ -67,7 +67,7 @@ const COMERCIOS = [
         cierraM: "13:30",
         abreT: "16:30",
         cierraT: "20:30",
-        tag: "Ropa & Accesorios"
+        tag: "Belleza"
     },
     {
         id: 5,
@@ -80,7 +80,7 @@ const COMERCIOS = [
         cierraM: "13:30",
         abreT: "16:30",
         cierraT: "20:30",
-        tag: "Ropa & Accesorios"
+        tag: "Belleza"
     },
     {
         id: 6,
@@ -93,7 +93,7 @@ const COMERCIOS = [
         cierraM: "20:30",
         abreT: "null",
         cierraT: "null",
-        tag: "Ropa & Accesorios"
+        tag: "Servicios"
     },
     {
         id: 7,
@@ -106,7 +106,7 @@ const COMERCIOS = [
         cierraM: "14:00",
         abreT: "null",
         cierraT: "null",
-        tag: "Ropa & Accesorios"
+        tag: "Servicios"
     },
     {
         id: 8,
@@ -119,7 +119,7 @@ const COMERCIOS = [
         cierraM: "19:00",
         abreT: "null",
         cierraT: "null",
-        tag: "Ropa & Accesorios"
+        tag: "Hostelería"
     },
     {
         id: 9,
@@ -132,7 +132,7 @@ const COMERCIOS = [
         cierraM: "14:00",
         abreT: "16:00",
         cierraT: "18:30",
-        tag: "Ropa & Accesorios"
+        tag: "Servicios"
     },
     {
         id: 10,
@@ -145,7 +145,7 @@ const COMERCIOS = [
         cierraM: "14:00",
         abreT: "16:00",
         cierraT: "20:00",
-        tag: "Ropa & Accesorios"
+        tag: "Servicios"
     },
     {
         id: 11,
@@ -158,7 +158,7 @@ const COMERCIOS = [
         cierraM: "null",
         abreT: "null",
         cierraT: "null",
-        tag: "Ropa & Accesorios"
+        tag: "Belleza"
     },
     {
         id: 12,
@@ -171,7 +171,7 @@ const COMERCIOS = [
         cierraM: "14:00",
         abreT: "16:30",
         cierraT: "20:30",
-        tag: "Ropa & Accesorios"
+        tag: "Librería"
     },
     {
         id: 13,
@@ -184,7 +184,7 @@ const COMERCIOS = [
         cierraM: "14:00",
         abreT: "16:30",
         cierraT: "20:00",
-        tag: "Ropa & Accesorios"
+        tag: "Servicios"
     },
     {
         id: 14,
@@ -210,7 +210,7 @@ const COMERCIOS = [
         cierraM: "14:30",
         abreT: "17:00",
         cierraT: "20:30",
-        tag: "Ropa & Accesorios"
+        tag: "Servicios"
     },
     {
         id: 16,
@@ -223,7 +223,7 @@ const COMERCIOS = [
         cierraM: "20:00",
         abreT: "null",
         cierraT: "null",
-        tag: "Ropa & Accesorios"
+        tag: "Belleza"
     },
     {
         id: 17,
@@ -236,7 +236,7 @@ const COMERCIOS = [
         cierraM: "13:00",
         abreT: "16:30",
         cierraT: "20:00",
-        tag: "Ropa & Accesorios"
+        tag: "Belleza"
     },
     {
         id: 18,
@@ -249,7 +249,7 @@ const COMERCIOS = [
         cierraM: "null",
         abreT: "null",
         cierraT: "null",
-        tag: "Ropa & Accesorios"
+        tag: "Servicios"
     },
     {
         id: 19,
@@ -275,7 +275,7 @@ const COMERCIOS = [
         cierraM: "13:30",
         abreT: "15:30",
         cierraT: "21:00",
-        tag: "Ropa & Accesorios"
+        tag: "Belleza"
     },
     {
         id: 21,
@@ -288,7 +288,7 @@ const COMERCIOS = [
         cierraM: "13:30",
         abreT: "17:00",
         cierraT: "20:30",
-        tag: "Ropa & Accesorios"
+        tag: "Hogar"
     },
     {
         id: 22,
@@ -301,7 +301,7 @@ const COMERCIOS = [
         cierraM: "13:30",
         abreT: "17:00",
         cierraT: "20:30",
-        tag: "Ropa & Accesorios"
+        tag: "Servicios"
     },
     {
         id: 23,
@@ -327,7 +327,7 @@ const COMERCIOS = [
         cierraM: "14:00",
         abreT: "null",
         cierraT: "null",
-        tag: "Ropa & Accesorios"
+        tag: "Alimentación"
     },
     {
         id: 25,
@@ -340,7 +340,7 @@ const COMERCIOS = [
         cierraM: "13:30",
         abreT: "16:00",
         cierraT: "20:00",
-        tag: "Ropa & Accesorios"
+        tag: "Belleza"
     },
     {
         id: 26,
@@ -353,7 +353,7 @@ const COMERCIOS = [
         cierraM: "13:30",
         abreT: "16:30",
         cierraT: "20:00",
-        tag: "Ropa & Accesorios"
+        tag: "Servicios"
     },
     {
         id: 27,
@@ -366,7 +366,7 @@ const COMERCIOS = [
         cierraM: "14:00",
         abreT: "17:00",
         cierraT: "20:30",
-        tag: "Ropa & Accesorios"
+        tag: "Librería"
     },
     {
         id: 28,
@@ -392,7 +392,7 @@ const COMERCIOS = [
         cierraM: "13:30",
         abreT: "17:00",
         cierraT: "20:00",
-        tag: "Ropa & Accesorios"
+        tag: "Alimentación"
     },
     {
         id: 30,
@@ -405,7 +405,7 @@ const COMERCIOS = [
         cierraM: "14:00",
         abreT: "16:30",
         cierraT: "20:30",
-        tag: "Alimentacion"
+        tag: "Belleza"
     },
     {
         id: 31,
@@ -418,7 +418,7 @@ const COMERCIOS = [
         cierraM: "null",
         abreT: "null",
         cierraT: "null",
-        tag: "Radio"
+        tag: "Servicios"
     },
     {
         id: 32,
@@ -431,7 +431,7 @@ const COMERCIOS = [
         cierraM: "14:00",
         abreT: "17:00",
         cierraT: "21:00",
-        tag: "Plazer"
+        tag: "Servicios"
     },
     {
         id: 33,
@@ -444,7 +444,7 @@ const COMERCIOS = [
         cierraM: "13:30",
         abreT: "17:30",
         cierraT: "20:30",
-        tag: "Moda"
+        tag: "Ropa & Accesorios"
     },
     {
         id: 34,
@@ -470,7 +470,7 @@ const COMERCIOS = [
         cierraM: "13:30",
         abreT: "17:00",
         cierraT: "20:30",
-        tag: "Moda"
+        tag: "Ropa & Accesorios"
     },
     {
         id: 36,
@@ -483,7 +483,7 @@ const COMERCIOS = [
         cierraM: "13:30",
         abreT: "17:00",
         cierraT: "20:30",
-        tag: "Moda"
+        tag: "Ropa & Accesorios"
     },
     {
         id: 37,
@@ -496,7 +496,7 @@ const COMERCIOS = [
         cierraM: "14:00",
         abreT: "15:00",
         cierraT: "20:30",
-        tag: "Servicios"
+        tag: "Belleza"
     },
     {
         id: 38,
@@ -509,7 +509,7 @@ const COMERCIOS = [
         cierraM: "13:45",
         abreT: "17:00",
         cierraT: "20:30",
-        tag: "Moda"
+        tag: "Ropa & Accesorios"
     },
     {
         id: 39,
@@ -522,7 +522,7 @@ const COMERCIOS = [
         cierraM: "23:00",
         abreT: "null",
         cierraT: "null",
-        tag: "Alimentacion"
+        tag: "Hostelería"
     },
     {
         id: 40,
@@ -535,7 +535,7 @@ const COMERCIOS = [
         cierraM: "20:00",
         abreT: "null",
         cierraT: "null",
-        tag: "Moda"
+        tag: "Belleza"
     },
     {
         id: 41,
@@ -548,7 +548,7 @@ const COMERCIOS = [
         cierraM: "21:00",
         abreT: "null",
         cierraT: "null",
-        tag: "Moda"
+        tag: "Belleza"
     },
     {
         id: 42,
@@ -574,7 +574,7 @@ const COMERCIOS = [
         cierraM: "20:30",
         abreT: "null",
         cierraT: "null",
-        tag: "Moda"
+        tag: "Ropa & Accesorios"
     },
     {
         id: 44,
@@ -587,7 +587,7 @@ const COMERCIOS = [
         cierraM: "",
         abreT: "",
         cierraT: "",
-        tag: "Alimentacion"
+        tag: "Hostelería"
     },
     {
         id: 45,
@@ -600,7 +600,7 @@ const COMERCIOS = [
         cierraM: "14:00",
         abreT: "17:00",
         cierraT: "21:00",
-        tag: "Alimentacion"
+        tag: "Ropa & Accesorios"
     },
     {
         id: 46,
@@ -626,7 +626,7 @@ const COMERCIOS = [
         cierraM: "",
         abreT: "",
         cierraT: "",
-        tag: "Moda"
+        tag: "Belleza"
     },
     {
         id: 48,
@@ -652,7 +652,7 @@ const COMERCIOS = [
         cierraM: "14:00",
         abreT: "16:00",
         cierraT: "21:00",
-        tag: "Moda"
+        tag: "Belleza"
     },
     {
         id: 50,
@@ -678,7 +678,7 @@ const COMERCIOS = [
         cierraM: "14:00",
         abreT: "16:00",
         cierraT: "20:00",
-        tag: "Cultura"
+        tag: "Ropa & Accesorios"
     },
     {
         id: 52,
@@ -691,7 +691,7 @@ const COMERCIOS = [
         cierraM: "13:00",
         abreT: "17:00",
         cierraT: "21:00",
-        tag: "Alimentacion"
+        tag: "Hostelería"
     },
     {
         id: 53,
@@ -704,7 +704,7 @@ const COMERCIOS = [
         cierraM: "20:00",
         abreT: "null",
         cierraT: "null",
-        tag: "Hogar"
+        tag: "Belleza"
     },
     {
         id: 54,
@@ -717,7 +717,7 @@ const COMERCIOS = [
         cierraM: "13:30",
         abreT: "17:00",
         cierraT: "20:00",
-        tag: "Servicios"
+        tag: "servicios"
     },
     {
         id: 55,
@@ -743,7 +743,7 @@ const COMERCIOS = [
         cierraM: "13:30",
         abreT: "16:30",
         cierraT: "20:30",
-        tag: "Servicios"
+        tag: "Hogar"
     },
     {
         id: 57,
@@ -756,7 +756,7 @@ const COMERCIOS = [
         cierraM: "",
         abreT: "",
         cierraT: "",
-        tag: "Moda"
+        tag: "Belleza"
     },
     {
         id: 58,
@@ -769,7 +769,7 @@ const COMERCIOS = [
         cierraM: "16:00",
         abreT: "null",
         cierraT: "null",
-        tag: "Servicios"
+        tag: "Hostelería"
     },
     {
         id: 59,
@@ -782,7 +782,7 @@ const COMERCIOS = [
         cierraM: "24:00",
         abreT: "null",
         cierraT: "null",
-        tag: "Alimentacion"
+        tag: "Hostelería"
     },
     {
         id: 60,
@@ -795,21 +795,22 @@ const COMERCIOS = [
         cierraM: "14:00",
         abreT: "17:00",
         cierraT: "21:00",
-        tag: "Moda"
+        tag: "Ropa & Accesorios"
     }
 ];
 
 const CATEGORIES = [
     { id: "todos", label: "Todos", emoji: null },
-    { id: "Alimentación", label: "Alimentación", emoji: "🥗" },
-    { id: "Moda", label: "Moda", emoji: "👗" },
-    { id: "Hostelería", label: "Hostelería", emoji: "☕" },
-    { id: "Servicios", label: "Servicios", emoji: "🔧" },
-    { id: "Salud", label: "Salud", emoji: "💊" },
-    { id: "Deporte", label: "Deporte", emoji: "⚽" },
-    { id: "Hogar", label: "Hogar", emoji: "🛋️" },
-    { id: "Cultura", label: "Cultura", emoji: "📚" },
-    { id: "Marketing", label: "Marketing", emoji: "☁️" }
+    { id: "Hostelería", label: "Hostelería", emoji: "" },
+    { id: "Belleza", label: "Belleza", emoji: "" },
+    { id: "Ropa & Accesorios", label: "Ropa & Accesorios", emoji: "" },
+    { id: "Servicios", label: "Servicios", emoji: "" },
+    { id: "Hogar", label: "Hogar", emoji: "" },
+    { id: "Alimentación", label: "Alimentación", emoji: "" },
+    { id: "Librería", label: "Librería", emoji: "" },
+    { id: "Marketing", label: "Marketing", emoji: "" }
+    
+    
 ];
 
 let activeCategory = "todos";

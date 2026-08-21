@@ -42,11 +42,7 @@
         const reveals =
             document.querySelectorAll(".reveal");
 
-
-        if (!reveals.length) {
-            return;
-        }
-
+        if (!reveals.length) return;
 
         if ("IntersectionObserver" in window) {
 
@@ -56,9 +52,7 @@
 
                         entries.forEach(entry => {
 
-                            if (
-                                entry.isIntersecting
-                            ) {
+                            if (entry.isIntersecting) {
 
                                 entry.target.classList.add(
                                     "visible"
@@ -78,20 +72,15 @@
                     }
                 );
 
-
             reveals.forEach(
-                element =>
-                    io.observe(element)
+                element => io.observe(element)
             );
-
 
         } else {
 
             reveals.forEach(
                 element =>
-                    element.classList.add(
-                        "visible"
-                    )
+                    element.classList.add("visible")
             );
 
         }
@@ -108,22 +97,14 @@
         const nav =
             document.querySelector("nav");
 
-
-        if (!nav) {
-            return;
-        }
-
+        if (!nav) return;
 
         const burger =
             nav.querySelector(
                 ".nav-hamburger, .nav-burger"
             );
 
-
-        if (!burger) {
-            return;
-        }
-
+        if (!burger) return;
 
         burger.addEventListener(
             "click",
@@ -136,11 +117,8 @@
             }
         );
 
-
         nav
-            .querySelectorAll(
-                ".nav-links a"
-            )
+            .querySelectorAll(".nav-links a")
             .forEach(link => {
 
                 link.addEventListener(
@@ -160,16 +138,17 @@
 
 
     // ========================================================
-    // CONSEGUIR LA LISTA REAL DE SOCIOS
+    // LISTA REAL DE SOCIOS
     // ========================================================
     //
-    // NO tenemos otra lista de comercios aquí.
+    // IMPORTANTE:
     //
-    // Usamos COMERCIOS de socios.js.
+    // COMERCIOS viene de socios.js.
     //
-    // Esperamos a DOMContentLoaded para dar tiempo a que
-    // socios.js se haya cargado aunque aparezca después
-    // de index.js en el HTML.
+    // El index NO tiene una lista propia de comercios.
+    //
+    // Así utilizamos los mismos nombres, categorías y TAGS
+    // que aparecen en la página de Socios.
     // ========================================================
 
     function obtenerComercios() {
@@ -183,11 +162,9 @@
 
         }
 
-
         console.error(
-            "No se ha encontrado COMERCIOS. Asegúrate de que socios.js está incluido en la página."
+            "No se ha encontrado COMERCIOS. socios.js debe cargarse antes que index.js."
         );
-
 
         return [];
 
@@ -199,15 +176,6 @@
     // ========================================================
 
     function initSearch() {
-
-        const comercios =
-            obtenerComercios();
-
-
-        // ----------------------------------------------------
-        // Aceptamos los nombres nuevos y también los antiguos
-        // por si el HTML conserva alguna clase/ID anterior.
-        // ----------------------------------------------------
 
         const searchInput =
             document.getElementById(
@@ -260,14 +228,10 @@
             );
 
 
-        // ----------------------------------------------------
-        // Comprobación
-        // ----------------------------------------------------
-
         if (!searchInput) {
 
             console.warn(
-                "No se ha encontrado el campo del buscador del Inicio."
+                "No se ha encontrado el buscador."
             );
 
             return;
@@ -278,7 +242,7 @@
         if (!searchResults) {
 
             console.warn(
-                "No se ha encontrado el contenedor de resultados del buscador."
+                "No se ha encontrado el contenedor de resultados."
             );
 
             return;
@@ -287,7 +251,7 @@
 
 
         // ====================================================
-        // BUSCAR
+        // BUSCAR COMERCIOS
         // ====================================================
 
         function buscar(query) {
@@ -297,8 +261,17 @@
 
 
             if (!q) {
+
                 return [];
+
             }
+
+
+            // IMPORTANTE:
+            // Obtenemos la lista actual cada vez que buscamos.
+
+            const comercios =
+                obtenerComercios();
 
 
             return comercios.filter(
@@ -339,7 +312,7 @@
         // OCULTAR RESULTADOS
         // ====================================================
 
-        function ocultar() {
+        function ocultarResultados() {
 
             searchResults.innerHTML = "";
 
@@ -357,22 +330,28 @@
         // MOSTRAR RESULTADOS
         // ====================================================
 
-        function mostrar(query) {
+        function mostrarResultados(query) {
 
             const texto =
                 String(query || "").trim();
 
 
-            // Buscador vacío
+            // ------------------------------------------------
+            // BUSCADOR VACÍO
+            // ------------------------------------------------
 
             if (!texto) {
 
-                ocultar();
+                ocultarResultados();
 
                 return;
 
             }
 
+
+            // ------------------------------------------------
+            // REALIZAR BÚSQUEDA
+            // ------------------------------------------------
 
             const resultados =
                 buscar(texto);
@@ -388,7 +367,9 @@
 
                     <div class="home-search-empty">
 
-                        <span class="home-search-empty-icon">
+                        <span
+                            class="home-search-empty-icon"
+                        >
                             🔍
                         </span>
 
@@ -411,10 +392,8 @@
                     "show"
                 );
 
-
                 searchResults.style.display =
                     "block";
-
 
                 return;
 
@@ -422,7 +401,7 @@
 
 
             // ------------------------------------------------
-            // RESULTADOS
+            // RESULTADOS ENCONTRADOS
             // ------------------------------------------------
 
             let html = "";
@@ -432,22 +411,18 @@
                 comercio => {
 
                     /*
-                     * IMPORTANTE:
+                     * MUY IMPORTANTE:
                      *
-                     * La etiqueta visible SIEMPRE sale
-                     * de comercio.tag.
+                     * La etiqueta que aparece debajo
+                     * del nombre utiliza SIEMPRE:
                      *
-                     * No usamos categoria.
+                     * comercio.tag
                      *
-                     * Por ejemplo:
+                     * NO comercio.categoria.
                      *
-                     * AMPARO BORRÁS -> Belleza
-                     * Cortinas -> Hogar
-                     * Viajes Sandratour -> Servicios
+                     * Por tanto se respetan exactamente
+                     * las etiquetas que tienes en socios.js.
                      */
-
-                    const tag =
-                        comercio.tag || "";
 
 
                     const nombre =
@@ -456,17 +431,27 @@
                         );
 
 
+                    const tag =
+                        escapeHtml(
+                            comercio.tag || ""
+                        );
+
+
                     const direccion =
                         escapeHtml(
-                            comercio.direccion
+                            comercio.direccion || ""
                         );
+
+
+                    const emoji =
+                        comercio.emoji || "";
 
 
                     html += `
 
                         <a
                             class="home-search-result"
-                            href="/b*Socios/DIRECTORIO%20PREVIEW.htm"
+                            href="./b*Socios/DIRECTORIO%20PREVIEW.htm"
                             data-comercio-id="${escapeHtml(comercio.id)}"
                         >
 
@@ -474,7 +459,7 @@
                                 class="home-search-result-icon"
                                 aria-hidden="true"
                             >
-                                ${comercio.emoji || ""}
+                                ${emoji}
                             </span>
 
 
@@ -488,7 +473,7 @@
 
 
                                 <small>
-                                    ${escapeHtml(tag)}
+                                    ${tag}
                                 </small>
 
 
@@ -515,18 +500,16 @@
 
 
             // ------------------------------------------------
-            // ENLACE A TODOS
+            // BOTÓN VER TODOS
             // ------------------------------------------------
 
             html += `
 
                 <a
                     class="home-search-see-all"
-                    href="/b*Socios/DIRECTORIO%20PREVIEW.htm"
+                    href="./b*Socios/DIRECTORIO%20PREVIEW.htm"
                 >
-
                     Ver todos los comercios →
-
                 </a>
 
             `;
@@ -540,7 +523,6 @@
                 "show"
             );
 
-
             searchResults.style.display =
                 "block";
 
@@ -548,14 +530,14 @@
 
 
         // ====================================================
-        // INPUT
+        // BUSCAR MIENTRAS ESCRIBES
         // ====================================================
 
         searchInput.addEventListener(
             "input",
             function () {
 
-                mostrar(
+                mostrarResultados(
                     this.value
                 );
 
@@ -577,7 +559,7 @@
 
                     event.preventDefault();
 
-                    mostrar(
+                    mostrarResultados(
                         this.value
                     );
 
@@ -590,7 +572,7 @@
 
                     this.value = "";
 
-                    ocultar();
+                    ocultarResultados();
 
                     this.blur();
 
@@ -601,7 +583,7 @@
 
 
         // ====================================================
-        // BOTÓN
+        // BOTÓN BUSCAR
         // ====================================================
 
         if (searchButton) {
@@ -612,7 +594,7 @@
 
                     event.preventDefault();
 
-                    mostrar(
+                    mostrarResultados(
                         searchInput.value
                     );
 
@@ -623,7 +605,7 @@
 
 
         // ====================================================
-        // CLICK FUERA
+        // CERRAR AL HACER CLICK FUERA
         // ====================================================
 
         document.addEventListener(
@@ -648,28 +630,9 @@
                     !dentroResultados
                 ) {
 
-                    ocultar();
+                    ocultarResultados();
 
                 }
-
-            }
-        );
-
-
-        // ====================================================
-        // CLICK EN RESULTADO
-        // ====================================================
-
-        searchResults.addEventListener(
-            "click",
-            function () {
-
-                /*
-                 * No hacemos preventDefault.
-                 *
-                 * El enlace lleva directamente
-                 * al directorio de Socios.
-                 */
 
             }
         );
@@ -852,8 +815,14 @@
             );
 
 
+        if (!statsSection) {
+
+            return;
+
+        }
+
+
         if (
-            !statsSection ||
             !("IntersectionObserver" in window)
         ) {
 
@@ -884,14 +853,13 @@
 
                             /*
                              * Primer contador:
-                             * mantenemos el número general
-                             * que ya tenía la web.
+                             * mantenemos 120.
                              *
-                             * Segundo:
-                             * número real de socios cargados.
+                             * Segundo contador:
+                             * utiliza el número REAL de socios.
                              *
-                             * Tercero:
-                             * mantenemos el dato original.
+                             * Tercer contador:
+                             * mantenemos 8k+.
                              */
 
                             const targets = [
@@ -969,16 +937,7 @@
 
 
     // ========================================================
-    // INICIAR TODO
-    // ========================================================
-    //
-    // Esto es importante:
-    //
-    // Esperamos a que el documento esté cargado antes de
-    // buscar COMERCIOS.
-    //
-    // Así socios.js tiene tiempo de cargar aunque aparezca
-    // después de index.js.
+    // INICIAR
     // ========================================================
 
     function init() {

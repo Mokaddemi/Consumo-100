@@ -1474,3 +1474,43 @@ footer {
         width: 100%;
     }
 }
+
+/* ============================================================
+   AJUSTE FINAL — ESPACIO ENTRE TÍTULO Y BUSCADOR
+   ============================================================ */
+
+/* El bloque de búsqueda queda un poco más arriba visualmente,
+   manteniendo aire suficiente debajo del título. */
+.directory .section-header {
+    margin-bottom: 1.65rem;
+}
+
+/* Fila del buscador: alineación vertical perfecta. */
+.directory .dir-search-row {
+    align-items: center;
+    margin-top: 0;
+}
+
+/* El buscador y "Ver todos los comercios" comparten altura. */
+.directory .dir-search-row .dir-search {
+    height: 58px;
+    min-height: 58px;
+}
+
+/* Evita que el botón se desplace hacia abajo por márgenes heredados. */
+.directory .dir-search-row .dir-cta {
+    height: 58px;
+    min-height: 58px;
+    margin: 0;
+    align-self: center;
+}
+
+@media (max-width: 700px) {
+    .directory .section-header {
+        margin-bottom: 1.35rem;
+    }
+
+    .directory .dir-search-row {
+        margin-top: 0;
+    }
+}

@@ -94,48 +94,118 @@
 
     function initMobileMenu() {
 
-        const navEl =
+        const nav =
             document.querySelector("nav");
 
-        if (!navEl) return;
+        if (!nav) return;
+
 
         const burger =
-            document.querySelector(
-                ".nav-hamburger"
-            ) ||
-            navEl.querySelector(
-                ".nav-burger"
+            nav.querySelector(
+                ".nav-hamburger, .nav-burger"
             );
 
         if (!burger) return;
 
 
-        // Evitar registrar el evento dos veces
+        // Nos aseguramos de que el botón sea realmente
+        // un botón y no intente enviar ningún formulario.
+        burger.setAttribute(
+            "type",
+            "button"
+        );
+
+
+        // Evitar duplicar eventos.
         if (
-            burger.dataset.mobileMenuReady === "true"
+            burger.dataset.menuInitialized === "true"
         ) {
             return;
         }
 
-        burger.dataset.mobileMenuReady = "true";
+        burger.dataset.menuInitialized = "true";
 
 
-        burger.addEventListener(
-            "click",
-            function (event) {
+        function toggleMenu(event) {
+
+            if (event) {
 
                 event.preventDefault();
                 event.stopPropagation();
 
-                navEl.classList.toggle(
+            }
+
+
+            nav.classList.toggle(
+                "mobile-open"
+            );
+
+
+            const abierto =
+                nav.classList.contains(
                     "mobile-open"
                 );
 
+
+            burger.setAttribute(
+                "aria-expanded",
+                abierto
+                    ? "true"
+                    : "false"
+            );
+
+        }
+
+
+        // Click normal
+        burger.addEventListener(
+            "click",
+            toggleMenu
+        );
+
+
+        // Táctil en móvil
+        burger.addEventListener(
+            "pointerup",
+            function (event) {
+
+                if (
+                    event.pointerType ===
+                    "touch"
+                ) {
+
+                    event.preventDefault();
+                    event.stopPropagation();
+
+                    nav.classList.toggle(
+                        "mobile-open"
+                    );
+
+
+                    const abierto =
+                        nav.classList.contains(
+                            "mobile-open"
+                        );
+
+
+                    burger.setAttribute(
+                        "aria-expanded",
+                        abierto
+                            ? "true"
+                            : "false"
+                    );
+
+                }
+
+            },
+            {
+                passive: false
             }
         );
 
 
-        navEl
+        // Cerrar al pulsar cualquier enlace
+        nav
             .querySelectorAll(".nav-links a")
             .forEach(link => {
 
@@ -143,8 +213,14 @@
                     "click",
                     function () {
 
-                        navEl.classList.remove(
+                        nav.classList.remove(
                             "mobile-open"
+                        );
+
+
+                        burger.setAttribute(
+                            "aria-expanded",
+                            "false"
                         );
 
                     }
@@ -157,14 +233,6 @@
 
     // ========================================================
     // LISTA REAL DE SOCIOS
-    // ========================================================
-    //
-    // COMERCIOS viene de socios.js.
-    //
-    // El index NO tiene una lista propia de comercios.
-    //
-    // Así utilizamos los mismos nombres, categorías y TAGS
-    // que aparecen en la página de Socios.
     // ========================================================
 
     function obtenerComercios() {
@@ -266,10 +334,6 @@
         }
 
 
-        // ====================================================
-        // BUSCAR COMERCIOS
-        // ====================================================
-
         function buscar(query) {
 
             const q =
@@ -282,8 +346,6 @@
 
             }
 
-
-            // Obtenemos la lista actual cada vez que buscamos.
 
             const comercios =
                 obtenerComercios();
@@ -323,10 +385,6 @@
         }
 
 
-        // ====================================================
-        // OCULTAR RESULTADOS
-        // ====================================================
-
         function ocultarResultados() {
 
             searchResults.innerHTML = "";
@@ -340,10 +398,6 @@
 
         }
 
-
-        // ====================================================
-        // MOSTRAR RESULTADOS
-        // ====================================================
 
         function mostrarResultados(query) {
 
@@ -363,10 +417,6 @@
             const resultados =
                 buscar(texto);
 
-
-            // ------------------------------------------------
-            // SIN RESULTADOS
-            // ------------------------------------------------
 
             if (!resultados.length) {
 
@@ -407,25 +457,11 @@
             }
 
 
-            // ------------------------------------------------
-            // RESULTADOS ENCONTRADOS
-            // ------------------------------------------------
-
             let html = "";
 
 
             resultados.forEach(
                 comercio => {
-
-                    /*
-                     * La etiqueta utiliza SIEMPRE comercio.tag.
-                     *
-                     * NO comercio.categoria.
-                     *
-                     * De esta manera se respetan exactamente
-                     * las etiquetas definidas en socios.js.
-                     */
-
 
                     const nombre =
                         escapeHtml(
@@ -501,10 +537,6 @@
             );
 
 
-            // ------------------------------------------------
-            // BOTÓN VER TODOS
-            // ------------------------------------------------
-
             html += `
 
                 <a
@@ -531,10 +563,6 @@
         }
 
 
-        // ====================================================
-        // BUSCAR MIENTRAS ESCRIBES
-        // ====================================================
-
         searchInput.addEventListener(
             "input",
             function () {
@@ -546,10 +574,6 @@
             }
         );
 
-
-        // ====================================================
-        // ENTER
-        // ====================================================
 
         searchInput.addEventListener(
             "keydown",
@@ -584,10 +608,6 @@
         );
 
 
-        // ====================================================
-        // BOTÓN BUSCAR
-        // ====================================================
-
         if (searchButton) {
 
             searchButton.addEventListener(
@@ -605,10 +625,6 @@
 
         }
 
-
-        // ====================================================
-        // CERRAR AL HACER CLICK FUERA
-        // ====================================================
 
         document.addEventListener(
             "click",
@@ -853,17 +869,6 @@
                                 obtenerComercios();
 
 
-                            /*
-                             * Primer contador:
-                             * mantenemos 120.
-                             *
-                             * Segundo contador:
-                             * utiliza el número REAL de socios.
-                             *
-                             * Tercer contador:
-                             * mantenemos 8k+.
-                             */
-
                             const targets = [
 
                                 120,
@@ -958,7 +963,7 @@
 
 
     // ========================================================
-    // ARRANQUE SEGURO
+    // ARRANQUE
     // ========================================================
 
     if (

@@ -1,34 +1,32 @@
-// ============================================================
-// SOCIOS.JS
-// Directorio de comercios - Consumo Placer
-// ============================================================
-
 (function () {
     const navEl = document.querySelector('nav');
-
     if (!navEl) return;
 
     const burger = navEl.querySelector('.nav-hamburger, .nav-burger');
+    if (!burger) return;
 
-    if (burger) {
-        burger.addEventListener('click', () => {
-            navEl.classList.toggle('mobile-open');
-        });
+    burger.addEventListener('click', () => {
+        navEl.classList.toggle('mobile-open');
+    });
 
-        navEl.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                navEl.classList.remove('mobile-open');
-            });
+    navEl.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            navEl.classList.remove('mobile-open');
         });
-    }
+    });
 })();
 
 
 // ============================================================
-// DATOS DE LOS COMERCIOS
+// COMERCIOS
+// IMPORTANTE:
+// - "categoria" se mantiene como dato original.
+// - "tag" es la ETIQUETA que aparece en la tarjeta.
+// - NO se modifican las etiquetas originales.
 // ============================================================
 
 const COMERCIOS = [
+
     {
         id: 1,
         nombre: "Limonlab",
@@ -40,7 +38,7 @@ const COMERCIOS = [
         cierraM: "21:30",
         abreT: "null",
         cierraT: "null",
-        tag: "Agencia"
+        tag: "Marketing"
     },
 
     {
@@ -54,7 +52,7 @@ const COMERCIOS = [
         cierraM: "13:30",
         abreT: "17:30",
         cierraT: "19:00",
-        tag: "Carnicería"
+        tag: "Servicios"
     },
 
     {
@@ -68,7 +66,7 @@ const COMERCIOS = [
         cierraM: "13:30",
         abreT: "17:30",
         cierraT: "19:00",
-        tag: "Ropa & Accesorios"
+        tag: "Servicios"
     },
 
     {
@@ -82,7 +80,7 @@ const COMERCIOS = [
         cierraM: "13:30",
         abreT: "16:30",
         cierraT: "20:30",
-        tag: "Ropa & Accesorios"
+        tag: "Belleza"
     },
 
     {
@@ -96,7 +94,7 @@ const COMERCIOS = [
         cierraM: "13:30",
         abreT: "16:30",
         cierraT: "20:30",
-        tag: "Ropa & Accesorios"
+        tag: "Belleza"
     },
 
     {
@@ -110,7 +108,7 @@ const COMERCIOS = [
         cierraM: "20:30",
         abreT: "null",
         cierraT: "null",
-        tag: "Ropa & Accesorios"
+        tag: "Servicios"
     },
 
     {
@@ -124,7 +122,7 @@ const COMERCIOS = [
         cierraM: "14:00",
         abreT: "null",
         cierraT: "null",
-        tag: "Ropa & Accesorios"
+        tag: "Servicios"
     },
 
     {
@@ -138,7 +136,7 @@ const COMERCIOS = [
         cierraM: "19:00",
         abreT: "null",
         cierraT: "null",
-        tag: "Ropa & Accesorios"
+        tag: "Hostelería"
     },
 
     {
@@ -152,7 +150,7 @@ const COMERCIOS = [
         cierraM: "14:00",
         abreT: "16:00",
         cierraT: "18:30",
-        tag: "Ropa & Accesorios"
+        tag: "Servicios"
     },
 
     {
@@ -166,7 +164,7 @@ const COMERCIOS = [
         cierraM: "14:00",
         abreT: "16:00",
         cierraT: "20:00",
-        tag: "Ropa & Accesorios"
+        tag: "Servicios"
     },
 
     {
@@ -180,7 +178,7 @@ const COMERCIOS = [
         cierraM: "null",
         abreT: "null",
         cierraT: "null",
-        tag: "Ropa & Accesorios"
+        tag: "Belleza"
     },
 
     {
@@ -194,7 +192,7 @@ const COMERCIOS = [
         cierraM: "14:00",
         abreT: "16:30",
         cierraT: "20:30",
-        tag: "Ropa & Accesorios"
+        tag: "Librería"
     },
 
     {
@@ -208,7 +206,7 @@ const COMERCIOS = [
         cierraM: "14:00",
         abreT: "16:30",
         cierraT: "20:00",
-        tag: "Ropa & Accesorios"
+        tag: "Servicios"
     },
 
     {
@@ -236,7 +234,7 @@ const COMERCIOS = [
         cierraM: "14:30",
         abreT: "17:00",
         cierraT: "20:30",
-        tag: "Ropa & Accesorios"
+        tag: "Servicios"
     },
 
     {
@@ -250,7 +248,7 @@ const COMERCIOS = [
         cierraM: "20:00",
         abreT: "null",
         cierraT: "null",
-        tag: "Ropa & Accesorios"
+        tag: "Belleza"
     },
 
     {
@@ -264,7 +262,7 @@ const COMERCIOS = [
         cierraM: "13:00",
         abreT: "16:30",
         cierraT: "20:00",
-        tag: "Ropa & Accesorios"
+        tag: "Belleza"
     },
 
     {
@@ -278,7 +276,7 @@ const COMERCIOS = [
         cierraM: "null",
         abreT: "null",
         cierraT: "null",
-        tag: "Ropa & Accesorios"
+        tag: "Servicios"
     },
 
     {
@@ -306,7 +304,7 @@ const COMERCIOS = [
         cierraM: "13:30",
         abreT: "15:30",
         cierraT: "21:00",
-        tag: "Ropa & Accesorios"
+        tag: "Belleza"
     },
 
     {
@@ -320,7 +318,7 @@ const COMERCIOS = [
         cierraM: "13:30",
         abreT: "17:00",
         cierraT: "20:30",
-        tag: "Ropa & Accesorios"
+        tag: "Hogar"
     },
 
     {
@@ -334,7 +332,7 @@ const COMERCIOS = [
         cierraM: "13:30",
         abreT: "17:00",
         cierraT: "20:30",
-        tag: "Ropa & Accesorios"
+        tag: "Servicios"
     },
 
     {
@@ -362,7 +360,7 @@ const COMERCIOS = [
         cierraM: "14:00",
         abreT: "null",
         cierraT: "null",
-        tag: "Ropa & Accesorios"
+        tag: "Alimentación"
     },
 
     {
@@ -376,7 +374,7 @@ const COMERCIOS = [
         cierraM: "13:30",
         abreT: "16:00",
         cierraT: "20:00",
-        tag: "Ropa & Accesorios"
+        tag: "Belleza"
     },
 
     {
@@ -390,7 +388,7 @@ const COMERCIOS = [
         cierraM: "13:30",
         abreT: "16:30",
         cierraT: "20:00",
-        tag: "Ropa & Accesorios"
+        tag: "Servicios"
     },
 
     {
@@ -404,7 +402,7 @@ const COMERCIOS = [
         cierraM: "14:00",
         abreT: "17:00",
         cierraT: "20:30",
-        tag: "Ropa & Accesorios"
+        tag: "Librería"
     },
 
     {
@@ -432,7 +430,7 @@ const COMERCIOS = [
         cierraM: "13:30",
         abreT: "17:00",
         cierraT: "20:00",
-        tag: "Ropa & Accesorios"
+        tag: "Alimentación"
     },
 
     {
@@ -446,7 +444,7 @@ const COMERCIOS = [
         cierraM: "14:00",
         abreT: "16:30",
         cierraT: "20:30",
-        tag: "Alimentacion"
+        tag: "Belleza"
     },
 
     {
@@ -460,7 +458,7 @@ const COMERCIOS = [
         cierraM: "null",
         abreT: "null",
         cierraT: "null",
-        tag: "Radio"
+        tag: "Servicios"
     },
 
     {
@@ -474,7 +472,7 @@ const COMERCIOS = [
         cierraM: "14:00",
         abreT: "17:00",
         cierraT: "21:00",
-        tag: "Plazer"
+        tag: "Servicios"
     },
 
     {
@@ -488,7 +486,7 @@ const COMERCIOS = [
         cierraM: "13:30",
         abreT: "17:30",
         cierraT: "20:30",
-        tag: "Moda"
+        tag: "Ropa & Accesorios"
     },
 
     {
@@ -516,7 +514,7 @@ const COMERCIOS = [
         cierraM: "13:30",
         abreT: "17:00",
         cierraT: "20:30",
-        tag: "Moda"
+        tag: "Ropa & Accesorios"
     },
 
     {
@@ -530,7 +528,7 @@ const COMERCIOS = [
         cierraM: "13:30",
         abreT: "17:00",
         cierraT: "20:30",
-        tag: "Moda"
+        tag: "Ropa & Accesorios"
     },
 
     {
@@ -544,7 +542,7 @@ const COMERCIOS = [
         cierraM: "14:00",
         abreT: "15:00",
         cierraT: "20:30",
-        tag: "Servicios"
+        tag: "Belleza"
     },
 
     {
@@ -558,7 +556,7 @@ const COMERCIOS = [
         cierraM: "13:45",
         abreT: "17:00",
         cierraT: "20:30",
-        tag: "Moda"
+        tag: "Ropa & Accesorios"
     },
 
     {
@@ -572,7 +570,7 @@ const COMERCIOS = [
         cierraM: "23:00",
         abreT: "null",
         cierraT: "null",
-        tag: "Alimentacion"
+        tag: "Hostelería"
     },
 
     {
@@ -586,7 +584,7 @@ const COMERCIOS = [
         cierraM: "20:00",
         abreT: "null",
         cierraT: "null",
-        tag: "Moda"
+        tag: "Belleza"
     },
 
     {
@@ -600,7 +598,7 @@ const COMERCIOS = [
         cierraM: "21:00",
         abreT: "null",
         cierraT: "null",
-        tag: "Moda"
+        tag: "Belleza"
     },
 
     {
@@ -628,7 +626,7 @@ const COMERCIOS = [
         cierraM: "20:30",
         abreT: "null",
         cierraT: "null",
-        tag: "Moda"
+        tag: "Ropa & Accesorios"
     },
 
     {
@@ -642,7 +640,7 @@ const COMERCIOS = [
         cierraM: "",
         abreT: "",
         cierraT: "",
-        tag: "Alimentacion"
+        tag: "Hostelería"
     },
 
     {
@@ -656,7 +654,7 @@ const COMERCIOS = [
         cierraM: "14:00",
         abreT: "17:00",
         cierraT: "21:00",
-        tag: "Alimentacion"
+        tag: "Ropa & Accesorios"
     },
 
     {
@@ -684,7 +682,7 @@ const COMERCIOS = [
         cierraM: "",
         abreT: "",
         cierraT: "",
-        tag: "Moda"
+        tag: "Belleza"
     },
 
     {
@@ -712,7 +710,7 @@ const COMERCIOS = [
         cierraM: "14:00",
         abreT: "16:00",
         cierraT: "21:00",
-        tag: "Moda"
+        tag: "Belleza"
     },
 
     {
@@ -721,7 +719,7 @@ const COMERCIOS = [
         categoria: "Servicios",
         direccion: "Con borregueras,32",
         telefono: "625 58 44 45",
-        correo: "Imprentacascales@gmail.com",
+        correo: "Imprentacascales @gmail.com",
         abreM: "09:30",
         cierraM: "14:00",
         abreT: "16:00",
@@ -740,7 +738,7 @@ const COMERCIOS = [
         cierraM: "14:00",
         abreT: "16:00",
         cierraT: "20:00",
-        tag: "Cultura"
+        tag: "Ropa & Accesorios"
     },
 
     {
@@ -749,12 +747,12 @@ const COMERCIOS = [
         categoria: "Alimentacion",
         direccion: "plaza Almazara #2 bajo 99",
         telefono: "629 17 78 16",
-        correo: "Tivipark@gmail.com",
+        correo: "Tivipark @ Gmail .com",
         abreM: "08:00",
         cierraM: "13:00",
         abreT: "17:00",
         cierraT: "21:00",
-        tag: "Alimentacion"
+        tag: "Hostelería"
     },
 
     {
@@ -768,7 +766,7 @@ const COMERCIOS = [
         cierraM: "20:00",
         abreT: "null",
         cierraT: "null",
-        tag: "Hogar"
+        tag: "Belleza"
     },
 
     {
@@ -782,7 +780,7 @@ const COMERCIOS = [
         cierraM: "13:30",
         abreT: "17:00",
         cierraT: "20:00",
-        tag: "Servicios"
+        tag: "servicios"
     },
 
     {
@@ -810,7 +808,7 @@ const COMERCIOS = [
         cierraM: "13:30",
         abreT: "16:30",
         cierraT: "20:30",
-        tag: "Servicios"
+        tag: "Hogar"
     },
 
     {
@@ -824,7 +822,7 @@ const COMERCIOS = [
         cierraM: "",
         abreT: "",
         cierraT: "",
-        tag: "Moda"
+        tag: "Belleza"
     },
 
     {
@@ -838,7 +836,7 @@ const COMERCIOS = [
         cierraM: "16:00",
         abreT: "null",
         cierraT: "null",
-        tag: "Servicios"
+        tag: "Hostelería"
     },
 
     {
@@ -852,7 +850,7 @@ const COMERCIOS = [
         cierraM: "24:00",
         abreT: "null",
         cierraT: "null",
-        tag: "Alimentacion"
+        tag: "Hostelería"
     },
 
     {
@@ -866,72 +864,27 @@ const COMERCIOS = [
         cierraM: "14:00",
         abreT: "17:00",
         cierraT: "21:00",
-        tag: "Moda"
+        tag: "Ropa & Accesorios"
     }
+
 ];
 
 
 // ============================================================
-// CATEGORÍAS
+// CATEGORÍAS / ETIQUETAS
 // ============================================================
 
 const CATEGORIES = [
-    {
-        id: "todos",
-        label: "Todos",
-        emoji: null
-    },
-    {
-        id: "Alimentación",
-        label: "Alimentación",
-        emoji: "🥗"
-    },
-    {
-        id: "Moda",
-        label: "Moda",
-        emoji: "👗"
-    },
-    {
-        id: "Hostelería",
-        label: "Hostelería",
-        emoji: "☕"
-    },
-    {
-        id: "Servicios",
-        label: "Servicios",
-        emoji: "🔧"
-    },
-    {
-        id: "Salud",
-        label: "Salud",
-        emoji: "💊"
-    },
-    {
-        id: "Deporte",
-        label: "Deporte",
-        emoji: "⚽"
-    },
-    {
-        id: "Hogar",
-        label: "Hogar",
-        emoji: "🛋️"
-    },
-    {
-        id: "Cultura",
-        label: "Cultura",
-        emoji: "📚"
-    },
-    {
-        id: "Marketing",
-        label: "Marketing",
-        emoji: "☁️"
-    }
+    { id: "todos", label: "Todos", emoji: null },
+    { id: "Hostelería", label: "Hostelería", emoji: "" },
+    { id: "Belleza", label: "Belleza", emoji: "" },
+    { id: "Ropa & Accesorios", label: "Ropa & Accesorios", emoji: "" },
+    { id: "Servicios", label: "Servicios", emoji: "" },
+    { id: "Hogar", label: "Hogar", emoji: "" },
+    { id: "Alimentación", label: "Alimentación", emoji: "" },
+    { id: "Librería", label: "Librería", emoji: "" },
+    { id: "Marketing", label: "Marketing", emoji: "" }
 ];
-
-
-// ============================================================
-// ESTADO
-// ============================================================
 
 let activeCategory = "todos";
 let searchQuery = "";
@@ -942,6 +895,18 @@ const PER_PAGE = 24;
 
 
 // ============================================================
+// UTILIDADES
+// ============================================================
+
+function normalizeText(str) {
+    return String(str || "")
+        .toLowerCase()
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "");
+}
+
+
+// ============================================================
 // FILTRADO
 // ============================================================
 
@@ -949,75 +914,50 @@ function getFiltered() {
 
     let list = [...COMERCIOS];
 
+    /*
+     * IMPORTANTE:
+     * Los filtros se hacen por "tag".
+     * No se modifica categoria.
+     */
+
     if (activeCategory !== "todos") {
 
-        list = list.filter(
-            c => c.categoria === activeCategory
-        );
+        const wantedTag = normalizeText(activeCategory);
+
+        list = list.filter(comercio => {
+            return normalizeText(comercio.tag) === wantedTag;
+        });
     }
 
     if (searchQuery.trim()) {
 
-        const q = searchQuery
-            .toLowerCase()
-            .normalize("NFD")
-            .replace(/[\u0300-\u036f]/g, "");
+        const q = normalizeText(searchQuery);
 
-        list = list.filter(c => {
-
-            const nombre =
-                c.nombre
-                    .toLowerCase()
-                    .normalize("NFD")
-                    .replace(/[\u0300-\u036f]/g, "");
-
-            const categoria =
-                c.categoria
-                    .toLowerCase()
-                    .normalize("NFD")
-                    .replace(/[\u0300-\u036f]/g, "");
-
-            const direccion =
-                c.direccion
-                    .toLowerCase()
-                    .normalize("NFD")
-                    .replace(/[\u0300-\u036f]/g, "");
-
-            const tag =
-                (c.tag || "")
-                    .toLowerCase()
-                    .normalize("NFD")
-                    .replace(/[\u0300-\u036f]/g, "");
+        list = list.filter(comercio => {
 
             return (
-                nombre.includes(q) ||
-                categoria.includes(q) ||
-                direccion.includes(q) ||
-                tag.includes(q)
+                normalizeText(comercio.nombre).includes(q) ||
+                normalizeText(comercio.categoria).includes(q) ||
+                normalizeText(comercio.tag).includes(q) ||
+                normalizeText(comercio.direccion).includes(q) ||
+                normalizeText(comercio.telefono).includes(q) ||
+                normalizeText(comercio.correo).includes(q)
             );
+
         });
     }
 
     if (sortOrder === "nombre") {
 
         list.sort((a, b) =>
-            a.nombre.localeCompare(
-                b.nombre,
-                "es"
-            )
+            a.nombre.localeCompare(b.nombre, "es")
         );
 
     } else {
 
         list.sort((a, b) =>
-            a.categoria.localeCompare(
-                b.categoria,
-                "es"
-            ) ||
-            a.nombre.localeCompare(
-                b.nombre,
-                "es"
-            )
+            a.tag.localeCompare(b.tag, "es") ||
+            a.nombre.localeCompare(b.nombre, "es")
         );
     }
 
@@ -1042,23 +982,14 @@ function calcularEstado(
         ahora.getHours() * 60 +
         ahora.getMinutes();
 
-    function aMin(str) {
+    const aMin = str => {
 
-        if (
-            !str ||
-            str === "null"
-        ) {
+        if (!str || str === "null") {
             return null;
         }
 
-        const partes =
-            str.split(":");
-
-        const h =
-            Number(partes[0]);
-
-        const m =
-            Number(partes[1]);
+        const [h, m] =
+            str.split(":").map(Number);
 
         if (
             Number.isNaN(h) ||
@@ -1068,12 +999,15 @@ function calcularEstado(
         }
 
         return h * 60 + m;
-    }
+    };
 
     const amAbre = aMin(abreM);
     const amCierra = aMin(cierraM);
     const pmAbre = aMin(abreT);
     const pmCierra = aMin(cierraT);
+
+    let isOpen = false;
+    let texto = "";
 
     if (
         amAbre !== null &&
@@ -1082,108 +1016,93 @@ function calcularEstado(
         minutosActuales < amCierra
     ) {
 
-        return {
-            open: true,
-            texto: `Abierto · Cierra a las ${cierraM}`
-        };
-    }
+        isOpen = true;
+        texto =
+            `Abierto · Cierra a las ${cierraM}`;
 
-    if (
+    } else if (
         pmAbre !== null &&
         pmCierra !== null &&
         minutosActuales >= pmAbre &&
         minutosActuales < pmCierra
     ) {
 
-        return {
-            open: true,
-            texto: `Abierto · Cierra a las ${cierraT}`
-        };
-    }
+        isOpen = true;
+        texto =
+            `Abierto · Cierra a las ${cierraT}`;
 
-    if (
-        amAbre !== null &&
-        minutosActuales < amAbre
-    ) {
+    } else {
 
-        return {
-            open: false,
-            texto: `Cerrado · Abre a las ${abreM}`
-        };
-    }
+        isOpen = false;
 
-    if (
-        pmAbre !== null &&
-        pmCierra !== null &&
-        minutosActuales < pmAbre
-    ) {
+        if (
+            amAbre !== null &&
+            minutosActuales < amAbre
+        ) {
 
-        return {
-            open: false,
-            texto: `Cerrado · Abre a las ${abreT}`
-        };
+            texto =
+                `Cerrado · Abre a las ${abreM}`;
+
+        } else if (
+            pmAbre !== null &&
+            pmCierra !== null &&
+            minutosActuales >= amCierra &&
+            minutosActuales < pmAbre
+        ) {
+
+            texto =
+                `Cerrado · Abre a las ${abreT}`;
+
+        } else {
+
+            texto = "Cerrado por hoy";
+        }
     }
 
     return {
-        open: false,
-        texto: "Cerrado por hoy"
+        open: isOpen,
+        texto
     };
 }
 
 
 // ============================================================
-// COLORES DE LAS TARJETAS
+// COLORES
 // ============================================================
 
 function getCardColor(id) {
 
     const colores = [
 
-        "linear-gradient(135deg,#dbeafe,#bfdbfe)",
+        "linear-gradient(135deg, #dbeafe, #bfdbfe)",
+        "linear-gradient(135deg, #ede9fe, #ddd6fe)",
+        "linear-gradient(135deg, #fce7f3, #fbcfe8)",
+        "linear-gradient(135deg, #dcfce7, #bbf7d0)",
+        "linear-gradient(135deg, #fef3c7, #fde68a)",
+        "linear-gradient(135deg, #cffafe, #a5f3fc)",
+        "linear-gradient(135deg, #ffedd5, #fed7aa)",
+        "linear-gradient(135deg, #e0e7ff, #c7d2fe)",
+        "linear-gradient(135deg, #f3e8ff, #e9d5ff)",
+        "linear-gradient(135deg, #ccfbf1, #99f6e4)",
+        "linear-gradient(135deg, #fae8ff, #f5d0fe)",
+        "linear-gradient(135deg, #fef9c3, #fef08a)"
 
-        "linear-gradient(135deg,#ede9fe,#ddd6fe)",
-
-        "linear-gradient(135deg,#fce7f3,#fbcfe8)",
-
-        "linear-gradient(135deg,#dcfce7,#bbf7d0)",
-
-        "linear-gradient(135deg,#fef3c7,#fde68a)",
-
-        "linear-gradient(135deg,#cffafe,#a5f3fc)",
-
-        "linear-gradient(135deg,#ffedd5,#fed7aa)",
-
-        "linear-gradient(135deg,#e0e7ff,#c7d2fe)",
-
-        "linear-gradient(135deg,#f3e8ff,#e9d5ff)",
-
-        "linear-gradient(135deg,#ccfbf1,#99f6e4)",
-
-        "linear-gradient(135deg,#fae8ff,#f5d0fe)",
-
-        "linear-gradient(135deg,#fef9c3,#fef08a)"
     ];
 
     return colores[
-        (Number(id) - 1) %
-        colores.length
+        (Number(id) - 1) % colores.length
     ];
 }
 
 
 // ============================================================
-// TARJETA DE COMERCIO
+// TARJETA
 // ============================================================
 
-function renderCard(
-    comercio,
-    index
-) {
+function renderCard(comercio, index) {
 
     const cardColor =
-        getCardColor(
-            comercio.id
-        );
+        getCardColor(comercio.id);
 
     const estado =
         calcularEstado(
@@ -1198,8 +1117,113 @@ function renderCard(
             ? "open"
             : "closed";
 
-    return `
+    let contactoHtml = "";
 
+    if (
+        comercio.telefono ||
+        comercio.correo
+    ) {
+
+        contactoHtml = `
+            <div
+                style="
+                    font-size:.85rem;
+                    color:var(--navy);
+                    opacity:.75;
+                    line-height:1.55;
+                    flex:1;
+                    display:flex;
+                    flex-direction:column;
+                    gap:.4rem;
+                    margin-top:.5rem;
+                "
+            >
+        `;
+
+        if (comercio.telefono) {
+
+            contactoHtml += `
+                <span
+                    style="
+                        display:flex;
+                        align-items:center;
+                        gap:.4rem;
+                    "
+                >
+                    <svg
+                        viewBox="0 0 24 24"
+                        width="14"
+                        height="14"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    >
+                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                    </svg>
+
+                    ${comercio.telefono}
+                </span>
+            `;
+        }
+
+        if (comercio.correo) {
+
+            contactoHtml += `
+                <span
+                    style="
+                        display:flex;
+                        align-items:center;
+                        gap:.4rem;
+                    "
+                >
+                    <svg
+                        viewBox="0 0 24 24"
+                        width="14"
+                        height="14"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    >
+                        <rect
+                            width="20"
+                            height="16"
+                            x="2"
+                            y="4"
+                            rx="2"
+                        ></rect>
+
+                        <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+                    </svg>
+
+                    ${comercio.correo}
+                </span>
+            `;
+        }
+
+        contactoHtml += `</div>`;
+
+    } else {
+
+        contactoHtml =
+            `<div style="flex:1;"></div>`;
+    }
+
+
+    // ========================================================
+    // AQUÍ ES DONDE APARECE LA ETIQUETA REAL DEL ARCHIVO
+    // ========================================================
+
+    const etiqueta =
+        comercio.tag
+            ? comercio.tag
+            : "";
+
+
+    return `
         <article
             class="card"
             role="listitem"
@@ -1209,56 +1233,10 @@ function renderCard(
 
             <div
                 class="card-thumb"
-                style="
-                    background:${cardColor};
-                    position:relative;
-                "
+                style="background:${cardColor};"
             >
-
-                <!-- ETIQUETA -->
-                <span
-                    class="card-category-tag"
-                    style="
-                        position:absolute;
-                        top:14px;
-                        right:14px;
-                        z-index:3;
-                        display:inline-flex;
-                        align-items:center;
-                        gap:6px;
-                        padding:6px 11px;
-                        border-radius:999px;
-                        background:rgba(255,255,255,.94);
-                        color:#173574;
-                        font-size:.72rem;
-                        font-weight:700;
-                        line-height:1;
-                        letter-spacing:.01em;
-                        box-shadow:0 2px 8px rgba(23,53,116,.10);
-                        white-space:nowrap;
-                    "
-                >
-
-                    <span
-                        aria-hidden="true"
-                        style="
-                            width:6px;
-                            height:6px;
-                            border-radius:50%;
-                            background:currentColor;
-                            display:inline-block;
-                            flex:0 0 6px;
-                        "
-                    ></span>
-
-                    ${comercio.tag || comercio.categoria}
-
-                </span>
-
                 <div class="card-thumb-inner"></div>
-
             </div>
-
 
             <div class="card-body">
 
@@ -1266,6 +1244,30 @@ function renderCard(
                     ${comercio.nombre}
                 </h3>
 
+                ${
+                    etiqueta
+                        ? `
+                            <div
+                                class="card-tag"
+                                style="
+                                    display:inline-flex;
+                                    align-items:center;
+                                    width:max-content;
+                                    margin:.15rem 0 .65rem;
+                                    padding:.28rem .65rem;
+                                    border-radius:999px;
+                                    background:rgba(27,58,138,.08);
+                                    color:var(--navy);
+                                    font-size:.72rem;
+                                    font-weight:700;
+                                    line-height:1;
+                                "
+                            >
+                                ${etiqueta}
+                            </div>
+                        `
+                        : ""
+                }
 
                 <p class="card-address">
 
@@ -1276,9 +1278,8 @@ function renderCard(
                         stroke-linecap="round"
                         stroke-linejoin="round"
                     >
-
                         <path
-                            d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0Z"
+                            d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0Z"
                         />
 
                         <circle
@@ -1286,121 +1287,13 @@ function renderCard(
                             cy="10"
                             r="3"
                         />
-
                     </svg>
 
                     ${comercio.direccion}
 
                 </p>
 
-
-                <div
-                    style="
-                        font-size:.85rem;
-                        color:var(--navy);
-                        opacity:.75;
-                        line-height:1.55;
-                        display:flex;
-                        flex-direction:column;
-                        gap:.4rem;
-                        margin-top:.5rem;
-                    "
-                >
-
-                    ${
-                        comercio.telefono
-                            ? `
-                                <span
-                                    style="
-                                        display:flex;
-                                        align-items:center;
-                                        gap:.4rem;
-                                    "
-                                >
-
-                                    <svg
-                                        viewBox="0 0 24 24"
-                                        width="14"
-                                        height="14"
-                                        fill="none"
-                                        stroke="currentColor"
-                                        stroke-width="2"
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                    >
-
-                                        <path
-                                            d="M22 16.92v3a2 2 0 0 1-2.18 2
-                                            19.79 19.79 0 0 1-8.63-3.07
-                                            19.5 19.5 0 0 1-6-6
-                                            19.79 19.79 0 0 1-3.07-8.67
-                                            A2 2 0 0 1 4.11 2h3
-                                            a2 2 0 0 1 2 1.72
-                                            12.84 12.84 0 0 0 .7 2.81
-                                            2 2 0 0 1-.45 2.11
-                                            L8.09 9.91a16 16 0 0 0 6 6
-                                            l1.27-1.27a2 2 0 0 1 2.11-.45
-                                            12.84 12.84 0 0 0 2.81.7
-                                            A2 2 0 0 1 22 16.92z"
-                                        ></path>
-
-                                    </svg>
-
-                                    ${comercio.telefono}
-
-                                </span>
-                            `
-                            : ""
-                    }
-
-
-                    ${
-                        comercio.correo
-                            ? `
-                                <span
-                                    style="
-                                        display:flex;
-                                        align-items:center;
-                                        gap:.4rem;
-                                    "
-                                >
-
-                                    <svg
-                                        viewBox="0 0 24 24"
-                                        width="14"
-                                        height="14"
-                                        fill="none"
-                                        stroke="currentColor"
-                                        stroke-width="2"
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                    >
-
-                                        <rect
-                                            width="20"
-                                            height="16"
-                                            x="2"
-                                            y="4"
-                                            rx="2"
-                                        ></rect>
-
-                                        <path
-                                            d="m22 7-8.97 5.7
-                                            a1.94 1.94 0 0 1-2.06 0
-                                            L2 7"
-                                        ></path>
-
-                                    </svg>
-
-                                    ${comercio.correo}
-
-                                </span>
-                            `
-                            : ""
-                    }
-
-                </div>
-
+                ${contactoHtml}
 
                 <div class="card-footer">
 
@@ -1412,9 +1305,7 @@ function renderCard(
 
                         <span
                             style="
-                                color:${estado.open
-                                    ? "#22c55e"
-                                    : "#ef4444"};
+                                color:${estado.open ? "#22c55e" : "#ef4444"};
                                 font-weight:600;
                             "
                         >
@@ -1423,12 +1314,10 @@ function renderCard(
 
                     </span>
 
-
                     <span
                         class="card-cta"
                         aria-label="Ver más sobre ${comercio.nombre}"
                     >
-
                         <svg
                             viewBox="0 0 24 24"
                             fill="none"
@@ -1436,13 +1325,10 @@ function renderCard(
                             stroke-linecap="round"
                             stroke-linejoin="round"
                         >
-
                             <path
-                                d="M5 12h14M12 5l7 7-7 7"
+                                d="M5 12h14M12 5l7 7-7-7"
                             />
-
                         </svg>
-
                     </span>
 
                 </div>
@@ -1470,28 +1356,24 @@ function renderGrid() {
             "resultsCount"
         );
 
-    if (!grid || !countEl) return;
+    if (!grid || !countEl) {
+        return;
+    }
 
     const filtered =
         getFiltered();
 
     const totalPages =
         Math.ceil(
-            filtered.length /
-            PER_PAGE
+            filtered.length / PER_PAGE
         ) || 1;
 
-    if (
-        currentPage >
-        totalPages
-    ) {
-        currentPage =
-            totalPages;
+    if (currentPage > totalPages) {
+        currentPage = totalPages;
     }
 
     const start =
-        (currentPage - 1) *
-        PER_PAGE;
+        (currentPage - 1) * PER_PAGE;
 
     const end =
         Math.min(
@@ -1500,27 +1382,16 @@ function renderGrid() {
         );
 
     const pageItems =
-        filtered.slice(
-            start,
-            end
-        );
+        filtered.slice(start, end);
 
-    grid.classList.remove(
-        "ready"
-    );
-
-    grid.classList.add(
-        "filtering"
-    );
+    grid.classList.remove("ready");
+    grid.classList.add("filtering");
 
     setTimeout(() => {
 
-        if (
-            filtered.length === 0
-        ) {
+        if (filtered.length === 0) {
 
             grid.innerHTML = `
-
                 <div class="empty-state">
 
                     <div class="empty-icon">
@@ -1542,43 +1413,37 @@ function renderGrid() {
 
             grid.innerHTML =
                 pageItems
-                    .map(
-                        (comercio, i) =>
-                            renderCard(
-                                comercio,
-                                i
-                            )
+                    .map((c, i) =>
+                        renderCard(c, i)
                     )
                     .join("");
         }
 
-
-        if (
-            filtered.length === 0
-        ) {
+        if (filtered.length === 0) {
 
             countEl.innerHTML =
                 `<strong>0</strong> comercios`;
 
         } else {
 
+            const from =
+                start + 1;
+
+            const to =
+                end;
+
             countEl.innerHTML =
-                `Mostrando <strong>${start + 1}–${end}</strong> de <strong>${filtered.length}</strong> comercios`;
+                filtered.length === COMERCIOS.length
+
+                    ? `Mostrando <strong>${from}–${to}</strong> de <strong>${filtered.length}</strong> comercios`
+
+                    : `Mostrando <strong>${from}–${to}</strong> de <strong>${filtered.length}</strong> coincidencias`;
         }
 
+        grid.classList.remove("filtering");
+        grid.classList.add("ready");
 
-        grid.classList.remove(
-            "filtering"
-        );
-
-        grid.classList.add(
-            "ready"
-        );
-
-
-        renderPagination(
-            totalPages
-        );
+        renderPagination(totalPages);
 
     }, 140);
 }
@@ -1591,30 +1456,38 @@ function renderGrid() {
 function renderFilters() {
 
     const wrap =
-        document.querySelector(
-            ".filters"
-        );
+        document.querySelector(".filters");
 
-    if (!wrap) return;
+    if (!wrap) {
+        return;
+    }
 
     const label =
         wrap.querySelector(
             ".filter-label"
         );
 
-    if (!label) return;
+    if (!label) {
+        return;
+    }
 
-    const html =
+    const pills =
         CATEGORIES
             .map(cat => {
 
                 const count =
                     cat.id === "todos"
+
                         ? COMERCIOS.length
+
                         : COMERCIOS.filter(
-                            c =>
-                                c.categoria ===
-                                cat.id
+                            comercio =>
+                                normalizeText(
+                                    comercio.tag
+                                ) ===
+                                normalizeText(
+                                    cat.id
+                                )
                         ).length;
 
                 if (count === 0) {
@@ -1626,11 +1499,11 @@ function renderFilters() {
                     cat.id;
 
                 return `
-
                     <button
                         class="filter-btn${isActive ? " active" : ""}"
                         data-cat="${cat.id}"
                         aria-pressed="${isActive}"
+                        title="${cat.label}"
                     >
 
                         ${
@@ -1643,65 +1516,53 @@ function renderFilters() {
 
                         ${
                             cat.id !== "todos"
-                                ? `
-                                    <span class="filter-count">
-                                        ${count}
-                                    </span>
-                                `
+                                ? `<span class="filter-count">${count}</span>`
                                 : ""
                         }
 
                     </button>
-
                 `;
             })
             .join("");
 
-
     wrap.innerHTML = "";
 
-    wrap.appendChild(
-        label
-    );
+    wrap.appendChild(label);
 
     wrap.insertAdjacentHTML(
         "beforeend",
-        html
+        pills
     );
 
-
     wrap
-        .querySelectorAll(
-            ".filter-btn"
-        )
-        .forEach(button => {
+        .querySelectorAll(".filter-btn")
+        .forEach(btn => {
 
-            button.addEventListener(
+            btn.addEventListener(
                 "click",
                 () => {
 
                     activeCategory =
-                        button.dataset.cat;
+                        btn.dataset.cat;
 
-                    currentPage =
-                        1;
+                    currentPage = 1;
 
                     wrap
                         .querySelectorAll(
                             ".filter-btn"
                         )
-                        .forEach(btn => {
+                        .forEach(b => {
 
                             const active =
-                                btn.dataset.cat ===
+                                b.dataset.cat ===
                                 activeCategory;
 
-                            btn.classList.toggle(
+                            b.classList.toggle(
                                 "active",
                                 active
                             );
 
-                            btn.setAttribute(
+                            b.setAttribute(
                                 "aria-pressed",
                                 active
                             );
@@ -1715,7 +1576,7 @@ function renderFilters() {
 
 
 // ============================================================
-// BÚSQUEDA
+// BUSCADOR
 // ============================================================
 
 const searchInput =
@@ -1738,8 +1599,7 @@ if (searchInput) {
             searchQuery =
                 searchInput.value;
 
-            currentPage =
-                1;
+            currentPage = 1;
 
             if (searchClear) {
 
@@ -1789,17 +1649,17 @@ const sortSelect =
         "sortSelect"
     );
 
+
 if (sortSelect) {
 
     sortSelect.addEventListener(
         "change",
-        event => {
+        e => {
 
             sortOrder =
-                event.target.value;
+                e.target.value;
 
-            currentPage =
-                1;
+            currentPage = 1;
 
             renderGrid();
         }
@@ -1815,96 +1675,122 @@ function renderPagination(
     totalPages
 ) {
 
-    const pagination =
+    const pg =
         document.getElementById(
             "pagination"
         );
 
-    if (!pagination) return;
-
+    if (!pg) {
+        return;
+    }
 
     if (totalPages <= 1) {
 
-        pagination.innerHTML = "";
+        pg.innerHTML = "";
 
         return;
     }
 
 
-    const prevSvg = `
+    function getPageNumbers(
+        current,
+        total
+    ) {
 
-        <svg
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-        >
+        if (total <= 7) {
 
-            <path
-                d="M15 18l-6-6 6-6"
-            />
-
-        </svg>
-
-    `;
-
-
-    const nextSvg = `
-
-        <svg
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-        >
-
-            <path
-                d="M9 18l6-6-6-6"
-            />
-
-        </svg>
-
-    `;
-
-
-    let pages = [];
-
-
-    if (totalPages <= 7) {
-
-        for (
-            let i = 1;
-            i <= totalPages;
-            i++
-        ) {
-            pages.push(i);
-        }
-
-    } else {
-
-        pages = [
-            1,
-            "...",
-            totalPages
-        ];
-
-        if (
-            currentPage > 1 &&
-            currentPage < totalPages
-        ) {
-
-            pages.splice(
-                1,
-                0,
-                currentPage
+            return Array.from(
+                {
+                    length: total
+                },
+                (_, i) => i + 1
             );
         }
+
+        const pages =
+            new Set([
+                1,
+                total,
+                current
+            ]);
+
+        if (current > 1) {
+            pages.add(
+                current - 1
+            );
+        }
+
+        if (current < total) {
+            pages.add(
+                current + 1
+            );
+        }
+
+        const sorted =
+            [...pages].sort(
+                (a, b) => a - b
+            );
+
+        const result = [];
+
+        for (
+            let i = 0;
+            i < sorted.length;
+            i++
+        ) {
+
+            if (
+                i > 0 &&
+                sorted[i] -
+                sorted[i - 1] > 1
+            ) {
+
+                result.push("...");
+            }
+
+            result.push(
+                sorted[i]
+            );
+        }
+
+        return result;
     }
 
 
-    pagination.innerHTML = `
+    const svgPrev = `
+        <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+        >
+            <path d="M15 18l-6-6 6-6"/>
+        </svg>
+    `;
+
+
+    const svgNext = `
+        <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+        >
+            <path d="M9 18l6-6-6-6"/>
+        </svg>
+    `;
+
+
+    const pageNums =
+        getPageNumbers(
+            currentPage,
+            totalPages
+        );
+
+
+    pg.innerHTML = `
 
         <button
             class="page-btn"
@@ -1912,42 +1798,27 @@ function renderPagination(
             aria-label="Anterior"
             ${currentPage === 1 ? "disabled" : ""}
         >
-
-            ${prevSvg}
-
+            ${svgPrev}
         </button>
 
+        ${pageNums
+            .map(p =>
 
-        ${pages
-            .map(page => {
+                p === "..."
 
-                if (
-                    page === "..."
-                ) {
+                    ? `<span class="page-ellipsis">…</span>`
 
-                    return `
-                        <span class="page-ellipsis">
-                            …
-                        </span>
-                    `;
-                }
-
-                return `
-
-                    <button
-                        class="page-btn${page === currentPage ? " active" : ""}"
-                        data-page="${page}"
-                    >
-
-                        ${page}
-
-                    </button>
-
-                `;
-            })
+                    : `
+                        <button
+                            class="page-btn${p === currentPage ? " active" : ""}"
+                            data-page="${p}"
+                        >
+                            ${p}
+                        </button>
+                    `
+            )
             .join("")
         }
-
 
         <button
             class="page-btn"
@@ -1955,33 +1826,31 @@ function renderPagination(
             aria-label="Siguiente"
             ${currentPage === totalPages ? "disabled" : ""}
         >
-
-            ${nextSvg}
-
+            ${svgNext}
         </button>
 
     `;
 
 
-    pagination
+    pg
         .querySelectorAll(
             ".page-btn:not([disabled])"
         )
-        .forEach(button => {
+        .forEach(btn => {
 
-            button.addEventListener(
+            btn.addEventListener(
                 "click",
                 () => {
 
                     if (
-                        button.dataset.action ===
+                        btn.dataset.action ===
                         "prev"
                     ) {
 
                         currentPage--;
 
                     } else if (
-                        button.dataset.action ===
+                        btn.dataset.action ===
                         "next"
                     ) {
 
@@ -1991,7 +1860,7 @@ function renderPagination(
 
                         currentPage =
                             Number(
-                                button.dataset.page
+                                btn.dataset.page
                             );
                     }
 
@@ -2000,6 +1869,7 @@ function renderPagination(
                         document.getElementById(
                             "commerceGrid"
                         );
+
 
                     if (grid) {
 
@@ -2018,9 +1888,8 @@ function renderPagination(
 
 
 // ============================================================
-// ARRANQUE
+// INICIO
 // ============================================================
 
 renderFilters();
-
 renderGrid();

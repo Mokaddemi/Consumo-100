@@ -2,796 +2,1014 @@
 // INDEX.JS - CONSUMO PLACER
 // ============================================================
 
-
-// ============================================================
-// SCROLL REVEAL
-// ============================================================
-
-const reveals = document.querySelectorAll(".reveal");
-
-if ("IntersectionObserver" in window) {
-
-    const io = new IntersectionObserver(entries => {
-
-        entries.forEach(entry => {
-
-            if (entry.isIntersecting) {
-
-                entry.target.classList.add("visible");
-
-                io.unobserve(entry.target);
-            }
-
-        });
-
-    }, {
-        threshold: 0.12
-    });
-
-    reveals.forEach(el => io.observe(el));
-
-} else {
-
-    reveals.forEach(el =>
-        el.classList.add("visible")
-    );
-}
-
-
-// ============================================================
-// MENÚ MÓVIL
-// ============================================================
-
 (function () {
 
-    const navEl = document.querySelector("nav");
+    "use strict";
 
-    if (!navEl) return;
 
-    const burger =
-        navEl.querySelector(
-            ".nav-hamburger, .nav-burger"
-        );
+    // ========================================================
+    // FUNCIONES GENERALES
+    // ========================================================
 
-    if (!burger) return;
+    function normalizeStr(value) {
 
-    burger.addEventListener("click", () => {
+        return String(value || "")
+            .toLowerCase()
+            .normalize("NFD")
+            .replace(/[\u0300-\u036f]/g, "");
 
-        navEl.classList.toggle(
-            "mobile-open"
-        );
+    }
 
-    });
 
-    navEl
-        .querySelectorAll(".nav-links a")
-        .forEach(link => {
+    function escapeHtml(value) {
 
-            link.addEventListener("click", () => {
+        return String(value || "")
+            .replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;")
+            .replace(/"/g, "&quot;")
+            .replace(/'/g, "&#039;");
 
-                navEl.classList.remove(
+    }
+
+
+    // ========================================================
+    // SCROLL REVEAL
+    // ========================================================
+
+    function initScrollReveal() {
+
+        const reveals =
+            document.querySelectorAll(".reveal");
+
+
+        if (!reveals.length) {
+            return;
+        }
+
+
+        if ("IntersectionObserver" in window) {
+
+            const io =
+                new IntersectionObserver(
+                    entries => {
+
+                        entries.forEach(entry => {
+
+                            if (
+                                entry.isIntersecting
+                            ) {
+
+                                entry.target.classList.add(
+                                    "visible"
+                                );
+
+                                io.unobserve(
+                                    entry.target
+                                );
+
+                            }
+
+                        });
+
+                    },
+                    {
+                        threshold: 0.12
+                    }
+                );
+
+
+            reveals.forEach(
+                element =>
+                    io.observe(element)
+            );
+
+
+        } else {
+
+            reveals.forEach(
+                element =>
+                    element.classList.add(
+                        "visible"
+                    )
+            );
+
+        }
+
+    }
+
+
+    // ========================================================
+    // MENÚ MÓVIL
+    // ========================================================
+
+    function initMobileMenu() {
+
+        const nav =
+            document.querySelector("nav");
+
+
+        if (!nav) {
+            return;
+        }
+
+
+        const burger =
+            nav.querySelector(
+                ".nav-hamburger, .nav-burger"
+            );
+
+
+        if (!burger) {
+            return;
+        }
+
+
+        burger.addEventListener(
+            "click",
+            () => {
+
+                nav.classList.toggle(
                     "mobile-open"
                 );
 
-            });
-
-        });
-
-})();
-
-
-// ============================================================
-// DATOS DE SOCIOS
-// ============================================================
-//
-// IMPORTANTE:
-//
-// El index NO vuelve a crear una lista de comercios.
-//
-// Utilizamos la misma lista COMERCIOS que está en socios.js.
-//
-// Por eso:
-//
-// - no hay 12 comercios inventados
-// - no hay etiquetas antiguas
-// - el buscador utiliza los socios reales
-// - las etiquetas utilizan comercio.tag
-//
-// socios.js debe cargarse ANTES que index.js.
-// ============================================================
-
-if (
-    typeof COMERCIOS === "undefined"
-) {
-
-    console.error(
-        "ERROR: socios.js debe cargarse antes que index.js."
-    );
-
-}
-
-
-// ============================================================
-// UTILIDADES
-// ============================================================
-
-function normalizeStr(value) {
-
-    return String(value || "")
-        .toLowerCase()
-        .normalize("NFD")
-        .replace(/[\u0300-\u036f]/g, "");
-
-}
-
-
-function escapeHtml(value) {
-
-    return String(value || "")
-        .replace(/&/g, "&amp;")
-        .replace(/</g, "&lt;")
-        .replace(/>/g, "&gt;")
-        .replace(/"/g, "&quot;")
-        .replace(/'/g, "&#039;");
-
-}
-
-
-// ============================================================
-// ELEMENTOS DEL BUSCADOR
-// ============================================================
-
-const searchInput =
-    document.getElementById(
-        "homeSearchInput"
-    );
-
-const searchButton =
-    document.getElementById(
-        "homeSearchBtn"
-    );
-
-const searchResults =
-    document.getElementById(
-        "homeSearchResults"
-    );
-
-const searchBox =
-    document.getElementById(
-        "homeSearchBox"
-    );
-
-
-// ============================================================
-// BUSCAR SOCIOS
-// ============================================================
-
-function buscarComercios(query) {
-
-    if (
-        typeof COMERCIOS === "undefined"
-    ) {
-
-        return [];
-    }
-
-    const q =
-        normalizeStr(query).trim();
-
-    if (!q) {
-
-        return [];
-    }
-
-    return COMERCIOS.filter(
-        comercio => {
-
-            const texto =
-                normalizeStr([
-
-                    comercio.nombre,
-
-                    comercio.categoria,
-
-                    comercio.tag,
-
-                    comercio.direccion,
-
-                    comercio.telefono,
-
-                    comercio.correo
-
-                ].join(" "));
-
-            return texto.includes(q);
-
-        }
-    );
-
-}
-
-
-// ============================================================
-// OCULTAR RESULTADOS
-// ============================================================
-
-function ocultarResultados() {
-
-    if (!searchResults) return;
-
-    searchResults.innerHTML = "";
-
-    searchResults.classList.remove(
-        "show"
-    );
-
-}
-
-
-// ============================================================
-// MOSTRAR RESULTADOS
-// ============================================================
-
-function mostrarResultados(query) {
-
-    if (!searchResults) return;
-
-    const texto =
-        String(query || "").trim();
-
-
-    // --------------------------------------------------------
-    // BUSCADOR VACÍO
-    // --------------------------------------------------------
-
-    if (!texto) {
-
-        ocultarResultados();
-
-        return;
-    }
-
-
-    // --------------------------------------------------------
-    // BUSCAR
-    // --------------------------------------------------------
-
-    const resultados =
-        buscarComercios(texto);
-
-
-    // --------------------------------------------------------
-    // SIN RESULTADOS
-    // --------------------------------------------------------
-
-    if (resultados.length === 0) {
-
-        searchResults.innerHTML = `
-
-            <div class="home-search-empty">
-
-                <span>🔍</span>
-
-                No hemos encontrado ningún comercio para
-
-                <strong>
-                    ${escapeHtml(texto)}
-                </strong>.
-
-            </div>
-
-        `;
-
-        searchResults.classList.add(
-            "show"
+            }
         );
 
-        return;
-    }
 
-
-    // --------------------------------------------------------
-    // RESULTADOS
-    // --------------------------------------------------------
-
-    searchResults.innerHTML =
-        resultados
-            .map(comercio => {
-
-                /*
-                 * IMPORTANTE:
-                 *
-                 * La etiqueta que mostramos es comercio.tag.
-                 *
-                 * NO usamos comercio.categoria
-                 * como etiqueta.
-                 *
-                 * Así Amparo Borrás aparece como:
-                 *
-                 * Belleza
-                 *
-                 * y no como Moda.
-                 */
-
-                const tag =
-                    comercio.tag || "";
-
-
-                return `
-
-                    <a
-                        class="home-search-result"
-                        href="/b*Socios/DIRECTORIO%20PREVIEW.htm"
-                        data-comercio-id="${comercio.id}"
-                    >
-
-                        <span
-                            class="home-search-result-icon"
-                            aria-hidden="true"
-                        >
-                            ${comercio.emoji || ""}
-                        </span>
-
-
-                        <span
-                            class="home-search-result-info"
-                        >
-
-                            <strong>
-                                ${escapeHtml(
-                                    comercio.nombre
-                                )}
-                            </strong>
-
-
-                            <small>
-
-                                ${escapeHtml(tag)}
-
-                            </small>
-
-
-                            <em>
-
-                                ${escapeHtml(
-                                    comercio.direccion
-                                )}
-
-                            </em>
-
-                        </span>
-
-
-                        <span
-                            class="home-search-result-arrow"
-                            aria-hidden="true"
-                        >
-                            →
-                        </span>
-
-                    </a>
-
-                `;
-
-            })
-            .join("");
-
-
-    // --------------------------------------------------------
-    // VER TODOS
-    // --------------------------------------------------------
-
-    searchResults.innerHTML += `
-
-        <a
-            class="home-search-see-all"
-            href="/b*Socios/DIRECTORIO%20PREVIEW.htm"
-        >
-
-            Ver todos los comercios →
-
-        </a>
-
-    `;
-
-
-    searchResults.classList.add(
-        "show"
-    );
-
-}
-
-
-// ============================================================
-// ESCRIBIR EN EL BUSCADOR
-// ============================================================
-
-if (searchInput) {
-
-    searchInput.addEventListener(
-        "input",
-        () => {
-
-            mostrarResultados(
-                searchInput.value
-            );
-
-        }
-    );
-
-
-    // --------------------------------------------------------
-    // TECLADO
-    // --------------------------------------------------------
-
-    searchInput.addEventListener(
-        "keydown",
-        event => {
-
-
-            // ENTER
-
-            if (event.key === "Enter") {
-
-                event.preventDefault();
-
-                mostrarResultados(
-                    searchInput.value
-                );
-
-            }
-
-
-            // ESCAPE
-
-            if (event.key === "Escape") {
-
-                searchInput.value = "";
-
-                ocultarResultados();
-
-                searchInput.blur();
-
-            }
-
-        }
-    );
-
-}
-
-
-// ============================================================
-// BOTÓN BUSCAR
-// ============================================================
-
-if (searchButton) {
-
-    searchButton.addEventListener(
-        "click",
-        event => {
-
-            event.preventDefault();
-
-            if (!searchInput) return;
-
-            mostrarResultados(
-                searchInput.value
-            );
-
-        }
-    );
-
-}
-
-
-// ============================================================
-// CERRAR RESULTADOS AL HACER CLICK FUERA
-// ============================================================
-
-document.addEventListener(
-    "click",
-    event => {
-
-        if (!searchResults) return;
-
-
-        const clickDentroBuscador =
-            searchBox &&
-            searchBox.contains(
-                event.target
-            );
-
-
-        const clickDentroResultados =
-            searchResults.contains(
-                event.target
-            );
-
-
-        if (
-            !clickDentroBuscador &&
-            !clickDentroResultados
-        ) {
-
-            ocultarResultados();
-
-        }
-
-    }
-);
-
-
-// ============================================================
-// NAV ACTIVE
-// ============================================================
-
-const navLinks =
-    document.querySelectorAll(
-        ".nav-links a"
-    );
-
-const sections =
-    document.querySelectorAll(
-        "section[id]"
-    );
-
-
-if (
-    "IntersectionObserver" in window &&
-    sections.length
-) {
-
-    const navObserver =
-        new IntersectionObserver(
-            entries => {
-
-                entries.forEach(
-                    entry => {
-
-                        if (
-                            !entry.isIntersecting
-                        ) {
-                            return;
-                        }
-
-
-                        navLinks.forEach(
-                            link => {
-
-                                link.style.color =
-                                    "";
-
-                            }
+        nav
+            .querySelectorAll(
+                ".nav-links a"
+            )
+            .forEach(link => {
+
+                link.addEventListener(
+                    "click",
+                    () => {
+
+                        nav.classList.remove(
+                            "mobile-open"
                         );
-
-
-                        const link =
-                            document.querySelector(
-                                `.nav-links a[href="#${entry.target.id}"]`
-                            );
-
-
-                        if (link) {
-
-                            link.style.color =
-                                "var(--teal)";
-
-                        }
 
                     }
                 );
 
-            },
-            {
-                threshold: 0.4
+            });
+
+    }
+
+
+    // ========================================================
+    // CONSEGUIR LA LISTA REAL DE SOCIOS
+    // ========================================================
+    //
+    // NO tenemos otra lista de comercios aquí.
+    //
+    // Usamos COMERCIOS de socios.js.
+    //
+    // Esperamos a DOMContentLoaded para dar tiempo a que
+    // socios.js se haya cargado aunque aparezca después
+    // de index.js en el HTML.
+    // ========================================================
+
+    function obtenerComercios() {
+
+        if (
+            typeof COMERCIOS !== "undefined" &&
+            Array.isArray(COMERCIOS)
+        ) {
+
+            return COMERCIOS;
+
+        }
+
+
+        console.error(
+            "No se ha encontrado COMERCIOS. Asegúrate de que socios.js está incluido en la página."
+        );
+
+
+        return [];
+
+    }
+
+
+    // ========================================================
+    // BUSCADOR
+    // ========================================================
+
+    function initSearch() {
+
+        const comercios =
+            obtenerComercios();
+
+
+        // ----------------------------------------------------
+        // Aceptamos los nombres nuevos y también los antiguos
+        // por si el HTML conserva alguna clase/ID anterior.
+        // ----------------------------------------------------
+
+        const searchInput =
+            document.getElementById(
+                "homeSearchInput"
+            ) ||
+            document.getElementById(
+                "searchInput"
+            ) ||
+            document.querySelector(
+                ".dir-search input"
+            ) ||
+            document.querySelector(
+                ".search-wrap input"
+            );
+
+
+        const searchButton =
+            document.getElementById(
+                "homeSearchBtn"
+            ) ||
+            document.getElementById(
+                "searchBtn"
+            ) ||
+            document.querySelector(
+                ".dir-search button"
+            ) ||
+            document.querySelector(
+                ".search-wrap button"
+            );
+
+
+        const searchResults =
+            document.getElementById(
+                "homeSearchResults"
+            ) ||
+            document.getElementById(
+                "searchResults"
+            );
+
+
+        const searchBox =
+            document.getElementById(
+                "homeSearchBox"
+            ) ||
+            document.querySelector(
+                ".dir-search"
+            ) ||
+            document.querySelector(
+                ".search-wrap"
+            );
+
+
+        // ----------------------------------------------------
+        // Comprobación
+        // ----------------------------------------------------
+
+        if (!searchInput) {
+
+            console.warn(
+                "No se ha encontrado el campo del buscador del Inicio."
+            );
+
+            return;
+
+        }
+
+
+        if (!searchResults) {
+
+            console.warn(
+                "No se ha encontrado el contenedor de resultados del buscador."
+            );
+
+            return;
+
+        }
+
+
+        // ====================================================
+        // BUSCAR
+        // ====================================================
+
+        function buscar(query) {
+
+            const q =
+                normalizeStr(query).trim();
+
+
+            if (!q) {
+                return [];
+            }
+
+
+            return comercios.filter(
+                comercio => {
+
+                    const datos = [
+
+                        comercio.nombre,
+
+                        comercio.tag,
+
+                        comercio.categoria,
+
+                        comercio.direccion,
+
+                        comercio.telefono,
+
+                        comercio.correo
+
+                    ];
+
+
+                    const texto =
+                        normalizeStr(
+                            datos.join(" ")
+                        );
+
+
+                    return texto.includes(q);
+
+                }
+            );
+
+        }
+
+
+        // ====================================================
+        // OCULTAR RESULTADOS
+        // ====================================================
+
+        function ocultar() {
+
+            searchResults.innerHTML = "";
+
+            searchResults.classList.remove(
+                "show"
+            );
+
+            searchResults.style.display =
+                "none";
+
+        }
+
+
+        // ====================================================
+        // MOSTRAR RESULTADOS
+        // ====================================================
+
+        function mostrar(query) {
+
+            const texto =
+                String(query || "").trim();
+
+
+            // Buscador vacío
+
+            if (!texto) {
+
+                ocultar();
+
+                return;
+
+            }
+
+
+            const resultados =
+                buscar(texto);
+
+
+            // ------------------------------------------------
+            // SIN RESULTADOS
+            // ------------------------------------------------
+
+            if (!resultados.length) {
+
+                searchResults.innerHTML = `
+
+                    <div class="home-search-empty">
+
+                        <span class="home-search-empty-icon">
+                            🔍
+                        </span>
+
+                        <div>
+
+                            No hemos encontrado ningún comercio para
+
+                            <strong>
+                                ${escapeHtml(texto)}
+                            </strong>.
+
+                        </div>
+
+                    </div>
+
+                `;
+
+
+                searchResults.classList.add(
+                    "show"
+                );
+
+
+                searchResults.style.display =
+                    "block";
+
+
+                return;
+
+            }
+
+
+            // ------------------------------------------------
+            // RESULTADOS
+            // ------------------------------------------------
+
+            let html = "";
+
+
+            resultados.forEach(
+                comercio => {
+
+                    /*
+                     * IMPORTANTE:
+                     *
+                     * La etiqueta visible SIEMPRE sale
+                     * de comercio.tag.
+                     *
+                     * No usamos categoria.
+                     *
+                     * Por ejemplo:
+                     *
+                     * AMPARO BORRÁS -> Belleza
+                     * Cortinas -> Hogar
+                     * Viajes Sandratour -> Servicios
+                     */
+
+                    const tag =
+                        comercio.tag || "";
+
+
+                    const nombre =
+                        escapeHtml(
+                            comercio.nombre
+                        );
+
+
+                    const direccion =
+                        escapeHtml(
+                            comercio.direccion
+                        );
+
+
+                    html += `
+
+                        <a
+                            class="home-search-result"
+                            href="/b*Socios/DIRECTORIO%20PREVIEW.htm"
+                            data-comercio-id="${escapeHtml(comercio.id)}"
+                        >
+
+                            <span
+                                class="home-search-result-icon"
+                                aria-hidden="true"
+                            >
+                                ${comercio.emoji || ""}
+                            </span>
+
+
+                            <span
+                                class="home-search-result-info"
+                            >
+
+                                <strong>
+                                    ${nombre}
+                                </strong>
+
+
+                                <small>
+                                    ${escapeHtml(tag)}
+                                </small>
+
+
+                                <em>
+                                    ${direccion}
+                                </em>
+
+                            </span>
+
+
+                            <span
+                                class="home-search-result-arrow"
+                                aria-hidden="true"
+                            >
+                                →
+                            </span>
+
+                        </a>
+
+                    `;
+
+                }
+            );
+
+
+            // ------------------------------------------------
+            // ENLACE A TODOS
+            // ------------------------------------------------
+
+            html += `
+
+                <a
+                    class="home-search-see-all"
+                    href="/b*Socios/DIRECTORIO%20PREVIEW.htm"
+                >
+
+                    Ver todos los comercios →
+
+                </a>
+
+            `;
+
+
+            searchResults.innerHTML =
+                html;
+
+
+            searchResults.classList.add(
+                "show"
+            );
+
+
+            searchResults.style.display =
+                "block";
+
+        }
+
+
+        // ====================================================
+        // INPUT
+        // ====================================================
+
+        searchInput.addEventListener(
+            "input",
+            function () {
+
+                mostrar(
+                    this.value
+                );
+
             }
         );
 
 
-    sections.forEach(
-        section => {
+        // ====================================================
+        // ENTER
+        // ====================================================
 
-            navObserver.observe(
-                section
+        searchInput.addEventListener(
+            "keydown",
+            function (event) {
+
+                if (
+                    event.key === "Enter"
+                ) {
+
+                    event.preventDefault();
+
+                    mostrar(
+                        this.value
+                    );
+
+                }
+
+
+                if (
+                    event.key === "Escape"
+                ) {
+
+                    this.value = "";
+
+                    ocultar();
+
+                    this.blur();
+
+                }
+
+            }
+        );
+
+
+        // ====================================================
+        // BOTÓN
+        // ====================================================
+
+        if (searchButton) {
+
+            searchButton.addEventListener(
+                "click",
+                function (event) {
+
+                    event.preventDefault();
+
+                    mostrar(
+                        searchInput.value
+                    );
+
+                }
             );
 
         }
-    );
-
-}
 
 
-// ============================================================
-// CONTADORES
-// ============================================================
+        // ====================================================
+        // CLICK FUERA
+        // ====================================================
 
-function animateCount(
-    el,
-    target
-) {
+        document.addEventListener(
+            "click",
+            function (event) {
 
-    let start = 0;
+                const dentroBuscador =
+                    searchBox &&
+                    searchBox.contains(
+                        event.target
+                    );
 
-    const duration = 1600;
+
+                const dentroResultados =
+                    searchResults.contains(
+                        event.target
+                    );
 
 
-    const step = timestamp => {
+                if (
+                    !dentroBuscador &&
+                    !dentroResultados
+                ) {
 
-        if (!start) {
+                    ocultar();
 
-            start = timestamp;
+                }
+
+            }
+        );
+
+
+        // ====================================================
+        // CLICK EN RESULTADO
+        // ====================================================
+
+        searchResults.addEventListener(
+            "click",
+            function () {
+
+                /*
+                 * No hacemos preventDefault.
+                 *
+                 * El enlace lleva directamente
+                 * al directorio de Socios.
+                 */
+
+            }
+        );
+
+    }
+
+
+    // ========================================================
+    // NAVEGACIÓN ACTIVA
+    // ========================================================
+
+    function initNavigation() {
+
+        const navLinks =
+            document.querySelectorAll(
+                ".nav-links a"
+            );
+
+
+        const sections =
+            document.querySelectorAll(
+                "section[id]"
+            );
+
+
+        if (
+            !sections.length ||
+            !("IntersectionObserver" in window)
+        ) {
+
+            return;
 
         }
 
 
-        const progress =
-            Math.min(
-                (timestamp - start) /
-                    duration,
-                1
-            );
+        const observer =
+            new IntersectionObserver(
+                entries => {
+
+                    entries.forEach(
+                        entry => {
+
+                            if (
+                                !entry.isIntersecting
+                            ) {
+
+                                return;
+
+                            }
 
 
-        const value =
-            Math.floor(
-                progress * target
-            );
+                            navLinks.forEach(
+                                link => {
 
-
-        el.textContent =
-            (
-                target >= 100
-                    ? "+"
-                    : ""
-            ) +
-            value +
-            (
-                el.dataset.suffix ||
-                ""
-            );
-
-
-        if (progress < 1) {
-
-            requestAnimationFrame(
-                step
-            );
-
-        } else {
-
-            el.textContent =
-                (
-                    target >= 100
-                        ? "+"
-                        : ""
-                ) +
-                target +
-                (
-                    el.dataset.suffix ||
-                    ""
-                );
-
-        }
-
-    };
-
-
-    requestAnimationFrame(
-        step
-    );
-
-}
-
-
-// ============================================================
-// OBSERVER DE CONTADORES
-// ============================================================
-
-const statsSection =
-    document.querySelector(
-        ".hero-stats"
-    );
-
-
-if (
-    statsSection &&
-    "IntersectionObserver" in window
-) {
-
-    const statsObserver =
-        new IntersectionObserver(
-            entries => {
-
-                entries.forEach(
-                    entry => {
-
-                        if (
-                            !entry.isIntersecting
-                        ) {
-                            return;
-                        }
-
-
-                        /*
-                         * El primer contador puede mantenerse
-                         * como cifra general de socios.
-                         *
-                         * El segundo contador utiliza ahora
-                         * el número REAL de comercios.
-                         */
-
-                        const totalSocios =
-                            typeof COMERCIOS !== "undefined"
-                                ? COMERCIOS.length
-                                : 0;
-
-
-                        document
-                            .querySelectorAll(
-                                ".stat strong"
-                            )
-                            .forEach(
-                                (el, index) => {
-
-                                    const targets = [
-
-                                        120,
-
-                                        totalSocios,
-
-                                        8
-
-                                    ];
-
-
-                                    const suffixes = [
-
-                                        "",
-
-                                        "",
-
-                                        "k+"
-
-                                    ];
-
-
-                                    if (
-                                        index >=
-                                        targets.length
-                                    ) {
-
-                                        return;
-
-                                    }
-
-
-                                    el.dataset.suffix =
-                                        suffixes[index];
-
-
-                                    animateCount(
-                                        el,
-                                        targets[index]
-                                    );
+                                    link.style.color =
+                                        "";
 
                                 }
                             );
 
 
-                        statsObserver.disconnect();
+                            const link =
+                                document.querySelector(
+                                    `.nav-links a[href="#${entry.target.id}"]`
+                                );
 
-                    }
-                );
 
-            },
-            {
-                threshold: 0.5
-            }
+                            if (link) {
+
+                                link.style.color =
+                                    "var(--teal)";
+
+                            }
+
+                        }
+                    );
+
+                },
+                {
+                    threshold: 0.4
+                }
+            );
+
+
+        sections.forEach(
+            section =>
+                observer.observe(section)
         );
 
+    }
 
-    statsObserver.observe(
-        statsSection
-    );
 
-}
+    // ========================================================
+    // CONTADORES
+    // ========================================================
+
+    function animateCount(
+        element,
+        target
+    ) {
+
+        let start = null;
+
+        const duration = 1600;
+
+
+        function step(timestamp) {
+
+            if (!start) {
+
+                start = timestamp;
+
+            }
+
+
+            const progress =
+                Math.min(
+                    (timestamp - start) /
+                        duration,
+                    1
+                );
+
+
+            const value =
+                Math.floor(
+                    progress * target
+                );
+
+
+            const prefix =
+                target >= 100
+                    ? "+"
+                    : "";
+
+
+            element.textContent =
+                prefix +
+                value +
+                (
+                    element.dataset.suffix ||
+                    ""
+                );
+
+
+            if (
+                progress < 1
+            ) {
+
+                requestAnimationFrame(
+                    step
+                );
+
+            } else {
+
+                element.textContent =
+                    prefix +
+                    target +
+                    (
+                        element.dataset.suffix ||
+                        ""
+                    );
+
+            }
+
+        }
+
+
+        requestAnimationFrame(
+            step
+        );
+
+    }
+
+
+    function initCounters() {
+
+        const statsSection =
+            document.querySelector(
+                ".hero-stats"
+            );
+
+
+        if (
+            !statsSection ||
+            !("IntersectionObserver" in window)
+        ) {
+
+            return;
+
+        }
+
+
+        const observer =
+            new IntersectionObserver(
+                entries => {
+
+                    entries.forEach(
+                        entry => {
+
+                            if (
+                                !entry.isIntersecting
+                            ) {
+
+                                return;
+
+                            }
+
+
+                            const comercios =
+                                obtenerComercios();
+
+
+                            /*
+                             * Primer contador:
+                             * mantenemos el número general
+                             * que ya tenía la web.
+                             *
+                             * Segundo:
+                             * número real de socios cargados.
+                             *
+                             * Tercero:
+                             * mantenemos el dato original.
+                             */
+
+                            const targets = [
+
+                                120,
+
+                                comercios.length,
+
+                                8
+
+                            ];
+
+
+                            const suffixes = [
+
+                                "",
+
+                                "",
+
+                                "k+"
+
+                            ];
+
+
+                            document
+                                .querySelectorAll(
+                                    ".stat strong"
+                                )
+                                .forEach(
+                                    (
+                                        element,
+                                        index
+                                    ) => {
+
+                                        if (
+                                            index >=
+                                            targets.length
+                                        ) {
+
+                                            return;
+
+                                        }
+
+
+                                        element.dataset.suffix =
+                                            suffixes[index];
+
+
+                                        animateCount(
+                                            element,
+                                            targets[index]
+                                        );
+
+                                    }
+                                );
+
+
+                            observer.disconnect();
+
+                        }
+                    );
+
+                },
+                {
+                    threshold: 0.5
+                }
+            );
+
+
+        observer.observe(
+            statsSection
+        );
+
+    }
+
+
+    // ========================================================
+    // INICIAR TODO
+    // ========================================================
+    //
+    // Esto es importante:
+    //
+    // Esperamos a que el documento esté cargado antes de
+    // buscar COMERCIOS.
+    //
+    // Así socios.js tiene tiempo de cargar aunque aparezca
+    // después de index.js.
+    // ========================================================
+
+    function init() {
+
+        initScrollReveal();
+
+        initMobileMenu();
+
+        initSearch();
+
+        initNavigation();
+
+        initCounters();
+
+    }
+
+
+    if (
+        document.readyState ===
+        "loading"
+    ) {
+
+        document.addEventListener(
+            "DOMContentLoaded",
+            init
+        );
+
+    } else {
+
+        init();
+
+    }
+
+})();

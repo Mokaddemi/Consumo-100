@@ -1,20 +1,32 @@
+// ============================================================
+// SOCIOS.JS
+// Directorio de comercios - Consumo Placer
+// ============================================================
+
 (function () {
     const navEl = document.querySelector('nav');
+
     if (!navEl) return;
 
     const burger = navEl.querySelector('.nav-hamburger, .nav-burger');
-    if (!burger) return;
 
-    burger.addEventListener('click', () => {
-        navEl.classList.toggle('mobile-open');
-    });
-
-    navEl.querySelectorAll('.nav-links a').forEach(link => {
-        link.addEventListener('click', () => {
-            navEl.classList.remove('mobile-open');
+    if (burger) {
+        burger.addEventListener('click', () => {
+            navEl.classList.toggle('mobile-open');
         });
-    });
+
+        navEl.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navEl.classList.remove('mobile-open');
+            });
+        });
+    }
 })();
+
+
+// ============================================================
+// DATOS DE LOS COMERCIOS
+// ============================================================
 
 const COMERCIOS = [
     {
@@ -28,8 +40,9 @@ const COMERCIOS = [
         cierraM: "21:30",
         abreT: "null",
         cierraT: "null",
-        tag: "Marketing"
+        tag: "Agencia"
     },
+
     {
         id: 2,
         nombre: "Viajes Sandratour",
@@ -41,8 +54,9 @@ const COMERCIOS = [
         cierraM: "13:30",
         abreT: "17:30",
         cierraT: "19:00",
-        tag: "Servicios"
+        tag: "Carnicería"
     },
+
     {
         id: 3,
         nombre: "Lavadero Rapiz Santomera",
@@ -54,8 +68,9 @@ const COMERCIOS = [
         cierraM: "13:30",
         abreT: "17:30",
         cierraT: "19:00",
-        tag: "Servicios"
+        tag: "Ropa & Accesorios"
     },
+
     {
         id: 4,
         nombre: "María Torres. Peluquería y estética",
@@ -67,8 +82,9 @@ const COMERCIOS = [
         cierraM: "13:30",
         abreT: "16:30",
         cierraT: "20:30",
-        tag: "Belleza"
+        tag: "Ropa & Accesorios"
     },
+
     {
         id: 5,
         nombre: "Lidia Pelu",
@@ -80,8 +96,9 @@ const COMERCIOS = [
         cierraM: "13:30",
         abreT: "16:30",
         cierraT: "20:30",
-        tag: "Belleza"
+        tag: "Ropa & Accesorios"
     },
+
     {
         id: 6,
         nombre: "REGUERPC",
@@ -93,8 +110,9 @@ const COMERCIOS = [
         cierraM: "20:30",
         abreT: "null",
         cierraT: "null",
-        tag: "Servicios"
+        tag: "Ropa & Accesorios"
     },
+
     {
         id: 7,
         nombre: "Inmobiliaria Mundicasa",
@@ -106,8 +124,9 @@ const COMERCIOS = [
         cierraM: "14:00",
         abreT: "null",
         cierraT: "null",
-        tag: "Servicios"
+        tag: "Ropa & Accesorios"
     },
+
     {
         id: 8,
         nombre: "La despensa de Pedro bodega",
@@ -119,8 +138,9 @@ const COMERCIOS = [
         cierraM: "19:00",
         abreT: "null",
         cierraT: "null",
-        tag: "Hostelería"
+        tag: "Ropa & Accesorios"
     },
+
     {
         id: 9,
         nombre: "Diego Friclima s.l.",
@@ -132,8 +152,9 @@ const COMERCIOS = [
         cierraM: "14:00",
         abreT: "16:00",
         cierraT: "18:30",
-        tag: "Servicios"
+        tag: "Ropa & Accesorios"
     },
+
     {
         id: 10,
         nombre: "Lubespa Distribuciónes del Levante SL",
@@ -145,8 +166,9 @@ const COMERCIOS = [
         cierraM: "14:00",
         abreT: "16:00",
         cierraT: "20:00",
-        tag: "Servicios"
+        tag: "Ropa & Accesorios"
     },
+
     {
         id: 11,
         nombre: "Tamara Bellot Estilistas",
@@ -158,8 +180,9 @@ const COMERCIOS = [
         cierraM: "null",
         abreT: "null",
         cierraT: "null",
-        tag: "Belleza"
+        tag: "Ropa & Accesorios"
     },
+
     {
         id: 12,
         nombre: "LIBRERÍA CIRCULO",
@@ -171,8 +194,9 @@ const COMERCIOS = [
         cierraM: "14:00",
         abreT: "16:30",
         cierraT: "20:30",
-        tag: "Librería"
+        tag: "Ropa & Accesorios"
     },
+
     {
         id: 13,
         nombre: "FCO.ALCARAZ TOMAS E HIJOS(OPEL SANTOMERA)",
@@ -184,8 +208,9 @@ const COMERCIOS = [
         cierraM: "14:00",
         abreT: "16:30",
         cierraT: "20:00",
-        tag: "Servicios"
+        tag: "Ropa & Accesorios"
     },
+
     {
         id: 14,
         nombre: "D'Mia Collection Passione",
@@ -199,6 +224,7 @@ const COMERCIOS = [
         cierraT: "20:30",
         tag: "Ropa & Accesorios"
     },
+
     {
         id: 15,
         nombre: "Estación de Servicio Alhama",
@@ -210,8 +236,9 @@ const COMERCIOS = [
         cierraM: "14:30",
         abreT: "17:00",
         cierraT: "20:30",
-        tag: "Servicios"
+        tag: "Ropa & Accesorios"
     },
+
     {
         id: 16,
         nombre: "Esthilinea",
@@ -223,8 +250,9 @@ const COMERCIOS = [
         cierraM: "20:00",
         abreT: "null",
         cierraT: "null",
-        tag: "Belleza"
+        tag: "Ropa & Accesorios"
     },
+
     {
         id: 17,
         nombre: "NEO Peluqueros",
@@ -236,8 +264,9 @@ const COMERCIOS = [
         cierraM: "13:00",
         abreT: "16:30",
         cierraT: "20:00",
-        tag: "Belleza"
+        tag: "Ropa & Accesorios"
     },
+
     {
         id: 18,
         nombre: "AUTOMATICOS JERONIMO, SL",
@@ -249,8 +278,9 @@ const COMERCIOS = [
         cierraM: "null",
         abreT: "null",
         cierraT: "null",
-        tag: "Servicios"
+        tag: "Ropa & Accesorios"
     },
+
     {
         id: 19,
         nombre: "Moda y Complementos ISALA",
@@ -264,6 +294,7 @@ const COMERCIOS = [
         cierraT: "20:00",
         tag: "Ropa & Accesorios"
     },
+
     {
         id: 20,
         nombre: "Encarna Ortíz Estética Integral",
@@ -275,8 +306,9 @@ const COMERCIOS = [
         cierraM: "13:30",
         abreT: "15:30",
         cierraT: "21:00",
-        tag: "Belleza"
+        tag: "Ropa & Accesorios"
     },
+
     {
         id: 21,
         nombre: "Cortinas el Metro",
@@ -288,8 +320,9 @@ const COMERCIOS = [
         cierraM: "13:30",
         abreT: "17:00",
         cierraT: "20:30",
-        tag: "Hogar"
+        tag: "Ropa & Accesorios"
     },
+
     {
         id: 22,
         nombre: "optica davinci",
@@ -301,8 +334,9 @@ const COMERCIOS = [
         cierraM: "13:30",
         abreT: "17:00",
         cierraT: "20:30",
-        tag: "Servicios"
+        tag: "Ropa & Accesorios"
     },
+
     {
         id: 23,
         nombre: "Amarillo Limón Mercería y Lencería",
@@ -316,6 +350,7 @@ const COMERCIOS = [
         cierraT: "20:00",
         tag: "Ropa & Accesorios"
     },
+
     {
         id: 24,
         nombre: "Carnicería Baca",
@@ -327,8 +362,9 @@ const COMERCIOS = [
         cierraM: "14:00",
         abreT: "null",
         cierraT: "null",
-        tag: "Alimentación"
+        tag: "Ropa & Accesorios"
     },
+
     {
         id: 25,
         nombre: "Estética y peluquería L&mami",
@@ -340,8 +376,9 @@ const COMERCIOS = [
         cierraM: "13:30",
         abreT: "16:00",
         cierraT: "20:00",
-        tag: "Belleza"
+        tag: "Ropa & Accesorios"
     },
+
     {
         id: 26,
         nombre: "OPTICA TESSA",
@@ -353,8 +390,9 @@ const COMERCIOS = [
         cierraM: "13:30",
         abreT: "16:30",
         cierraT: "20:00",
-        tag: "Servicios"
+        tag: "Ropa & Accesorios"
     },
+
     {
         id: 27,
         nombre: "EL KIOSKO",
@@ -366,8 +404,9 @@ const COMERCIOS = [
         cierraM: "14:00",
         abreT: "17:00",
         cierraT: "20:30",
-        tag: "Librería"
+        tag: "Ropa & Accesorios"
     },
+
     {
         id: 28,
         nombre: "Deportes Alextani",
@@ -381,6 +420,7 @@ const COMERCIOS = [
         cierraT: "21:00",
         tag: "Ropa & Accesorios"
     },
+
     {
         id: 29,
         nombre: "HERBOSANA",
@@ -392,8 +432,9 @@ const COMERCIOS = [
         cierraM: "13:30",
         abreT: "17:00",
         cierraT: "20:00",
-        tag: "Alimentación"
+        tag: "Ropa & Accesorios"
     },
+
     {
         id: 30,
         nombre: "CENTRO DE NUTRICION MIELGO",
@@ -405,8 +446,9 @@ const COMERCIOS = [
         cierraM: "14:00",
         abreT: "16:30",
         cierraT: "20:30",
-        tag: "Belleza"
+        tag: "Alimentacion"
     },
+
     {
         id: 31,
         nombre: "RADIO SURESTE COPE",
@@ -418,8 +460,9 @@ const COMERCIOS = [
         cierraM: "null",
         abreT: "null",
         cierraT: "null",
-        tag: "Servicios"
+        tag: "Radio"
     },
+
     {
         id: 32,
         nombre: "SEXYSHOP Juguetería para Adultos",
@@ -431,8 +474,9 @@ const COMERCIOS = [
         cierraM: "14:00",
         abreT: "17:00",
         cierraT: "21:00",
-        tag: "Servicios"
+        tag: "Plazer"
     },
+
     {
         id: 33,
         nombre: "Huellamoda",
@@ -444,8 +488,9 @@ const COMERCIOS = [
         cierraM: "13:30",
         abreT: "17:30",
         cierraT: "20:30",
-        tag: "Ropa & Accesorios"
+        tag: "Moda"
     },
+
     {
         id: 34,
         nombre: "SERVIPIZZA",
@@ -459,6 +504,7 @@ const COMERCIOS = [
         cierraT: "null",
         tag: "Hostelería"
     },
+
     {
         id: 35,
         nombre: "El Metro Hombre",
@@ -470,8 +516,9 @@ const COMERCIOS = [
         cierraM: "13:30",
         abreT: "17:00",
         cierraT: "20:30",
-        tag: "Ropa & Accesorios"
+        tag: "Moda"
     },
+
     {
         id: 36,
         nombre: "Genesis Boutique",
@@ -483,8 +530,9 @@ const COMERCIOS = [
         cierraM: "13:30",
         abreT: "17:00",
         cierraT: "20:30",
-        tag: "Ropa & Accesorios"
+        tag: "Moda"
     },
+
     {
         id: 37,
         nombre: "RB Mª Dolores Rejuvenecimiento & Bienestar",
@@ -496,8 +544,9 @@ const COMERCIOS = [
         cierraM: "14:00",
         abreT: "15:00",
         cierraT: "20:30",
-        tag: "Belleza"
+        tag: "Servicios"
     },
+
     {
         id: 38,
         nombre: "Reche",
@@ -509,8 +558,9 @@ const COMERCIOS = [
         cierraM: "13:45",
         abreT: "17:00",
         cierraT: "20:30",
-        tag: "Ropa & Accesorios"
+        tag: "Moda"
     },
+
     {
         id: 39,
         nombre: "pizzería pinocho",
@@ -522,8 +572,9 @@ const COMERCIOS = [
         cierraM: "23:00",
         abreT: "null",
         cierraT: "null",
-        tag: "Hostelería"
+        tag: "Alimentacion"
     },
+
     {
         id: 40,
         nombre: "AMPARO BORRÁS",
@@ -535,8 +586,9 @@ const COMERCIOS = [
         cierraM: "20:00",
         abreT: "null",
         cierraT: "null",
-        tag: "Belleza"
+        tag: "Moda"
     },
+
     {
         id: 41,
         nombre: "Marce Soto Clinic Terapias Alternativas",
@@ -548,8 +600,9 @@ const COMERCIOS = [
         cierraM: "21:00",
         abreT: "null",
         cierraT: "null",
-        tag: "Belleza"
+        tag: "Moda"
     },
+
     {
         id: 42,
         nombre: "Cortinas el metro",
@@ -563,6 +616,7 @@ const COMERCIOS = [
         cierraT: "20:30",
         tag: "Hogar"
     },
+
     {
         id: 43,
         nombre: "Dsastre Santomera",
@@ -574,8 +628,9 @@ const COMERCIOS = [
         cierraM: "20:30",
         abreT: "null",
         cierraT: "null",
-        tag: "Ropa & Accesorios"
+        tag: "Moda"
     },
+
     {
         id: 44,
         nombre: "Hotel Santos",
@@ -587,8 +642,9 @@ const COMERCIOS = [
         cierraM: "",
         abreT: "",
         cierraT: "",
-        tag: "Hostelería"
+        tag: "Alimentacion"
     },
+
     {
         id: 45,
         nombre: "Confitería Salmerón",
@@ -600,8 +656,9 @@ const COMERCIOS = [
         cierraM: "14:00",
         abreT: "17:00",
         cierraT: "21:00",
-        tag: "Ropa & Accesorios"
+        tag: "Alimentacion"
     },
+
     {
         id: 46,
         nombre: "Frutería Hnos Ortín Ayllón",
@@ -615,6 +672,7 @@ const COMERCIOS = [
         cierraT: "19:00",
         tag: "Alimentacion"
     },
+
     {
         id: 47,
         nombre: "Pintauñas",
@@ -626,8 +684,9 @@ const COMERCIOS = [
         cierraM: "",
         abreT: "",
         cierraT: "",
-        tag: "Belleza"
+        tag: "Moda"
     },
+
     {
         id: 48,
         nombre: "African Clinica Veterinaria",
@@ -641,6 +700,7 @@ const COMERCIOS = [
         cierraT: "null",
         tag: "Servicios"
     },
+
     {
         id: 49,
         nombre: "Sergio Planes peluqueros",
@@ -652,21 +712,23 @@ const COMERCIOS = [
         cierraM: "14:00",
         abreT: "16:00",
         cierraT: "21:00",
-        tag: "Belleza"
+        tag: "Moda"
     },
+
     {
         id: 50,
         nombre: "Imprenta Joaquín cascales",
         categoria: "Servicios",
         direccion: "Con borregueras,32",
         telefono: "625 58 44 45",
-        correo: "Imprentacascales @gmail.com",
+        correo: "Imprentacascales@gmail.com",
         abreM: "09:30",
         cierraM: "14:00",
         abreT: "16:00",
         cierraT: "19:00",
         tag: "Servicios"
     },
+
     {
         id: 51,
         nombre: "Mercería Alarcon",
@@ -678,21 +740,23 @@ const COMERCIOS = [
         cierraM: "14:00",
         abreT: "16:00",
         cierraT: "20:00",
-        tag: "Ropa & Accesorios"
+        tag: "Cultura"
     },
+
     {
         id: 52,
         nombre: "TIVIPARK",
         categoria: "Alimentacion",
         direccion: "plaza Almazara #2 bajo 99",
         telefono: "629 17 78 16",
-        correo: "Tivipark @ Gmail .com",
+        correo: "Tivipark@gmail.com",
         abreM: "08:00",
         cierraM: "13:00",
         abreT: "17:00",
         cierraT: "21:00",
-        tag: "Hostelería"
+        tag: "Alimentacion"
     },
+
     {
         id: 53,
         nombre: "CLÍNICA SINCROST",
@@ -704,8 +768,9 @@ const COMERCIOS = [
         cierraM: "20:00",
         abreT: "null",
         cierraT: "null",
-        tag: "Belleza"
+        tag: "Hogar"
     },
+
     {
         id: 54,
         nombre: "Recordarte Fotografía",
@@ -717,8 +782,9 @@ const COMERCIOS = [
         cierraM: "13:30",
         abreT: "17:00",
         cierraT: "20:00",
-        tag: "servicios"
+        tag: "Servicios"
     },
+
     {
         id: 55,
         nombre: "Gestoria Ruiz Garcia",
@@ -732,6 +798,7 @@ const COMERCIOS = [
         cierraT: "20:00",
         tag: "Servicios"
     },
+
     {
         id: 56,
         nombre: "Hokuhome",
@@ -743,8 +810,9 @@ const COMERCIOS = [
         cierraM: "13:30",
         abreT: "16:30",
         cierraT: "20:30",
-        tag: "Hogar"
+        tag: "Servicios"
     },
+
     {
         id: 57,
         nombre: "La Pelu de Lola 2.0",
@@ -756,8 +824,9 @@ const COMERCIOS = [
         cierraM: "",
         abreT: "",
         cierraT: "",
-        tag: "Belleza"
+        tag: "Moda"
     },
+
     {
         id: 58,
         nombre: "Limón gastrobar santomera",
@@ -769,8 +838,9 @@ const COMERCIOS = [
         cierraM: "16:00",
         abreT: "null",
         cierraT: "null",
-        tag: "Hostelería"
+        tag: "Servicios"
     },
+
     {
         id: 59,
         nombre: "DÑA ENGRACIA",
@@ -782,8 +852,9 @@ const COMERCIOS = [
         cierraM: "24:00",
         abreT: "null",
         cierraT: "null",
-        tag: "Hostelería"
+        tag: "Alimentacion"
     },
+
     {
         id: 60,
         nombre: "Camisería Vicente",
@@ -795,23 +866,72 @@ const COMERCIOS = [
         cierraM: "14:00",
         abreT: "17:00",
         cierraT: "21:00",
-        tag: "Ropa & Accesorios"
+        tag: "Moda"
     }
 ];
 
+
+// ============================================================
+// CATEGORÍAS
+// ============================================================
+
 const CATEGORIES = [
-    { id: "todos", label: "Todos", emoji: null },
-    { id: "Hostelería", label: "Hostelería", emoji: "" },
-    { id: "Belleza", label: "Belleza", emoji: "" },
-    { id: "Ropa & Accesorios", label: "Ropa & Accesorios", emoji: "" },
-    { id: "Servicios", label: "Servicios", emoji: "" },
-    { id: "Hogar", label: "Hogar", emoji: "" },
-    { id: "Alimentación", label: "Alimentación", emoji: "" },
-    { id: "Librería", label: "Librería", emoji: "" },
-    { id: "Marketing", label: "Marketing", emoji: "" }
-    
-    
+    {
+        id: "todos",
+        label: "Todos",
+        emoji: null
+    },
+    {
+        id: "Alimentación",
+        label: "Alimentación",
+        emoji: "🥗"
+    },
+    {
+        id: "Moda",
+        label: "Moda",
+        emoji: "👗"
+    },
+    {
+        id: "Hostelería",
+        label: "Hostelería",
+        emoji: "☕"
+    },
+    {
+        id: "Servicios",
+        label: "Servicios",
+        emoji: "🔧"
+    },
+    {
+        id: "Salud",
+        label: "Salud",
+        emoji: "💊"
+    },
+    {
+        id: "Deporte",
+        label: "Deporte",
+        emoji: "⚽"
+    },
+    {
+        id: "Hogar",
+        label: "Hogar",
+        emoji: "🛋️"
+    },
+    {
+        id: "Cultura",
+        label: "Cultura",
+        emoji: "📚"
+    },
+    {
+        id: "Marketing",
+        label: "Marketing",
+        emoji: "☁️"
+    }
 ];
+
+
+// ============================================================
+// ESTADO
+// ============================================================
 
 let activeCategory = "todos";
 let searchQuery = "";
@@ -820,93 +940,140 @@ let currentPage = 1;
 
 const PER_PAGE = 24;
 
-function slugify(str) {
-    return str
-        .toLowerCase()
-        .normalize("NFD")
-        .replace(/[\u0300-\u036f]/g, "")
-        .replace(/\s+/g, "-");
-}
+
+// ============================================================
+// FILTRADO
+// ============================================================
 
 function getFiltered() {
+
     let list = [...COMERCIOS];
 
     if (activeCategory !== "todos") {
-        list = list.filter(c => c.categoria === activeCategory);
+
+        list = list.filter(
+            c => c.categoria === activeCategory
+        );
     }
 
     if (searchQuery.trim()) {
+
         const q = searchQuery
             .toLowerCase()
             .normalize("NFD")
             .replace(/[\u0300-\u036f]/g, "");
 
-        list = list.filter(c =>
-            c.nombre.toLowerCase()
-                .normalize("NFD")
-                .replace(/[\u0300-\u036f]/g, "")
-                .includes(q) ||
+        list = list.filter(c => {
 
-            c.categoria.toLowerCase()
-                .normalize("NFD")
-                .replace(/[\u0300-\u036f]/g, "")
-                .includes(q) ||
-
-            c.direccion.toLowerCase()
-                .normalize("NFD")
-                .replace(/[\u0300-\u036f]/g, "")
-                .includes(q) ||
-
-            (c.tag &&
-                c.tag.toLowerCase()
+            const nombre =
+                c.nombre
+                    .toLowerCase()
                     .normalize("NFD")
-                    .replace(/[\u0300-\u036f]/g, "")
-                    .includes(q))
-        );
+                    .replace(/[\u0300-\u036f]/g, "");
+
+            const categoria =
+                c.categoria
+                    .toLowerCase()
+                    .normalize("NFD")
+                    .replace(/[\u0300-\u036f]/g, "");
+
+            const direccion =
+                c.direccion
+                    .toLowerCase()
+                    .normalize("NFD")
+                    .replace(/[\u0300-\u036f]/g, "");
+
+            const tag =
+                (c.tag || "")
+                    .toLowerCase()
+                    .normalize("NFD")
+                    .replace(/[\u0300-\u036f]/g, "");
+
+            return (
+                nombre.includes(q) ||
+                categoria.includes(q) ||
+                direccion.includes(q) ||
+                tag.includes(q)
+            );
+        });
     }
 
     if (sortOrder === "nombre") {
+
         list.sort((a, b) =>
-            a.nombre.localeCompare(b.nombre, "es")
+            a.nombre.localeCompare(
+                b.nombre,
+                "es"
+            )
         );
+
     } else {
+
         list.sort((a, b) =>
-            a.categoria.localeCompare(b.categoria, "es") ||
-            a.nombre.localeCompare(b.nombre, "es")
+            a.categoria.localeCompare(
+                b.categoria,
+                "es"
+            ) ||
+            a.nombre.localeCompare(
+                b.nombre,
+                "es"
+            )
         );
     }
 
-    return [
-        ...list.filter(c => c.featured),
-        ...list.filter(c => !c.featured)
-    ];
+    return list;
 }
 
-function calcularEstado(abreM, cierraM, abreT, cierraT) {
+
+// ============================================================
+// ESTADO DEL COMERCIO
+// ============================================================
+
+function calcularEstado(
+    abreM,
+    cierraM,
+    abreT,
+    cierraT
+) {
+
     const ahora = new Date();
 
     const minutosActuales =
-        ahora.getHours() * 60 + ahora.getMinutes();
+        ahora.getHours() * 60 +
+        ahora.getMinutes();
 
-    const aMin = str => {
-        if (!str || str === "null") return null;
+    function aMin(str) {
 
-        const [h, m] = str.split(":").map(Number);
+        if (
+            !str ||
+            str === "null"
+        ) {
+            return null;
+        }
 
-        if (Number.isNaN(h) || Number.isNaN(m)) {
+        const partes =
+            str.split(":");
+
+        const h =
+            Number(partes[0]);
+
+        const m =
+            Number(partes[1]);
+
+        if (
+            Number.isNaN(h) ||
+            Number.isNaN(m)
+        ) {
             return null;
         }
 
         return h * 60 + m;
-    };
+    }
 
     const amAbre = aMin(abreM);
     const amCierra = aMin(cierraM);
     const pmAbre = aMin(abreT);
     const pmCierra = aMin(cierraT);
-
-    let isOpen = false;
-    let texto = "";
 
     if (
         amAbre !== null &&
@@ -914,178 +1081,127 @@ function calcularEstado(abreM, cierraM, abreT, cierraT) {
         minutosActuales >= amAbre &&
         minutosActuales < amCierra
     ) {
-        isOpen = true;
-        texto = `Abierto · Cierra a las ${cierraM}`;
+
+        return {
+            open: true,
+            texto: `Abierto · Cierra a las ${cierraM}`
+        };
     }
 
-    else if (
+    if (
         pmAbre !== null &&
         pmCierra !== null &&
         minutosActuales >= pmAbre &&
         minutosActuales < pmCierra
     ) {
-        isOpen = true;
-        texto = `Abierto · Cierra a las ${cierraT}`;
+
+        return {
+            open: true,
+            texto: `Abierto · Cierra a las ${cierraT}`
+        };
     }
 
-    else {
-        isOpen = false;
+    if (
+        amAbre !== null &&
+        minutosActuales < amAbre
+    ) {
 
-        if (
-            amAbre !== null &&
-            minutosActuales < amAbre
-        ) {
-            texto = `Cerrado · Abre a las ${abreM}`;
-        }
+        return {
+            open: false,
+            texto: `Cerrado · Abre a las ${abreM}`
+        };
+    }
 
-        else if (
-            pmAbre !== null &&
-            amCierra !== null &&
-            minutosActuales >= amCierra &&
-            minutosActuales < pmAbre
-        ) {
-            texto = `Cerrado · Abre a las ${abreT}`;
-        }
+    if (
+        pmAbre !== null &&
+        pmCierra !== null &&
+        minutosActuales < pmAbre
+    ) {
 
-        else {
-            texto = "Cerrado por hoy";
-        }
+        return {
+            open: false,
+            texto: `Cerrado · Abre a las ${abreT}`
+        };
     }
 
     return {
-        open: isOpen,
-        texto
+        open: false,
+        texto: "Cerrado por hoy"
     };
 }
 
-/* COLORES ALEATORIOS PERO ESTABLES */
+
+// ============================================================
+// COLORES DE LAS TARJETAS
+// ============================================================
+
 function getCardColor(id) {
+
     const colores = [
-        "linear-gradient(135deg, #dbeafe, #bfdbfe)",
-        "linear-gradient(135deg, #ede9fe, #ddd6fe)",
-        "linear-gradient(135deg, #fce7f3, #fbcfe8)",
-        "linear-gradient(135deg, #dcfce7, #bbf7d0)",
-        "linear-gradient(135deg, #fef3c7, #fde68a)",
-        "linear-gradient(135deg, #cffafe, #a5f3fc)",
-        "linear-gradient(135deg, #ffedd5, #fed7aa)",
-        "linear-gradient(135deg, #e0e7ff, #c7d2fe)",
-        "linear-gradient(135deg, #f3e8ff, #e9d5ff)",
-        "linear-gradient(135deg, #ccfbf1, #99f6e4)",
-        "linear-gradient(135deg, #fae8ff, #f5d0fe)",
-        "linear-gradient(135deg, #fef9c3, #fef08a)"
+
+        "linear-gradient(135deg,#dbeafe,#bfdbfe)",
+
+        "linear-gradient(135deg,#ede9fe,#ddd6fe)",
+
+        "linear-gradient(135deg,#fce7f3,#fbcfe8)",
+
+        "linear-gradient(135deg,#dcfce7,#bbf7d0)",
+
+        "linear-gradient(135deg,#fef3c7,#fde68a)",
+
+        "linear-gradient(135deg,#cffafe,#a5f3fc)",
+
+        "linear-gradient(135deg,#ffedd5,#fed7aa)",
+
+        "linear-gradient(135deg,#e0e7ff,#c7d2fe)",
+
+        "linear-gradient(135deg,#f3e8ff,#e9d5ff)",
+
+        "linear-gradient(135deg,#ccfbf1,#99f6e4)",
+
+        "linear-gradient(135deg,#fae8ff,#f5d0fe)",
+
+        "linear-gradient(135deg,#fef9c3,#fef08a)"
     ];
 
-    return colores[(Number(id) - 1) % colores.length];
+    return colores[
+        (Number(id) - 1) %
+        colores.length
+    ];
 }
 
-function renderCard(comercio, index) {
-    const featuredClass =
-        comercio.featured ? " featured" : "";
+
+// ============================================================
+// TARJETA DE COMERCIO
+// ============================================================
+
+function renderCard(
+    comercio,
+    index
+) {
 
     const cardColor =
-        getCardColor(comercio.id);
+        getCardColor(
+            comercio.id
+        );
 
-    const estado = calcularEstado(
-        comercio.abreM,
-        comercio.cierraM,
-        comercio.abreT,
-        comercio.cierraT
-    );
+    const estado =
+        calcularEstado(
+            comercio.abreM,
+            comercio.cierraM,
+            comercio.abreT,
+            comercio.cierraT
+        );
 
     const hoursClass =
-        estado.open ? "open" : "closed";
-
-    let contactoHtml = "";
-
-    if (comercio.telefono || comercio.correo) {
-
-        contactoHtml = `
-            <div
-                style="
-                    font-size:.85rem;
-                    color:var(--navy);
-                    opacity:.75;
-                    line-height:1.55;
-                    flex:1;
-                    display:flex;
-                    flex-direction:column;
-                    gap:.4rem;
-                    margin-top:.5rem;
-                "
-            >
-        `;
-
-        if (comercio.telefono) {
-            contactoHtml += `
-                <span
-                    style="
-                        display:flex;
-                        align-items:center;
-                        gap:.4rem;
-                    "
-                >
-                    <svg
-                        viewBox="0 0 24 24"
-                        width="14"
-                        height="14"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                    >
-                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-                    </svg>
-
-                    ${comercio.telefono}
-                </span>
-            `;
-        }
-
-        if (comercio.correo) {
-            contactoHtml += `
-                <span
-                    style="
-                        display:flex;
-                        align-items:center;
-                        gap:.4rem;
-                    "
-                >
-                    <svg
-                        viewBox="0 0 24 24"
-                        width="14"
-                        height="14"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                    >
-                        <rect
-                            width="20"
-                            height="16"
-                            x="2"
-                            y="4"
-                            rx="2"
-                        ></rect>
-
-                        <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
-                    </svg>
-
-                    ${comercio.correo}
-                </span>
-            `;
-        }
-
-        contactoHtml += `</div>`;
-
-    } else {
-        contactoHtml = `<div style="flex:1;"></div>`;
-    }
+        estado.open
+            ? "open"
+            : "closed";
 
     return `
+
         <article
-            class="card${featuredClass}"
+            class="card"
             role="listitem"
             style="animation-delay:${index * 55}ms"
             aria-label="${comercio.nombre}"
@@ -1093,16 +1209,63 @@ function renderCard(comercio, index) {
 
             <div
                 class="card-thumb"
-                style="background:${cardColor};"
+                style="
+                    background:${cardColor};
+                    position:relative;
+                "
             >
+
+                <!-- ETIQUETA -->
+                <span
+                    class="card-category-tag"
+                    style="
+                        position:absolute;
+                        top:14px;
+                        right:14px;
+                        z-index:3;
+                        display:inline-flex;
+                        align-items:center;
+                        gap:6px;
+                        padding:6px 11px;
+                        border-radius:999px;
+                        background:rgba(255,255,255,.94);
+                        color:#173574;
+                        font-size:.72rem;
+                        font-weight:700;
+                        line-height:1;
+                        letter-spacing:.01em;
+                        box-shadow:0 2px 8px rgba(23,53,116,.10);
+                        white-space:nowrap;
+                    "
+                >
+
+                    <span
+                        aria-hidden="true"
+                        style="
+                            width:6px;
+                            height:6px;
+                            border-radius:50%;
+                            background:currentColor;
+                            display:inline-block;
+                            flex:0 0 6px;
+                        "
+                    ></span>
+
+                    ${comercio.tag || comercio.categoria}
+
+                </span>
+
                 <div class="card-thumb-inner"></div>
+
             </div>
+
 
             <div class="card-body">
 
                 <h3 class="card-name">
                     ${comercio.nombre}
                 </h3>
+
 
                 <p class="card-address">
 
@@ -1113,6 +1276,7 @@ function renderCard(comercio, index) {
                         stroke-linecap="round"
                         stroke-linejoin="round"
                     >
+
                         <path
                             d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0Z"
                         />
@@ -1122,13 +1286,121 @@ function renderCard(comercio, index) {
                             cy="10"
                             r="3"
                         />
+
                     </svg>
 
                     ${comercio.direccion}
 
                 </p>
 
-                ${contactoHtml}
+
+                <div
+                    style="
+                        font-size:.85rem;
+                        color:var(--navy);
+                        opacity:.75;
+                        line-height:1.55;
+                        display:flex;
+                        flex-direction:column;
+                        gap:.4rem;
+                        margin-top:.5rem;
+                    "
+                >
+
+                    ${
+                        comercio.telefono
+                            ? `
+                                <span
+                                    style="
+                                        display:flex;
+                                        align-items:center;
+                                        gap:.4rem;
+                                    "
+                                >
+
+                                    <svg
+                                        viewBox="0 0 24 24"
+                                        width="14"
+                                        height="14"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                    >
+
+                                        <path
+                                            d="M22 16.92v3a2 2 0 0 1-2.18 2
+                                            19.79 19.79 0 0 1-8.63-3.07
+                                            19.5 19.5 0 0 1-6-6
+                                            19.79 19.79 0 0 1-3.07-8.67
+                                            A2 2 0 0 1 4.11 2h3
+                                            a2 2 0 0 1 2 1.72
+                                            12.84 12.84 0 0 0 .7 2.81
+                                            2 2 0 0 1-.45 2.11
+                                            L8.09 9.91a16 16 0 0 0 6 6
+                                            l1.27-1.27a2 2 0 0 1 2.11-.45
+                                            12.84 12.84 0 0 0 2.81.7
+                                            A2 2 0 0 1 22 16.92z"
+                                        ></path>
+
+                                    </svg>
+
+                                    ${comercio.telefono}
+
+                                </span>
+                            `
+                            : ""
+                    }
+
+
+                    ${
+                        comercio.correo
+                            ? `
+                                <span
+                                    style="
+                                        display:flex;
+                                        align-items:center;
+                                        gap:.4rem;
+                                    "
+                                >
+
+                                    <svg
+                                        viewBox="0 0 24 24"
+                                        width="14"
+                                        height="14"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        stroke-width="2"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                    >
+
+                                        <rect
+                                            width="20"
+                                            height="16"
+                                            x="2"
+                                            y="4"
+                                            rx="2"
+                                        ></rect>
+
+                                        <path
+                                            d="m22 7-8.97 5.7
+                                            a1.94 1.94 0 0 1-2.06 0
+                                            L2 7"
+                                        ></path>
+
+                                    </svg>
+
+                                    ${comercio.correo}
+
+                                </span>
+                            `
+                            : ""
+                    }
+
+                </div>
+
 
                 <div class="card-footer">
 
@@ -1140,7 +1412,9 @@ function renderCard(comercio, index) {
 
                         <span
                             style="
-                                color:${estado.open ? "#22c55e" : "#ef4444"};
+                                color:${estado.open
+                                    ? "#22c55e"
+                                    : "#ef4444"};
                                 font-weight:600;
                             "
                         >
@@ -1149,10 +1423,12 @@ function renderCard(comercio, index) {
 
                     </span>
 
+
                     <span
                         class="card-cta"
                         aria-label="Ver más sobre ${comercio.nombre}"
                     >
+
                         <svg
                             viewBox="0 0 24 24"
                             fill="none"
@@ -1160,10 +1436,13 @@ function renderCard(comercio, index) {
                             stroke-linecap="round"
                             stroke-linejoin="round"
                         >
+
                             <path
                                 d="M5 12h14M12 5l7 7-7 7"
                             />
+
                         </svg>
+
                     </span>
 
                 </div>
@@ -1174,26 +1453,45 @@ function renderCard(comercio, index) {
     `;
 }
 
+
+// ============================================================
+// GRID
+// ============================================================
+
 function renderGrid() {
+
     const grid =
-        document.getElementById("commerceGrid");
+        document.getElementById(
+            "commerceGrid"
+        );
 
     const countEl =
-        document.getElementById("resultsCount");
+        document.getElementById(
+            "resultsCount"
+        );
 
     if (!grid || !countEl) return;
 
-    const filtered = getFiltered();
+    const filtered =
+        getFiltered();
 
     const totalPages =
-        Math.ceil(filtered.length / PER_PAGE) || 1;
+        Math.ceil(
+            filtered.length /
+            PER_PAGE
+        ) || 1;
 
-    if (currentPage > totalPages) {
-        currentPage = totalPages;
+    if (
+        currentPage >
+        totalPages
+    ) {
+        currentPage =
+            totalPages;
     }
 
     const start =
-        (currentPage - 1) * PER_PAGE;
+        (currentPage - 1) *
+        PER_PAGE;
 
     const end =
         Math.min(
@@ -1202,16 +1500,27 @@ function renderGrid() {
         );
 
     const pageItems =
-        filtered.slice(start, end);
+        filtered.slice(
+            start,
+            end
+        );
 
-    grid.classList.remove("ready");
-    grid.classList.add("filtering");
+    grid.classList.remove(
+        "ready"
+    );
+
+    grid.classList.add(
+        "filtering"
+    );
 
     setTimeout(() => {
 
-        if (filtered.length === 0) {
+        if (
+            filtered.length === 0
+        ) {
 
             grid.innerHTML = `
+
                 <div class="empty-state">
 
                     <div class="empty-icon">
@@ -1233,52 +1542,69 @@ function renderGrid() {
 
             grid.innerHTML =
                 pageItems
-                    .map((c, i) =>
-                        renderCard(c, i)
+                    .map(
+                        (comercio, i) =>
+                            renderCard(
+                                comercio,
+                                i
+                            )
                     )
                     .join("");
-
         }
 
-        if (filtered.length === 0) {
+
+        if (
+            filtered.length === 0
+        ) {
 
             countEl.innerHTML =
                 `<strong>0</strong> comercios`;
 
         } else {
 
-            const from = start + 1;
-            const to = end;
-
             countEl.innerHTML =
-                filtered.length === COMERCIOS.length
-
-                    ? `Mostrando <strong>${from}–${to}</strong> de <strong>${filtered.length}</strong> comercios`
-
-                    : `Mostrando <strong>${from}–${to}</strong> de <strong>${filtered.length}</strong> coincidencias`;
+                `Mostrando <strong>${start + 1}–${end}</strong> de <strong>${filtered.length}</strong> comercios`;
         }
 
-        grid.classList.remove("filtering");
-        grid.classList.add("ready");
 
-        renderPagination(totalPages);
+        grid.classList.remove(
+            "filtering"
+        );
+
+        grid.classList.add(
+            "ready"
+        );
+
+
+        renderPagination(
+            totalPages
+        );
 
     }, 140);
 }
 
+
+// ============================================================
+// FILTROS
+// ============================================================
+
 function renderFilters() {
 
     const wrap =
-        document.querySelector(".filters");
+        document.querySelector(
+            ".filters"
+        );
 
     if (!wrap) return;
 
     const label =
-        wrap.querySelector(".filter-label");
+        wrap.querySelector(
+            ".filter-label"
+        );
 
     if (!label) return;
 
-    const pills =
+    const html =
         CATEGORIES
             .map(cat => {
 
@@ -1286,7 +1612,9 @@ function renderFilters() {
                     cat.id === "todos"
                         ? COMERCIOS.length
                         : COMERCIOS.filter(
-                            c => c.categoria === cat.id
+                            c =>
+                                c.categoria ===
+                                cat.id
                         ).length;
 
                 if (count === 0) {
@@ -1294,67 +1622,86 @@ function renderFilters() {
                 }
 
                 const isActive =
-                    activeCategory === cat.id;
+                    activeCategory ===
+                    cat.id;
 
                 return `
+
                     <button
                         class="filter-btn${isActive ? " active" : ""}"
                         data-cat="${cat.id}"
                         aria-pressed="${isActive}"
-                        title="${cat.label}"
                     >
-                        ${cat.emoji
-                            ? `<span>${cat.emoji}</span>`
-                            : ""
+
+                        ${
+                            cat.emoji
+                                ? `<span>${cat.emoji}</span>`
+                                : ""
                         }
 
                         ${cat.label}
 
                         ${
                             cat.id !== "todos"
-                                ? `<span class="filter-count">${count}</span>`
+                                ? `
+                                    <span class="filter-count">
+                                        ${count}
+                                    </span>
+                                `
                                 : ""
                         }
+
                     </button>
+
                 `;
             })
             .join("");
 
+
     wrap.innerHTML = "";
 
-    wrap.appendChild(label);
+    wrap.appendChild(
+        label
+    );
 
     wrap.insertAdjacentHTML(
         "beforeend",
-        pills
+        html
     );
 
-    wrap
-        .querySelectorAll(".filter-btn")
-        .forEach(btn => {
 
-            btn.addEventListener(
+    wrap
+        .querySelectorAll(
+            ".filter-btn"
+        )
+        .forEach(button => {
+
+            button.addEventListener(
                 "click",
                 () => {
 
                     activeCategory =
-                        btn.dataset.cat;
+                        button.dataset.cat;
 
-                    currentPage = 1;
+                    currentPage =
+                        1;
 
                     wrap
-                        .querySelectorAll(".filter-btn")
-                        .forEach(b => {
+                        .querySelectorAll(
+                            ".filter-btn"
+                        )
+                        .forEach(btn => {
 
                             const active =
-                                b.dataset.cat === activeCategory;
+                                btn.dataset.cat ===
+                                activeCategory;
 
-                            b.classList.toggle(
+                            btn.classList.toggle(
                                 "active",
                                 active
                             );
 
-                            b.setAttribute(
+                            btn.setAttribute(
                                 "aria-pressed",
                                 active
                             );
@@ -1366,11 +1713,21 @@ function renderFilters() {
         });
 }
 
+
+// ============================================================
+// BÚSQUEDA
+// ============================================================
+
 const searchInput =
-    document.getElementById("searchInput");
+    document.getElementById(
+        "searchInput"
+    );
 
 const searchClear =
-    document.getElementById("searchClear");
+    document.getElementById(
+        "searchClear"
+    );
+
 
 if (searchInput) {
 
@@ -1381,9 +1738,11 @@ if (searchInput) {
             searchQuery =
                 searchInput.value;
 
-            currentPage = 1;
+            currentPage =
+                1;
 
             if (searchClear) {
+
                 searchClear.classList.toggle(
                     "visible",
                     searchQuery.length > 0
@@ -1395,13 +1754,17 @@ if (searchInput) {
     );
 }
 
+
 if (searchClear) {
 
     searchClear.addEventListener(
         "click",
         () => {
 
-            searchInput.value = "";
+            if (searchInput) {
+                searchInput.value = "";
+                searchInput.focus();
+            }
 
             searchQuery = "";
 
@@ -1411,158 +1774,180 @@ if (searchClear) {
                 "visible"
             );
 
-            searchInput.focus();
-
             renderGrid();
         }
     );
 }
 
+
+// ============================================================
+// ORDENAR
+// ============================================================
+
 const sortSelect =
-    document.getElementById("sortSelect");
+    document.getElementById(
+        "sortSelect"
+    );
 
 if (sortSelect) {
 
     sortSelect.addEventListener(
         "change",
-        e => {
+        event => {
 
             sortOrder =
-                e.target.value;
+                event.target.value;
 
-            currentPage = 1;
+            currentPage =
+                1;
 
             renderGrid();
         }
     );
 }
 
-function renderPagination(totalPages) {
 
-    const pg =
-        document.getElementById("pagination");
+// ============================================================
+// PAGINACIÓN
+// ============================================================
 
-    if (!pg) return;
+function renderPagination(
+    totalPages
+) {
+
+    const pagination =
+        document.getElementById(
+            "pagination"
+        );
+
+    if (!pagination) return;
+
 
     if (totalPages <= 1) {
 
-        pg.innerHTML = "";
+        pagination.innerHTML = "";
 
         return;
     }
 
-    function getPageNumbers(
-        current,
-        total
-    ) {
 
-        if (total <= 7) {
+    const prevSvg = `
 
-            return Array.from(
-                { length: total },
-                (_, i) => i + 1
-            );
-        }
+        <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+        >
 
-        const pages =
-            new Set([
-                1,
-                total,
-                current
-            ]);
+            <path
+                d="M15 18l-6-6 6-6"
+            />
 
-        if (current > 1) {
-            pages.add(current - 1);
-        }
+        </svg>
 
-        if (current < total) {
-            pages.add(current + 1);
-        }
+    `;
 
-        const sorted =
-            [...pages].sort(
-                (a, b) => a - b
-            );
 
-        const result = [];
+    const nextSvg = `
+
+        <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+        >
+
+            <path
+                d="M9 18l6-6-6-6"
+            />
+
+        </svg>
+
+    `;
+
+
+    let pages = [];
+
+
+    if (totalPages <= 7) {
 
         for (
-            let i = 0;
-            i < sorted.length;
+            let i = 1;
+            i <= totalPages;
             i++
         ) {
-
-            if (
-                i > 0 &&
-                sorted[i] -
-                sorted[i - 1] > 1
-            ) {
-                result.push("...");
-            }
-
-            result.push(sorted[i]);
+            pages.push(i);
         }
 
-        return result;
+    } else {
+
+        pages = [
+            1,
+            "...",
+            totalPages
+        ];
+
+        if (
+            currentPage > 1 &&
+            currentPage < totalPages
+        ) {
+
+            pages.splice(
+                1,
+                0,
+                currentPage
+            );
+        }
     }
 
-    const svgPrev = `
-        <svg
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-        >
-            <path d="M15 18l-6-6 6-6"/>
-        </svg>
-    `;
 
-    const svgNext = `
-        <svg
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-        >
-            <path d="M9 18l6-6-6-6"/>
-        </svg>
-    `;
+    pagination.innerHTML = `
 
-    const pageNums =
-        getPageNumbers(
-            currentPage,
-            totalPages
-        );
-
-    pg.innerHTML = `
         <button
             class="page-btn"
             data-action="prev"
             aria-label="Anterior"
             ${currentPage === 1 ? "disabled" : ""}
         >
-            ${svgPrev}
+
+            ${prevSvg}
+
         </button>
 
-        ${pageNums
-            .map(p =>
-                p === "..."
 
-                    ? `<span class="page-ellipsis">…</span>`
+        ${pages
+            .map(page => {
 
-                    : `
-                        <button
-                            class="page-btn${p === currentPage ? " active" : ""}"
-                            data-page="${p}"
-                        >
-                            ${p}
-                        </button>
-                    `
-            )
+                if (
+                    page === "..."
+                ) {
+
+                    return `
+                        <span class="page-ellipsis">
+                            …
+                        </span>
+                    `;
+                }
+
+                return `
+
+                    <button
+                        class="page-btn${page === currentPage ? " active" : ""}"
+                        data-page="${page}"
+                    >
+
+                        ${page}
+
+                    </button>
+
+                `;
+            })
             .join("")
         }
+
 
         <button
             class="page-btn"
@@ -1570,29 +1955,33 @@ function renderPagination(totalPages) {
             aria-label="Siguiente"
             ${currentPage === totalPages ? "disabled" : ""}
         >
-            ${svgNext}
+
+            ${nextSvg}
+
         </button>
+
     `;
 
-    pg
+
+    pagination
         .querySelectorAll(
             ".page-btn:not([disabled])"
         )
-        .forEach(btn => {
+        .forEach(button => {
 
-            btn.addEventListener(
+            button.addEventListener(
                 "click",
                 () => {
 
                     if (
-                        btn.dataset.action ===
+                        button.dataset.action ===
                         "prev"
                     ) {
 
                         currentPage--;
 
                     } else if (
-                        btn.dataset.action ===
+                        button.dataset.action ===
                         "next"
                     ) {
 
@@ -1602,9 +1991,10 @@ function renderPagination(totalPages) {
 
                         currentPage =
                             Number(
-                                btn.dataset.page
+                                button.dataset.page
                             );
                     }
+
 
                     const grid =
                         document.getElementById(
@@ -1619,11 +2009,18 @@ function renderPagination(totalPages) {
                         });
                     }
 
+
                     renderGrid();
                 }
             );
         });
 }
 
+
+// ============================================================
+// ARRANQUE
+// ============================================================
+
 renderFilters();
+
 renderGrid();

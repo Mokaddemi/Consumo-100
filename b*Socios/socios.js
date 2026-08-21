@@ -1,16 +1,21 @@
-/* ─── Menú móvil ─── */
 (function () {
     const navEl = document.querySelector('nav');
+    if (!navEl) return;
+
     const burger = navEl.querySelector('.nav-hamburger, .nav-burger');
     if (!burger) return;
-    burger.addEventListener('click', () => navEl.classList.toggle('mobile-open'));
-    navEl.querySelectorAll('.nav-links a').forEach(link =>
-        link.addEventListener('click', () => navEl.classList.remove('mobile-open'))
-    );
+
+    burger.addEventListener('click', () => {
+        navEl.classList.toggle('mobile-open');
+    });
+
+    navEl.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            navEl.classList.remove('mobile-open');
+        });
+    });
 })();
 
-
-/* ─── 1. DATA ─── */
 const COMERCIOS = [
     {
         id: 1,
@@ -23,10 +28,8 @@ const COMERCIOS = [
         cierraM: "21:30",
         abreT: "null",
         cierraT: "null",
-        emoji: "☁️",
         tag: "Agencia"
     },
-
     {
         id: 2,
         nombre: "Viajes Sandratour",
@@ -38,10 +41,8 @@ const COMERCIOS = [
         cierraM: "13:30",
         abreT: "17:30",
         cierraT: "19:00",
-        emoji: "🥩",
         tag: "Carnicería"
     },
-
     {
         id: 3,
         nombre: "Lavadero Rapiz Santomera",
@@ -53,10 +54,8 @@ const COMERCIOS = [
         cierraM: "13:30",
         abreT: "17:30",
         cierraT: "19:00",
-        emoji: "👗",
         tag: "Ropa & Accesorios"
     },
-
     {
         id: 4,
         nombre: "María Torres. Peluquería y estética",
@@ -68,10 +67,8 @@ const COMERCIOS = [
         cierraM: "13:30",
         abreT: "16:30",
         cierraT: "20:30",
-        emoji: "👗",
         tag: "Ropa & Accesorios"
     },
-
     {
         id: 5,
         nombre: "Lidia Pelu",
@@ -83,10 +80,8 @@ const COMERCIOS = [
         cierraM: "13:30",
         abreT: "16:30",
         cierraT: "20:30",
-        emoji: "👗",
         tag: "Ropa & Accesorios"
     },
-
     {
         id: 6,
         nombre: "REGUERPC",
@@ -98,10 +93,8 @@ const COMERCIOS = [
         cierraM: "20:30",
         abreT: "null",
         cierraT: "null",
-        emoji: "👗",
         tag: "Ropa & Accesorios"
     },
-
     {
         id: 7,
         nombre: "Inmobiliaria Mundicasa",
@@ -113,10 +106,8 @@ const COMERCIOS = [
         cierraM: "14:00",
         abreT: "null",
         cierraT: "null",
-        emoji: "👗",
         tag: "Ropa & Accesorios"
     },
-
     {
         id: 8,
         nombre: "La despensa de Pedro bodega",
@@ -128,10 +119,8 @@ const COMERCIOS = [
         cierraM: "19:00",
         abreT: "null",
         cierraT: "null",
-        emoji: "👗",
         tag: "Ropa & Accesorios"
     },
-
     {
         id: 9,
         nombre: "Diego Friclima s.l.",
@@ -143,10 +132,8 @@ const COMERCIOS = [
         cierraM: "14:00",
         abreT: "16:00",
         cierraT: "18:30",
-        emoji: "👗",
         tag: "Ropa & Accesorios"
     },
-
     {
         id: 10,
         nombre: "Lubespa Distribuciónes del Levante SL",
@@ -158,10 +145,8 @@ const COMERCIOS = [
         cierraM: "14:00",
         abreT: "16:00",
         cierraT: "20:00",
-        emoji: "👗",
         tag: "Ropa & Accesorios"
     },
-
     {
         id: 11,
         nombre: "Tamara Bellot Estilistas",
@@ -173,10 +158,8 @@ const COMERCIOS = [
         cierraM: "null",
         abreT: "null",
         cierraT: "null",
-        emoji: "👗",
         tag: "Ropa & Accesorios"
     },
-
     {
         id: 12,
         nombre: "LIBRERÍA CIRCULO",
@@ -188,10 +171,8 @@ const COMERCIOS = [
         cierraM: "14:00",
         abreT: "16:30",
         cierraT: "20:30",
-        emoji: "👗",
         tag: "Ropa & Accesorios"
     },
-
     {
         id: 13,
         nombre: "FCO.ALCARAZ TOMAS E HIJOS(OPEL SANTOMERA)",
@@ -203,10 +184,8 @@ const COMERCIOS = [
         cierraM: "14:00",
         abreT: "16:30",
         cierraT: "20:00",
-        emoji: "👗",
         tag: "Ropa & Accesorios"
     },
-
     {
         id: 14,
         nombre: "D'Mia Collection Passione",
@@ -218,10 +197,8 @@ const COMERCIOS = [
         cierraM: "14:00",
         abreT: "17:00",
         cierraT: "20:30",
-        emoji: "👗",
         tag: "Ropa & Accesorios"
     },
-
     {
         id: 15,
         nombre: "Estación de Servicio Alhama",
@@ -233,10 +210,8 @@ const COMERCIOS = [
         cierraM: "14:30",
         abreT: "17:00",
         cierraT: "20:30",
-        emoji: "👗",
         tag: "Ropa & Accesorios"
     },
-
     {
         id: 16,
         nombre: "Esthilinea",
@@ -248,10 +223,8 @@ const COMERCIOS = [
         cierraM: "20:00",
         abreT: "null",
         cierraT: "null",
-        emoji: "👗",
         tag: "Ropa & Accesorios"
     },
-
     {
         id: 17,
         nombre: "NEO Peluqueros",
@@ -263,10 +236,8 @@ const COMERCIOS = [
         cierraM: "13:00",
         abreT: "16:30",
         cierraT: "20:00",
-        emoji: "👗",
         tag: "Ropa & Accesorios"
     },
-
     {
         id: 18,
         nombre: "AUTOMATICOS JERONIMO, SL",
@@ -278,10 +249,8 @@ const COMERCIOS = [
         cierraM: "null",
         abreT: "null",
         cierraT: "null",
-        emoji: "👗",
         tag: "Ropa & Accesorios"
     },
-
     {
         id: 19,
         nombre: "Moda y Complementos ISALA",
@@ -293,10 +262,8 @@ const COMERCIOS = [
         cierraM: "13:30",
         abreT: "17:00",
         cierraT: "20:00",
-        emoji: "👗",
         tag: "Ropa & Accesorios"
     },
-
     {
         id: 20,
         nombre: "Encarna Ortíz Estética Integral",
@@ -308,10 +275,8 @@ const COMERCIOS = [
         cierraM: "13:30",
         abreT: "15:30",
         cierraT: "21:00",
-        emoji: "👗",
         tag: "Ropa & Accesorios"
     },
-
     {
         id: 21,
         nombre: "Cortinas el Metro",
@@ -323,10 +288,8 @@ const COMERCIOS = [
         cierraM: "13:30",
         abreT: "17:00",
         cierraT: "20:30",
-        emoji: "👗",
         tag: "Ropa & Accesorios"
     },
-
     {
         id: 22,
         nombre: "optica davinci",
@@ -338,10 +301,8 @@ const COMERCIOS = [
         cierraM: "13:30",
         abreT: "17:00",
         cierraT: "20:30",
-        emoji: "👗",
         tag: "Ropa & Accesorios"
     },
-
     {
         id: 23,
         nombre: "Amarillo Limón Mercería y Lencería",
@@ -353,10 +314,8 @@ const COMERCIOS = [
         cierraM: "13:30",
         abreT: "17:00",
         cierraT: "20:00",
-        emoji: "👗",
         tag: "Ropa & Accesorios"
     },
-
     {
         id: 24,
         nombre: "Carnicería Baca",
@@ -368,10 +327,8 @@ const COMERCIOS = [
         cierraM: "14:00",
         abreT: "null",
         cierraT: "null",
-        emoji: "👗",
         tag: "Ropa & Accesorios"
     },
-
     {
         id: 25,
         nombre: "Estética y peluquería L&mami",
@@ -383,10 +340,8 @@ const COMERCIOS = [
         cierraM: "13:30",
         abreT: "16:00",
         cierraT: "20:00",
-        emoji: "👗",
         tag: "Ropa & Accesorios"
     },
-
     {
         id: 26,
         nombre: "OPTICA TESSA",
@@ -398,10 +353,8 @@ const COMERCIOS = [
         cierraM: "13:30",
         abreT: "16:30",
         cierraT: "20:00",
-        emoji: "👗",
         tag: "Ropa & Accesorios"
     },
-
     {
         id: 27,
         nombre: "EL KIOSKO",
@@ -413,10 +366,8 @@ const COMERCIOS = [
         cierraM: "14:00",
         abreT: "17:00",
         cierraT: "20:30",
-        emoji: "👗",
         tag: "Ropa & Accesorios"
     },
-
     {
         id: 28,
         nombre: "Deportes Alextani",
@@ -428,10 +379,8 @@ const COMERCIOS = [
         cierraM: "13:30",
         abreT: "17:30",
         cierraT: "21:00",
-        emoji: "👗",
         tag: "Ropa & Accesorios"
     },
-
     {
         id: 29,
         nombre: "HERBOSANA",
@@ -443,10 +392,8 @@ const COMERCIOS = [
         cierraM: "13:30",
         abreT: "17:00",
         cierraT: "20:00",
-        emoji: "👗",
         tag: "Ropa & Accesorios"
     },
-
     {
         id: 30,
         nombre: "CENTRO DE NUTRICION MIELGO",
@@ -458,10 +405,8 @@ const COMERCIOS = [
         cierraM: "14:00",
         abreT: "16:30",
         cierraT: "20:30",
-        emoji: "🍪",
         tag: "Alimentacion"
     },
-
     {
         id: 31,
         nombre: "RADIO SURESTE COPE",
@@ -473,10 +418,8 @@ const COMERCIOS = [
         cierraM: "null",
         abreT: "null",
         cierraT: "null",
-        emoji: "📻",
         tag: "Radio"
     },
-
     {
         id: 32,
         nombre: "SEXYSHOP Juguetería para Adultos",
@@ -488,10 +431,8 @@ const COMERCIOS = [
         cierraM: "14:00",
         abreT: "17:00",
         cierraT: "21:00",
-        emoji: "🫦",
         tag: "Plazer"
     },
-
     {
         id: 33,
         nombre: "Huellamoda",
@@ -503,10 +444,8 @@ const COMERCIOS = [
         cierraM: "13:30",
         abreT: "17:30",
         cierraT: "20:30",
-        emoji: "👗",
         tag: "Moda"
     },
-
     {
         id: 34,
         nombre: "SERVIPIZZA",
@@ -518,10 +457,8 @@ const COMERCIOS = [
         cierraM: "23:30",
         abreT: "null",
         cierraT: "null",
-        emoji: "🍕",
         tag: "Hostelería"
     },
-
     {
         id: 35,
         nombre: "El Metro Hombre",
@@ -533,10 +470,8 @@ const COMERCIOS = [
         cierraM: "13:30",
         abreT: "17:00",
         cierraT: "20:30",
-        emoji: "👕",
         tag: "Moda"
     },
-
     {
         id: 36,
         nombre: "Genesis Boutique",
@@ -548,10 +483,8 @@ const COMERCIOS = [
         cierraM: "13:30",
         abreT: "17:00",
         cierraT: "20:30",
-        emoji: "👕",
         tag: "Moda"
     },
-
     {
         id: 37,
         nombre: "RB Mª Dolores Rejuvenecimiento & Bienestar",
@@ -563,10 +496,8 @@ const COMERCIOS = [
         cierraM: "14:00",
         abreT: "15:00",
         cierraT: "20:30",
-        emoji: "🌺",
         tag: "Servicios"
     },
-
     {
         id: 38,
         nombre: "Reche",
@@ -578,10 +509,8 @@ const COMERCIOS = [
         cierraM: "13:45",
         abreT: "17:00",
         cierraT: "20:30",
-        emoji: "👔",
         tag: "Moda"
     },
-
     {
         id: 39,
         nombre: "pizzería pinocho",
@@ -593,10 +522,8 @@ const COMERCIOS = [
         cierraM: "23:00",
         abreT: "null",
         cierraT: "null",
-        emoji: "🍕",
         tag: "Alimentacion"
     },
-
     {
         id: 40,
         nombre: "AMPARO BORRÁS",
@@ -608,10 +535,8 @@ const COMERCIOS = [
         cierraM: "20:00",
         abreT: "null",
         cierraT: "null",
-        emoji: "💄",
         tag: "Moda"
     },
-
     {
         id: 41,
         nombre: "Marce Soto Clinic Terapias Alternativas",
@@ -623,10 +548,8 @@ const COMERCIOS = [
         cierraM: "21:00",
         abreT: "null",
         cierraT: "null",
-        emoji: "💄",
         tag: "Moda"
     },
-
     {
         id: 42,
         nombre: "Cortinas el metro",
@@ -638,10 +561,8 @@ const COMERCIOS = [
         cierraM: "13:30",
         abreT: "17:00",
         cierraT: "20:30",
-        emoji: "🏠",
         tag: "Hogar"
     },
-
     {
         id: 43,
         nombre: "Dsastre Santomera",
@@ -653,10 +574,8 @@ const COMERCIOS = [
         cierraM: "20:30",
         abreT: "null",
         cierraT: "null",
-        emoji: "👕",
         tag: "Moda"
     },
-
     {
         id: 44,
         nombre: "Hotel Santos",
@@ -668,10 +587,8 @@ const COMERCIOS = [
         cierraM: "",
         abreT: "",
         cierraT: "",
-        emoji: "",
         tag: "Alimentacion"
     },
-
     {
         id: 45,
         nombre: "Confitería Salmerón",
@@ -683,10 +600,8 @@ const COMERCIOS = [
         cierraM: "14:00",
         abreT: "17:00",
         cierraT: "21:00",
-        emoji: "🥖",
         tag: "Alimentacion"
     },
-
     {
         id: 46,
         nombre: "Frutería Hnos Ortín Ayllón",
@@ -698,10 +613,8 @@ const COMERCIOS = [
         cierraM: "13:30",
         abreT: "13:30",
         cierraT: "19:00",
-        emoji: "🍌",
         tag: "Alimentacion"
     },
-
     {
         id: 47,
         nombre: "Pintauñas",
@@ -713,10 +626,8 @@ const COMERCIOS = [
         cierraM: "",
         abreT: "",
         cierraT: "",
-        emoji: "💅",
         tag: "Moda"
     },
-
     {
         id: 48,
         nombre: "African Clinica Veterinaria",
@@ -728,10 +639,8 @@ const COMERCIOS = [
         cierraM: "19:00",
         abreT: "null",
         cierraT: "null",
-        emoji: "🐾",
         tag: "Servicios"
     },
-
     {
         id: 49,
         nombre: "Sergio Planes peluqueros",
@@ -743,10 +652,8 @@ const COMERCIOS = [
         cierraM: "14:00",
         abreT: "16:00",
         cierraT: "21:00",
-        emoji: "👩🏻‍🦳",
         tag: "Moda"
     },
-
     {
         id: 50,
         nombre: "Imprenta Joaquín cascales",
@@ -758,10 +665,8 @@ const COMERCIOS = [
         cierraM: "14:00",
         abreT: "16:00",
         cierraT: "19:00",
-        emoji: "🖨️",
         tag: "Servicios"
     },
-
     {
         id: 51,
         nombre: "Mercería Alarcon",
@@ -773,10 +678,8 @@ const COMERCIOS = [
         cierraM: "14:00",
         abreT: "16:00",
         cierraT: "20:00",
-        emoji: "🏪",
         tag: "Cultura"
     },
-
     {
         id: 52,
         nombre: "TIVIPARK",
@@ -788,10 +691,8 @@ const COMERCIOS = [
         cierraM: "13:00",
         abreT: "17:00",
         cierraT: "21:00",
-        emoji: "🥖",
         tag: "Alimentacion"
     },
-
     {
         id: 53,
         nombre: "CLÍNICA SINCROST",
@@ -803,10 +704,8 @@ const COMERCIOS = [
         cierraM: "20:00",
         abreT: "null",
         cierraT: "null",
-        emoji: "🪥",
         tag: "Hogar"
     },
-
     {
         id: 54,
         nombre: "Recordarte Fotografía",
@@ -818,10 +717,8 @@ const COMERCIOS = [
         cierraM: "13:30",
         abreT: "17:00",
         cierraT: "20:00",
-        emoji: "📸",
         tag: "Servicios"
     },
-
     {
         id: 55,
         nombre: "Gestoria Ruiz Garcia",
@@ -833,10 +730,8 @@ const COMERCIOS = [
         cierraM: "14:30",
         abreT: "16:30",
         cierraT: "20:00",
-        emoji: "📄",
         tag: "Servicios"
     },
-
     {
         id: 56,
         nombre: "Hokuhome",
@@ -848,10 +743,8 @@ const COMERCIOS = [
         cierraM: "13:30",
         abreT: "16:30",
         cierraT: "20:30",
-        emoji: "👖",
         tag: "Servicios"
     },
-
     {
         id: 57,
         nombre: "La Pelu de Lola 2.0",
@@ -863,10 +756,8 @@ const COMERCIOS = [
         cierraM: "",
         abreT: "",
         cierraT: "",
-        emoji: "👩🏻‍🦳",
         tag: "Moda"
     },
-
     {
         id: 58,
         nombre: "Limón gastrobar santomera",
@@ -878,10 +769,8 @@ const COMERCIOS = [
         cierraM: "16:00",
         abreT: "null",
         cierraT: "null",
-        emoji: "🍋",
         tag: "Servicios"
     },
-
     {
         id: 59,
         nombre: "DÑA ENGRACIA",
@@ -893,10 +782,8 @@ const COMERCIOS = [
         cierraM: "24:00",
         abreT: "null",
         cierraT: "null",
-        emoji: "🥖",
         tag: "Alimentacion"
     },
-
     {
         id: 60,
         nombre: "Camisería Vicente",
@@ -908,13 +795,10 @@ const COMERCIOS = [
         cierraM: "14:00",
         abreT: "17:00",
         cierraT: "21:00",
-        emoji: "👗",
         tag: "Moda"
     }
 ];
 
-
-/* ─── 2. CATEGORY CONFIG ─── */
 const CATEGORIES = [
     { id: "todos", label: "Todos", emoji: null },
     { id: "Alimentación", label: "Alimentación", emoji: "🥗" },
@@ -925,26 +809,23 @@ const CATEGORIES = [
     { id: "Deporte", label: "Deporte", emoji: "⚽" },
     { id: "Hogar", label: "Hogar", emoji: "🛋️" },
     { id: "Cultura", label: "Cultura", emoji: "📚" },
-    { id: "Marketing", label: "Marketing", emoji: "☁️" },
+    { id: "Marketing", label: "Marketing", emoji: "☁️" }
 ];
 
-
-/* ─── 3. STATE ─── */
 let activeCategory = "todos";
 let searchQuery = "";
 let sortOrder = "nombre";
 let currentPage = 1;
+
 const PER_PAGE = 24;
 
-
-/* ─── 4. HELPERS ─── */
 function slugify(str) {
-    return str.toLowerCase()
+    return str
+        .toLowerCase()
         .normalize("NFD")
         .replace(/[\u0300-\u036f]/g, "")
         .replace(/\s+/g, "-");
 }
-
 
 function getFiltered() {
     let list = [...COMERCIOS];
@@ -960,15 +841,33 @@ function getFiltered() {
             .replace(/[\u0300-\u036f]/g, "");
 
         list = list.filter(c =>
-            c.nombre.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").includes(q) ||
-            c.categoria.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").includes(q) ||
-            c.direccion.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").includes(q) ||
-            (c.tag && c.tag.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").includes(q))
+            c.nombre.toLowerCase()
+                .normalize("NFD")
+                .replace(/[\u0300-\u036f]/g, "")
+                .includes(q) ||
+
+            c.categoria.toLowerCase()
+                .normalize("NFD")
+                .replace(/[\u0300-\u036f]/g, "")
+                .includes(q) ||
+
+            c.direccion.toLowerCase()
+                .normalize("NFD")
+                .replace(/[\u0300-\u036f]/g, "")
+                .includes(q) ||
+
+            (c.tag &&
+                c.tag.toLowerCase()
+                    .normalize("NFD")
+                    .replace(/[\u0300-\u036f]/g, "")
+                    .includes(q))
         );
     }
 
     if (sortOrder === "nombre") {
-        list.sort((a, b) => a.nombre.localeCompare(b.nombre, "es"));
+        list.sort((a, b) =>
+            a.nombre.localeCompare(b.nombre, "es")
+        );
     } else {
         list.sort((a, b) =>
             a.categoria.localeCompare(b.categoria, "es") ||
@@ -982,18 +881,20 @@ function getFiltered() {
     ];
 }
 
-
-/* ─── 5. ESTADO DEL COMERCIO ─── */
 function calcularEstado(abreM, cierraM, abreT, cierraT) {
     const ahora = new Date();
-    const minutosActuales = ahora.getHours() * 60 + ahora.getMinutes();
 
-    const aMin = (str) => {
+    const minutosActuales =
+        ahora.getHours() * 60 + ahora.getMinutes();
+
+    const aMin = str => {
         if (!str || str === "null") return null;
 
         const [h, m] = str.split(":").map(Number);
 
-        if (Number.isNaN(h) || Number.isNaN(m)) return null;
+        if (Number.isNaN(h) || Number.isNaN(m)) {
+            return null;
+        }
 
         return h * 60 + m;
     };
@@ -1029,13 +930,16 @@ function calcularEstado(abreM, cierraM, abreT, cierraT) {
     else {
         isOpen = false;
 
-        if (amAbre !== null && minutosActuales < amAbre) {
+        if (
+            amAbre !== null &&
+            minutosActuales < amAbre
+        ) {
             texto = `Cerrado · Abre a las ${abreM}`;
         }
 
         else if (
-            amCierra !== null &&
             pmAbre !== null &&
+            amCierra !== null &&
             minutosActuales >= amCierra &&
             minutosActuales < pmAbre
         ) {
@@ -1049,15 +953,36 @@ function calcularEstado(abreM, cierraM, abreT, cierraT) {
 
     return {
         open: isOpen,
-        texto: texto
+        texto
     };
 }
 
+/* COLORES ALEATORIOS PERO ESTABLES */
+function getCardColor(id) {
+    const colores = [
+        "linear-gradient(135deg, #dbeafe, #bfdbfe)",
+        "linear-gradient(135deg, #ede9fe, #ddd6fe)",
+        "linear-gradient(135deg, #fce7f3, #fbcfe8)",
+        "linear-gradient(135deg, #dcfce7, #bbf7d0)",
+        "linear-gradient(135deg, #fef3c7, #fde68a)",
+        "linear-gradient(135deg, #cffafe, #a5f3fc)",
+        "linear-gradient(135deg, #ffedd5, #fed7aa)",
+        "linear-gradient(135deg, #e0e7ff, #c7d2fe)",
+        "linear-gradient(135deg, #f3e8ff, #e9d5ff)",
+        "linear-gradient(135deg, #ccfbf1, #99f6e4)",
+        "linear-gradient(135deg, #fae8ff, #f5d0fe)",
+        "linear-gradient(135deg, #fef9c3, #fef08a)"
+    ];
 
-/* ─── 6. RENDER CARD ─── */
+    return colores[(Number(id) - 1) % colores.length];
+}
+
 function renderCard(comercio, index) {
-    const catSlug = slugify(comercio.categoria);
-    const featuredClass = comercio.featured ? " featured" : "";
+    const featuredClass =
+        comercio.featured ? " featured" : "";
+
+    const cardColor =
+        getCardColor(comercio.id);
 
     const estado = calcularEstado(
         comercio.abreM,
@@ -1066,31 +991,38 @@ function renderCard(comercio, index) {
         comercio.cierraT
     );
 
-    const hoursClass = estado.open ? "open" : "closed";
+    const hoursClass =
+        estado.open ? "open" : "closed";
 
-
-    /* ─── CONTACTO ─── */
     let contactoHtml = "";
 
     if (comercio.telefono || comercio.correo) {
 
         contactoHtml = `
-            <div style="
-                font-size:.85rem;
-                color:var(--navy);
-                opacity:.75;
-                line-height:1.55;
-                flex:1;
-                display:flex;
-                flex-direction:column;
-                gap:.4rem;
-                margin-top:.5rem;
-            ">
+            <div
+                style="
+                    font-size:.85rem;
+                    color:var(--navy);
+                    opacity:.75;
+                    line-height:1.55;
+                    flex:1;
+                    display:flex;
+                    flex-direction:column;
+                    gap:.4rem;
+                    margin-top:.5rem;
+                "
+            >
         `;
 
         if (comercio.telefono) {
             contactoHtml += `
-                <span style="display:flex;align-items:center;gap:.4rem;">
+                <span
+                    style="
+                        display:flex;
+                        align-items:center;
+                        gap:.4rem;
+                    "
+                >
                     <svg
                         viewBox="0 0 24 24"
                         width="14"
@@ -1103,6 +1035,7 @@ function renderCard(comercio, index) {
                     >
                         <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
                     </svg>
+
                     ${comercio.telefono}
                 </span>
             `;
@@ -1110,7 +1043,13 @@ function renderCard(comercio, index) {
 
         if (comercio.correo) {
             contactoHtml += `
-                <span style="display:flex;align-items:center;gap:.4rem;">
+                <span
+                    style="
+                        display:flex;
+                        align-items:center;
+                        gap:.4rem;
+                    "
+                >
                     <svg
                         viewBox="0 0 24 24"
                         width="14"
@@ -1121,9 +1060,17 @@ function renderCard(comercio, index) {
                         stroke-linecap="round"
                         stroke-linejoin="round"
                     >
-                        <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+                        <rect
+                            width="20"
+                            height="16"
+                            x="2"
+                            y="4"
+                            rx="2"
+                        ></rect>
+
                         <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
                     </svg>
+
                     ${comercio.correo}
                 </span>
             `;
@@ -1132,13 +1079,9 @@ function renderCard(comercio, index) {
         contactoHtml += `</div>`;
 
     } else {
-
         contactoHtml = `<div style="flex:1;"></div>`;
-
     }
 
-
-    /* ─── TARJETA ─── */
     return `
         <article
             class="card${featuredClass}"
@@ -1147,24 +1090,18 @@ function renderCard(comercio, index) {
             aria-label="${comercio.nombre}"
         >
 
-            <div class="card-thumb thumb-${catSlug}">
-
-                <div class="card-thumb-inner">
-                    <span style="
-                        font-size:${comercio.featured ? "5rem" : "4rem"};
-                        line-height:1;
-                    ">${comercio.emoji}</span>
-                </div>
-
+            <div
+                class="card-thumb"
+                style="background:${cardColor};"
+            >
+                <div class="card-thumb-inner"></div>
             </div>
-
 
             <div class="card-body">
 
                 <h3 class="card-name">
                     ${comercio.nombre}
                 </h3>
-
 
                 <p class="card-address">
 
@@ -1175,39 +1112,46 @@ function renderCard(comercio, index) {
                         stroke-linecap="round"
                         stroke-linejoin="round"
                     >
-                        <path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0Z"/>
-                        <circle cx="12" cy="10" r="3"/>
+                        <path
+                            d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0Z"
+                        />
+
+                        <circle
+                            cx="12"
+                            cy="10"
+                            r="3"
+                        />
                     </svg>
 
                     ${comercio.direccion}
 
                 </p>
 
-
                 ${contactoHtml}
-
 
                 <div class="card-footer">
 
                     <span class="card-hours">
 
-                        <span class="hours-dot ${hoursClass}"></span>
+                        <span
+                            class="hours-dot ${hoursClass}"
+                        ></span>
 
-                        <span style="
-                            color:${estado.open ? "#22c55e" : "#ef4444"};
-                            font-weight:600;
-                        ">
+                        <span
+                            style="
+                                color:${estado.open ? "#22c55e" : "#ef4444"};
+                                font-weight:600;
+                            "
+                        >
                             ${estado.texto}
                         </span>
 
                     </span>
 
-
                     <span
                         class="card-cta"
                         aria-label="Ver más sobre ${comercio.nombre}"
                     >
-
                         <svg
                             viewBox="0 0 24 24"
                             fill="none"
@@ -1215,9 +1159,10 @@ function renderCard(comercio, index) {
                             stroke-linecap="round"
                             stroke-linejoin="round"
                         >
-                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                            <path
+                                d="M5 12h14M12 5l7 7-7 7"
+                            />
                         </svg>
-
                     </span>
 
                 </div>
@@ -1228,29 +1173,38 @@ function renderCard(comercio, index) {
     `;
 }
 
-
-/* ─── 7. RENDER GRID ─── */
 function renderGrid() {
+    const grid =
+        document.getElementById("commerceGrid");
 
-    const grid = document.getElementById("commerceGrid");
-    const countEl = document.getElementById("resultsCount");
+    const countEl =
+        document.getElementById("resultsCount");
+
+    if (!grid || !countEl) return;
 
     const filtered = getFiltered();
 
-    const totalPages = Math.ceil(filtered.length / PER_PAGE) || 1;
+    const totalPages =
+        Math.ceil(filtered.length / PER_PAGE) || 1;
 
     if (currentPage > totalPages) {
         currentPage = totalPages;
     }
 
-    const start = (currentPage - 1) * PER_PAGE;
-    const end = Math.min(start + PER_PAGE, filtered.length);
+    const start =
+        (currentPage - 1) * PER_PAGE;
 
-    const pageItems = filtered.slice(start, end);
+    const end =
+        Math.min(
+            start + PER_PAGE,
+            filtered.length
+        );
+
+    const pageItems =
+        filtered.slice(start, end);
 
     grid.classList.remove("ready");
     grid.classList.add("filtering");
-
 
     setTimeout(() => {
 
@@ -1259,7 +1213,9 @@ function renderGrid() {
             grid.innerHTML = `
                 <div class="empty-state">
 
-                    <div class="empty-icon">🔍</div>
+                    <div class="empty-icon">
+                        🔍
+                    </div>
 
                     <h3 class="empty-title">
                         Sin resultados
@@ -1274,32 +1230,32 @@ function renderGrid() {
 
         } else {
 
-            grid.innerHTML = pageItems
-                .map((c, i) => renderCard(c, i))
-                .join("");
+            grid.innerHTML =
+                pageItems
+                    .map((c, i) =>
+                        renderCard(c, i)
+                    )
+                    .join("");
 
         }
 
-
         if (filtered.length === 0) {
 
-            countEl.innerHTML = `
-                <strong>0</strong> comercios
-            `;
+            countEl.innerHTML =
+                `<strong>0</strong> comercios`;
 
         } else {
 
             const from = start + 1;
             const to = end;
 
-            countEl.innerHTML = filtered.length === COMERCIOS.length
+            countEl.innerHTML =
+                filtered.length === COMERCIOS.length
 
-                ? `Mostrando <strong>${from}–${to}</strong> de <strong>${filtered.length}</strong> comercios`
+                    ? `Mostrando <strong>${from}–${to}</strong> de <strong>${filtered.length}</strong> comercios`
 
-                : `Mostrando <strong>${from}–${to}</strong> de <strong>${filtered.length}</strong> coincidencias`;
-
+                    : `Mostrando <strong>${from}–${to}</strong> de <strong>${filtered.length}</strong> coincidencias`;
         }
-
 
         grid.classList.remove("filtering");
         grid.classList.add("ready");
@@ -1309,157 +1265,195 @@ function renderGrid() {
     }, 140);
 }
 
-
-/* ─── 8. RENDER FILTER PILLS ─── */
 function renderFilters() {
 
-    const wrap = document.querySelector(".filters");
-    const label = wrap.querySelector(".filter-label");
+    const wrap =
+        document.querySelector(".filters");
 
+    if (!wrap) return;
 
-    const pills = CATEGORIES
-        .map(cat => {
+    const label =
+        wrap.querySelector(".filter-label");
 
-            const count =
-                cat.id === "todos"
-                    ? COMERCIOS.length
-                    : COMERCIOS.filter(c => c.categoria === cat.id).length;
+    if (!label) return;
 
-            if (count === 0) return "";
+    const pills =
+        CATEGORIES
+            .map(cat => {
 
-            const isActive = activeCategory === cat.id;
+                const count =
+                    cat.id === "todos"
+                        ? COMERCIOS.length
+                        : COMERCIOS.filter(
+                            c => c.categoria === cat.id
+                        ).length;
 
+                if (count === 0) {
+                    return "";
+                }
 
-            return `
-                <button
-                    class="filter-btn${isActive ? " active" : ""}"
-                    data-cat="${cat.id}"
-                    aria-pressed="${isActive}"
-                    title="${cat.label}"
-                >
+                const isActive =
+                    activeCategory === cat.id;
 
-                    ${cat.emoji ? `<span>${cat.emoji}</span>` : ""}
-
-                    ${cat.label}
-
-                    ${
-                        cat.id !== "todos"
-                            ? `<span class="filter-count">${count}</span>`
+                return `
+                    <button
+                        class="filter-btn${isActive ? " active" : ""}"
+                        data-cat="${cat.id}"
+                        aria-pressed="${isActive}"
+                        title="${cat.label}"
+                    >
+                        ${cat.emoji
+                            ? `<span>${cat.emoji}</span>`
                             : ""
-                    }
+                        }
 
-                </button>
-            `;
+                        ${cat.label}
 
-        })
-        .join("");
-
+                        ${
+                            cat.id !== "todos"
+                                ? `<span class="filter-count">${count}</span>`
+                                : ""
+                        }
+                    </button>
+                `;
+            })
+            .join("");
 
     wrap.innerHTML = "";
 
     wrap.appendChild(label);
 
-    wrap.insertAdjacentHTML("beforeend", pills);
+    wrap.insertAdjacentHTML(
+        "beforeend",
+        pills
+    );
 
+    wrap
+        .querySelectorAll(".filter-btn")
+        .forEach(btn => {
 
-    wrap.querySelectorAll(".filter-btn").forEach(btn => {
+            btn.addEventListener(
+                "click",
+                () => {
 
-        btn.addEventListener("click", () => {
+                    activeCategory =
+                        btn.dataset.cat;
 
-            activeCategory = btn.dataset.cat;
+                    currentPage = 1;
+
+                    wrap
+                        .querySelectorAll(".filter-btn")
+                        .forEach(b => {
+
+                            const active =
+                                b.dataset.cat === activeCategory;
+
+                            b.classList.toggle(
+                                "active",
+                                active
+                            );
+
+                            b.setAttribute(
+                                "aria-pressed",
+                                active
+                            );
+                        });
+
+                    renderGrid();
+                }
+            );
+        });
+}
+
+const searchInput =
+    document.getElementById("searchInput");
+
+const searchClear =
+    document.getElementById("searchClear");
+
+if (searchInput) {
+
+    searchInput.addEventListener(
+        "input",
+        () => {
+
+            searchQuery =
+                searchInput.value;
 
             currentPage = 1;
 
-
-            wrap.querySelectorAll(".filter-btn").forEach(b => {
-
-                const active =
-                    b.dataset.cat === activeCategory;
-
-                b.classList.toggle("active", active);
-
-                b.setAttribute("aria-pressed", active);
-
-            });
-
+            if (searchClear) {
+                searchClear.classList.toggle(
+                    "visible",
+                    searchQuery.length > 0
+                );
+            }
 
             renderGrid();
-
-        });
-
-    });
+        }
+    );
 }
 
+if (searchClear) {
 
-/* ─── 9. SEARCH ─── */
-const searchInput = document.getElementById("searchInput");
-const searchClear = document.getElementById("searchClear");
+    searchClear.addEventListener(
+        "click",
+        () => {
 
+            searchInput.value = "";
 
-searchInput.addEventListener("input", () => {
+            searchQuery = "";
 
-    searchQuery = searchInput.value;
+            currentPage = 1;
 
-    currentPage = 1;
+            searchClear.classList.remove(
+                "visible"
+            );
 
-    searchClear.classList.toggle(
-        "visible",
-        searchQuery.length > 0
+            searchInput.focus();
+
+            renderGrid();
+        }
     );
+}
 
-    renderGrid();
+const sortSelect =
+    document.getElementById("sortSelect");
 
-});
+if (sortSelect) {
 
+    sortSelect.addEventListener(
+        "change",
+        e => {
 
-searchClear.addEventListener("click", () => {
+            sortOrder =
+                e.target.value;
 
-    searchInput.value = "";
+            currentPage = 1;
 
-    searchQuery = "";
+            renderGrid();
+        }
+    );
+}
 
-    currentPage = 1;
-
-    searchClear.classList.remove("visible");
-
-    searchInput.focus();
-
-    renderGrid();
-
-});
-
-
-/* ─── 10. SORT ─── */
-document
-    .getElementById("sortSelect")
-    .addEventListener("change", e => {
-
-        sortOrder = e.target.value;
-
-        currentPage = 1;
-
-        renderGrid();
-
-    });
-
-
-/* ─── 11. PAGINATION ─── */
 function renderPagination(totalPages) {
 
     const pg =
         document.getElementById("pagination");
 
+    if (!pg) return;
 
     if (totalPages <= 1) {
 
         pg.innerHTML = "";
 
         return;
-
     }
 
-
-    function getPageNumbers(current, total) {
+    function getPageNumbers(
+        current,
+        total
+    ) {
 
         if (total <= 7) {
 
@@ -1467,16 +1461,14 @@ function renderPagination(totalPages) {
                 { length: total },
                 (_, i) => i + 1
             );
-
         }
 
-
-        const pages = new Set([
-            1,
-            total,
-            current
-        ]);
-
+        const pages =
+            new Set([
+                1,
+                total,
+                current
+            ]);
 
         if (current > 1) {
             pages.add(current - 1);
@@ -1486,32 +1478,32 @@ function renderPagination(totalPages) {
             pages.add(current + 1);
         }
 
-
         const sorted =
-            [...pages].sort((a, b) => a - b);
-
+            [...pages].sort(
+                (a, b) => a - b
+            );
 
         const result = [];
 
-
-        for (let i = 0; i < sorted.length; i++) {
+        for (
+            let i = 0;
+            i < sorted.length;
+            i++
+        ) {
 
             if (
                 i > 0 &&
-                sorted[i] - sorted[i - 1] > 1
+                sorted[i] -
+                sorted[i - 1] > 1
             ) {
                 result.push("...");
             }
 
             result.push(sorted[i]);
-
         }
 
-
         return result;
-
     }
-
 
     const svgPrev = `
         <svg
@@ -1525,7 +1517,6 @@ function renderPagination(totalPages) {
         </svg>
     `;
 
-
     const svgNext = `
         <svg
             viewBox="0 0 24 24"
@@ -1538,13 +1529,13 @@ function renderPagination(totalPages) {
         </svg>
     `;
 
-
     const pageNums =
-        getPageNumbers(currentPage, totalPages);
-
+        getPageNumbers(
+            currentPage,
+            totalPages
+        );
 
     pg.innerHTML = `
-
         <button
             class="page-btn"
             data-action="prev"
@@ -1554,24 +1545,23 @@ function renderPagination(totalPages) {
             ${svgPrev}
         </button>
 
+        ${pageNums
+            .map(p =>
+                p === "..."
 
-        ${pageNums.map(p =>
+                    ? `<span class="page-ellipsis">…</span>`
 
-            p === "..."
-
-                ? `<span class="page-ellipsis">…</span>`
-
-                : `
-                    <button
-                        class="page-btn${p === currentPage ? " active" : ""}"
-                        data-page="${p}"
-                    >
-                        ${p}
-                    </button>
-                `
-
-        ).join("")}
-
+                    : `
+                        <button
+                            class="page-btn${p === currentPage ? " active" : ""}"
+                            data-page="${p}"
+                        >
+                            ${p}
+                        </button>
+                    `
+            )
+            .join("")
+        }
 
         <button
             class="page-btn"
@@ -1581,49 +1571,58 @@ function renderPagination(totalPages) {
         >
             ${svgNext}
         </button>
-
     `;
 
+    pg
+        .querySelectorAll(
+            ".page-btn:not([disabled])"
+        )
+        .forEach(btn => {
 
-    pg.querySelectorAll(
-        ".page-btn:not([disabled])"
-    ).forEach(btn => {
+            btn.addEventListener(
+                "click",
+                () => {
 
-        btn.addEventListener("click", () => {
+                    if (
+                        btn.dataset.action ===
+                        "prev"
+                    ) {
 
-            if (btn.dataset.action === "prev") {
+                        currentPage--;
 
-                currentPage--;
+                    } else if (
+                        btn.dataset.action ===
+                        "next"
+                    ) {
 
-            } else if (btn.dataset.action === "next") {
+                        currentPage++;
 
-                currentPage++;
+                    } else {
 
-            } else {
+                        currentPage =
+                            Number(
+                                btn.dataset.page
+                            );
+                    }
 
-                currentPage =
-                    Number(btn.dataset.page);
+                    const grid =
+                        document.getElementById(
+                            "commerceGrid"
+                        );
 
-            }
+                    if (grid) {
 
+                        grid.scrollIntoView({
+                            behavior: "smooth",
+                            block: "start"
+                        });
+                    }
 
-            document
-                .getElementById("commerceGrid")
-                .scrollIntoView({
-                    behavior: "smooth",
-                    block: "start"
-                });
-
-
-            renderGrid();
-
+                    renderGrid();
+                }
+            );
         });
-
-    });
-
 }
 
-
-/* ─── 12. INIT ─── */
 renderFilters();
 renderGrid();

@@ -106,9 +106,19 @@
 
         if (!burger) return;
 
+        // Evita registrar el evento más de una vez
+        if (burger.dataset.mobileMenuReady === "true") {
+            return;
+        }
+
+        burger.dataset.mobileMenuReady = "true";
+
         burger.addEventListener(
             "click",
-            () => {
+            function (event) {
+
+                event.preventDefault();
+                event.stopPropagation();
 
                 nav.classList.toggle(
                     "mobile-open"

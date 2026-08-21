@@ -13,30 +13,54 @@ const io = new IntersectionObserver(entries => {
 reveals.forEach(el => io.observe(el));
 
 
-// Menú móvil
+// ============================================================
+// MENÚ MÓVIL
+// ============================================================
+
 (function () {
+
     const navEl = document.querySelector('nav');
+
     if (!navEl) return;
 
-    const burger = navEl.querySelector('.nav-hamburger, .nav-burger');
+    const burger =
+        navEl.querySelector('.nav-hamburger, .nav-burger');
+
     if (!burger) return;
 
     burger.addEventListener('click', () => {
         navEl.classList.toggle('mobile-open');
     });
 
-    navEl.querySelectorAll('.nav-links a').forEach(link =>
+    navEl.querySelectorAll('.nav-links a').forEach(link => {
+
         link.addEventListener('click', () => {
             navEl.classList.remove('mobile-open');
-        })
-    );
+        });
+
+    });
+
 })();
 
 
 // ============================================================
-// DIRECTORIO - 12 SOCIOS REALES
-// Datos tomados del directorio de socios
+// BUSCADOR DEL INICIO
 // ============================================================
+//
+// En Inicio ya NO mostramos:
+// - categorías
+// - chips
+// - las 12 tarjetas
+//
+// Solo mostramos:
+// - buscador
+// - resultados desplegables
+// - botón "Ver todos los comercios"
+//
+// Los comercios utilizados aquí son los socios reales
+// que tenemos actualmente en los datos.
+// ============================================================
+
 
 const COMERCIOS = [
 
@@ -48,12 +72,7 @@ const COMERCIOS = [
         direccion: "Calle Familia Sanchez Muñoz 29",
         telefono: "644 65 57 99",
         correo: "info@limonlab.es",
-        abreM: "09:00",
-        cierraM: "21:30",
-        abreT: null,
-        cierraT: null,
-        emoji: "☁️",
-        featured: true
+        emoji: "☁️"
     },
 
     {
@@ -64,12 +83,7 @@ const COMERCIOS = [
         direccion: "Calle calvario 21",
         telefono: "600 45 96 07",
         correo: "sandratourviajes@gmail.com",
-        abreM: "09:30",
-        cierraM: "13:30",
-        abreT: "17:30",
-        cierraT: "19:00",
-        emoji: "🥩",
-        featured: false
+        emoji: "🥩"
     },
 
     {
@@ -80,12 +94,7 @@ const COMERCIOS = [
         direccion: "C/ Alfonso xlll N - 3",
         telefono: "968 86 57 72",
         correo: "villaescusaherrerosantiago@gmail.com",
-        abreM: "09:30",
-        cierraM: "13:30",
-        abreT: "17:30",
-        cierraT: "19:00",
-        emoji: "👗",
-        featured: false
+        emoji: "👗"
     },
 
     {
@@ -96,12 +105,7 @@ const COMERCIOS = [
         direccion: "Avenida maestro puyg Valera 22 Santomera Murcis",
         telefono: "968 86 01 23",
         correo: "mariatorrescanovas28@gmail.com",
-        abreM: "09:30",
-        cierraM: "13:30",
-        abreT: "16:30",
-        cierraT: "20:30",
-        emoji: "👗",
-        featured: false
+        emoji: "💇"
     },
 
     {
@@ -112,12 +116,7 @@ const COMERCIOS = [
         direccion: "Calle los huertanos Bajo( Parque Manolo )",
         telefono: "678 56 15 65",
         correo: "Lidiapelu@hotmail.es",
-        abreM: "09:30",
-        cierraM: "13:30",
-        abreT: "16:30",
-        cierraT: "20:30",
-        emoji: "👗",
-        featured: false
+        emoji: "💇"
     },
 
     {
@@ -128,12 +127,7 @@ const COMERCIOS = [
         direccion: "Tomas Y Valiente, 20",
         telefono: "606 84 78 75",
         correo: "info@reguerpc.com",
-        abreM: "10:00",
-        cierraM: "20:30",
-        abreT: null,
-        cierraT: null,
-        emoji: "👗",
-        featured: false
+        emoji: "💻"
     },
 
     {
@@ -144,12 +138,7 @@ const COMERCIOS = [
         direccion: "C/ Maestro Puig Valera n 12 bajo",
         telefono: "619 68 95 42",
         correo: "Info@mundicasa.com",
-        abreM: "10:30",
-        cierraM: "14:00",
-        abreT: null,
-        cierraT: null,
-        emoji: "👗",
-        featured: false
+        emoji: "🏠"
     },
 
     {
@@ -160,12 +149,7 @@ const COMERCIOS = [
         direccion: "Avd Juan Carlos I N 51 bajo . Cp 30140 Santomera Murcia",
         telefono: "620 34 06 93",
         correo: "Salazonespedro@hotmail.com",
-        abreM: "07:30",
-        cierraM: "19:00",
-        abreT: null,
-        cierraT: null,
-        emoji: "👗",
-        featured: false
+        emoji: "🍷"
     },
 
     {
@@ -176,12 +160,7 @@ const COMERCIOS = [
         direccion: "C/Gaudi 12. Santomera",
         telefono: "696 97 56 71",
         correo: "diegofriclima@gmail.com",
-        abreM: "08:00",
-        cierraM: "14:00",
-        abreT: "16:00",
-        cierraT: "18:30",
-        emoji: "👗",
-        featured: false
+        emoji: "❄️"
     },
 
     {
@@ -192,12 +171,7 @@ const COMERCIOS = [
         direccion: "Carretera de Alicante 38",
         telefono: "620 84 31 35",
         correo: "Ventas@lubricantes-online.com",
-        abreM: "09:00",
-        cierraM: "14:00",
-        abreT: "16:00",
-        cierraT: "20:00",
-        emoji: "👗",
-        featured: false
+        emoji: "🚚"
     },
 
     {
@@ -208,12 +182,7 @@ const COMERCIOS = [
         direccion: "Calle Del Tomillo ,7 bajo",
         telefono: "689 53 51 10",
         correo: "tamaracostaja@gmail.com",
-        abreM: null,
-        cierraM: null,
-        abreT: null,
-        cierraT: null,
-        emoji: "👗",
-        featured: false
+        emoji: "💇"
     },
 
     {
@@ -224,339 +193,356 @@ const COMERCIOS = [
         direccion: "C/CALVARIO,26 BAJO SANTOMERA (MURCIA)",
         telefono: "968 86 12 72",
         correo: "libreriacirculosantomera@gmail.com",
-        abreM: "09:00",
-        cierraM: "14:00",
-        abreT: "16:30",
-        cierraT: "20:30",
-        emoji: "👗",
-        featured: false
+        emoji: "📚"
     }
 
 ];
-
-
-// ============================================================
-// CATEGORÍAS
-// ============================================================
-
-const DIR_CATEGORIES = [
-    { id: "todos", label: "Todos" },
-    { id: "Alimentación", label: "Alimentación" },
-    { id: "Moda", label: "Moda" },
-    { id: "Hostelería", label: "Hostelería" },
-    { id: "Servicios", label: "Servicios" },
-    { id: "Salud", label: "Salud" },
-    { id: "Deporte", label: "Deporte" },
-    { id: "Hogar", label: "Hogar" },
-    { id: "Cultura", label: "Cultura" },
-    { id: "Marketing", label: "Marketing" }
-];
-
-
-let dirActiveCat = "todos";
-let dirSearchQuery = "";
 
 
 // ============================================================
 // NORMALIZAR TEXTO
 // ============================================================
 
-function normalizeStr(s) {
-    return String(s || "")
+function normalizeStr(texto) {
+
+    return String(texto || "")
         .toLowerCase()
         .normalize("NFD")
         .replace(/[\u0300-\u036f]/g, "");
+
 }
 
 
 // ============================================================
-// FILTRAR COMERCIOS
+// SEGURIDAD PARA HTML
 // ============================================================
 
-function getDirFiltered() {
+function escapeHtml(value) {
 
-    let list = [...COMERCIOS];
+    return String(value || "")
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
 
-    if (dirActiveCat !== "todos") {
-        list = list.filter(c =>
-            c.categoria === dirActiveCat
-        );
-    }
-
-    if (dirSearchQuery.trim()) {
-
-        const q = normalizeStr(dirSearchQuery);
-
-        list = list.filter(c =>
-            normalizeStr(c.nombre).includes(q) ||
-            normalizeStr(c.categoria).includes(q) ||
-            normalizeStr(c.tag).includes(q) ||
-            normalizeStr(c.direccion).includes(q)
-        );
-    }
-
-    return [
-        ...list.filter(c => c.featured),
-        ...list.filter(c => !c.featured)
-    ];
 }
 
 
 // ============================================================
-// TARJETA DEL DIRECTORIO
+// BUSCAR COMERCIOS
 // ============================================================
 
-function renderDirCard(comercio) {
+function buscarComercios(query) {
 
-    return `
-        <div
-            class="dir-card"
-            data-categoria="${comercio.categoria}"
-        >
+    const q = normalizeStr(query).trim();
 
-            <div class="dir-icon">
-                ${comercio.emoji}
-            </div>
+    if (!q) {
+        return [];
+    }
 
-            <div class="dir-info">
+    return COMERCIOS.filter(comercio => {
 
-                <strong>
-                    ${comercio.nombre}
-                </strong>
+        const textoBusqueda = normalizeStr([
+            comercio.nombre,
+            comercio.categoria,
+            comercio.tag,
+            comercio.direccion
+        ].join(" "));
+
+        return textoBusqueda.includes(q);
+
+    });
+
+}
+
+
+// ============================================================
+// MOSTRAR RESULTADOS
+// ============================================================
+
+function renderHomeSearchResults(query) {
+
+    const results =
+        document.getElementById("homeSearchResults");
+
+    if (!results) return;
+
+
+    const q =
+        normalizeStr(query).trim();
+
+
+    // Si no hay búsqueda
+    if (!q) {
+
+        results.innerHTML = "";
+
+        results.classList.remove("show");
+
+        return;
+    }
+
+
+    // Buscar
+    const encontrados =
+        buscarComercios(query);
+
+
+    // Sin resultados
+    if (encontrados.length === 0) {
+
+        results.innerHTML = `
+
+            <div class="home-search-empty">
+
+                <span class="home-search-empty-icon">
+                    🔍
+                </span>
 
                 <span>
-                    ${comercio.categoria} · ${comercio.tag}
+                    No hemos encontrado ningún comercio
+                    para
+                    <strong>
+                        ${escapeHtml(query)}
+                    </strong>
                 </span>
 
             </div>
 
-        </div>
-    `;
-}
+        `;
+
+        results.classList.add("show");
+
+        return;
+    }
 
 
-// ============================================================
-// MOSTRAR GRID
-// ============================================================
+    // Mostrar resultados
+    results.innerHTML = encontrados
+        .slice(0, 8)
+        .map(comercio => `
 
-function renderDirGrid() {
+            <a
+                class="home-search-result"
+                href="./b*Socios/DIRECTORIO PREVIEW.htm"
+            >
 
-    const grid = document.getElementById("dirGrid");
-    const countEl = document.getElementById("dirResultsCount");
-
-    if (!grid || !countEl) return;
-
-    const filtered = getDirFiltered();
-
-    grid.classList.remove("ready");
-    grid.classList.add("filtering");
-
-    setTimeout(() => {
-
-        if (filtered.length === 0) {
-
-            grid.innerHTML = `
-                <div class="dir-empty">
-
-                    <span class="dir-empty-icon">
-                        🔍
-                    </span>
-
-                    Sin resultados.
-                    Prueba otra categoría
-                    o ajusta tu búsqueda.
-
-                </div>
-            `;
-
-        } else {
-
-            grid.innerHTML =
-                filtered
-                    .map(renderDirCard)
-                    .join("");
-
-        }
-
-
-        countEl.innerHTML =
-            filtered.length === COMERCIOS.length
-
-                ? `Mostrando <strong>${filtered.length}</strong> comercios`
-
-                : `Mostrando <strong>${filtered.length}</strong> de <strong>${COMERCIOS.length}</strong> comercios`;
-
-
-        grid.classList.remove("filtering");
-        grid.classList.add("ready");
-
-    }, 140);
-}
-
-
-// ============================================================
-// FILTROS
-// ============================================================
-
-function renderDirChips() {
-
-    const wrap = document.getElementById("categoryChips");
-
-    if (!wrap) return;
-
-    wrap.innerHTML = DIR_CATEGORIES
-        .map(cat => {
-
-            const count =
-                cat.id === "todos"
-                    ? COMERCIOS.length
-                    : COMERCIOS.filter(
-                        c => c.categoria === cat.id
-                    ).length;
-
-            if (count === 0) return "";
-
-            const isActive =
-                dirActiveCat === cat.id;
-
-            const badge =
-                cat.id !== "todos"
-                    ? ` <small style="
-                        opacity:.65;
-                        font-size:.72em;
-                        font-weight:700;
-                      ">
-                        ${count}
-                      </small>`
-                    : "";
-
-            return `
-                <span
-                    class="chip${isActive ? " active" : ""}"
-                    data-cat="${cat.id}"
-                >
-                    ${cat.label}${badge}
+                <span class="home-search-result-icon">
+                    ${comercio.emoji}
                 </span>
-            `;
 
-        })
+
+                <span class="home-search-result-info">
+
+                    <strong>
+                        ${escapeHtml(comercio.nombre)}
+                    </strong>
+
+                    <small>
+                        ${escapeHtml(comercio.categoria)}
+                        ·
+                        ${escapeHtml(comercio.tag)}
+                    </small>
+
+                    <em>
+                        ${escapeHtml(comercio.direccion)}
+                    </em>
+
+                </span>
+
+
+                <span class="home-search-result-arrow">
+                    →
+                </span>
+
+            </a>
+
+        `)
         .join("");
 
 
-    wrap.querySelectorAll(".chip")
-        .forEach(chip => {
+    // Enlace para ver todos
+    results.innerHTML += `
 
-            chip.addEventListener("click", () => {
+        <a
+            class="home-search-see-all"
+            href="./b*Socios/DIRECTORIO PREVIEW.htm"
+        >
 
-                dirActiveCat =
-                    chip.dataset.cat;
+            Ver todos los comercios →
 
-                wrap.querySelectorAll(".chip")
-                    .forEach(c =>
-                        c.classList.remove("active")
-                    );
+        </a>
 
-                chip.classList.add("active");
-
-                renderDirGrid();
-
-            });
-
-        });
-}
+    `;
 
 
-// ============================================================
-// BÚSQUEDA
-// ============================================================
-
-const dirSearchInput =
-    document.querySelector(".dir-search input");
-
-const dirSearchBtn =
-    document.querySelector(".dir-search button");
-
-
-if (dirSearchInput) {
-
-    dirSearchInput.addEventListener("input", () => {
-
-        dirSearchQuery =
-            dirSearchInput.value;
-
-        renderDirGrid();
-
-    });
-
-}
-
-
-if (dirSearchBtn) {
-
-    dirSearchBtn.addEventListener("click", () => {
-
-        dirSearchQuery =
-            dirSearchInput
-                ? dirSearchInput.value
-                : "";
-
-        renderDirGrid();
-
-    });
+    results.classList.add("show");
 
 }
 
 
 // ============================================================
-// ARRANQUE
+// INPUT DEL BUSCADOR
 // ============================================================
 
-renderDirChips();
-renderDirGrid();
+const homeSearchInput =
+    document.getElementById("homeSearchInput");
 
 
-// ============================================================
-// NAV ACTIVE
-// ============================================================
-
-const navLinks =
-    document.querySelectorAll('.nav-links a');
-
-const sections =
-    document.querySelectorAll('section[id]');
+const homeSearchBtn =
+    document.getElementById("homeSearchBtn");
 
 
-const navObserver =
-    new IntersectionObserver(entries => {
+// Escribir
+if (homeSearchInput) {
 
-        entries.forEach(e => {
+    homeSearchInput.addEventListener(
+        "input",
+        () => {
 
-            if (e.isIntersecting) {
+            renderHomeSearchResults(
+                homeSearchInput.value
+            );
 
-                navLinks.forEach(
-                    l => l.style.color = ''
+        }
+    );
+
+
+    // Enter
+    homeSearchInput.addEventListener(
+        "keydown",
+        event => {
+
+            if (event.key === "Enter") {
+
+                event.preventDefault();
+
+                renderHomeSearchResults(
+                    homeSearchInput.value
                 );
-
-                const link =
-                    document.querySelector(
-                        `.nav-links a[href="#${e.target.id}"]`
-                    );
-
-                if (link) {
-                    link.style.color =
-                        'var(--teal)';
-                }
 
             }
 
-        });
 
-    }, { threshold: 0.4 });
+            // Escape
+            if (event.key === "Escape") {
+
+                homeSearchInput.value = "";
+
+                renderHomeSearchResults("");
+
+                homeSearchInput.blur();
+
+            }
+
+        }
+    );
+
+}
 
 
-sections.forEach(s =>
-    navObserver.observe(s)
-);
+// Botón Buscar
+if (homeSearchBtn && homeSearchInput) {
+
+    homeSearchBtn.addEventListener(
+        "click",
+        () => {
+
+            renderHomeSearchResults(
+                homeSearchInput.value
+            );
+
+        }
+    );
+
+}
+
+
+// ============================================================
+// CERRAR RESULTADOS AL HACER CLICK FUERA
+// ============================================================
+
+document.addEventListener("click", event => {
+
+    const searchArea =
+        document.querySelector(".dir-search");
+
+    const results =
+        document.getElementById("homeSearchResults");
+
+    if (!searchArea || !results) return;
+
+
+    if (
+        !searchArea.contains(event.target) &&
+        !results.contains(event.target)
+    ) {
+
+        results.classList.remove("show");
+
+    }
+
+});
+
+
+// ============================================================
+// NAV ACTIVE LINK
+// ============================================================
+
+const navLinks =
+    document.querySelectorAll(".nav-links a");
+
+
+const sections =
+    document.querySelectorAll("section[id]");
+
+
+if ("IntersectionObserver" in window) {
+
+    const navObserver =
+        new IntersectionObserver(
+            entries => {
+
+                entries.forEach(e => {
+
+                    if (!e.isIntersecting) return;
+
+
+                    navLinks.forEach(
+                        link => link.style.color = ""
+                    );
+
+
+                    const link =
+                        document.querySelector(
+                            `.nav-links a[href="#${e.target.id}"]`
+                        );
+
+
+                    if (link) {
+
+                        link.style.color =
+                            "var(--teal)";
+
+                    }
+
+                });
+
+            },
+            {
+                threshold: 0.4
+            }
+        );
+
+
+    sections.forEach(section => {
+
+        navObserver.observe(section);
+
+    });
+
+}
 
 
 // ============================================================
@@ -566,7 +552,9 @@ sections.forEach(s =>
 function animateCount(el, target) {
 
     let start = 0;
+
     const duration = 1600;
+
 
     const step = timestamp => {
 
@@ -574,83 +562,106 @@ function animateCount(el, target) {
             start = timestamp;
         }
 
-        const p =
+
+        const progress =
             Math.min(
                 (timestamp - start) / duration,
                 1
             );
 
-        const val =
-            Math.floor(p * target);
+
+        const value =
+            Math.floor(progress * target);
+
 
         el.textContent =
-            (target >= 100 ? '+' : '') +
-            val +
-            (el.dataset.suffix || '');
+            (target >= 100 ? "+" : "") +
+            value +
+            (el.dataset.suffix || "");
 
-        if (p < 1) {
+
+        if (progress < 1) {
 
             requestAnimationFrame(step);
 
         } else {
 
             el.textContent =
-                (target >= 100 ? '+' : '') +
+                (target >= 100 ? "+" : "") +
                 target +
-                (el.dataset.suffix || '');
+                (el.dataset.suffix || "");
 
         }
 
     };
 
+
     requestAnimationFrame(step);
+
 }
 
 
-const statsObserver =
-    new IntersectionObserver(entries => {
-
-        entries.forEach(e => {
-
-            if (e.isIntersecting) {
-
-                document
-                    .querySelectorAll('.stat strong')
-                    .forEach((el, i) => {
-
-                        const targets = [
-                            120,
-                            12,
-                            8
-                        ];
-
-                        const suffixes = [
-                            '',
-                            '',
-                            'k+'
-                        ];
-
-                        el.dataset.suffix =
-                            suffixes[i];
-
-                        animateCount(
-                            el,
-                            targets[i]
-                        );
-
-                    });
-
-                statsObserver.disconnect();
-            }
-
-        });
-
-    }, { threshold: 0.5 });
-
-
 const statsSection =
-    document.querySelector('.hero-stats');
+    document.querySelector(".hero-stats");
 
-if (statsSection) {
+
+if (
+    statsSection &&
+    "IntersectionObserver" in window
+) {
+
+    const statsObserver =
+        new IntersectionObserver(
+            entries => {
+
+                entries.forEach(entry => {
+
+                    if (!entry.isIntersecting) {
+                        return;
+                    }
+
+
+                    document
+                        .querySelectorAll(".stat strong")
+                        .forEach((el, i) => {
+
+                            const targets = [
+                                120,
+                                12,
+                                8
+                            ];
+
+
+                            const suffixes = [
+                                "",
+                                "",
+                                "k+"
+                            ];
+
+
+                            el.dataset.suffix =
+                                suffixes[i];
+
+
+                            animateCount(
+                                el,
+                                targets[i]
+                            );
+
+                        });
+
+
+                    statsObserver.disconnect();
+
+                });
+
+            },
+            {
+                threshold: 0.5
+            }
+        );
+
+
     statsObserver.observe(statsSection);
+
 }

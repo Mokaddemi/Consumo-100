@@ -1,1278 +1,1572 @@
-<!DOCTYPE html>
-<html lang="es">
+/* ============================================================
+       TOKENS & RESET
+    ============================================================ */
+:root {
+    --cream: #F7F3EC;
+    --cream-dark: #EDE7D9;
+    --teal: #0A6E6E;
+    --teal-mid: #0D8C8C;
+    --teal-light: #2ECECE;
+    --blue: #1B3A8A;
+    --blue-mid: #1F4BD5;
+    --yellow: #FFD700;
+    --yellow-soft: #FFF0A0;
+    --text: #1A2E2E;
+    --text-muted: #5A6E6E;
+    --white: #FFFFFF;
+    --radius-lg: 2rem;
+    --radius-pill: 100px;
+    --shadow: 0 8px 40px rgba(10, 110, 110, .12);
+    --shadow-xl: 0 24px 80px rgba(10, 110, 110, .18);
+}
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Consumo Placer – Comerciantes de Santomera</title>
-  <link rel="stylesheet" href="./index.css">
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,700;0,9..144,900;1,9..144,400&family=DM+Sans:wght@300;400;500;600&family=Caveat:wght@600&display=swap"
-    rel="stylesheet" />
-</head>
+html {
+    scroll-behavior: smooth;
+}
 
-<body>
+body {
+    background: var(--cream);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 17px;
+    line-height: 1.65;
+    overflow-x: hidden;
+}
 
-  <!-- ===== NAV ===== -->
-  <nav>
-    <div class="container">
-      <div class="nav-inner">
+h1,
+h2,
+h3,
+h4 {
+    font-family: 'Fraunces', Georgia, serif;
+    line-height: 1.15;
+}
 
-        <!-- Logo -->
-        <a href="./index.html" class="nav-logo">
-          <svg class="logo-mark" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+.script {
+    font-family: 'Caveat', cursive;
+    font-size: 1.25em;
+    color: var(--teal-mid);
+}
 
-            <!-- Heart shape -->
-            <path
-              d="M50 85 C50 85 12 58 12 32 C12 20 22 12 34 12 C40 12 46 16 50 21 C54 16 60 12 66 12 C78 12 88 20 88 32 C88 58 50 85 50 85Z"
-              fill="#1B3A8A" />
+img {
+    display: block;
+    max-width: 100%;
+}
 
-            <!-- Teal fill inner -->
-            <path
-              d="M50 78 C50 78 18 54 18 32 C18 23 26 18 34 18 C40 18 46 23 50 28 C54 23 60 18 66 18 C74 18 82 23 82 32 C82 54 50 78 50 78Z"
-              fill="#2ECECE" />
+a {
+    text-decoration: none;
+    color: inherit;
+}
 
-            <!-- Yellow leaf accent -->
-            <ellipse
-              cx="34"
-              cy="28"
-              rx="11"
-              ry="8"
-              transform="rotate(-25,34,28)"
-              fill="#FFD700" />
+/* ============================================================
+       NOISE TEXTURE OVERLAY
+    ============================================================ */
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 9999;
+    opacity: .5;
+}
 
-          </svg>
+/* ============================================================
+       UTILITIES
+    ============================================================ */
+.container {
+    width: min(1200px, 92vw);
+    margin-inline: auto;
+}
 
-          <div class="logo-text">
-            <strong>Consumo Placer</strong>
-            <span>Comerciantes de Santomera</span>
-          </div>
-        </a>
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: .5rem;
+    padding: .85rem 2rem;
+    border-radius: var(--radius-pill);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    border: none;
+    transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+}
 
-        <!-- Links -->
-        <ul class="nav-links">
-          <li><a href="#Inicio">Inicio</a></li>
-          <li><a href="./b*Socios/DIRECTORIO%20PREVIEW.htm">Socios</a></li>
-          <li><a href="#eventos">Campañas</a></li>
-          <li><a href="#tablon">Tablón</a></li>
-          <li><a href="./c*Contacto/contacto.html">Contacto</a></li>
-        </ul>
+.btn:hover {
+    transform: translateY(-2px);
+}
 
-        <!-- CTA -->
-        <div class="nav-cta">
-          <a
-            href="./c*Contacto/contacto.html"
-            class="btn btn-primary"
-            style="padding:.65rem 1.4rem;font-size:.9rem;">
-            Hazte Socio
-          </a>
-        </div>
+.btn-primary {
+    background: var(--teal);
+    color: var(--white);
+    box-shadow: 0 4px 20px rgba(10, 110, 110, .35);
+}
 
-        <!-- Mobile -->
-        <button class="nav-hamburger" aria-label="Menú">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
+.btn-primary:hover {
+    background: var(--teal-mid);
+    box-shadow: 0 8px 30px rgba(10, 110, 110, .45);
+}
 
-      </div>
-    </div>
-  </nav>
+.btn-yellow {
+    background: var(--yellow);
+    color: var(--text);
+    box-shadow: 0 4px 20px rgba(255, 215, 0, .4);
+}
 
+.btn-yellow:hover {
+    background: #f5c800;
+    box-shadow: 0 8px 30px rgba(255, 215, 0, .5);
+}
 
-  <!-- ===== BUSCADOR ===== -->
-  <section class="directory" id="Inicio">
+.btn-outline {
+    background: transparent;
+    color: var(--teal);
+    border: 2px solid var(--teal);
+}
 
-    <div class="container" style="position:relative;z-index:1;">
+.btn-outline:hover {
+    background: var(--teal);
+    color: var(--white);
+}
 
-      <span class="section-label">Descubre</span>
+.tag {
+    display: inline-block;
+    padding: .3rem 1rem;
+    border-radius: var(--radius-pill);
+    font-size: .8rem;
+    font-weight: 600;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+}
 
-      <h2
-        class="section-title"
-        style="max-width:700px;margin-bottom:.5rem;">
-        El comercio de<br />
-        Santomera en un solo lugar
-      </h2>
+.tag-teal {
+    background: rgba(10, 110, 110, .12);
+    color: var(--teal);
+}
 
-      <div class="directory-search-row">
+.tag-yellow {
+    background: var(--yellow-soft);
+    color: #8a6800;
+}
 
-        <div class="dir-search" id="homeSearchBox">
+.tag-blue {
+    background: rgba(27, 58, 138, .1);
+    color: var(--blue);
+}
 
-          <input
-            id="homeSearchInput"
-            type="search"
-            placeholder="Busca una tienda, servicio o producto…"
-            autocomplete="off"
-            aria-label="Buscar comercios"
-          />
+/* ============================================================
+       NAV
+    ============================================================ */
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(247, 243, 236, .92);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(10, 110, 110, .1);
+    padding: 1rem 0;
+}
 
-          <button
-            id="homeSearchBtn"
-            type="button">
-            Buscar
-          </button>
+.nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+}
 
-        </div>
+.nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
 
-        <a
-          href="./b*Socios/DIRECTORIO%20PREVIEW.htm"
-          class="btn btn-yellow directory-all-btn">
-          Ver todos los comercios →
-        </a>
+/* SVG inline logo replica */
+.logo-mark {
+    width: 52px;
+    height: 52px;
+    flex-shrink: 0;
+}
 
-      </div>
+.logo-text strong {
+    display: block;
+    font-family: 'Fraunces', serif;
+    font-size: 1.25rem;
+    font-weight: 900;
+    color: var(--blue);
+    line-height: 1;
+}
 
-      <!-- Los resultados aparecen SOLO cuando se escribe -->
-      <div
-        id="homeSearchResults"
-        class="home-search-results"
-        aria-live="polite">
-      </div>
+.logo-text span {
+    font-family: 'DM Sans', sans-serif;
+    font-size: .8rem;
+    color: var(--text-muted);
+    letter-spacing: .02em;
+}
 
-    </div>
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2.5rem;
+}
 
-  </section>
+.nav-links a {
+    font-size: .95rem;
+    font-weight: 500;
+    color: var(--text-muted);
+    transition: color .2s;
+}
 
+.nav-links a:hover {
+    color: var(--teal);
+}
 
-  <style>
+.nav-cta {
+    display: flex;
+    gap: .75rem;
+    align-items: center;
+}
 
-    .directory-search-row {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      width: 100%;
-      max-width: 980px;
+.nav-hamburger {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 5px;
+    padding: 4px;
+}
+
+.nav-hamburger span {
+    display: block;
+    width: 26px;
+    height: 2px;
+    background: var(--teal);
+    border-radius: 2px;
+    transition: .3s;
+}
+
+@media(max-width: 900px) {
+
+    .nav-links,
+    .nav-cta {
+        display: none;
     }
 
-    .directory-search-row .dir-search {
-      flex: 1 1 auto;
-      min-width: 0;
+    .nav-hamburger {
+        display: flex;
     }
 
-    .directory-all-btn {
-      flex: 0 0 auto;
-      height: 54px;
-      min-height: 54px;
-      box-sizing: border-box;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      white-space: nowrap;
-      margin-top: 0;
-      padding: 0 1.5rem;
-      line-height: 1;
+    /* Menú abierto */
+    nav.mobile-open .nav-inner {
+        flex-wrap: wrap;
     }
 
-    @media (max-width: 760px) {
+    nav.mobile-open .nav-links {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        order: 10;
+        gap: 0;
+        padding: .5rem 0 .25rem;
+        border-top: 1px solid rgba(10, 110, 110, .12);
+        animation: navSlideDown .25s ease;
+    }
 
-      .directory-search-row {
+    nav.mobile-open .nav-links li a {
+        display: block;
+        padding: .7rem 0;
+        border-bottom: 1px solid rgba(10, 110, 110, .07);
+        font-size: 1rem;
+    }
+
+    nav.mobile-open .nav-cta {
+        display: flex;
+        width: 100%;
+        order: 11;
+        padding: .75rem 0 .5rem;
+    }
+
+    /* Barras → X */
+    nav.mobile-open .nav-hamburger span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    nav.mobile-open .nav-hamburger span:nth-child(2) {
+        opacity: 0;
+        transform: scaleX(0);
+    }
+
+    nav.mobile-open .nav-hamburger span:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -5px);
+    }
+}
+
+@keyframes navSlideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ============================================================
+       HERO
+    ============================================================ */
+.hero {
+    position: relative;
+    padding: 6rem 0 5rem;
+    overflow: hidden;
+}
+
+/* Organic blobs background */
+.hero-bg {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(60px);
+}
+
+.blob-1 {
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(46, 206, 206, .18) 0%, transparent 70%);
+    top: -100px;
+    right: -100px;
+}
+
+.blob-2 {
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(255, 215, 0, .2) 0%, transparent 70%);
+    bottom: -50px;
+    left: 5%;
+}
+
+.blob-3 {
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(27, 58, 138, .1) 0%, transparent 70%);
+    top: 30%;
+    left: 30%;
+}
+
+.hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.hero-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: .75rem;
+    margin-bottom: 1.5rem;
+}
+
+.eyebrow-line {
+    width: 40px;
+    height: 2px;
+    background: var(--teal-mid);
+    border-radius: 2px;
+}
+
+.eyebrow-text {
+    font-family: 'Caveat', cursive;
+    font-size: 1.1rem;
+    color: var(--teal-mid);
+    font-weight: 600;
+}
+
+.hero h1 {
+    font-size: clamp(2.8rem, 5.5vw, 4.8rem);
+    font-weight: 900;
+    color: var(--text);
+    margin-bottom: 1.5rem;
+}
+
+.hero h1 em {
+    font-style: italic;
+    color: var(--teal);
+}
+
+.hero h1 .accent-yellow {
+    position: relative;
+    display: inline-block;
+}
+
+.hero h1 .accent-yellow::after {
+    content: '';
+    position: absolute;
+    bottom: 4px;
+    left: -4px;
+    right: -4px;
+    height: 12px;
+    background: var(--yellow);
+    z-index: -1;
+    border-radius: 4px;
+}
+
+.hero-desc {
+    font-size: 1.15rem;
+    color: var(--text-muted);
+    margin-bottom: 2.5rem;
+    max-width: 480px;
+}
+
+.hero-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.hero-stats {
+    display: flex;
+    gap: 2.5rem;
+    margin-top: 3.5rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(10, 110, 110, .15);
+}
+
+.stat strong {
+    display: block;
+    font-family: 'Fraunces', serif;
+    font-size: 2.2rem;
+    font-weight: 900;
+    color: var(--teal);
+    line-height: 1;
+}
+
+.stat span {
+    font-size: .85rem;
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+/* Hero illustration panel */
+.hero-visual {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-card-main {
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-xl);
+    padding: 2.5rem;
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 440px;
+}
+
+.hero-illustration {
+    width: 100%;
+    height: 260px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Floating badges */
+.badge-float {
+    position: absolute;
+    background: var(--white);
+    border-radius: 1.2rem;
+    box-shadow: var(--shadow);
+    padding: .75rem 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: .6rem;
+    font-size: .85rem;
+    font-weight: 600;
+    z-index: 3;
+    animation: floatY 4s ease-in-out infinite;
+}
+
+.badge-float:nth-child(2) {
+    animation-delay: 1.5s;
+}
+
+.badge-float:nth-child(3) {
+    animation-delay: 3s;
+}
+
+@keyframes floatY {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.badge-1 {
+    top: -1rem;
+    right: -1.5rem;
+}
+
+.badge-2 {
+    bottom: 3rem;
+    left: -2rem;
+}
+
+.badge-3 {
+    top: 35%;
+    right: -2.5rem;
+}
+
+.badge-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: .75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+}
+
+@media(max-width: 900px) {
+    .hero-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-visual {
+        display: none;
+    }
+}
+
+/* ============================================================
+       CAMPAIGN CAROUSEL
+    ============================================================ */
+.campaigns {
+    padding: 5rem 0;
+    background: var(--cream-dark);
+    position: relative;
+}
+
+.section-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: 3rem;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.section-label {
+    font-family: 'Caveat', cursive;
+    font-size: 1.1rem;
+    color: var(--teal-mid);
+    margin-bottom: .4rem;
+    display: block;
+}
+
+.section-title {
+    font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+    font-weight: 900;
+    color: var(--text);
+}
+
+.carousel-track {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.campaign-card {
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(10, 110, 110, .08);
+    transition: transform .3s ease, box-shadow .3s ease;
+    cursor: pointer;
+}
+
+.campaign-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-xl);
+}
+
+.card-thumb {
+    height: 200px;
+    position: relative;
+    overflow: hidden;
+}
+
+.card-thumb-inner {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-body {
+    padding: 1.5rem;
+}
+
+.card-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: .75rem;
+}
+
+.card-date {
+    font-size: .8rem;
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+.card-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: .5rem;
+    color: var(--text);
+}
+
+.card-desc {
+    font-size: .9rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+}
+
+.card-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-top: 1rem;
+}
+
+.card-arrow svg {
+    width: 32px;
+    height: 32px;
+    background: var(--teal);
+    border-radius: 50%;
+    padding: 7px;
+    color: white;
+    transition: background .2s, transform .2s;
+}
+
+.campaign-card:hover .card-arrow svg {
+    background: var(--teal-mid);
+    transform: translate(2px, -2px);
+}
+
+/* ============================================================
+       ABOUT / QUÉ ES
+    ============================================================ */
+.about {
+    padding: 7rem 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: center;
+}
+
+.about-illustration {
+    position: relative;
+}
+
+.about-blob-bg {
+    position: absolute;
+    width: 120%;
+    height: 120%;
+    top: -10%;
+    left: -10%;
+    background: radial-gradient(ellipse at center, rgba(46, 206, 206, .12) 0%, transparent 65%);
+    border-radius: 50%;
+}
+
+.about-visual-card {
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    padding: 3rem 2.5rem;
+    box-shadow: var(--shadow-xl);
+    position: relative;
+    z-index: 1;
+}
+
+.values-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    margin-top: 2rem;
+}
+
+.value-item {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+}
+
+.value-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    flex-shrink: 0;
+}
+
+.value-text strong {
+    display: block;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: .2rem;
+}
+
+.value-text p {
+    font-size: .88rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+}
+
+.about-content .section-title {
+    margin-bottom: 1.5rem;
+}
+
+.about-content p {
+    color: var(--text-muted);
+    margin-bottom: 1.2rem;
+    font-size: 1.05rem;
+}
+
+.pullquote {
+    background: linear-gradient(135deg, rgba(10, 110, 110, .08), rgba(46, 206, 206, .06));
+    border-left: 4px solid var(--teal-mid);
+    border-radius: 0 1rem 1rem 0;
+    padding: 1.25rem 1.5rem;
+    margin: 2rem 0;
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 1.15rem;
+    color: var(--teal);
+}
+
+@media(max-width: 900px) {
+    .about-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+
+    .about-illustration {
+        order: -1;
+    }
+}
+
+/* ============================================================
+       DIRECTORIO PREVIEW
+    ============================================================ */
+.directory {
+    padding: 5rem 0;
+    background: var(--teal);
+    position: relative;
+    overflow: hidden;
+}
+
+.directory::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+.directory .section-label {
+    color: rgba(255, 255, 255, .7);
+}
+
+.directory .section-title {
+    color: var(--white);
+}
+
+.dir-search {
+    display: flex;
+    background: var(--white);
+    border-radius: var(--radius-pill);
+    overflow: hidden;
+    box-shadow: var(--shadow-xl);
+    max-width: 640px;
+    margin: 0;
+}
+
+.dir-search input {
+    flex: 1;
+    border: none;
+    outline: none;
+    padding: 1rem 1.5rem;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 1rem;
+    background: transparent;
+    color: var(--text);
+}
+
+.dir-search input::placeholder {
+    color: var(--text-muted);
+}
+
+.dir-search button {
+    background: var(--yellow);
+    border: none;
+    cursor: pointer;
+    padding: .75rem 1.75rem;
+    margin: .4rem;
+    border-radius: var(--radius-pill);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 700;
+    font-size: .95rem;
+    color: var(--text);
+    transition: background .2s, transform .15s;
+}
+
+.dir-search button:hover {
+    background: #f5c800;
+    transform: scale(1.03);
+}
+
+.category-chips {
+    display: flex;
+    gap: .75rem;
+    flex-wrap: wrap;
+    margin-bottom: 3rem;
+}
+
+.chip {
+    padding: .55rem 1.25rem;
+    border-radius: var(--radius-pill);
+    font-size: .85rem;
+    font-weight: 600;
+    background: rgba(255, 255, 255, .15);
+    color: var(--white);
+    border: 1.5px solid rgba(255, 255, 255, .25);
+    cursor: pointer;
+    transition: background .2s, border-color .2s;
+}
+
+.chip:hover,
+.chip.active {
+    background: var(--yellow);
+    color: var(--text);
+    border-color: var(--yellow);
+}
+
+.dir-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1.25rem;
+}
+
+.dir-card {
+    background: rgba(255, 255, 255, .1);
+    border: 1.5px solid rgba(255, 255, 255, .15);
+    border-radius: 1.5rem;
+    padding: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    cursor: pointer;
+    transition: background .2s, transform .2s;
+    backdrop-filter: blur(8px);
+}
+
+.dir-card:hover {
+    background: rgba(255, 255, 255, .18);
+    transform: translateY(-3px);
+}
+
+.dir-grid {
+    transition: opacity .2s ease;
+}
+
+.dir-grid.filtering {
+    opacity: 0;
+}
+
+.dir-grid.ready {
+    opacity: 1;
+}
+
+.dir-results-count {
+    font-size: .83rem;
+    color: rgba(255, 255, 255, .65);
+    margin-bottom: 1.25rem;
+}
+
+.dir-results-count strong {
+    color: var(--white);
+}
+
+.dir-empty {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 3rem 1rem;
+    color: rgba(255, 255, 255, .55);
+    font-size: .95rem;
+    line-height: 1.6;
+}
+
+.dir-empty .dir-empty-icon {
+    font-size: 2.5rem;
+    display: block;
+    margin-bottom: .6rem;
+}
+
+.dir-icon {
+    width: 52px;
+    height: 52px;
+    background: rgba(255, 255, 255, .2);
+    border-radius: 1.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    flex-shrink: 0;
+}
+
+.dir-info strong {
+    display: block;
+    color: var(--white);
+    font-weight: 600;
+    font-size: .95rem;
+}
+
+.dir-info span {
+    font-size: .8rem;
+    color: rgba(255, 255, 255, .65);
+}
+
+.dir-cta {
+    margin-top: 2.5rem;
+    text-align: center;
+}
+
+/* ============================================================
+       TABLÓN
+    ============================================================ */
+.tablon {
+    padding: 6rem 0;
+    position: relative;
+}
+
+.tablon::before {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 35%;
+    background: var(--cream-dark);
+    border-radius: var(--radius-lg) 0 0 var(--radius-lg);
+}
+
+.tablon-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 4rem;
+    align-items: start;
+    position: relative;
+    z-index: 1;
+}
+
+.news-feed {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.news-item {
+    display: flex;
+    gap: 1.25rem;
+    align-items: flex-start;
+    background: var(--white);
+    border-radius: 1.25rem;
+    padding: 1.5rem;
+    box-shadow: 0 2px 16px rgba(10, 110, 110, .06);
+    transition: transform .25s, box-shadow .25s;
+    cursor: pointer;
+}
+
+.news-item:hover {
+    transform: translateX(6px);
+    box-shadow: 0 6px 30px rgba(10, 110, 110, .12);
+}
+
+.news-date-block {
+    background: var(--teal);
+    color: var(--white);
+    border-radius: 1rem;
+    padding: .6rem .9rem;
+    text-align: center;
+    flex-shrink: 0;
+    min-width: 52px;
+}
+
+.news-date-block strong {
+    display: block;
+    font-size: 1.4rem;
+    line-height: 1;
+    font-family: 'Fraunces', serif;
+}
+
+.news-date-block span {
+    font-size: .7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    opacity: .85;
+    letter-spacing: .04em;
+}
+
+.news-content {
+    flex: 1;
+}
+
+.news-title {
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--text);
+    margin-bottom: .3rem;
+}
+
+.news-excerpt {
+    font-size: .875rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+}
+
+.news-footer {
+    display: flex;
+    gap: .5rem;
+    margin-top: .6rem;
+    align-items: center;
+}
+
+/* Tablón illustration */
+.tablon-aside {
+    position: sticky;
+    top: 100px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.aside-card {
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+    box-shadow: var(--shadow);
+}
+
+.aside-card h3 {
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: var(--text);
+    margin-bottom: .5rem;
+}
+
+.aside-card p {
+    font-size: .9rem;
+    color: var(--text-muted);
+    margin-bottom: 1.25rem;
+}
+
+.socio-perks {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: .65rem;
+    margin-bottom: 1.5rem;
+}
+
+.socio-perks li {
+    display: flex;
+    gap: .6rem;
+    align-items: center;
+    font-size: .88rem;
+    font-weight: 500;
+}
+
+.perk-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--teal-mid);
+    flex-shrink: 0;
+}
+
+@media(max-width: 900px) {
+    .tablon::before {
+        display: none;
+    }
+
+    .tablon-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .tablon-aside {
+        position: static;
+    }
+}
+
+/* ============================================================
+       HAZTE SOCIO / CTA
+    ============================================================ */
+.cta-section {
+    padding: 6rem 0;
+    background: linear-gradient(135deg, var(--blue) 0%, #0a4a7a 60%, #092040 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-section::after {
+    content: '';
+    position: absolute;
+    bottom: -60px;
+    right: -60px;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(46, 206, 206, .2) 0%, transparent 65%);
+}
+
+.cta-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+}
+
+.cta-content .section-label {
+    color: rgba(255, 255, 255, .6);
+}
+
+.cta-content .section-title {
+    color: var(--white);
+    margin-bottom: 1.25rem;
+}
+
+.cta-content p {
+    color: rgba(255, 255, 255, .75);
+    font-size: 1.05rem;
+    margin-bottom: 2rem;
+}
+
+.benefit-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: .85rem;
+    margin-bottom: 2.5rem;
+}
+
+.benefit-list li {
+    display: flex;
+    gap: .85rem;
+    align-items: flex-start;
+    color: rgba(255, 255, 255, .9);
+    font-size: .95rem;
+}
+
+.check-icon {
+    width: 22px;
+    height: 22px;
+    background: var(--teal-mid);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 2px;
+    font-size: .7rem;
+    color: white;
+    font-weight: 700;
+}
+
+/* Illustration area */
+.cta-visual {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media(max-width: 900px) {
+    .cta-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .cta-visual {
+        display: none;
+    }
+}
+
+/* ============================================================
+       FOOTER
+    ============================================================ */
+footer {
+    background: var(--text);
+    color: rgba(255, 255, 255, .7);
+    padding: 4rem 0 2rem;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1fr;
+    gap: 3rem;
+    margin-bottom: 3rem;
+}
+
+.footer-brand p {
+    font-size: .9rem;
+    line-height: 1.7;
+    margin-top: 1rem;
+    max-width: 280px;
+}
+
+.social-links {
+    display: flex;
+    gap: .75rem;
+    margin-top: 1.5rem;
+}
+
+.social-link {
+    width: 38px;
+    height: 38px;
+    background: rgba(255, 255, 255, .1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: .9rem;
+    transition: background .2s;
+    cursor: pointer;
+}
+
+.social-link:hover {
+    background: var(--teal-mid);
+}
+
+.footer-col h4 {
+    font-family: 'DM Sans', sans-serif;
+    font-size: .85rem;
+    font-weight: 700;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, .4);
+    margin-bottom: 1.25rem;
+}
+
+.footer-links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: .65rem;
+}
+
+.footer-links a {
+    font-size: .9rem;
+    color: rgba(255, 255, 255, .65);
+    transition: color .2s;
+}
+
+.footer-links a:hover {
+    color: var(--teal-light);
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, .1);
+    padding-top: 1.75rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.footer-bottom span {
+    font-size: .82rem;
+}
+
+.made-by {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    font-size: .82rem;
+}
+
+.made-by strong {
+    color: var(--yellow);
+}
+
+@media(max-width: 768px) {
+    .footer-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .footer-brand {
+        grid-column: 1/-1;
+    }
+}
+
+@media(max-width: 480px) {
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ============================================================
+       SCROLL REVEAL ANIMATIONS
+    ============================================================ */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity .7s ease, transform .7s ease;
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.reveal-delay-1 {
+    transition-delay: .1s;
+}
+
+.reveal-delay-2 {
+    transition-delay: .2s;
+}
+
+.reveal-delay-3 {
+    transition-delay: .3s;
+}
+
+.reveal-delay-4 {
+    transition-delay: .4s;
+}
+
+/* ============================================================
+       SVG ILLUSTRATIONS (inline)
+    ============================================================ */
+/* Defined inline in HTML */
+
+/* ============================================================
+       RESPONSIVE MISC
+    ============================================================ */
+@media(max-width:600px) {
+    .hero {
+        padding: 3.5rem 0 3rem;
+    }
+
+    .hero-stats {
+        flex-wrap: wrap;
+        gap: 1.5rem;
+    }
+
+    .section-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+/* ============================================================
+   AJUSTE FINAL — BUSCADOR + "VER TODOS LOS COMERCIOS"
+   Ambos elementos quedan exactamente a la misma altura.
+   ============================================================ */
+
+.dir-search-row {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+}
+
+.dir-search-row .dir-search {
+    margin: 0;
+    flex: 1 1 auto;
+}
+
+.dir-search-row .dir-cta {
+    margin: 0;
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+}
+
+.dir-search-row .dir-cta .btn,
+.dir-search-row .dir-cta a,
+.dir-search-row > .btn,
+.dir-search-row > a {
+    height: 58px;
+    min-height: 58px;
+    margin: 0;
+    box-sizing: border-box;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+}
+
+/* Si el botón está directamente junto al buscador sin wrapper */
+.dir-search + .btn,
+.dir-search + a {
+    height: 58px;
+    min-height: 58px;
+    margin: 0;
+    box-sizing: border-box;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+}
+
+/* El buscador y el botón tienen la misma altura visual */
+.dir-search {
+    min-height: 58px;
+}
+
+@media (max-width: 700px) {
+    .dir-search-row {
         flex-direction: column;
         align-items: stretch;
-      }
+    }
 
-      .directory-search-row .dir-search,
-      .directory-all-btn {
+    .dir-search-row .dir-search,
+    .dir-search-row .dir-cta,
+    .dir-search-row .dir-cta .btn,
+    .dir-search-row .dir-cta a,
+    .dir-search-row > .btn,
+    .dir-search-row > a {
         width: 100%;
-      }
-
-      .directory-all-btn {
-        height: 54px;
-      }
-
     }
 
-    .home-search-results {
-      width: 100%;
-      max-width: 980px;
-      margin-top: .85rem;
-      display: none;
-      overflow: hidden;
-      border-radius: 18px;
-    }
-
-    .home-search-results.show {
-      display: block;
-    }
-
-    .home-search-result {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      width: 100%;
-      padding: 1rem 1.15rem;
-      box-sizing: border-box;
-      text-decoration: none;
-      color: inherit;
-      background: rgba(255,255,255,.96);
-      border-bottom: 1px solid rgba(0,0,0,.08);
-      transition: transform .18s ease, background .18s ease;
-    }
-
-    .home-search-result:hover {
-      background: #fff;
-      transform: translateX(4px);
-    }
-
-    .home-search-result-icon {
-      width: 48px;
-      height: 48px;
-      flex: 0 0 48px;
-      display: grid;
-      place-items: center;
-      border-radius: 14px;
-      background: rgba(46,206,206,.18);
-      font-size: 1.5rem;
-    }
-
-    .home-search-result-info {
-      min-width: 0;
-      display: flex;
-      flex-direction: column;
-      gap: .18rem;
-    }
-
-    .home-search-result-info strong {
-      font-size: 1rem;
-    }
-
-    .home-search-result-info small {
-      opacity: .72;
-    }
-
-    .home-search-result-info em {
-      font-size: .82rem;
-      font-style: normal;
-      opacity: .58;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-
-    .home-search-result-arrow {
-      margin-left: auto;
-      font-size: 1.25rem;
-      font-weight: 700;
-    }
-
-    .home-search-see-all {
-      display: block;
-      padding: .95rem 1.15rem;
-      background: #FFD700;
-      color: #111;
-      text-decoration: none;
-      font-weight: 700;
-      text-align: center;
-    }
-
-    .home-search-empty {
-      padding: 1.1rem 1.2rem;
-      background: rgba(255,255,255,.96);
-      color: #222;
-      border-radius: 18px;
-    }
-
-    @media (max-width: 760px) {
-
-      .directory-search-row {
-        flex-direction: column;
-        align-items: stretch;
-      }
-
-      .directory-all-btn {
+    .dir-search + .btn,
+    .dir-search + a {
         width: 100%;
-        justify-content: center;
-      }
+    }
+}
 
-      .home-search-result {
-        padding: .9rem;
-      }
+/* ============================================================
+   AJUSTE FINAL — ESPACIO ENTRE TÍTULO Y BUSCADOR
+   ============================================================ */
 
-      .home-search-result-info em {
-        white-space: normal;
-      }
+/* El bloque de búsqueda queda un poco más arriba visualmente,
+   manteniendo aire suficiente debajo del título. */
+.directory .section-header {
+    margin-bottom: 1.65rem;
+}
 
+/* Fila del buscador: alineación vertical perfecta. */
+.directory .dir-search-row {
+    align-items: center;
+    margin-top: 0;
+}
+
+/* El buscador y "Ver todos los comercios" comparten altura. */
+.directory .dir-search-row .dir-search {
+    height: 58px;
+    min-height: 58px;
+}
+
+/* Evita que el botón se desplace hacia abajo por márgenes heredados. */
+.directory .dir-search-row .dir-cta {
+    height: 58px;
+    min-height: 58px;
+    margin: 0;
+    align-self: center;
+}
+
+@media (max-width: 700px) {
+    .directory .section-header {
+        margin-bottom: 1.35rem;
     }
 
-  </style>
-
-
-  <!-- ===== CAMPAÑAS ===== -->
-  <section class="campaigns" id="eventos">
-
-    <div class="container">
-
-      <div class="section-header">
-
-        <div>
-          <span class="section-label">Campañas realizadas</span>
-          <h2 class="section-title">Campañas &amp; Eventos</h2>
-        </div>
-
-      </div>
-
-      <div class="carousel-track">
-
-        <!-- Card 1 · Este verano, nadie sin vacaciones -->
-        <article class="campaign-card reveal">
-
-          <div
-            class="card-thumb"
-            style="background:linear-gradient(135deg,#5FA8BA,#2ECECE);">
-
-            <div class="card-thumb-inner">
-
-              <svg
-                viewBox="0 0 200 140"
-                xmlns="http://www.w3.org/2000/svg"
-                style="width:160px">
-
-                <text
-                  x="100"
-                  y="62"
-                  text-anchor="middle"
-                  font-size="52">
-                  ☀️
-                </text>
-
-                <text
-                  x="100"
-                  y="108"
-                  text-anchor="middle"
-                  font-family="Georgia"
-                  font-size="13"
-                  fill="white"
-                  font-weight="700">
-                  ESTE VERANO, NADIE SIN VACACIONES
-                </text>
-
-              </svg>
-
-            </div>
-          </div>
-
-          <div class="card-body">
-
-            <div class="card-meta">
-              <span class="tag tag-teal">Campaña cerrada</span>
-              <span class="card-date">Finalizada</span>
-            </div>
-
-            <h3 class="card-title">
-              Este verano, nadie sin vacaciones
-            </h3>
-
-            <p class="card-desc">
-              Campaña de apoyo al comercio local con sorteos, regalos y sorpresas para quienes compraron en los comercios adheridos.
-            </p>
-
-            <div class="card-arrow">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="white"
-                stroke-width="2.5">
-                <path d="M5 12h14M12 5l7 7-7 7" />
-              </svg>
-            </div>
-
-          </div>
-
-        </article>
-
-
-        <!-- Card 2 · Mamá, ponte guapa -->
-        <article class="campaign-card reveal reveal-delay-1">
-
-          <div
-            class="card-thumb"
-            style="background:linear-gradient(135deg,#F7B5C8,#E83D83);">
-
-            <div class="card-thumb-inner">
-
-              <svg
-                viewBox="0 0 200 140"
-                xmlns="http://www.w3.org/2000/svg"
-                style="width:160px">
-
-                <text
-                  x="100"
-                  y="62"
-                  text-anchor="middle"
-                  font-size="50">
-                  💄
-                </text>
-
-                <text
-                  x="100"
-                  y="108"
-                  text-anchor="middle"
-                  font-family="Georgia"
-                  font-size="15"
-                  fill="white"
-                  font-weight="700">
-                  MAMÁ, PONTE GUAPA
-                </text>
-
-              </svg>
-
-            </div>
-
-          </div>
-
-          <div class="card-body">
-
-            <div class="card-meta">
-              <span class="tag tag-yellow">Campaña cerrada</span>
-              <span class="card-date">Finalizada</span>
-            </div>
-
-            <h3 class="card-title">
-              Mamá, ponte guapa
-            </h3>
-
-            <p class="card-desc">
-              Campaña del comercio local con bonos regalo para disfrutar de servicios de belleza y un sorteo entre los participantes.
-            </p>
-
-            <div class="card-arrow">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="white"
-                stroke-width="2.5">
-                <path d="M5 12h14M12 5l7 7-7 7" />
-              </svg>
-            </div>
-
-          </div>
-
-        </article>
-
-
-        <!-- Card 3 · Sorteo Día del Padre -->
-        <article class="campaign-card reveal reveal-delay-2">
-
-          <div
-            class="card-thumb"
-            style="background:linear-gradient(135deg,#1B3A8A,#5277C8);">
-
-            <div class="card-thumb-inner">
-
-              <svg
-                viewBox="0 0 200 140"
-                xmlns="http://www.w3.org/2000/svg"
-                style="width:160px">
-
-                <text
-                  x="100"
-                  y="62"
-                  text-anchor="middle"
-                  font-size="52">
-                  🎁
-                </text>
-
-                <text
-                  x="100"
-                  y="108"
-                  text-anchor="middle"
-                  font-family="Georgia"
-                  font-size="14"
-                  fill="white"
-                  font-weight="700">
-                  SORTEO DÍA DEL PADRE
-                </text>
-
-              </svg>
-
-            </div>
-
-          </div>
-
-          <div class="card-body">
-
-            <div class="card-meta">
-              <span class="tag tag-blue">Campaña cerrada</span>
-              <span class="card-date">Finalizada</span>
-            </div>
-
-            <h3 class="card-title">
-              Sorteo Día del Padre
-            </h3>
-
-            <p class="card-desc">
-              Sorteo de premios para consumir en comercios asociados: bonos, lavados de coche y otros regalos para disfrutar del comercio local.
-            </p>
-
-            <div class="card-arrow">
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="white"
-                stroke-width="2.5">
-                <path d="M5 12h14M12 5l7 7-7 7" />
-              </svg>
-            </div>
-
-          </div>
-
-        </article>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- ===== TABLÓN ===== -->
-  <section class="tablon" id="tablon">
-
-    <div class="container">
-
-      <div class="tablon-grid">
-
-        <!-- Feed -->
-        <div>
-
-          <span class="section-label">Lo último</span>
-
-          <h2
-            class="section-title"
-            style="margin-bottom:2rem;">
-            Tablón de Anuncios
-          </h2>
-
-          <div class="news-feed">
-
-            <!-- 1. MERCADILLO SEMANAL -->
-            <article class="news-item reveal">
-
-              <div class="news-date-block">
-                <strong style="font-size:1.05rem;">Todos</strong>
-                <span>Miércoles</span>
-              </div>
-
-              <div class="news-content">
-
-                <div class="news-title">
-                  Mercadillo semanal de Santomera
-                </div>
-
-                <p class="news-excerpt">
-                  Todos los miércoles se celebra el mercadillo semanal de
-                  Santomera, en el aparcamiento disuasorio.
-                </p>
-
-                <div class="news-footer">
-                  <span class="tag tag-teal">Comunicado</span>
-                  <span
-                    style="font-size:.78rem;color:var(--text-muted);margin-left:.5rem;">
-                    Todos los miércoles
-                  </span>
-                </div>
-
-              </div>
-
-            </article>
-
-
-            <!-- 2. SORTEOS -->
-            <article class="news-item reveal reveal-delay-1">
-
-              <div
-                class="news-date-block"
-                style="background:var(--blue);">
-                <strong style="font-size:1.8rem;">🎁</strong>
-              </div>
-
-              <div class="news-content">
-
-                <div class="news-title">
-                  Próximos sorteos muy pronto
-                </div>
-
-                <p class="news-excerpt">
-                  La asociación realiza durante el año varios sorteos,
-                  en los que colaboramos con todos los socios. Muy pronto
-                  anunciaremos los próximos sorteos.
-                </p>
-
-                <div class="news-footer">
-                  <span class="tag tag-blue">Aviso</span>
-                  <span
-                    style="font-size:.78rem;color:var(--text-muted);margin-left:.5rem;">
-                    Próximamente
-                  </span>
-                </div>
-
-              </div>
-
-            </article>
-
-
-            <!-- 3. TALLERES -->
-            <article class="news-item reveal reveal-delay-2">
-
-              <div
-                class="news-date-block"
-                style="background:#c4943c;">
-                <strong style="font-size:1.8rem;">📚</strong>
-              </div>
-
-              <div class="news-content">
-
-                <div class="news-title">
-                  Talleres gratuitos para comerciantes
-                </div>
-
-                <p class="news-excerpt">
-                  Muy pronto habrá nuevos talleres gratuitos. Para informarte,
-                  consulta en el Ayuntamiento de Santomera o en la asociación.
-                </p>
-
-                <div class="news-footer">
-                  <span class="tag tag-yellow">Formación</span>
-                  <span
-                    style="font-size:.78rem;color:var(--text-muted);margin-left:.5rem;">
-                    Muy pronto
-                  </span>
-                </div>
-
-              </div>
-
-            </article>
-
-
-            <!-- 4. SUBVENCIONES -->
-            <article class="news-item reveal reveal-delay-3">
-
-              <div class="news-date-block">
-                <strong style="font-size:1.8rem;">💶</strong>
-              </div>
-
-              <div class="news-content">
-
-                <div class="news-title">
-                  Nuevas subvenciones para la digitalización del comercio local
-                </div>
-
-                <p class="news-excerpt">
-                  La Comunidad de Murcia abre una convocatoria de ayudas
-                  de hasta 3.000€ para comercios que quieran mejorar
-                  su presencia digital.
-                </p>
-
-                <div class="news-footer">
-                  <span class="tag tag-teal">Subvenciones</span>
-                  <span
-                    style="font-size:.78rem;color:var(--text-muted);margin-left:.5rem;">
-                    Infórmate en Limonlab
-                  </span>
-                </div>
-
-              </div>
-
-            </article>
-
-          </div>
-
-        </div>
-
-
-        <!-- Aside -->
-        <div class="tablon-aside">
-
-          <div class="aside-card reveal">
-
-            <div style="text-align:center;margin-bottom:1rem;">
-
-              <svg
-                viewBox="0 0 120 100"
-                xmlns="http://www.w3.org/2000/svg"
-                style="width:120px;margin:auto;">
-
-                <path
-                  d="M30 40 L70 25 L70 75 L30 60 Z"
-                  fill="#2ECECE" />
-
-                <rect
-                  x="14"
-                  y="40"
-                  width="16"
-                  height="20"
-                  rx="5"
-                  fill="#0A6E6E" />
-
-                <path
-                  d="M20 60 L24 78"
-                  stroke="#0A6E6E"
-                  stroke-width="4"
-                  stroke-linecap="round" />
-
-                <path
-                  d="M72 38 Q82 50 72 62"
-                  fill="none"
-                  stroke="#FFD700"
-                  stroke-width="3"
-                  stroke-linecap="round" />
-
-                <path
-                  d="M76 30 Q92 50 76 70"
-                  fill="none"
-                  stroke="#FFD700"
-                  stroke-width="2.5"
-                  stroke-linecap="round"
-                  opacity=".6" />
-
-                <text x="88" y="28" font-size="14">✦</text>
-                <text x="15" y="32" font-size="10">✦</text>
-
-              </svg>
-
-            </div>
-
-            <h3>¿Tienes algo que comunicar?</h3>
-
-            <p>
-              Envíanos tu comunicado y lo publicamos en el tablón
-              para todos los socios y vecinos.
-            </p>
-
-            <a
-              href="./c*Contacto/contacto.html"
-              class="btn btn-primary"
-              style="width:100%;justify-content:center;">
-              Enviar comunicado
-            </a>
-
-          </div>
-
-
-          <div
-            class="aside-card reveal reveal-delay-1"
-            style="background:linear-gradient(135deg,#1B3A8A,#0A6E6E);color:white;">
-
-            <h3 style="color:white;">
-              ¿Aún no eres socio?
-            </h3>
-
-            <p style="color:rgba(255,255,255,.8);">
-              Únete a la comunidad y accede a ventajas exclusivas.
-            </p>
-
-            <ul
-              class="socio-perks"
-              style="margin-bottom:1.25rem;">
-
-              <li style="color:rgba(255,255,255,.9);">
-                <div
-                  class="perk-dot"
-                  style="background:var(--yellow);">
-                </div>
-                Aparece en el directorio
-              </li>
-
-              <li style="color:rgba(255,255,255,.9);">
-                <div
-                  class="perk-dot"
-                  style="background:var(--yellow);">
-                </div>
-                Campañas de marketing conjuntas
-              </li>
-
-              <li style="color:rgba(255,255,255,.9);">
-                <div
-                  class="perk-dot"
-                  style="background:var(--yellow);">
-                </div>
-                Recursos y cartelería gratuita
-              </li>
-
-              <li style="color:rgba(255,255,255,.9);">
-                <div
-                  class="perk-dot"
-                  style="background:var(--yellow);">
-                </div>
-                Asesoramiento y subvenciones
-              </li>
-
-            </ul>
-
-            <a
-              href="./c*Contacto/contacto.html"
-              class="btn btn-yellow"
-              style="width:100%;justify-content:center;">
-              Hazte Socio →
-            </a>
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- ===== ABOUT ===== -->
-  <section class="about" id="about">
-
-    <div class="container">
-
-      <div class="about-grid">
-
-        <!-- Illustration -->
-        <div class="about-illustration reveal">
-
-          <div class="about-blob-bg"></div>
-
-          <div class="about-visual-card">
-
-            <svg
-              viewBox="0 0 320 320"
-              xmlns="http://www.w3.org/2000/svg"
-              style="width:100%;max-width:320px;margin:auto;display:block">
-
-              <circle
-                cx="160"
-                cy="160"
-                r="130"
-                fill="rgba(46,206,206,0.07)" />
-
-              <circle
-                cx="100"
-                cy="100"
-                r="50"
-                fill="rgba(255,215,0,0.12)" />
-
-              <!-- Head -->
-              <circle
-                cx="160"
-                cy="100"
-                r="42"
-                fill="#f5d0a5" />
-
-              <!-- Hair -->
-              <path
-                d="M118 92 Q120 55 160 52 Q200 55 202 92 Q195 68 160 65 Q125 68 118 92Z"
-                fill="#3d2010" />
-
-              <!-- Eyes -->
-              <circle cx="147" cy="98" r="5" fill="#3d2010" />
-              <circle cx="173" cy="98" r="5" fill="#3d2010" />
-
-              <!-- Smile -->
-              <path
-                d="M148 112 Q160 122 172 112"
-                fill="none"
-                stroke="#c4753a"
-                stroke-width="3"
-                stroke-linecap="round" />
-
-              <!-- Cheeks -->
-              <circle
-                cx="140"
-                cy="110"
-                r="8"
-                fill="rgba(230,100,80,0.2)" />
-
-              <circle
-                cx="180"
-                cy="110"
-                r="8"
-                fill="rgba(230,100,80,0.2)" />
-
-              <!-- Body -->
-              <rect
-                x="128"
-                y="140"
-                width="64"
-                height="80"
-                rx="20"
-                fill="#0A6E6E" />
-
-              <!-- Arms -->
-              <rect
-                x="88"
-                y="148"
-                width="44"
-                height="22"
-                rx="11"
-                fill="#f5d0a5" />
-
-              <rect
-                x="188"
-                y="148"
-                width="44"
-                height="22"
-                rx="11"
-                fill="#f5d0a5" />
-
-              <!-- Shirt logo -->
-              <path
-                d="M160 167 C160 167 150 160 150 154 C150 151 152 149 155 149 C157 149 159 151 160 152 C161 151 163 149 165 149 C168 149 170 151 170 154 C170 160 160 167 160 167Z"
-                fill="white" />
-
-              <!-- Big heart -->
-              <path
-                d="M160 55 C160 55 135 35 135 20 C135 11 142 6 150 6 C154 6 158 9 160 12 C162 9 166 6 170 6 C178 6 185 11 185 20 C185 35 160 55 160 55Z"
-                fill="#1B3A8A" />
-
-              <path
-                d="M160 50 C160 50 139 32 139 20 C139 14 145 10 150 10 C154 10 158 14 160 17 C162 14 166 10 170 10 C175 10 181 14 181 20 C181 32 160 50 160 50Z"
-                fill="#2ECECE" />
-
-              <ellipse
-                cx="148"
-                cy="18"
-                rx="8"
-                ry="6"
-                transform="rotate(-20,148,18)"
-                fill="#FFD700" />
-
-              <!-- Small shop icons -->
-              <g transform="translate(40,160)">
-                <rect
-                  width="44"
-                  height="36"
-                  rx="8"
-                  fill="white"
-                  filter="drop-shadow(0 2px 6px rgba(0,0,0,0.1))" />
-                <text
-                  x="22"
-                  y="24"
-                  text-anchor="middle"
-                  font-size="18">
-                  🏪
-                </text>
-              </g>
-
-              <g transform="translate(236,155)">
-                <rect
-                  width="44"
-                  height="36"
-                  rx="8"
-                  fill="white"
-                  filter="drop-shadow(0 2px 6px rgba(0,0,0,0.1))" />
-                <text
-                  x="22"
-                  y="24"
-                  text-anchor="middle"
-                  font-size="18">
-                  🤝
-                </text>
-              </g>
-
-              <!-- Caption -->
-              <text
-                x="160"
-                y="300"
-                text-anchor="middle"
-                font-family="Georgia,serif"
-                font-style="italic"
-                font-size="13"
-                fill="#0A6E6E">
-                Unidos por Santomera
-              </text>
-
-            </svg>
-
-
-            <ul
-              class="values-list"
-              style="margin-top:1.5rem;">
-
-              <li class="value-item">
-
-                <div
-                  class="value-icon"
-                  style="background:rgba(255,215,0,.2);">
-                  🌟
-                </div>
-
-                <div class="value-text">
-
-                  <strong>Visibilidad para todos</strong>
-
-                  <p>
-                    Tu comercio en el mapa digital de Santomera.
-                  </p>
-
-                </div>
-
-              </li>
-
-
-              <li class="value-item">
-
-                <div
-                  class="value-icon"
-                  style="background:rgba(46,206,206,.15);">
-                  📣
-                </div>
-
-                <div class="value-text">
-
-                  <strong>Campañas conjuntas</strong>
-
-                  <p>
-                    Más fuerza cuando actuamos como uno.
-                  </p>
-
-                </div>
-
-              </li>
-
-
-              <li class="value-item">
-
-                <div
-                  class="value-icon"
-                  style="background:rgba(27,58,138,.1);">
-                  📋
-                </div>
-
-                <div class="value-text">
-
-                  <strong>Recursos y subvenciones</strong>
-
-                  <p>
-                    Te ayudamos a crecer con formación y apoyo.
-                  </p>
-
-                </div>
-
-              </li>
-
-            </ul>
-
-          </div>
-
-        </div>
-
-
-        <!-- Content -->
-        <div class="about-content reveal reveal-delay-1">
-
-          <span class="section-label">
-            ¿Qué es Consumo Placer?
-          </span>
-
-          <h2 class="section-title">
-            La unión que <em>da fuerza</em> al comercio de Santomera
-          </h2>
-
-          <p>
-            Somos la asociación de comerciantes que representa a los
-            negocios de Santomera. Nacimos con un objetivo claro:
-            hacer que comprar en el barrio sea la primera opción
-            para sus vecinos.
-          </p>
-
-          <blockquote class="pullquote">
-            "Un municipio con comercio local vivo es un municipio
-            que respira, que tiene alma."
-          </blockquote>
-
-          <p>
-            Organizamos campañas de descuentos, eventos, formaciones
-            y acciones de comunicación que ponen en el mapa a nuestros
-            comercios. Además, tramitamos subvenciones, representamos
-            al sector ante las instituciones y generamos comunidad.
-          </p>
-
-
-          <!-- BOTONES CORREGIDOS -->
-          <div
-            style="margin-top:2rem; display:flex; gap:1rem; flex-wrap:wrap;">
-
-            <a
-              href="./c*Contacto/contacto.html"
-              class="btn btn-primary">
-              Únete a la asociación
-            </a>
-
-            <a
-              href="./b*Socios/DIRECTORIO%20PREVIEW.htm"
-              class="btn btn-outline">
-              Ver comercios
-            </a>
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- ===== FOOTER ===== -->
-  <footer id="contacto">
-
-    <div class="container">
-
-      <div class="footer-grid">
-
-        <!-- Brand -->
-        <div class="footer-brand">
-
-          <div
-            style="display:flex;align-items:center;gap:.75rem;">
-
-            <svg
-              width="44"
-              height="44"
-              viewBox="0 0 100 100"
-              xmlns="http://www.w3.org/2000/svg">
-
-              <path
-                d="M50 85 C50 85 12 58 12 32 C12 20 22 12 34 12 C40 12 46 16 50 21 C54 16 60 12 66 12 C78 12 88 20 88 32 C88 58 50 85 50 85Z"
-                fill="rgba(255,255,255,.15)" />
-
-              <path
-                d="M50 78 C50 78 18 54 18 32 C18 23 26 18 34 18 C40 18 46 23 50 28 C54 23 60 18 66 18 C74 18 82 23 82 32 C82 54 50 78 50 78Z"
-                fill="#2ECECE"
-                opacity=".7" />
-
-              <ellipse
-                cx="34"
-                cy="28"
-                rx="11"
-                ry="8"
-                transform="rotate(-25,34,28)"
-                fill="#FFD700"
-                opacity=".8" />
-
-            </svg>
-
-            <div>
-
-              <strong
-                style="display:block;font-family:'Fraunces',serif;color:white;font-size:1.1rem;">
-                Consumo Placer
-              </strong>
-
-              <span style="font-size:.78rem;opacity:.6;">
-                Comerciantes de Santomera
-              </span>
-
-            </div>
-
-          </div>
-
-          <p>
-            Trabajamos cada día para que los negocios de Santomera
-            prosperen y la comunidad elija lo local.
-          </p>
-
-          <div class="social-links">
-
-            <div class="social-link" title="Facebook">f</div>
-            <div class="social-link" title="Instagram">ig</div>
-            <div class="social-link" title="Twitter/X">𝕏</div>
-            <div class="social-link" title="WhatsApp">w</div>
-
-          </div>
-
-        </div>
-
-
-        <!-- Nav cols -->
-        <div class="footer-col">
-
-          <h4>Navegación</h4>
-
-          <ul class="footer-links">
-
-            <li>
-              <a href="#">Inicio</a>
-            </li>
-
-            <li>
-              <a href="#eventos">Campañas</a>
-            </li>
-
-            <li>
-              <a href="#tablon">Tablón</a>
-            </li>
-
-            <li>
-              <a href="./c*Contacto/contacto.html">
-                Contacto
-              </a>
-            </li>
-
-          </ul>
-
-        </div>
-
-
-        <!-- Contacto -->
-        <div class="footer-col">
-
-          <h4>Contacto</h4>
-
-          <ul class="footer-links">
-
-            <li>
-              <a href="mailto:info@consumoplacer.es">
-                info@consumoplacer.es
-              </a>
-            </li>
-
-            <li>
-              <a href="tel:+34968000000">
-                968 000 000
-              </a>
-            </li>
-
-            <li>
-              <a href="#">
-                Sede: C/ Mayor, Santomera
-              </a>
-            </li>
-
-            <li>
-              <a href="#">
-                Lu-Vi: 9h – 14h
-              </a>
-            </li>
-
-          </ul>
-
-        </div>
-
-      </div>
-
-
-      <div class="footer-bottom">
-
-        <span>
-          © 2025 Consumo Placer – Asociación de Comerciantes de Santomera
-        </span>
-
-        <div class="made-by">
-          Diseñado con ❤ por <strong>Limonlab</strong>
-        </div>
-
-      </div>
-
-    </div>
-
-  </footer>
-
-
-  <script src="./index.js"></script>
-
-</body>
-
-</html>
+    .directory .dir-search-row {
+        margin-top: 0;
+    }
+}
+
+/* ============================================================
+   AJUSTE HERO — "lugar" junto a "solo" + aire antes del buscador
+   ============================================================ */
+
+/* Damos más ancho al bloque izquierdo para que "lugar"
+   pueda quedar en la misma línea que "solo". */
+.hero-grid {
+    grid-template-columns: minmax(0, 1.18fr) minmax(0, .82fr);
+    gap: 3rem;
+}
+
+.hero h1 {
+    max-width: 680px;
+    margin-bottom: 2.25rem;
+}
+
+/* El buscador baja ligeramente respecto al título,
+   creando un espacio limpio y equilibrado. */
+.hero .dir-search-row {
+    margin-top: 1.25rem;
+}
+
+/* Si el HTML usa un salto de línea antes de "lugar",
+   permitimos que el texto ocupe el ancho necesario. */
+.hero h1 {
+    width: 100%;
+}
+
+/* En pantallas medianas reducimos un poco el tamaño para
+   conservar la composición sin romper el diseño. */
+@media (max-width: 1100px) and (min-width: 901px) {
+    .hero-grid {
+        grid-template-columns: minmax(0, 1.25fr) minmax(0, .75fr);
+        gap: 2rem;
+    }
+
+    .hero h1 {
+        font-size: clamp(2.5rem, 4.8vw, 4.2rem);
+    }
+}
+
+@media (max-width: 900px) {
+    .hero-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero h1 {
+        max-width: 100%;
+        margin-bottom: 1.75rem;
+    }
+
+    .hero .dir-search-row {
+        margin-top: .75rem;
+    }
+}

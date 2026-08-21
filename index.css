@@ -185,28 +185,10 @@ nav {
 .nav-logo {
     display: flex;
     align-items: center;
-    gap: 0;
+    gap: 1rem;
 }
 
-/* Logo PNG oficial */
-.nav-logo-image {
-    display: block;
-    width: 280px;
-    height: auto;
-    max-height: 116px;
-    object-fit: contain;
-    flex-shrink: 0;
-}
-
-/* Ocultamos el logo antiguo y el texto antiguo:
-   el PNG ya contiene todo el logotipo. */
-.nav-logo > .logo-mark,
-.nav-logo > .logo-text {
-    display: none;
-}
-
-/* SVG inline logo replica — conservado para otras zonas,
-   pero no se muestra dentro de la cabecera. */
+/* SVG inline logo replica */
 .logo-mark {
     width: 52px;
     height: 52px;
@@ -272,11 +254,6 @@ nav {
 }
 
 @media(max-width: 900px) {
-
-    .nav-logo-image {
-        width: 240px;
-        max-height: 104px;
-    }
 
     .nav-links,
     .nav-cta {

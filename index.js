@@ -1,22 +1,40 @@
 // ============================================================
+// INDEX.JS - CONSUMO PLACER
+// ============================================================
+
+
+// ============================================================
 // SCROLL REVEAL
 // ============================================================
 
 const reveals = document.querySelectorAll(".reveal");
 
 if ("IntersectionObserver" in window) {
+
     const io = new IntersectionObserver(entries => {
+
         entries.forEach(entry => {
+
             if (entry.isIntersecting) {
+
                 entry.target.classList.add("visible");
+
                 io.unobserve(entry.target);
             }
+
         });
-    }, { threshold: 0.12 });
+
+    }, {
+        threshold: 0.12
+    });
 
     reveals.forEach(el => io.observe(el));
+
 } else {
-    reveals.forEach(el => el.classList.add("visible"));
+
+    reveals.forEach(el =>
+        el.classList.add("visible")
+    );
 }
 
 
@@ -25,164 +43,72 @@ if ("IntersectionObserver" in window) {
 // ============================================================
 
 (function () {
+
     const navEl = document.querySelector("nav");
 
     if (!navEl) return;
 
     const burger =
-        navEl.querySelector(".nav-hamburger, .nav-burger");
+        navEl.querySelector(
+            ".nav-hamburger, .nav-burger"
+        );
 
     if (!burger) return;
 
     burger.addEventListener("click", () => {
-        navEl.classList.toggle("mobile-open");
+
+        navEl.classList.toggle(
+            "mobile-open"
+        );
+
     });
 
-    navEl.querySelectorAll(".nav-links a").forEach(link => {
-        link.addEventListener("click", () => {
-            navEl.classList.remove("mobile-open");
+    navEl
+        .querySelectorAll(".nav-links a")
+        .forEach(link => {
+
+            link.addEventListener("click", () => {
+
+                navEl.classList.remove(
+                    "mobile-open"
+                );
+
+            });
+
         });
-    });
+
 })();
 
 
 // ============================================================
-// SOCIOS
+// DATOS DE SOCIOS
+// ============================================================
+//
+// IMPORTANTE:
+//
+// El index NO vuelve a crear una lista de comercios.
+//
+// Utilizamos la misma lista COMERCIOS que está en socios.js.
+//
+// Por eso:
+//
+// - no hay 12 comercios inventados
+// - no hay etiquetas antiguas
+// - el buscador utiliza los socios reales
+// - las etiquetas utilizan comercio.tag
+//
+// socios.js debe cargarse ANTES que index.js.
 // ============================================================
 
-const COMERCIOS = [
-    {
-        id: 1,
-        nombre: "Limonlab",
-        categoria: "Marketing",
-        tag: "Agencia",
-        direccion: "Calle Familia Sanchez Muñoz 29",
-        telefono: "644 65 57 99",
-        correo: "info@limonlab.es",
-        emoji: "☁️"
-    },
+if (
+    typeof COMERCIOS === "undefined"
+) {
 
-    {
-        id: 2,
-        nombre: "Viajes Sandratour",
-        categoria: "Alimentación",
-        tag: "Carnicería",
-        direccion: "Calle calvario 21",
-        telefono: "600 45 96 07",
-        correo: "sandratourviajes@gmail.com",
-        emoji: "🥩"
-    },
+    console.error(
+        "ERROR: socios.js debe cargarse antes que index.js."
+    );
 
-    {
-        id: 3,
-        nombre: "Lavadero Rapiz Santomera",
-        categoria: "Moda",
-        tag: "Ropa & Accesorios",
-        direccion: "C/ Alfonso xlll N - 3",
-        telefono: "968 86 57 72",
-        correo: "villaescusaherrerosantiago@gmail.com",
-        emoji: "👗"
-    },
-
-    {
-        id: 4,
-        nombre: "María Torres. Peluquería y estética",
-        categoria: "Moda",
-        tag: "Ropa & Accesorios",
-        direccion: "Avenida maestro puyg Valera 22 Santomera Murcia",
-        telefono: "968 86 01 23",
-        correo: "mariatorrescanovas28@gmail.com",
-        emoji: "💇"
-    },
-
-    {
-        id: 5,
-        nombre: "Lidia Pelu",
-        categoria: "Moda",
-        tag: "Ropa & Accesorios",
-        direccion: "Calle los huertanos Bajo (Parque Manolo)",
-        telefono: "678 56 15 65",
-        correo: "Lidiapelu@hotmail.es",
-        emoji: "💇"
-    },
-
-    {
-        id: 6,
-        nombre: "REGUERPC",
-        categoria: "Moda",
-        tag: "Ropa & Accesorios",
-        direccion: "Tomas Y Valiente, 20",
-        telefono: "606 84 78 75",
-        correo: "info@reguerpc.com",
-        emoji: "💻"
-    },
-
-    {
-        id: 7,
-        nombre: "Inmobiliaria Mundicasa",
-        categoria: "Moda",
-        tag: "Ropa & Accesorios",
-        direccion: "C/ Maestro Puig Valera n 12 bajo",
-        telefono: "619 68 95 42",
-        correo: "Info@mundicasa.com",
-        emoji: "🏠"
-    },
-
-    {
-        id: 8,
-        nombre: "La despensa de Pedro bodega",
-        categoria: "Moda",
-        tag: "Ropa & Accesorios",
-        direccion: "Avd Juan Carlos I N 51 bajo. Cp 30140 Santomera Murcia",
-        telefono: "620 34 06 93",
-        correo: "Salazonespedro@hotmail.com",
-        emoji: "🍷"
-    },
-
-    {
-        id: 9,
-        nombre: "Diego Friclima s.l.",
-        categoria: "Moda",
-        tag: "Ropa & Accesorios",
-        direccion: "C/Gaudi 12. Santomera",
-        telefono: "696 97 56 71",
-        correo: "diegofriclima@gmail.com",
-        emoji: "❄️"
-    },
-
-    {
-        id: 10,
-        nombre: "Lubespa Distribuciónes del Levante SL",
-        categoria: "Moda",
-        tag: "Ropa & Accesorios",
-        direccion: "Carretera de Alicante 38",
-        telefono: "620 84 31 35",
-        correo: "Ventas@lubricantes-online.com",
-        emoji: "🚚"
-    },
-
-    {
-        id: 11,
-        nombre: "Tamara Bellot Estilistas",
-        categoria: "Moda",
-        tag: "Ropa & Accesorios",
-        direccion: "Calle Del Tomillo, 7 bajo",
-        telefono: "689 53 51 10",
-        correo: "tamaracostaja@gmail.com",
-        emoji: "💇"
-    },
-
-    {
-        id: 12,
-        nombre: "LIBRERÍA CIRCULO",
-        categoria: "Moda",
-        tag: "Ropa & Accesorios",
-        direccion: "C/CALVARIO,26 BAJO SANTOMERA (MURCIA)",
-        telefono: "968 86 12 72",
-        correo: "libreriacirculosantomera@gmail.com",
-        emoji: "📚"
-    }
-];
+}
 
 
 // ============================================================
@@ -195,6 +121,7 @@ function normalizeStr(value) {
         .toLowerCase()
         .normalize("NFD")
         .replace(/[\u0300-\u036f]/g, "");
+
 }
 
 
@@ -206,6 +133,7 @@ function escapeHtml(value) {
         .replace(/>/g, "&gt;")
         .replace(/"/g, "&quot;")
         .replace(/'/g, "&#039;");
+
 }
 
 
@@ -214,41 +142,72 @@ function escapeHtml(value) {
 // ============================================================
 
 const searchInput =
-    document.getElementById("homeSearchInput");
+    document.getElementById(
+        "homeSearchInput"
+    );
 
 const searchButton =
-    document.getElementById("homeSearchBtn");
+    document.getElementById(
+        "homeSearchBtn"
+    );
 
 const searchResults =
-    document.getElementById("homeSearchResults");
+    document.getElementById(
+        "homeSearchResults"
+    );
 
 const searchBox =
-    document.getElementById("homeSearchBox");
+    document.getElementById(
+        "homeSearchBox"
+    );
 
 
 // ============================================================
-// BUSCAR COMERCIOS
+// BUSCAR SOCIOS
 // ============================================================
 
 function buscarComercios(query) {
 
-    const q = normalizeStr(query).trim();
+    if (
+        typeof COMERCIOS === "undefined"
+    ) {
 
-    if (!q) {
         return [];
     }
 
-    return COMERCIOS.filter(comercio => {
+    const q =
+        normalizeStr(query).trim();
 
-        const texto = normalizeStr([
-            comercio.nombre,
-            comercio.categoria,
-            comercio.tag,
-            comercio.direccion
-        ].join(" "));
+    if (!q) {
 
-        return texto.includes(q);
-    });
+        return [];
+    }
+
+    return COMERCIOS.filter(
+        comercio => {
+
+            const texto =
+                normalizeStr([
+
+                    comercio.nombre,
+
+                    comercio.categoria,
+
+                    comercio.tag,
+
+                    comercio.direccion,
+
+                    comercio.telefono,
+
+                    comercio.correo
+
+                ].join(" "));
+
+            return texto.includes(q);
+
+        }
+    );
+
 }
 
 
@@ -262,7 +221,10 @@ function ocultarResultados() {
 
     searchResults.innerHTML = "";
 
-    searchResults.classList.remove("show");
+    searchResults.classList.remove(
+        "show"
+    );
+
 }
 
 
@@ -279,7 +241,7 @@ function mostrarResultados(query) {
 
 
     // --------------------------------------------------------
-    // SI EL BUSCADOR ESTÁ VACÍO
+    // BUSCADOR VACÍO
     // --------------------------------------------------------
 
     if (!texto) {
@@ -320,7 +282,9 @@ function mostrarResultados(query) {
 
         `;
 
-        searchResults.classList.add("show");
+        searchResults.classList.add(
+            "show"
+        );
 
         return;
     }
@@ -331,61 +295,86 @@ function mostrarResultados(query) {
     // --------------------------------------------------------
 
     searchResults.innerHTML =
-        resultados.map(comercio => {
+        resultados
+            .map(comercio => {
 
-            return `
+                /*
+                 * IMPORTANTE:
+                 *
+                 * La etiqueta que mostramos es comercio.tag.
+                 *
+                 * NO usamos comercio.categoria
+                 * como etiqueta.
+                 *
+                 * Así Amparo Borrás aparece como:
+                 *
+                 * Belleza
+                 *
+                 * y no como Moda.
+                 */
 
-                <a
-                    class="home-search-result"
-                    href="./b*Socios/DIRECTORIO PREVIEW.htm"
-                    data-comercio-id="${comercio.id}"
-                >
-
-                    <span class="home-search-result-icon">
-
-                        ${comercio.emoji}
-
-                    </span>
-
-
-                    <span class="home-search-result-info">
-
-                        <strong>
-                            ${escapeHtml(comercio.nombre)}
-                        </strong>
+                const tag =
+                    comercio.tag || "";
 
 
-                        <small>
+                return `
 
-                            ${escapeHtml(comercio.categoria)}
+                    <a
+                        class="home-search-result"
+                        href="/b*Socios/DIRECTORIO%20PREVIEW.htm"
+                        data-comercio-id="${comercio.id}"
+                    >
 
-                            ·
-
-                            ${escapeHtml(comercio.tag)}
-
-                        </small>
-
-
-                        <em>
-
-                            ${escapeHtml(comercio.direccion)}
-
-                        </em>
-
-                    </span>
+                        <span
+                            class="home-search-result-icon"
+                            aria-hidden="true"
+                        >
+                            ${comercio.emoji || ""}
+                        </span>
 
 
-                    <span class="home-search-result-arrow">
+                        <span
+                            class="home-search-result-info"
+                        >
 
-                        →
+                            <strong>
+                                ${escapeHtml(
+                                    comercio.nombre
+                                )}
+                            </strong>
 
-                    </span>
 
-                </a>
+                            <small>
 
-            `;
+                                ${escapeHtml(tag)}
 
-        }).join("");
+                            </small>
+
+
+                            <em>
+
+                                ${escapeHtml(
+                                    comercio.direccion
+                                )}
+
+                            </em>
+
+                        </span>
+
+
+                        <span
+                            class="home-search-result-arrow"
+                            aria-hidden="true"
+                        >
+                            →
+                        </span>
+
+                    </a>
+
+                `;
+
+            })
+            .join("");
 
 
     // --------------------------------------------------------
@@ -396,7 +385,7 @@ function mostrarResultados(query) {
 
         <a
             class="home-search-see-all"
-            href="./b*Socios/DIRECTORIO PREVIEW.htm"
+            href="/b*Socios/DIRECTORIO%20PREVIEW.htm"
         >
 
             Ver todos los comercios →
@@ -406,79 +395,91 @@ function mostrarResultados(query) {
     `;
 
 
-    searchResults.classList.add("show");
+    searchResults.classList.add(
+        "show"
+    );
+
 }
 
 
 // ============================================================
-// EVENTO: ESCRIBIR EN EL BUSCADOR
+// ESCRIBIR EN EL BUSCADOR
 // ============================================================
 
 if (searchInput) {
 
-    searchInput.addEventListener("input", () => {
-
-        mostrarResultados(
-            searchInput.value
-        );
-
-    });
-
-
-    // --------------------------------------------------------
-    // TECLADO
-    // --------------------------------------------------------
-
-    searchInput.addEventListener("keydown", event => {
-
-
-        // ENTER
-
-        if (event.key === "Enter") {
-
-            event.preventDefault();
+    searchInput.addEventListener(
+        "input",
+        () => {
 
             mostrarResultados(
                 searchInput.value
             );
 
         }
+    );
 
 
-        // ESCAPE
+    // --------------------------------------------------------
+    // TECLADO
+    // --------------------------------------------------------
 
-        if (event.key === "Escape") {
+    searchInput.addEventListener(
+        "keydown",
+        event => {
 
-            searchInput.value = "";
 
-            ocultarResultados();
+            // ENTER
 
-            searchInput.blur();
+            if (event.key === "Enter") {
+
+                event.preventDefault();
+
+                mostrarResultados(
+                    searchInput.value
+                );
+
+            }
+
+
+            // ESCAPE
+
+            if (event.key === "Escape") {
+
+                searchInput.value = "";
+
+                ocultarResultados();
+
+                searchInput.blur();
+
+            }
 
         }
-
-    });
+    );
 
 }
 
 
 // ============================================================
-// EVENTO: BOTÓN BUSCAR
+// BOTÓN BUSCAR
 // ============================================================
 
 if (searchButton) {
 
-    searchButton.addEventListener("click", event => {
+    searchButton.addEventListener(
+        "click",
+        event => {
 
-        event.preventDefault();
+            event.preventDefault();
 
-        if (!searchInput) return;
+            if (!searchInput) return;
 
-        mostrarResultados(
-            searchInput.value
-        );
+            mostrarResultados(
+                searchInput.value
+            );
 
-    });
+        }
+    );
 
 }
 
@@ -487,30 +488,37 @@ if (searchButton) {
 // CERRAR RESULTADOS AL HACER CLICK FUERA
 // ============================================================
 
-document.addEventListener("click", event => {
+document.addEventListener(
+    "click",
+    event => {
 
-    if (!searchResults) return;
-
-
-    const clickDentroDelBuscador =
-        searchBox &&
-        searchBox.contains(event.target);
+        if (!searchResults) return;
 
 
-    const clickDentroResultados =
-        searchResults.contains(event.target);
+        const clickDentroBuscador =
+            searchBox &&
+            searchBox.contains(
+                event.target
+            );
 
 
-    if (
-        !clickDentroDelBuscador &&
-        !clickDentroResultados
-    ) {
+        const clickDentroResultados =
+            searchResults.contains(
+                event.target
+            );
 
-        ocultarResultados();
+
+        if (
+            !clickDentroBuscador &&
+            !clickDentroResultados
+        ) {
+
+            ocultarResultados();
+
+        }
 
     }
-
-});
+);
 
 
 // ============================================================
@@ -518,10 +526,14 @@ document.addEventListener("click", event => {
 // ============================================================
 
 const navLinks =
-    document.querySelectorAll(".nav-links a");
+    document.querySelectorAll(
+        ".nav-links a"
+    );
 
 const sections =
-    document.querySelectorAll("section[id]");
+    document.querySelectorAll(
+        "section[id]"
+    );
 
 
 if (
@@ -533,34 +545,41 @@ if (
         new IntersectionObserver(
             entries => {
 
-                entries.forEach(entry => {
+                entries.forEach(
+                    entry => {
 
-                    if (!entry.isIntersecting) {
-                        return;
-                    }
-
-
-                    navLinks.forEach(link => {
-
-                        link.style.color = "";
-
-                    });
+                        if (
+                            !entry.isIntersecting
+                        ) {
+                            return;
+                        }
 
 
-                    const link =
-                        document.querySelector(
-                            `.nav-links a[href="#${entry.target.id}"]`
+                        navLinks.forEach(
+                            link => {
+
+                                link.style.color =
+                                    "";
+
+                            }
                         );
 
 
-                    if (link) {
+                        const link =
+                            document.querySelector(
+                                `.nav-links a[href="#${entry.target.id}"]`
+                            );
 
-                        link.style.color =
-                            "var(--teal)";
+
+                        if (link) {
+
+                            link.style.color =
+                                "var(--teal)";
+
+                        }
 
                     }
-
-                });
+                );
 
             },
             {
@@ -569,11 +588,15 @@ if (
         );
 
 
-    sections.forEach(section => {
+    sections.forEach(
+        section => {
 
-        navObserver.observe(section);
+            navObserver.observe(
+                section
+            );
 
-    });
+        }
+    );
 
 }
 
@@ -582,7 +605,10 @@ if (
 // CONTADORES
 // ============================================================
 
-function animateCount(el, target) {
+function animateCount(
+    el,
+    target
+) {
 
     let start = 0;
 
@@ -600,7 +626,8 @@ function animateCount(el, target) {
 
         const progress =
             Math.min(
-                (timestamp - start) / duration,
+                (timestamp - start) /
+                    duration,
                 1
             );
 
@@ -612,28 +639,47 @@ function animateCount(el, target) {
 
 
         el.textContent =
-            (target >= 100 ? "+" : "") +
+            (
+                target >= 100
+                    ? "+"
+                    : ""
+            ) +
             value +
-            (el.dataset.suffix || "");
+            (
+                el.dataset.suffix ||
+                ""
+            );
 
 
         if (progress < 1) {
 
-            requestAnimationFrame(step);
+            requestAnimationFrame(
+                step
+            );
 
         } else {
 
             el.textContent =
-                (target >= 100 ? "+" : "") +
+                (
+                    target >= 100
+                        ? "+"
+                        : ""
+                ) +
                 target +
-                (el.dataset.suffix || "");
+                (
+                    el.dataset.suffix ||
+                    ""
+                );
 
         }
 
     };
 
 
-    requestAnimationFrame(step);
+    requestAnimationFrame(
+        step
+    );
+
 }
 
 
@@ -642,7 +688,9 @@ function animateCount(el, target) {
 // ============================================================
 
 const statsSection =
-    document.querySelector(".hero-stats");
+    document.querySelector(
+        ".hero-stats"
+    );
 
 
 if (
@@ -654,54 +702,86 @@ if (
         new IntersectionObserver(
             entries => {
 
-                entries.forEach(entry => {
+                entries.forEach(
+                    entry => {
 
-                    if (!entry.isIntersecting) {
-                        return;
-                    }
-
-
-                    document
-                        .querySelectorAll(".stat strong")
-                        .forEach((el, index) => {
-
-                            const targets = [
-                                120,
-                                12,
-                                8
-                            ];
+                        if (
+                            !entry.isIntersecting
+                        ) {
+                            return;
+                        }
 
 
-                            const suffixes = [
-                                "",
-                                "",
-                                "k+"
-                            ];
+                        /*
+                         * El primer contador puede mantenerse
+                         * como cifra general de socios.
+                         *
+                         * El segundo contador utiliza ahora
+                         * el número REAL de comercios.
+                         */
+
+                        const totalSocios =
+                            typeof COMERCIOS !== "undefined"
+                                ? COMERCIOS.length
+                                : 0;
 
 
-                            if (
-                                index >=
-                                targets.length
-                            ) {
-                                return;
-                            }
+                        document
+                            .querySelectorAll(
+                                ".stat strong"
+                            )
+                            .forEach(
+                                (el, index) => {
+
+                                    const targets = [
+
+                                        120,
+
+                                        totalSocios,
+
+                                        8
+
+                                    ];
 
 
-                            el.dataset.suffix =
-                                suffixes[index];
+                                    const suffixes = [
+
+                                        "",
+
+                                        "",
+
+                                        "k+"
+
+                                    ];
 
 
-                            animateCount(
-                                el,
-                                targets[index]
+                                    if (
+                                        index >=
+                                        targets.length
+                                    ) {
+
+                                        return;
+
+                                    }
+
+
+                                    el.dataset.suffix =
+                                        suffixes[index];
+
+
+                                    animateCount(
+                                        el,
+                                        targets[index]
+                                    );
+
+                                }
                             );
 
-                        });
 
+                        statsObserver.disconnect();
 
-                    statsObserver.disconnect();
-
-                });
+                    }
+                );
 
             },
             {

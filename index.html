@@ -1,1101 +1,1257 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>   <meta charset="UTF-8" />   <meta name="viewport" content="width=device-width, initial-scale=1.0" />   <title>Consumo Placer – Comerciantes de Santomera</title>   <link rel="stylesheet" href="./index.css">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Consumo Placer – Comerciantes de Santomera</title>
+  <link rel="stylesheet" href="./index.css">
+
   <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />   <link     href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,700;0,9..144,900;1,9..144,400&family=DM+Sans:wght@300;400;500;600&family=Caveat:wght@600&display=swap"     rel="stylesheet" /> </head>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,700;0,9..144,900;1,9..144,400&family=DM+Sans:wght@300;400;500;600&family=Caveat:wght@600&display=swap"
+    rel="stylesheet" />
+</head>
+
 <body>
+
   <!-- ===== NAV ===== -->
-  <nav>     <div class="container">       <div class="nav-inner">
+  <nav>
+    <div class="container">
+      <div class="nav-inner">
 
-```
-    <!-- Logo -->
-    <a href="./index.html" class="nav-logo">
-      <svg class="logo-mark" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <!-- Logo -->
+        <a href="./index.html" class="nav-logo" aria-label="Consumo Placer - Inicio">
+          <img
+            src="./logo consumo placer.png"
+            alt="Consumo Placer – Comerciantes de Santomera"
+            class="nav-logo-image"
+            style="display:block;width:180px;height:auto;max-height:58px;object-fit:contain;"
+          />
+        </a>
 
-        <!-- Heart shape -->
-        <path
-          d="M50 85 C50 85 12 58 12 32 C12 20 22 12 34 12 C40 12 46 16 50 21 C54 16 60 12 66 12 C78 12 88 20 88 32 C88 58 50 85 50 85Z"
-          fill="#1B3A8A" />
+        <!-- Links -->
+        <ul class="nav-links">
+          <li><a href="#Inicio">Inicio</a></li>
+          <li><a href="./b*Socios/DIRECTORIO%20PREVIEW.htm">Socios</a></li>
+          <li><a href="#eventos">Campañas</a></li>
+          <li><a href="#tablon">Tablón</a></li>
+          <li><a href="./c*Contacto/contacto.html">Contacto</a></li>
+        </ul>
 
-        <!-- Teal fill inner -->
-        <path
-          d="M50 78 C50 78 18 54 18 32 C18 23 26 18 34 18 C40 18 46 23 50 28 C54 23 60 18 66 18 C74 18 82 23 82 32 C82 54 50 78 50 78Z"
-          fill="#2ECECE" />
+        <!-- CTA -->
+        <div class="nav-cta">
+          <a
+            href="./c*Contacto/contacto.html"
+            class="btn btn-primary"
+            style="padding:.65rem 1.4rem;font-size:.9rem;">
+            Hazte Socio
+          </a>
+        </div>
 
-        <!-- Yellow leaf accent -->
-        <ellipse
-          cx="34"
-          cy="28"
-          rx="11"
-          ry="8"
-          transform="rotate(-25,34,28)"
-          fill="#FFD700" />
+        <!-- Mobile -->
+        <button class="nav-hamburger" aria-label="Menú">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
 
-      </svg>
-
-      <div class="logo-text">
-        <strong>Consumo Placer</strong>
-        <span>Comerciantes de Santomera</span>
       </div>
-    </a>
-
-    <!-- Links -->
-    <ul class="nav-links">
-      <li><a href="#Inicio">Inicio</a></li>
-      <li><a href="./b*Socios/DIRECTORIO%20PREVIEW.htm">Socios</a></li>
-      <li><a href="#eventos">Campañas</a></li>
-      <li><a href="#tablon">Tablón</a></li>
-      <li><a href="./c*Contacto/contacto.html">Contacto</a></li>
-    </ul>
-
-    <!-- CTA -->
-    <div class="nav-cta">
-      <a
-        href="./c*Contacto/contacto.html"
-        class="btn btn-primary"
-        style="padding:.65rem 1.4rem;font-size:.9rem;">
-        Hazte Socio
-      </a>
     </div>
-
-    <!-- Mobile -->
-    <button class="nav-hamburger" aria-label="Menú">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
-
-  </div>
-</div>
-```
-
   </nav>
+
+
   <!-- ===== BUSCADOR ===== -->
   <section class="directory" id="Inicio">
 
-```
-<div class="container" style="position:relative;z-index:1;">
+    <div class="container" style="position:relative;z-index:1;">
 
-  <span class="section-label">Descubre</span>
-
-  <h2
-    class="section-title"
-    style="max-width:500px;margin-bottom:.5rem;">
-    El comercio de Santomera en un solo lugar
-  </h2>
-
-  <div class="directory-search-row">
-
-    <div class="dir-search" id="homeSearchBox">
-
-      <input
-        id="homeSearchInput"
-        type="search"
-        placeholder="Busca una tienda, servicio o producto…"
-        autocomplete="off"
-        aria-label="Buscar comercios"
-      />
-
-      <button
-        id="homeSearchBtn"
-        type="button">
-        Buscar
-      </button>
-
-    </div>
-
-    <a
-      href="./b*Socios/DIRECTORIO%20PREVIEW.htm"
-      class="btn btn-yellow directory-all-btn">
-      Ver todos los comercios →
-    </a>
-
-  </div>
-
-  <!-- Los resultados aparecen SOLO cuando se escribe -->
-  <div
-    id="homeSearchResults"
-    class="home-search-results"
-    aria-live="polite">
-  </div>
-
-</div>
-```
-
-  </section>
-  <style>      .directory-search-row {       display: flex;       align-items: center;       gap: 1rem;       width: 100%;       max-width: 980px;     }      .directory-search-row .dir-search {       flex: 1 1 auto;       min-width: 0;     }      .directory-all-btn {       flex: 0 0 auto;       height: 54px;       min-height: 54px;       box-sizing: border-box;       display: inline-flex;       align-items: center;       justify-content: center;       white-space: nowrap;       margin-top: 0;       padding: 0 1.5rem;       line-height: 1;     }      @media (max-width: 760px) {        .directory-search-row {         flex-direction: column;         align-items: stretch;       }        .directory-search-row .dir-search,       .directory-all-btn {         width: 100%;       }        .directory-all-btn {         height: 54px;       }      }      .home-search-results {       width: 100%;       max-width: 980px;       margin-top: .85rem;       display: none;       overflow: hidden;       border-radius: 18px;     }      .home-search-results.show {       display: block;     }      .home-search-result {       display: flex;       align-items: center;       gap: 1rem;       width: 100%;       padding: 1rem 1.15rem;       box-sizing: border-box;       text-decoration: none;       color: inherit;       background: rgba(255,255,255,.96);       border-bottom: 1px solid rgba(0,0,0,.08);       transition: transform .18s ease, background .18s ease;     }      .home-search-result:hover {       background: #fff;       transform: translateX(4px);     }      .home-search-result-icon {       width: 48px;       height: 48px;       flex: 0 0 48px;       display: grid;       place-items: center;       border-radius: 14px;       background: rgba(46,206,206,.18);       font-size: 1.5rem;     }      .home-search-result-info {       min-width: 0;       display: flex;       flex-direction: column;       gap: .18rem;     }      .home-search-result-info strong {       font-size: 1rem;     }      .home-search-result-info small {       opacity: .72;     }      .home-search-result-info em {       font-size: .82rem;       font-style: normal;       opacity: .58;       white-space: nowrap;       overflow: hidden;       text-overflow: ellipsis;     }      .home-search-result-arrow {       margin-left: auto;       font-size: 1.25rem;       font-weight: 700;     }      .home-search-see-all {       display: block;       padding: .95rem 1.15rem;       background: #FFD700;       color: #111;       text-decoration: none;       font-weight: 700;       text-align: center;     }      .home-search-empty {       padding: 1.1rem 1.2rem;       background: rgba(255,255,255,.96);       color: #222;       border-radius: 18px;     }      @media (max-width: 760px) {        .directory-search-row {         flex-direction: column;         align-items: stretch;       }        .directory-all-btn {         width: 100%;         justify-content: center;       }        .home-search-result {         padding: .9rem;       }        .home-search-result-info em {         white-space: normal;       }      }    </style>
-  <!-- ===== CAMPAÑAS ===== -->
-  <section class="campaigns" id="eventos">
-
-```
-<div class="container">
-
-  <div class="section-header">
-
-    <div>
-      <span class="section-label">Campañas realizadas</span>
-      <h2 class="section-title">Campañas &amp; Eventos</h2>
-    </div>
-
-  </div>
-
-  <div class="carousel-track">
-
-    <!-- Card 1 · Este verano, nadie sin vacaciones -->
-    <article class="campaign-card reveal">
-
-      <div
-        class="card-thumb"
-        style="background:linear-gradient(135deg,#5FA8BA,#2ECECE);">
-
-        <div class="card-thumb-inner">
-
-          <svg
-            viewBox="0 0 200 140"
-            xmlns="http://www.w3.org/2000/svg"
-            style="width:160px">
-
-            <text
-              x="100"
-              y="62"
-              text-anchor="middle"
-              font-size="52">
-              ☀️
-            </text>
-
-            <text
-              x="100"
-              y="108"
-              text-anchor="middle"
-              font-family="Georgia"
-              font-size="13"
-              fill="white"
-              font-weight="700">
-              ESTE VERANO DE VACACIONES
-            </text>
-
-          </svg>
-
-        </div>
-      </div>
-
-      <div class="card-body">
-
-        <div class="card-meta">
-          <span class="tag tag-teal">Campaña cerrada</span>
-          <span class="card-date">Finalizada</span>
-        </div>
-
-        <h3 class="card-title">
-          Este verano, nadie sin vacaciones
-        </h3>
-
-        <p class="card-desc">
-          Campaña de apoyo al comercio local con sorteos, regalos y sorpresas para quienes compraron en los comercios adheridos.
-        </p>
-
-        <div class="card-arrow">
-          <svg
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="white"
-            stroke-width="2.5">
-            <path d="M5 12h14M12 5l7 7-7 7" />
-          </svg>
-        </div>
-
-      </div>
-
-    </article>
-
-
-    <!-- Card 2 · Mamá, ponte guapa -->
-    <article class="campaign-card reveal reveal-delay-1">
-
-      <div
-        class="card-thumb"
-        style="background:linear-gradient(135deg,#F7B5C8,#E83D83);">
-
-        <div class="card-thumb-inner">
-
-          <svg
-            viewBox="0 0 200 140"
-            xmlns="http://www.w3.org/2000/svg"
-            style="width:160px">
-
-            <text
-              x="100"
-              y="62"
-              text-anchor="middle"
-              font-size="50">
-              💄
-            </text>
-
-            <text
-              x="100"
-              y="108"
-              text-anchor="middle"
-              font-family="Georgia"
-              font-size="15"
-              fill="white"
-              font-weight="700">
-              MAMÁ, PONTE GUAPA
-            </text>
-
-          </svg>
-
-        </div>
-
-      </div>
-
-      <div class="card-body">
-
-        <div class="card-meta">
-          <span class="tag tag-yellow">Campaña cerrada</span>
-          <span class="card-date">Finalizada</span>
-        </div>
-
-        <h3 class="card-title">
-          Mamá, ponte guapa
-        </h3>
-
-        <p class="card-desc">
-          Campaña del comercio local con bonos regalo para disfrutar de servicios de belleza y un sorteo entre los participantes.
-        </p>
-
-        <div class="card-arrow">
-          <svg
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="white"
-            stroke-width="2.5">
-            <path d="M5 12h14M12 5l7 7-7 7" />
-          </svg>
-        </div>
-
-      </div>
-
-    </article>
-
-
-    <!-- Card 3 · Sorteo Día del Padre -->
-    <article class="campaign-card reveal reveal-delay-2">
-
-      <div
-        class="card-thumb"
-        style="background:linear-gradient(135deg,#1B3A8A,#5277C8);">
-
-        <div class="card-thumb-inner">
-
-          <svg
-            viewBox="0 0 200 140"
-            xmlns="http://www.w3.org/2000/svg"
-            style="width:160px">
-
-            <text
-              x="100"
-              y="62"
-              text-anchor="middle"
-              font-size="52">
-              🎁
-            </text>
-
-            <text
-              x="100"
-              y="108"
-              text-anchor="middle"
-              font-family="Georgia"
-              font-size="14"
-              fill="white"
-              font-weight="700">
-              SORTEO DÍA DEL PADRE
-            </text>
-
-          </svg>
-
-        </div>
-
-      </div>
-
-      <div class="card-body">
-
-        <div class="card-meta">
-          <span class="tag tag-blue">Campaña cerrada</span>
-          <span class="card-date">Finalizada</span>
-        </div>
-
-        <h3 class="card-title">
-          Sorteo Día del Padre
-        </h3>
-
-        <p class="card-desc">
-          Sorteo de premios para consumir en comercios asociados: bonos, lavados de coche y otros regalos para disfrutar del comercio local.
-        </p>
-
-        <div class="card-arrow">
-          <svg
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="white"
-            stroke-width="2.5">
-            <path d="M5 12h14M12 5l7 7-7 7" />
-          </svg>
-        </div>
-
-      </div>
-
-    </article>
-
-  </div>
-
-</div>
-```
-
-  </section>
-  <!-- ===== TABLÓN ===== -->
-  <section class="tablon" id="tablon">
-
-```
-<div class="container">
-
-  <div class="tablon-grid">
-
-    <!-- Feed -->
-    <div>
-
-      <span class="section-label">Lo último</span>
+      <span class="section-label">Descubre</span>
 
       <h2
         class="section-title"
-        style="margin-bottom:2rem;">
-        Tablón de Anuncios
+        style="max-width:500px;margin-bottom:.5rem;">
+        El comercio de Santomera en un solo lugar
       </h2>
 
-      <div class="news-feed">
+      <div class="directory-search-row">
 
-        <!-- 1. MERCADILLO SEMANAL -->
-        <article class="news-item reveal">
+        <div class="dir-search" id="homeSearchBox">
 
-          <div class="news-date-block">
-            <strong style="font-size:1.05rem;">Todos</strong>
-            <span>Miércoles</span>
-          </div>
+          <input
+            id="homeSearchInput"
+            type="search"
+            placeholder="Busca una tienda, servicio o producto…"
+            autocomplete="off"
+            aria-label="Buscar comercios"
+          />
 
-          <div class="news-content">
-
-            <div class="news-title">
-              Mercadillo semanal de Santomera
-            </div>
-
-            <p class="news-excerpt">
-              Todos los miércoles se celebra el mercadillo semanal de
-              Santomera, en el aparcamiento disuasorio.
-            </p>
-
-            <div class="news-footer">
-              <span class="tag tag-teal">Comunicado</span>
-              <span
-                style="font-size:.78rem;color:var(--text-muted);margin-left:.5rem;">
-                Todos los miércoles
-              </span>
-            </div>
-
-          </div>
-
-        </article>
-
-
-        <!-- 2. SORTEOS -->
-        <article class="news-item reveal reveal-delay-1">
-
-          <div
-            class="news-date-block"
-            style="background:var(--blue);">
-            <strong style="font-size:1.8rem;">🎁</strong>
-          </div>
-
-          <div class="news-content">
-
-            <div class="news-title">
-              Próximos sorteos muy pronto
-            </div>
-
-            <p class="news-excerpt">
-              La asociación realiza durante el año varios sorteos,
-              en los que colaboramos con todos los socios. Muy pronto
-              anunciaremos los próximos sorteos.
-            </p>
-
-            <div class="news-footer">
-              <span class="tag tag-blue">Aviso</span>
-              <span
-                style="font-size:.78rem;color:var(--text-muted);margin-left:.5rem;">
-                Próximamente
-              </span>
-            </div>
-
-          </div>
-
-        </article>
-
-
-        <!-- 3. TALLERES -->
-        <article class="news-item reveal reveal-delay-2">
-
-          <div
-            class="news-date-block"
-            style="background:#c4943c;">
-            <strong style="font-size:1.8rem;">📚</strong>
-          </div>
-
-          <div class="news-content">
-
-            <div class="news-title">
-              Talleres gratuitos para comerciantes
-            </div>
-
-            <p class="news-excerpt">
-              Muy pronto habrá nuevos talleres gratuitos. Para informarte,
-              consulta en el Ayuntamiento de Santomera o en la asociación.
-            </p>
-
-            <div class="news-footer">
-              <span class="tag tag-yellow">Formación</span>
-              <span
-                style="font-size:.78rem;color:var(--text-muted);margin-left:.5rem;">
-                Muy pronto
-              </span>
-            </div>
-
-          </div>
-
-        </article>
-
-
-        <!-- 4. SUBVENCIONES -->
-        <article class="news-item reveal reveal-delay-3">
-
-          <div class="news-date-block">
-            <strong style="font-size:1.8rem;">💶</strong>
-          </div>
-
-          <div class="news-content">
-
-            <div class="news-title">
-              Nuevas subvenciones para la digitalización del comercio local
-            </div>
-
-            <p class="news-excerpt">
-              La Comunidad de Murcia abre una convocatoria de ayudas
-              de hasta 3.000€ para comercios que quieran mejorar
-              su presencia digital.
-            </p>
-
-            <div class="news-footer">
-              <span class="tag tag-teal">Subvenciones</span>
-              <span
-                style="font-size:.78rem;color:var(--text-muted);margin-left:.5rem;">
-                Infórmate en Limonlab
-              </span>
-            </div>
-
-          </div>
-
-        </article>
-
-      </div>
-
-    </div>
-
-
-    <!-- Aside -->
-    <div class="tablon-aside">
-
-      <div class="aside-card reveal">
-
-        <div style="text-align:center;margin-bottom:1rem;">
-
-          <svg
-            viewBox="0 0 120 100"
-            xmlns="http://www.w3.org/2000/svg"
-            style="width:120px;margin:auto;">
-
-            <path
-              d="M30 40 L70 25 L70 75 L30 60 Z"
-              fill="#2ECECE" />
-
-            <rect
-              x="14"
-              y="40"
-              width="16"
-              height="20"
-              rx="5"
-              fill="#0A6E6E" />
-
-            <path
-              d="M20 60 L24 78"
-              stroke="#0A6E6E"
-              stroke-width="4"
-              stroke-linecap="round" />
-
-            <path
-              d="M72 38 Q82 50 72 62"
-              fill="none"
-              stroke="#FFD700"
-              stroke-width="3"
-              stroke-linecap="round" />
-
-            <path
-              d="M76 30 Q92 50 76 70"
-              fill="none"
-              stroke="#FFD700"
-              stroke-width="2.5"
-              stroke-linecap="round"
-              opacity=".6" />
-
-            <text x="88" y="28" font-size="14">✦</text>
-            <text x="15" y="32" font-size="10">✦</text>
-
-          </svg>
+          <button
+            id="homeSearchBtn"
+            type="button">
+            Buscar
+          </button>
 
         </div>
-
-        <h3>¿Tienes algo que comunicar?</h3>
-
-        <p>
-          Envíanos tu comunicado y lo publicamos en el tablón
-          para todos los socios y vecinos.
-        </p>
-
-        <a
-          href="./c*Contacto/contacto.html"
-          class="btn btn-primary"
-          style="width:100%;justify-content:center;">
-          Enviar comunicado
-        </a>
-
-      </div>
-
-
-      <div
-        class="aside-card reveal reveal-delay-1"
-        style="background:linear-gradient(135deg,#1B3A8A,#0A6E6E);color:white;">
-
-        <h3 style="color:white;">
-          ¿Aún no eres socio?
-        </h3>
-
-        <p style="color:rgba(255,255,255,.8);">
-          Únete a la comunidad y accede a ventajas exclusivas.
-        </p>
-
-        <ul
-          class="socio-perks"
-          style="margin-bottom:1.25rem;">
-
-          <li style="color:rgba(255,255,255,.9);">
-            <div
-              class="perk-dot"
-              style="background:var(--yellow);">
-            </div>
-            Aparece en el directorio
-          </li>
-
-          <li style="color:rgba(255,255,255,.9);">
-            <div
-              class="perk-dot"
-              style="background:var(--yellow);">
-            </div>
-            Campañas de marketing conjuntas
-          </li>
-
-          <li style="color:rgba(255,255,255,.9);">
-            <div
-              class="perk-dot"
-              style="background:var(--yellow);">
-            </div>
-            Recursos y cartelería gratuita
-          </li>
-
-          <li style="color:rgba(255,255,255,.9);">
-            <div
-              class="perk-dot"
-              style="background:var(--yellow);">
-            </div>
-            Asesoramiento y subvenciones
-          </li>
-
-        </ul>
-
-        <a
-          href="./c*Contacto/contacto.html"
-          class="btn btn-yellow"
-          style="width:100%;justify-content:center;">
-          Hazte Socio →
-        </a>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</div>
-```
-
-  </section>
-  <!-- ===== ABOUT ===== -->
-  <section class="about" id="about">
-
-```
-<div class="container">
-
-  <div class="about-grid">
-
-    <!-- Illustration -->
-    <div class="about-illustration reveal">
-
-      <div class="about-blob-bg"></div>
-
-      <div class="about-visual-card">
-
-        <svg
-          viewBox="0 0 320 320"
-          xmlns="http://www.w3.org/2000/svg"
-          style="width:100%;max-width:320px;margin:auto;display:block">
-
-          <circle
-            cx="160"
-            cy="160"
-            r="130"
-            fill="rgba(46,206,206,0.07)" />
-
-          <circle
-            cx="100"
-            cy="100"
-            r="50"
-            fill="rgba(255,215,0,0.12)" />
-
-          <!-- Head -->
-          <circle
-            cx="160"
-            cy="100"
-            r="42"
-            fill="#f5d0a5" />
-
-          <!-- Hair -->
-          <path
-            d="M118 92 Q120 55 160 52 Q200 55 202 92 Q195 68 160 65 Q125 68 118 92Z"
-            fill="#3d2010" />
-
-          <!-- Eyes -->
-          <circle cx="147" cy="98" r="5" fill="#3d2010" />
-          <circle cx="173" cy="98" r="5" fill="#3d2010" />
-
-          <!-- Smile -->
-          <path
-            d="M148 112 Q160 122 172 112"
-            fill="none"
-            stroke="#c4753a"
-            stroke-width="3"
-            stroke-linecap="round" />
-
-          <!-- Cheeks -->
-          <circle
-            cx="140"
-            cy="110"
-            r="8"
-            fill="rgba(230,100,80,0.2)" />
-
-          <circle
-            cx="180"
-            cy="110"
-            r="8"
-            fill="rgba(230,100,80,0.2)" />
-
-          <!-- Body -->
-          <rect
-            x="128"
-            y="140"
-            width="64"
-            height="80"
-            rx="20"
-            fill="#0A6E6E" />
-
-          <!-- Arms -->
-          <rect
-            x="88"
-            y="148"
-            width="44"
-            height="22"
-            rx="11"
-            fill="#f5d0a5" />
-
-          <rect
-            x="188"
-            y="148"
-            width="44"
-            height="22"
-            rx="11"
-            fill="#f5d0a5" />
-
-          <!-- Shirt logo -->
-          <path
-            d="M160 167 C160 167 150 160 150 154 C150 151 152 149 155 149 C157 149 159 151 160 152 C161 151 163 149 165 149 C168 149 170 151 170 154 C170 160 160 167 160 167Z"
-            fill="white" />
-
-          <!-- Big heart -->
-          <path
-            d="M160 55 C160 55 135 35 135 20 C135 11 142 6 150 6 C154 6 158 9 160 12 C162 9 166 6 170 6 C178 6 185 11 185 20 C185 35 160 55 160 55Z"
-            fill="#1B3A8A" />
-
-          <path
-            d="M160 50 C160 50 139 32 139 20 C139 14 145 10 150 10 C154 10 158 14 160 17 C162 14 166 10 170 10 C175 10 181 14 181 20 C181 32 160 50 160 50Z"
-            fill="#2ECECE" />
-
-          <ellipse
-            cx="148"
-            cy="18"
-            rx="8"
-            ry="6"
-            transform="rotate(-20,148,18)"
-            fill="#FFD700" />
-
-          <!-- Small shop icons -->
-          <g transform="translate(40,160)">
-            <rect
-              width="44"
-              height="36"
-              rx="8"
-              fill="white"
-              filter="drop-shadow(0 2px 6px rgba(0,0,0,0.1))" />
-            <text
-              x="22"
-              y="24"
-              text-anchor="middle"
-              font-size="18">
-              🏪
-            </text>
-          </g>
-
-          <g transform="translate(236,155)">
-            <rect
-              width="44"
-              height="36"
-              rx="8"
-              fill="white"
-              filter="drop-shadow(0 2px 6px rgba(0,0,0,0.1))" />
-            <text
-              x="22"
-              y="24"
-              text-anchor="middle"
-              font-size="18">
-              🤝
-            </text>
-          </g>
-
-          <!-- Caption -->
-          <text
-            x="160"
-            y="300"
-            text-anchor="middle"
-            font-family="Georgia,serif"
-            font-style="italic"
-            font-size="13"
-            fill="#0A6E6E">
-            Unidos por Santomera
-          </text>
-
-        </svg>
-
-
-        <ul
-          class="values-list"
-          style="margin-top:1.5rem;">
-
-          <li class="value-item">
-
-            <div
-              class="value-icon"
-              style="background:rgba(255,215,0,.2);">
-              🌟
-            </div>
-
-            <div class="value-text">
-
-              <strong>Visibilidad para todos</strong>
-
-              <p>
-                Tu comercio en el mapa digital de Santomera.
-              </p>
-
-            </div>
-
-          </li>
-
-
-          <li class="value-item">
-
-            <div
-              class="value-icon"
-              style="background:rgba(46,206,206,.15);">
-              📣
-            </div>
-
-            <div class="value-text">
-
-              <strong>Campañas conjuntas</strong>
-
-              <p>
-                Más fuerza cuando actuamos como uno.
-              </p>
-
-            </div>
-
-          </li>
-
-
-          <li class="value-item">
-
-            <div
-              class="value-icon"
-              style="background:rgba(27,58,138,.1);">
-              📋
-            </div>
-
-            <div class="value-text">
-
-              <strong>Recursos y subvenciones</strong>
-
-              <p>
-                Te ayudamos a crecer con formación y apoyo.
-              </p>
-
-            </div>
-
-          </li>
-
-        </ul>
-
-      </div>
-
-    </div>
-
-
-    <!-- Content -->
-    <div class="about-content reveal reveal-delay-1">
-
-      <span class="section-label">
-        ¿Qué es Consumo Placer?
-      </span>
-
-      <h2 class="section-title">
-        La unión que <em>da fuerza</em> al comercio de Santomera
-      </h2>
-
-      <p>
-        Somos la asociación de comerciantes que representa a los
-        negocios de Santomera. Nacimos con un objetivo claro:
-        hacer que comprar en el barrio sea la primera opción
-        para sus vecinos.
-      </p>
-
-      <blockquote class="pullquote">
-        "Un municipio con comercio local vivo es un municipio
-        que respira, que tiene alma."
-      </blockquote>
-
-      <p>
-        Organizamos campañas de descuentos, eventos, formaciones
-        y acciones de comunicación que ponen en el mapa a nuestros
-        comercios. Además, tramitamos subvenciones, representamos
-        al sector ante las instituciones y generamos comunidad.
-      </p>
-
-
-      <!-- BOTONES CORREGIDOS -->
-      <div
-        style="margin-top:2rem; display:flex; gap:1rem; flex-wrap:wrap;">
-
-        <a
-          href="./c*Contacto/contacto.html"
-          class="btn btn-primary">
-          Únete a la asociación
-        </a>
 
         <a
           href="./b*Socios/DIRECTORIO%20PREVIEW.htm"
-          class="btn btn-outline">
-          Ver comercios
+          class="btn btn-yellow directory-all-btn">
+          Ver todos los comercios →
         </a>
+
+      </div>
+
+      <!-- Los resultados aparecen SOLO cuando se escribe -->
+      <div
+        id="homeSearchResults"
+        class="home-search-results"
+        aria-live="polite">
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <style>
+
+    .directory-search-row {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      width: 100%;
+      max-width: 980px;
+    }
+
+    .directory-search-row .dir-search {
+      flex: 1 1 auto;
+      min-width: 0;
+    }
+
+    .directory-all-btn {
+      flex: 0 0 auto;
+      height: 54px;
+      min-height: 54px;
+      box-sizing: border-box;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      white-space: nowrap;
+      margin-top: 0;
+      padding: 0 1.5rem;
+      line-height: 1;
+    }
+
+    @media (max-width: 760px) {
+
+      .directory-search-row {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .directory-search-row .dir-search,
+      .directory-all-btn {
+        width: 100%;
+      }
+
+      .directory-all-btn {
+        height: 54px;
+      }
+
+    }
+
+    .home-search-results {
+      width: 100%;
+      max-width: 980px;
+      margin-top: .85rem;
+      display: none;
+      overflow: hidden;
+      border-radius: 18px;
+    }
+
+    .home-search-results.show {
+      display: block;
+    }
+
+    .home-search-result {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      width: 100%;
+      padding: 1rem 1.15rem;
+      box-sizing: border-box;
+      text-decoration: none;
+      color: inherit;
+      background: rgba(255,255,255,.96);
+      border-bottom: 1px solid rgba(0,0,0,.08);
+      transition: transform .18s ease, background .18s ease;
+    }
+
+    .home-search-result:hover {
+      background: #fff;
+      transform: translateX(4px);
+    }
+
+    .home-search-result-icon {
+      width: 48px;
+      height: 48px;
+      flex: 0 0 48px;
+      display: grid;
+      place-items: center;
+      border-radius: 14px;
+      background: rgba(46,206,206,.18);
+      font-size: 1.5rem;
+    }
+
+    .home-search-result-info {
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      gap: .18rem;
+    }
+
+    .home-search-result-info strong {
+      font-size: 1rem;
+    }
+
+    .home-search-result-info small {
+      opacity: .72;
+    }
+
+    .home-search-result-info em {
+      font-size: .82rem;
+      font-style: normal;
+      opacity: .58;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .home-search-result-arrow {
+      margin-left: auto;
+      font-size: 1.25rem;
+      font-weight: 700;
+    }
+
+    .home-search-see-all {
+      display: block;
+      padding: .95rem 1.15rem;
+      background: #FFD700;
+      color: #111;
+      text-decoration: none;
+      font-weight: 700;
+      text-align: center;
+    }
+
+    .home-search-empty {
+      padding: 1.1rem 1.2rem;
+      background: rgba(255,255,255,.96);
+      color: #222;
+      border-radius: 18px;
+    }
+
+    @media (max-width: 760px) {
+
+      .directory-search-row {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .directory-all-btn {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .home-search-result {
+        padding: .9rem;
+      }
+
+      .home-search-result-info em {
+        white-space: normal;
+      }
+
+    }
+
+  </style>
+
+
+  <!-- ===== CAMPAÑAS ===== -->
+  <section class="campaigns" id="eventos">
+
+    <div class="container">
+
+      <div class="section-header">
+
+        <div>
+          <span class="section-label">Campañas realizadas</span>
+          <h2 class="section-title">Campañas &amp; Eventos</h2>
+        </div>
+
+      </div>
+
+      <div class="carousel-track">
+
+        <!-- Card 1 · Este verano, nadie sin vacaciones -->
+        <article class="campaign-card reveal">
+
+          <div
+            class="card-thumb"
+            style="background:linear-gradient(135deg,#5FA8BA,#2ECECE);">
+
+            <div class="card-thumb-inner">
+
+              <svg
+                viewBox="0 0 200 140"
+                xmlns="http://www.w3.org/2000/svg"
+                style="width:160px">
+
+                <text
+                  x="100"
+                  y="62"
+                  text-anchor="middle"
+                  font-size="52">
+                  ☀️
+                </text>
+
+                <text
+                  x="100"
+                  y="108"
+                  text-anchor="middle"
+                  font-family="Georgia"
+                  font-size="13"
+                  fill="white"
+                  font-weight="700">
+                  ESTE VERANO DE VACACIONES
+                </text>
+
+              </svg>
+
+            </div>
+          </div>
+
+          <div class="card-body">
+
+            <div class="card-meta">
+              <span class="tag tag-teal">Campaña cerrada</span>
+              <span class="card-date">Finalizada</span>
+            </div>
+
+            <h3 class="card-title">
+              Este verano, nadie sin vacaciones
+            </h3>
+
+            <p class="card-desc">
+              Campaña de apoyo al comercio local con sorteos, regalos y sorpresas para quienes compraron en los comercios adheridos.
+            </p>
+
+            <div class="card-arrow">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="white"
+                stroke-width="2.5">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </div>
+
+          </div>
+
+        </article>
+
+
+        <!-- Card 2 · Mamá, ponte guapa -->
+        <article class="campaign-card reveal reveal-delay-1">
+
+          <div
+            class="card-thumb"
+            style="background:linear-gradient(135deg,#F7B5C8,#E83D83);">
+
+            <div class="card-thumb-inner">
+
+              <svg
+                viewBox="0 0 200 140"
+                xmlns="http://www.w3.org/2000/svg"
+                style="width:160px">
+
+                <text
+                  x="100"
+                  y="62"
+                  text-anchor="middle"
+                  font-size="50">
+                  💄
+                </text>
+
+                <text
+                  x="100"
+                  y="108"
+                  text-anchor="middle"
+                  font-family="Georgia"
+                  font-size="15"
+                  fill="white"
+                  font-weight="700">
+                  MAMÁ, PONTE GUAPA
+                </text>
+
+              </svg>
+
+            </div>
+
+          </div>
+
+          <div class="card-body">
+
+            <div class="card-meta">
+              <span class="tag tag-yellow">Campaña cerrada</span>
+              <span class="card-date">Finalizada</span>
+            </div>
+
+            <h3 class="card-title">
+              Mamá, ponte guapa
+            </h3>
+
+            <p class="card-desc">
+              Campaña del comercio local con bonos regalo para disfrutar de servicios de belleza y un sorteo entre los participantes.
+            </p>
+
+            <div class="card-arrow">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="white"
+                stroke-width="2.5">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </div>
+
+          </div>
+
+        </article>
+
+
+        <!-- Card 3 · Sorteo Día del Padre -->
+        <article class="campaign-card reveal reveal-delay-2">
+
+          <div
+            class="card-thumb"
+            style="background:linear-gradient(135deg,#1B3A8A,#5277C8);">
+
+            <div class="card-thumb-inner">
+
+              <svg
+                viewBox="0 0 200 140"
+                xmlns="http://www.w3.org/2000/svg"
+                style="width:160px">
+
+                <text
+                  x="100"
+                  y="62"
+                  text-anchor="middle"
+                  font-size="52">
+                  🎁
+                </text>
+
+                <text
+                  x="100"
+                  y="108"
+                  text-anchor="middle"
+                  font-family="Georgia"
+                  font-size="14"
+                  fill="white"
+                  font-weight="700">
+                  SORTEO DÍA DEL PADRE
+                </text>
+
+              </svg>
+
+            </div>
+
+          </div>
+
+          <div class="card-body">
+
+            <div class="card-meta">
+              <span class="tag tag-blue">Campaña cerrada</span>
+              <span class="card-date">Finalizada</span>
+            </div>
+
+            <h3 class="card-title">
+              Sorteo Día del Padre
+            </h3>
+
+            <p class="card-desc">
+              Sorteo de premios para consumir en comercios asociados: bonos, lavados de coche y otros regalos para disfrutar del comercio local.
+            </p>
+
+            <div class="card-arrow">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="white"
+                stroke-width="2.5">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </div>
+
+          </div>
+
+        </article>
 
       </div>
 
     </div>
 
-  </div>
-
-</div>
-```
-
   </section>
-  <!-- ===== FOOTER ===== -->
-  <footer id="contacto">
 
-```
-<div class="container">
 
-  <div class="footer-grid">
+  <!-- ===== TABLÓN ===== -->
+  <section class="tablon" id="tablon">
 
-    <!-- Brand -->
-    <div class="footer-brand">
+    <div class="container">
 
-      <div
-        style="display:flex;align-items:center;gap:.75rem;">
+      <div class="tablon-grid">
 
-        <svg
-          width="44"
-          height="44"
-          viewBox="0 0 100 100"
-          xmlns="http://www.w3.org/2000/svg">
-
-          <path
-            d="M50 85 C50 85 12 58 12 32 C12 20 22 12 34 12 C40 12 46 16 50 21 C54 16 60 12 66 12 C78 12 88 20 88 32 C88 58 50 85 50 85Z"
-            fill="rgba(255,255,255,.15)" />
-
-          <path
-            d="M50 78 C50 78 18 54 18 32 C18 23 26 18 34 18 C40 18 46 23 50 28 C54 23 60 18 66 18 C74 18 82 23 82 32 C82 54 50 78 50 78Z"
-            fill="#2ECECE"
-            opacity=".7" />
-
-          <ellipse
-            cx="34"
-            cy="28"
-            rx="11"
-            ry="8"
-            transform="rotate(-25,34,28)"
-            fill="#FFD700"
-            opacity=".8" />
-
-        </svg>
-
+        <!-- Feed -->
         <div>
 
-          <strong
-            style="display:block;font-family:'Fraunces',serif;color:white;font-size:1.1rem;">
-            Consumo Placer
-          </strong>
+          <span class="section-label">Lo último</span>
 
-          <span style="font-size:.78rem;opacity:.6;">
-            Comerciantes de Santomera
-          </span>
+          <h2
+            class="section-title"
+            style="margin-bottom:2rem;">
+            Tablón de Anuncios
+          </h2>
+
+          <div class="news-feed">
+
+            <!-- 1. MERCADILLO SEMANAL -->
+            <article class="news-item reveal">
+
+              <div class="news-date-block">
+                <strong style="font-size:1.05rem;">Todos</strong>
+                <span>Miércoles</span>
+              </div>
+
+              <div class="news-content">
+
+                <div class="news-title">
+                  Mercadillo semanal de Santomera
+                </div>
+
+                <p class="news-excerpt">
+                  Todos los miércoles se celebra el mercadillo semanal de
+                  Santomera, en el aparcamiento disuasorio.
+                </p>
+
+                <div class="news-footer">
+                  <span class="tag tag-teal">Comunicado</span>
+                  <span
+                    style="font-size:.78rem;color:var(--text-muted);margin-left:.5rem;">
+                    Todos los miércoles
+                  </span>
+                </div>
+
+              </div>
+
+            </article>
+
+
+            <!-- 2. SORTEOS -->
+            <article class="news-item reveal reveal-delay-1">
+
+              <div
+                class="news-date-block"
+                style="background:var(--blue);">
+                <strong style="font-size:1.8rem;">🎁</strong>
+              </div>
+
+              <div class="news-content">
+
+                <div class="news-title">
+                  Próximos sorteos muy pronto
+                </div>
+
+                <p class="news-excerpt">
+                  La asociación realiza durante el año varios sorteos,
+                  en los que colaboramos con todos los socios. Muy pronto
+                  anunciaremos los próximos sorteos.
+                </p>
+
+                <div class="news-footer">
+                  <span class="tag tag-blue">Aviso</span>
+                  <span
+                    style="font-size:.78rem;color:var(--text-muted);margin-left:.5rem;">
+                    Próximamente
+                  </span>
+                </div>
+
+              </div>
+
+            </article>
+
+
+            <!-- 3. TALLERES -->
+            <article class="news-item reveal reveal-delay-2">
+
+              <div
+                class="news-date-block"
+                style="background:#c4943c;">
+                <strong style="font-size:1.8rem;">📚</strong>
+              </div>
+
+              <div class="news-content">
+
+                <div class="news-title">
+                  Talleres gratuitos para comerciantes
+                </div>
+
+                <p class="news-excerpt">
+                  Muy pronto habrá nuevos talleres gratuitos. Para informarte,
+                  consulta en el Ayuntamiento de Santomera o en la asociación.
+                </p>
+
+                <div class="news-footer">
+                  <span class="tag tag-yellow">Formación</span>
+                  <span
+                    style="font-size:.78rem;color:var(--text-muted);margin-left:.5rem;">
+                    Muy pronto
+                  </span>
+                </div>
+
+              </div>
+
+            </article>
+
+
+            <!-- 4. SUBVENCIONES -->
+            <article class="news-item reveal reveal-delay-3">
+
+              <div class="news-date-block">
+                <strong style="font-size:1.8rem;">💶</strong>
+              </div>
+
+              <div class="news-content">
+
+                <div class="news-title">
+                  Nuevas subvenciones para la digitalización del comercio local
+                </div>
+
+                <p class="news-excerpt">
+                  La Comunidad de Murcia abre una convocatoria de ayudas
+                  de hasta 3.000€ para comercios que quieran mejorar
+                  su presencia digital.
+                </p>
+
+                <div class="news-footer">
+                  <span class="tag tag-teal">Subvenciones</span>
+                  <span
+                    style="font-size:.78rem;color:var(--text-muted);margin-left:.5rem;">
+                    Infórmate en Limonlab
+                  </span>
+                </div>
+
+              </div>
+
+            </article>
+
+          </div>
+
+        </div>
+
+
+        <!-- Aside -->
+        <div class="tablon-aside">
+
+          <div class="aside-card reveal">
+
+            <div style="text-align:center;margin-bottom:1rem;">
+
+              <svg
+                viewBox="0 0 120 100"
+                xmlns="http://www.w3.org/2000/svg"
+                style="width:120px;margin:auto;">
+
+                <path
+                  d="M30 40 L70 25 L70 75 L30 60 Z"
+                  fill="#2ECECE" />
+
+                <rect
+                  x="14"
+                  y="40"
+                  width="16"
+                  height="20"
+                  rx="5"
+                  fill="#0A6E6E" />
+
+                <path
+                  d="M20 60 L24 78"
+                  stroke="#0A6E6E"
+                  stroke-width="4"
+                  stroke-linecap="round" />
+
+                <path
+                  d="M72 38 Q82 50 72 62"
+                  fill="none"
+                  stroke="#FFD700"
+                  stroke-width="3"
+                  stroke-linecap="round" />
+
+                <path
+                  d="M76 30 Q92 50 76 70"
+                  fill="none"
+                  stroke="#FFD700"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                  opacity=".6" />
+
+                <text x="88" y="28" font-size="14">✦</text>
+                <text x="15" y="32" font-size="10">✦</text>
+
+              </svg>
+
+            </div>
+
+            <h3>¿Tienes algo que comunicar?</h3>
+
+            <p>
+              Envíanos tu comunicado y lo publicamos en el tablón
+              para todos los socios y vecinos.
+            </p>
+
+            <a
+              href="./c*Contacto/contacto.html"
+              class="btn btn-primary"
+              style="width:100%;justify-content:center;">
+              Enviar comunicado
+            </a>
+
+          </div>
+
+
+          <div
+            class="aside-card reveal reveal-delay-1"
+            style="background:linear-gradient(135deg,#1B3A8A,#0A6E6E);color:white;">
+
+            <h3 style="color:white;">
+              ¿Aún no eres socio?
+            </h3>
+
+            <p style="color:rgba(255,255,255,.8);">
+              Únete a la comunidad y accede a ventajas exclusivas.
+            </p>
+
+            <ul
+              class="socio-perks"
+              style="margin-bottom:1.25rem;">
+
+              <li style="color:rgba(255,255,255,.9);">
+                <div
+                  class="perk-dot"
+                  style="background:var(--yellow);">
+                </div>
+                Aparece en el directorio
+              </li>
+
+              <li style="color:rgba(255,255,255,.9);">
+                <div
+                  class="perk-dot"
+                  style="background:var(--yellow);">
+                </div>
+                Campañas de marketing conjuntas
+              </li>
+
+              <li style="color:rgba(255,255,255,.9);">
+                <div
+                  class="perk-dot"
+                  style="background:var(--yellow);">
+                </div>
+                Recursos y cartelería gratuita
+              </li>
+
+              <li style="color:rgba(255,255,255,.9);">
+                <div
+                  class="perk-dot"
+                  style="background:var(--yellow);">
+                </div>
+                Asesoramiento y subvenciones
+              </li>
+
+            </ul>
+
+            <a
+              href="./c*Contacto/contacto.html"
+              class="btn btn-yellow"
+              style="width:100%;justify-content:center;">
+              Hazte Socio →
+            </a>
+
+          </div>
 
         </div>
 
       </div>
 
-      <p>
-        Trabajamos cada día para que los negocios de Santomera
-        prosperen y la comunidad elija lo local.
-      </p>
+    </div>
 
-      <div class="social-links">
+  </section>
 
-        <div class="social-link" title="Facebook">f</div>
-        <div class="social-link" title="Instagram">ig</div>
-        <div class="social-link" title="Twitter/X">𝕏</div>
-        <div class="social-link" title="WhatsApp">w</div>
+
+  <!-- ===== ABOUT ===== -->
+  <section class="about" id="about">
+
+    <div class="container">
+
+      <div class="about-grid">
+
+        <!-- Illustration -->
+        <div class="about-illustration reveal">
+
+          <div class="about-blob-bg"></div>
+
+          <div class="about-visual-card">
+
+            <svg
+              viewBox="0 0 320 320"
+              xmlns="http://www.w3.org/2000/svg"
+              style="width:100%;max-width:320px;margin:auto;display:block">
+
+              <circle
+                cx="160"
+                cy="160"
+                r="130"
+                fill="rgba(46,206,206,0.07)" />
+
+              <circle
+                cx="100"
+                cy="100"
+                r="50"
+                fill="rgba(255,215,0,0.12)" />
+
+              <!-- Head -->
+              <circle
+                cx="160"
+                cy="100"
+                r="42"
+                fill="#f5d0a5" />
+
+              <!-- Hair -->
+              <path
+                d="M118 92 Q120 55 160 52 Q200 55 202 92 Q195 68 160 65 Q125 68 118 92Z"
+                fill="#3d2010" />
+
+              <!-- Eyes -->
+              <circle cx="147" cy="98" r="5" fill="#3d2010" />
+              <circle cx="173" cy="98" r="5" fill="#3d2010" />
+
+              <!-- Smile -->
+              <path
+                d="M148 112 Q160 122 172 112"
+                fill="none"
+                stroke="#c4753a"
+                stroke-width="3"
+                stroke-linecap="round" />
+
+              <!-- Cheeks -->
+              <circle
+                cx="140"
+                cy="110"
+                r="8"
+                fill="rgba(230,100,80,0.2)" />
+
+              <circle
+                cx="180"
+                cy="110"
+                r="8"
+                fill="rgba(230,100,80,0.2)" />
+
+              <!-- Body -->
+              <rect
+                x="128"
+                y="140"
+                width="64"
+                height="80"
+                rx="20"
+                fill="#0A6E6E" />
+
+              <!-- Arms -->
+              <rect
+                x="88"
+                y="148"
+                width="44"
+                height="22"
+                rx="11"
+                fill="#f5d0a5" />
+
+              <rect
+                x="188"
+                y="148"
+                width="44"
+                height="22"
+                rx="11"
+                fill="#f5d0a5" />
+
+              <!-- Shirt logo -->
+              <path
+                d="M160 167 C160 167 150 160 150 154 C150 151 152 149 155 149 C157 149 159 151 160 152 C161 151 163 149 165 149 C168 149 170 151 170 154 C170 160 160 167 160 167Z"
+                fill="white" />
+
+              <!-- Big heart -->
+              <path
+                d="M160 55 C160 55 135 35 135 20 C135 11 142 6 150 6 C154 6 158 9 160 12 C162 9 166 6 170 6 C178 6 185 11 185 20 C185 35 160 55 160 55Z"
+                fill="#1B3A8A" />
+
+              <path
+                d="M160 50 C160 50 139 32 139 20 C139 14 145 10 150 10 C154 10 158 14 160 17 C162 14 166 10 170 10 C175 10 181 14 181 20 C181 32 160 50 160 50Z"
+                fill="#2ECECE" />
+
+              <ellipse
+                cx="148"
+                cy="18"
+                rx="8"
+                ry="6"
+                transform="rotate(-20,148,18)"
+                fill="#FFD700" />
+
+              <!-- Small shop icons -->
+              <g transform="translate(40,160)">
+                <rect
+                  width="44"
+                  height="36"
+                  rx="8"
+                  fill="white"
+                  filter="drop-shadow(0 2px 6px rgba(0,0,0,0.1))" />
+                <text
+                  x="22"
+                  y="24"
+                  text-anchor="middle"
+                  font-size="18">
+                  🏪
+                </text>
+              </g>
+
+              <g transform="translate(236,155)">
+                <rect
+                  width="44"
+                  height="36"
+                  rx="8"
+                  fill="white"
+                  filter="drop-shadow(0 2px 6px rgba(0,0,0,0.1))" />
+                <text
+                  x="22"
+                  y="24"
+                  text-anchor="middle"
+                  font-size="18">
+                  🤝
+                </text>
+              </g>
+
+              <!-- Caption -->
+              <text
+                x="160"
+                y="300"
+                text-anchor="middle"
+                font-family="Georgia,serif"
+                font-style="italic"
+                font-size="13"
+                fill="#0A6E6E">
+                Unidos por Santomera
+              </text>
+
+            </svg>
+
+
+            <ul
+              class="values-list"
+              style="margin-top:1.5rem;">
+
+              <li class="value-item">
+
+                <div
+                  class="value-icon"
+                  style="background:rgba(255,215,0,.2);">
+                  🌟
+                </div>
+
+                <div class="value-text">
+
+                  <strong>Visibilidad para todos</strong>
+
+                  <p>
+                    Tu comercio en el mapa digital de Santomera.
+                  </p>
+
+                </div>
+
+              </li>
+
+
+              <li class="value-item">
+
+                <div
+                  class="value-icon"
+                  style="background:rgba(46,206,206,.15);">
+                  📣
+                </div>
+
+                <div class="value-text">
+
+                  <strong>Campañas conjuntas</strong>
+
+                  <p>
+                    Más fuerza cuando actuamos como uno.
+                  </p>
+
+                </div>
+
+              </li>
+
+
+              <li class="value-item">
+
+                <div
+                  class="value-icon"
+                  style="background:rgba(27,58,138,.1);">
+                  📋
+                </div>
+
+                <div class="value-text">
+
+                  <strong>Recursos y subvenciones</strong>
+
+                  <p>
+                    Te ayudamos a crecer con formación y apoyo.
+                  </p>
+
+                </div>
+
+              </li>
+
+            </ul>
+
+          </div>
+
+        </div>
+
+
+        <!-- Content -->
+        <div class="about-content reveal reveal-delay-1">
+
+          <span class="section-label">
+            ¿Qué es Consumo Placer?
+          </span>
+
+          <h2 class="section-title">
+            La unión que <em>da fuerza</em> al comercio de Santomera
+          </h2>
+
+          <p>
+            Somos la asociación de comerciantes que representa a los
+            negocios de Santomera. Nacimos con un objetivo claro:
+            hacer que comprar en el barrio sea la primera opción
+            para sus vecinos.
+          </p>
+
+          <blockquote class="pullquote">
+            "Un municipio con comercio local vivo es un municipio
+            que respira, que tiene alma."
+          </blockquote>
+
+          <p>
+            Organizamos campañas de descuentos, eventos, formaciones
+            y acciones de comunicación que ponen en el mapa a nuestros
+            comercios. Además, tramitamos subvenciones, representamos
+            al sector ante las instituciones y generamos comunidad.
+          </p>
+
+
+          <!-- BOTONES CORREGIDOS -->
+          <div
+            style="margin-top:2rem; display:flex; gap:1rem; flex-wrap:wrap;">
+
+            <a
+              href="./c*Contacto/contacto.html"
+              class="btn btn-primary">
+              Únete a la asociación
+            </a>
+
+            <a
+              href="./b*Socios/DIRECTORIO%20PREVIEW.htm"
+              class="btn btn-outline">
+              Ver comercios
+            </a>
+
+          </div>
+
+        </div>
 
       </div>
 
     </div>
 
+  </section>
 
-    <!-- Nav cols -->
-    <div class="footer-col">
 
-      <h4>Navegación</h4>
+  <!-- ===== FOOTER ===== -->
+  <footer id="contacto">
 
-      <ul class="footer-links">
+    <div class="container">
 
-        <li>
-          <a href="#">Inicio</a>
-        </li>
+      <div class="footer-grid">
 
-        <li>
-          <a href="#eventos">Campañas</a>
-        </li>
+        <!-- Brand -->
+        <div class="footer-brand">
 
-        <li>
-          <a href="#tablon">Tablón</a>
-        </li>
+          <div
+            style="display:flex;align-items:center;gap:.75rem;">
 
-        <li>
-          <a href="./c*Contacto/contacto.html">
-            Contacto
-          </a>
-        </li>
+            <svg
+              width="44"
+              height="44"
+              viewBox="0 0 100 100"
+              xmlns="http://www.w3.org/2000/svg">
 
-      </ul>
+              <path
+                d="M50 85 C50 85 12 58 12 32 C12 20 22 12 34 12 C40 12 46 16 50 21 C54 16 60 12 66 12 C78 12 88 20 88 32 C88 58 50 85 50 85Z"
+                fill="rgba(255,255,255,.15)" />
+
+              <path
+                d="M50 78 C50 78 18 54 18 32 C18 23 26 18 34 18 C40 18 46 23 50 28 C54 23 60 18 66 18 C74 18 82 23 82 32 C82 54 50 78 50 78Z"
+                fill="#2ECECE"
+                opacity=".7" />
+
+              <ellipse
+                cx="34"
+                cy="28"
+                rx="11"
+                ry="8"
+                transform="rotate(-25,34,28)"
+                fill="#FFD700"
+                opacity=".8" />
+
+            </svg>
+
+            <div>
+
+              <strong
+                style="display:block;font-family:'Fraunces',serif;color:white;font-size:1.1rem;">
+                Consumo Placer
+              </strong>
+
+              <span style="font-size:.78rem;opacity:.6;">
+                Comerciantes de Santomera
+              </span>
+
+            </div>
+
+          </div>
+
+          <p>
+            Trabajamos cada día para que los negocios de Santomera
+            prosperen y la comunidad elija lo local.
+          </p>
+
+          <div class="social-links">
+
+            <div class="social-link" title="Facebook">f</div>
+            <div class="social-link" title="Instagram">ig</div>
+            <div class="social-link" title="Twitter/X">𝕏</div>
+            <div class="social-link" title="WhatsApp">w</div>
+
+          </div>
+
+        </div>
+
+
+        <!-- Nav cols -->
+        <div class="footer-col">
+
+          <h4>Navegación</h4>
+
+          <ul class="footer-links">
+
+            <li>
+              <a href="#">Inicio</a>
+            </li>
+
+            <li>
+              <a href="#eventos">Campañas</a>
+            </li>
+
+            <li>
+              <a href="#tablon">Tablón</a>
+            </li>
+
+            <li>
+              <a href="./c*Contacto/contacto.html">
+                Contacto
+              </a>
+            </li>
+
+          </ul>
+
+        </div>
+
+
+        <!-- Contacto -->
+        <div class="footer-col">
+
+          <h4>Contacto</h4>
+
+          <ul class="footer-links">
+
+            <li>
+              <a href="mailto:info@consumoplacer.es">
+                info@consumoplacer.es
+              </a>
+            </li>
+
+            <li>
+              <a href="tel:+34968000000">
+                968 000 000
+              </a>
+            </li>
+
+            <li>
+              <a href="#">
+                Sede: C/ Mayor, Santomera
+              </a>
+            </li>
+
+            <li>
+              <a href="#">
+                Lu-Vi: 9h – 14h
+              </a>
+            </li>
+
+          </ul>
+
+        </div>
+
+      </div>
+
+
+      <div class="footer-bottom">
+
+        <span>
+          © 2025 Consumo Placer – Asociación de Comerciantes de Santomera
+        </span>
+
+        <div class="made-by">
+          Diseñado con ❤ por <strong>Limonlab</strong>
+        </div>
+
+      </div>
 
     </div>
-
-
-    <!-- Contacto -->
-    <div class="footer-col">
-
-      <h4>Contacto</h4>
-
-      <ul class="footer-links">
-
-        <li>
-          <a href="mailto:info@consumoplacer.es">
-            info@consumoplacer.es
-          </a>
-        </li>
-
-        <li>
-          <a href="tel:+34968000000">
-            968 000 000
-          </a>
-        </li>
-
-        <li>
-          <a href="#">
-            Sede: C/ Mayor, Santomera
-          </a>
-        </li>
-
-        <li>
-          <a href="#">
-            Lu-Vi: 9h – 14h
-          </a>
-        </li>
-
-      </ul>
-
-    </div>
-
-  </div>
-
-
-  <div class="footer-bottom">
-
-    <span>
-      © 2025 Consumo Placer – Asociación de Comerciantes de Santomera
-    </span>
-
-    <div class="made-by">
-      Diseñado con ❤ por <strong>Limonlab</strong>
-    </div>
-
-  </div>
-
-</div>
-```
 
   </footer>
+
+
   <script src="./b*Socios/socios.js"></script>
   <script src="./index.js"></script>
+
 </body>
+
 </html>

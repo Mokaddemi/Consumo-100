@@ -63,33 +63,183 @@
     </div>
   </nav>
 
-  <!-- ===== DIRECTORIO PREVIEW ===== -->
+  <!-- ===== BUSCADOR ===== -->
   <section class="directory" id="Inicio">
     <div class="container" style="position:relative;z-index:1;">
+
       <span class="section-label">Descubre</span>
-      <h2 class="section-title" style="max-width:500px;margin-bottom:.5rem;">El comercio de Santomera en un solo lugar
+
+      <h2 class="section-title"
+          style="max-width:500px;margin-bottom:.5rem;">
+        El comercio de Santomera en un solo lugar
       </h2>
 
-      <div class="dir-search">
-        <input type="text" placeholder="Busca una tienda, servicio o producto…" />
-        <button>Buscar</button>
+      <div class="directory-search-row">
+
+        <div class="dir-search" id="homeSearchBox">
+          <input
+            id="homeSearchInput"
+            type="search"
+            placeholder="Busca una tienda, servicio o producto…"
+            autocomplete="off"
+            aria-label="Buscar comercios"
+          />
+
+          <button
+            id="homeSearchBtn"
+            type="button">
+            Buscar
+          </button>
+        </div>
+
+        <a
+          href="./b*Socios/DIRECTORIO PREVIEW.htm"
+          class="btn btn-yellow directory-all-btn">
+          Ver todos los comercios →
+        </a>
+
       </div>
 
-      <div class="category-chips" id="categoryChips">
-        <!-- generado por JS -->
+      <!-- Los resultados aparecen SOLO cuando se escribe -->
+      <div
+        id="homeSearchResults"
+        class="home-search-results"
+        aria-live="polite">
       </div>
 
-      <p class="dir-results-count" id="dirResultsCount"></p>
-
-      <div class="dir-grid ready" id="dirGrid">
-        <!-- generado por JS -->
-      </div>
-
-      <div class="dir-cta">
-        <a href="./b*Socios/DIRECTORIO PREVIEW.htm" class="btn btn-yellow" style="margin-top:1rem;">Ver todos los comercios →</a>
-      </div>
     </div>
   </section>
+
+  <style>
+    .directory-search-row {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      width: 100%;
+      max-width: 980px;
+    }
+
+    .directory-search-row .dir-search {
+      flex: 1 1 auto;
+      min-width: 0;
+    }
+
+    .directory-all-btn {
+      flex: 0 0 auto;
+      white-space: nowrap;
+      margin-top: 0;
+    }
+
+    .home-search-results {
+      width: 100%;
+      max-width: 980px;
+      margin-top: .85rem;
+      display: none;
+      overflow: hidden;
+      border-radius: 18px;
+    }
+
+    .home-search-results.show {
+      display: block;
+    }
+
+    .home-search-result {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      width: 100%;
+      padding: 1rem 1.15rem;
+      box-sizing: border-box;
+      text-decoration: none;
+      color: inherit;
+      background: rgba(255,255,255,.96);
+      border-bottom: 1px solid rgba(0,0,0,.08);
+      transition: transform .18s ease, background .18s ease;
+    }
+
+    .home-search-result:hover {
+      background: #fff;
+      transform: translateX(4px);
+    }
+
+    .home-search-result-icon {
+      width: 48px;
+      height: 48px;
+      flex: 0 0 48px;
+      display: grid;
+      place-items: center;
+      border-radius: 14px;
+      background: rgba(46,206,206,.18);
+      font-size: 1.5rem;
+    }
+
+    .home-search-result-info {
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      gap: .18rem;
+    }
+
+    .home-search-result-info strong {
+      font-size: 1rem;
+    }
+
+    .home-search-result-info small {
+      opacity: .72;
+    }
+
+    .home-search-result-info em {
+      font-size: .82rem;
+      font-style: normal;
+      opacity: .58;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .home-search-result-arrow {
+      margin-left: auto;
+      font-size: 1.25rem;
+      font-weight: 700;
+    }
+
+    .home-search-see-all {
+      display: block;
+      padding: .95rem 1.15rem;
+      background: #FFD700;
+      color: #111;
+      text-decoration: none;
+      font-weight: 700;
+      text-align: center;
+    }
+
+    .home-search-empty {
+      padding: 1.1rem 1.2rem;
+      background: rgba(255,255,255,.96);
+      color: #222;
+      border-radius: 18px;
+    }
+
+    @media (max-width: 760px) {
+      .directory-search-row {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .directory-all-btn {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .home-search-result {
+        padding: .9rem;
+      }
+
+      .home-search-result-info em {
+        white-space: normal;
+      }
+    }
+  </style>
 
   <!-- ===== CAMPAÑAS ===== -->
   <section class="campaigns" id="eventos">
@@ -479,7 +629,7 @@
         <div class="footer-col">
           <h4>Socios</h4>
           <ul class="footer-links">
-            <li><a href="#">Hazte Socio</a></li>
+            <li><a href="./c*Contacto/contacto.html">Hazte Socio</a></li>
             <li><a href="#">Recursos</a></li>
             <li><a href="#">Cartelería</a></li>
             <li><a href="#">Normativa</a></li>

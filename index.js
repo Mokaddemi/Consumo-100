@@ -100,11 +100,25 @@
         if (!navEl) return;
 
         const burger =
+            document.querySelector(
+                ".nav-hamburger"
+            ) ||
             navEl.querySelector(
-                ".nav-hamburger, .nav-burger"
+                ".nav-burger"
             );
 
         if (!burger) return;
+
+
+        // Evitar registrar el evento dos veces
+        if (
+            burger.dataset.mobileMenuReady === "true"
+        ) {
+            return;
+        }
+
+        burger.dataset.mobileMenuReady = "true";
+
 
         burger.addEventListener(
             "click",
@@ -119,6 +133,7 @@
 
             }
         );
+
 
         navEl
             .querySelectorAll(".nav-links a")
@@ -143,8 +158,6 @@
     // ========================================================
     // LISTA REAL DE SOCIOS
     // ========================================================
-    //
-    // IMPORTANTE:
     //
     // COMERCIOS viene de socios.js.
     //
@@ -270,7 +283,6 @@
             }
 
 
-            // IMPORTANTE:
             // Obtenemos la lista actual cada vez que buscamos.
 
             const comercios =
@@ -339,10 +351,6 @@
                 String(query || "").trim();
 
 
-            // ------------------------------------------------
-            // BUSCADOR VACÍO
-            // ------------------------------------------------
-
             if (!texto) {
 
                 ocultarResultados();
@@ -351,10 +359,6 @@
 
             }
 
-
-            // ------------------------------------------------
-            // REALIZAR BÚSQUEDA
-            // ------------------------------------------------
 
             const resultados =
                 buscar(texto);
@@ -414,17 +418,12 @@
                 comercio => {
 
                     /*
-                     * MUY IMPORTANTE:
-                     *
-                     * La etiqueta que aparece debajo
-                     * del nombre utiliza SIEMPRE:
-                     *
-                     * comercio.tag
+                     * La etiqueta utiliza SIEMPRE comercio.tag.
                      *
                      * NO comercio.categoria.
                      *
-                     * Por tanto se respetan exactamente
-                     * las etiquetas que tienes en socios.js.
+                     * De esta manera se respetan exactamente
+                     * las etiquetas definidas en socios.js.
                      */
 
 
@@ -957,6 +956,10 @@
 
     }
 
+
+    // ========================================================
+    // ARRANQUE SEGURO
+    // ========================================================
 
     if (
         document.readyState ===

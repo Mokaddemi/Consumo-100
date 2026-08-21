@@ -5,11 +5,15 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Contacto – Consumo Placer | Comerciantes de Santomera</title>
-  <link rel="stylesheet" href="/c*Contacto/contacto.css">
+
+  <!-- Estamos dentro de c*Contacto -->
+  <link rel="stylesheet" href="./contacto.css">
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
   <link
-    href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,700;0,9..144,900;1,9..144,300&family=DM+Sans:wght@300;400;500;600&family=Caveat:wght@600;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,700;0,9..144,900;1,0..144,300&family=DM+Sans:wght@300;400;500;600&family=Caveat:wght@600;700&display=swap"
     rel="stylesheet" />
 </head>
 
@@ -19,217 +23,624 @@
   <nav>
     <div class="container">
       <div class="nav-inner">
+
         <!-- Logo -->
-        <a href="/a*Index/index.html" class="nav-logo">
+        <!-- Desde c*Contacto subimos a la raíz -->
+        <a href="../index.html" class="nav-logo">
+
           <svg class="logo-mark" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-            <!-- Heart shape -->
+
             <path
               d="M50 85 C50 85 12 58 12 32 C12 20 22 12 34 12 C40 12 46 16 50 21 C54 16 60 12 66 12 C78 12 88 20 88 32 C88 58 50 85 50 85Z"
               fill="#1B3A8A" />
-            <!-- Teal fill inner -->
+
             <path
               d="M50 78 C50 78 18 54 18 32 C18 23 26 18 34 18 C40 18 46 23 50 28 C54 23 60 18 66 18 C74 18 82 23 82 32 C82 54 50 78 50 78Z"
               fill="#2ECECE" />
-            <!-- Yellow leaf accent -->
-            <ellipse cx="34" cy="28" rx="11" ry="8" transform="rotate(-25,34,28)" fill="#FFD700" />
+
+            <ellipse
+              cx="34"
+              cy="28"
+              rx="11"
+              ry="8"
+              transform="rotate(-25,34,28)"
+              fill="#FFD700" />
+
           </svg>
+
           <div class="logo-text">
             <strong>Consumo Placer</strong>
             <span>Comerciantes de Santomera</span>
           </div>
+
         </a>
+
 
         <!-- Links -->
         <ul class="nav-links">
-          <li><a href="/a*Index/index.html">Inicio</a></li>
-          <li><a href="/b*Socios/DIRECTORIO PREVIEW.htm">Socios</a></li>
-          <li><a href="/a*Index/index.html#eventos">Campañas</a></li>
-          <li><a href="/a*Index/index.html#tablon">Tablón</a></li>
-          <li><a href="/c*Contacto/contacto.html" class="active">Contacto</a></li>
+
+          <li>
+            <a href="../index.html">
+              Inicio
+            </a>
+          </li>
+
+          <li>
+            <a href="../b*Socios/DIRECTORIO PREVIEW.htm">
+              Socios
+            </a>
+          </li>
+
+          <li>
+            <a href="../index.html#eventos">
+              Campañas
+            </a>
+          </li>
+
+          <li>
+            <a href="../index.html#tablon">
+              Tablón
+            </a>
+          </li>
+
+          <li>
+            <a href="./contacto.html" class="active">
+              Contacto
+            </a>
+          </li>
+
         </ul>
+
 
         <!-- CTA -->
         <div class="nav-cta">
-          <a href="/a*Index/index.html#socio" class="btn btn-primary"
-            style="padding:.65rem 1.4rem;font-size:.9rem;">Hazte Socio</a>
+
+          <a
+            href="../index.html#socio"
+            class="btn btn-primary"
+            style="padding:.65rem 1.4rem;font-size:.9rem;">
+
+            Hazte Socio
+
+          </a>
+
         </div>
+
 
         <!-- Mobile -->
         <button class="nav-hamburger" aria-label="Menú">
-          <span></span><span></span><span></span>
+          <span></span>
+          <span></span>
+          <span></span>
         </button>
+
       </div>
     </div>
   </nav>
 
+
+  <!-- ===== MAIN ===== -->
+
   <main>
+
     <div class="page">
+
       <div class="contact-grid">
 
+        <!-- IZQUIERDA -->
+
         <div class="contact-left">
-          <h1 class="contact-title">Contacto</h1>
+
+          <h1 class="contact-title">
+            Contacto
+          </h1>
+
           <p class="contact-subtitle">
             Escríbenos y nos pondremos en contacto contigo a la mayor brevedad posible. Gracias.
           </p>
 
+
           <form id="contactForm" novalidate>
+
             <div class="fields-2col">
+
               <div class="field">
-                <label for="nombre">Nombre<span style="opacity:.3;margin-left:1px">*</span></label>
-                <input id="nombre" type="text" name="nombre" autocomplete="given-name" placeholder="Tu nombre" />
+
+                <label for="nombre">
+                  Nombre
+                  <span style="opacity:.3;margin-left:1px">*</span>
+                </label>
+
+                <input
+                  id="nombre"
+                  type="text"
+                  name="nombre"
+                  autocomplete="given-name"
+                  placeholder="Tu nombre" />
+
               </div>
+
+
               <div class="field">
-                <label for="apellidos">Apellidos</label>
-                <input id="apellidos" type="text" name="apellidos" autocomplete="family-name"
+
+                <label for="apellidos">
+                  Apellidos
+                </label>
+
+                <input
+                  id="apellidos"
+                  type="text"
+                  name="apellidos"
+                  autocomplete="family-name"
                   placeholder="Tus apellidos" />
+
               </div>
+
+
               <div class="field">
-                <label for="telefono">Teléfono<span style="opacity:.3;margin-left:1px">*</span></label>
-                <input id="telefono" type="tel" name="telefono" autocomplete="tel" placeholder="600 000 000" />
+
+                <label for="telefono">
+                  Teléfono
+                  <span style="opacity:.3;margin-left:1px">*</span>
+                </label>
+
+                <input
+                  id="telefono"
+                  type="tel"
+                  name="telefono"
+                  autocomplete="tel"
+                  placeholder="600 000 000" />
+
               </div>
+
+
               <div class="field">
-                <label for="email">Email<span style="opacity:.3;margin-left:1px">*</span></label>
-                <input id="email" type="email" name="email" autocomplete="email" placeholder="tu@email.com" />
+
+                <label for="email">
+                  Email
+                  <span style="opacity:.3;margin-left:1px">*</span>
+                </label>
+
+                <input
+                  id="email"
+                  type="email"
+                  name="email"
+                  autocomplete="email"
+                  placeholder="tu@email.com" />
+
               </div>
+
             </div>
+
 
             <div class="field field-textarea">
-              <label for="mensaje">Déjanos tu mensaje</label>
-              <textarea id="mensaje" name="mensaje" rows="5"
+
+              <label for="mensaje">
+                Déjanos tu mensaje
+              </label>
+
+              <textarea
+                id="mensaje"
+                name="mensaje"
+                rows="5"
                 placeholder="Cuéntanos en qué podemos ayudarte…"></textarea>
+
             </div>
+
 
             <label class="privacy-row">
-              <input type="checkbox" id="privacy" name="privacy" />
-              <span class="privacy-label">He leído y acepto las <a href="#">políticas de privacidad</a>.</span>
+
+              <input
+                type="checkbox"
+                id="privacy"
+                name="privacy" />
+
+              <span class="privacy-label">
+                He leído y acepto las
+                <a href="#">
+                  políticas de privacidad
+                </a>.
+              </span>
+
             </label>
 
-            <button type="submit" class="btn-send" id="btnSend">
-              <span class="btn-send-text">enviar</span>
-              <svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+
+            <button
+              type="submit"
+              class="btn-send"
+              id="btnSend">
+
+              <span class="btn-send-text">
+                enviar
+              </span>
+
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke-width="2.2"
+                stroke-linecap="round"
+                stroke-linejoin="round">
+
                 <path d="M5 12h14M12 5l7 7-7 7" />
+
               </svg>
+
             </button>
 
-            <div class="form-success" id="formSuccess" role="alert">
-              <svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
-                <polyline points="22 4 12 14.01 9 11.01" />
+
+            <div
+              class="form-success"
+              id="formSuccess"
+              role="alert">
+
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke-width="2.2"
+                stroke-linecap="round"
+                stroke-linejoin="round">
+
+                <path
+                  d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+
+                <polyline
+                  points="22 4 12 14.01 9 11.01" />
+
               </svg>
+
               ¡Mensaje enviado! Te respondemos en breve.
+
             </div>
+
           </form>
+
         </div>
 
+
+        <!-- DERECHA -->
+
         <div class="contact-right">
+
           <div class="heart-stage">
 
-            <img class="heart-logo" src="/d*IMG/LOGOS AES ABRIL 2024_Mesa de trabajo 1 copia.png"
-              alt="Corazón Consumo Placer – latiendo" draggable="false" />
+            <!-- Desde c*Contacto subimos a raíz y entramos en d*IMG -->
+            <img
+              class="heart-logo"
+              src="../d*IMG/LOGOS AES ABRIL 2024_Mesa de trabajo 1 copia.png"
+              alt="Corazón Consumo Placer – latiendo"
+              draggable="false" />
+
           </div>
+
         </div>
 
       </div>
+
+
+      <!-- INFORMACIÓN DE CONTACTO -->
+
       <div class="contact-info-row">
+
         <div class="info-block">
-          <div class="info-icon">📍</div>
-          <strong>Dirección</strong>
-          <p>C/ Mayor s/n<br />30140 Santomera, Murcia</p>
+
+          <div class="info-icon">
+            📍
+          </div>
+
+          <strong>
+            Dirección
+          </strong>
+
+          <p>
+            C/ Mayor s/n<br />
+            30140 Santomera, Murcia
+          </p>
+
         </div>
+
+
         <div class="info-block">
-          <div class="info-icon">📞</div>
-          <strong>Teléfono</strong>
-          <a href="tel:+34968000000">968 000 000</a>
+
+          <div class="info-icon">
+            📞
+          </div>
+
+          <strong>
+            Teléfono
+          </strong>
+
+          <a href="tel:+34968000000">
+            968 000 000
+          </a>
+
         </div>
+
+
         <div class="info-block">
-          <div class="info-icon">✉️</div>
-          <strong>Email</strong>
-          <a href="mailto:info@consumoplacer.es">info@consumoplacer.es</a>
+
+          <div class="info-icon">
+            ✉️
+          </div>
+
+          <strong>
+            Email
+          </strong>
+
+          <a href="mailto:info@consumoplacer.es">
+            info@consumoplacer.es
+          </a>
+
         </div>
+
+
         <div class="info-block">
-          <div class="info-icon">🕐</div>
-          <strong>Horario</strong>
-          <p>Lun–Vie: 9:00–14:00 h</p>
+
+          <div class="info-icon">
+            🕐
+          </div>
+
+          <strong>
+            Horario
+          </strong>
+
+          <p>
+            Lun–Vie: 9:00–14:00 h
+          </p>
+
         </div>
+
       </div>
 
     </div>
+
   </main>
 
+
   <!-- ===== FOOTER ===== -->
+
   <footer id="contacto">
+
     <div class="container">
+
       <div class="footer-grid">
+
+
         <!-- Brand -->
+
         <div class="footer-brand">
-          <div style="display:flex;align-items:center;gap:.75rem;">
-            <svg width="44" height="44" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+
+          <div
+            style="display:flex;align-items:center;gap:.75rem;">
+
+            <svg
+              width="44"
+              height="44"
+              viewBox="0 0 100 100"
+              xmlns="http://www.w3.org/2000/svg">
+
               <path
                 d="M50 85 C50 85 12 58 12 32 C12 20 22 12 34 12 C40 12 46 16 50 21 C54 16 60 12 66 12 C78 12 88 20 88 32 C88 58 50 85 50 85Z"
                 fill="rgba(255,255,255,.15)" />
+
               <path
                 d="M50 78 C50 78 18 54 18 32 C18 23 26 18 34 18 C40 18 46 23 50 28 C54 23 60 18 66 18 C74 18 82 23 82 32 C82 54 50 78 50 78Z"
-                fill="#2ECECE" opacity=".7" />
-              <ellipse cx="34" cy="28" rx="11" ry="8" transform="rotate(-25,34,28)" fill="#FFD700" opacity=".8" />
+                fill="#2ECECE"
+                opacity=".7" />
+
+              <ellipse
+                cx="34"
+                cy="28"
+                rx="11"
+                ry="8"
+                transform="rotate(-25,34,28)"
+                fill="#FFD700"
+                opacity=".8" />
+
             </svg>
+
+
             <div>
-              <strong style="display:block;font-family:'Fraunces',serif;color:white;font-size:1.1rem;">Consumo
-                Placer</strong>
-              <span style="font-size:.78rem;opacity:.6;">Comerciantes de Santomera</span>
+
+              <strong
+                style="display:block;font-family:'Fraunces',serif;color:white;font-size:1.1rem;">
+
+                Consumo Placer
+
+              </strong>
+
+              <span style="font-size:.78rem;opacity:.6;">
+                Comerciantes de Santomera
+              </span>
+
             </div>
+
           </div>
-          <p>Trabajamos cada día para que los negocios de Santomera prosperen y la comunidad elija lo local.</p>
+
+
+          <p>
+            Trabajamos cada día para que los negocios de Santomera
+            prosperen y la comunidad elija lo local.
+          </p>
+
+
           <div class="social-links">
-            <div class="social-link" title="Facebook">f</div>
-            <div class="social-link" title="Instagram">ig</div>
-            <div class="social-link" title="Twitter/X">𝕏</div>
-            <div class="social-link" title="WhatsApp">w</div>
+
+            <div
+              class="social-link"
+              title="Facebook">
+              f
+            </div>
+
+            <div
+              class="social-link"
+              title="Instagram">
+              ig
+            </div>
+
+            <div
+              class="social-link"
+              title="Twitter/X">
+              𝕏
+            </div>
+
+            <div
+              class="social-link"
+              title="WhatsApp">
+              w
+            </div>
+
           </div>
+
         </div>
 
-        <!-- Nav cols -->
-        <div class="footer-col">
-          <h4>Navegación</h4>
-          <ul class="footer-links">
-            <li><a href="#">Inicio</a></li>
-            <li><a href="#eventos">Eventos</a></li>
-            <li><a href="#tablon">Tablón</a></li>
-            <li><a href="/contacto.html">Contacto</a></li>
-          </ul>
-        </div>
+
+        <!-- Navegación -->
 
         <div class="footer-col">
-          <h4>Socios</h4>
+
+          <h4>
+            Navegación
+          </h4>
+
           <ul class="footer-links">
-            <li><a href="#">Hazte Socio</a></li>
-            <li><a href="#">Recursos</a></li>
-            <li><a href="#">Cartelería</a></li>
-            <li><a href="#">Normativa</a></li>
-            <li><a href="#">Asamblea</a></li>
+
+            <li>
+              <a href="../index.html">
+                Inicio
+              </a>
+            </li>
+
+            <li>
+              <a href="../index.html#eventos">
+                Eventos
+              </a>
+            </li>
+
+            <li>
+              <a href="../index.html#tablon">
+                Tablón
+              </a>
+            </li>
+
+            <li>
+              <a href="./contacto.html">
+                Contacto
+              </a>
+            </li>
+
           </ul>
+
         </div>
 
+
+        <!-- Socios -->
+
         <div class="footer-col">
-          <h4>Contacto</h4>
+
+          <h4>
+            Socios
+          </h4>
+
           <ul class="footer-links">
-            <li><a href="mailto:info@consumoplacer.es">info@consumoplacer.es</a></li>
-            <li><a href="tel:+34968000000">968 000 000</a></li>
-            <li><a href="#">Sede: C/ Mayor, Santomera</a></li>
-            <li><a href="#">Lu-Vi: 9h – 14h</a></li>
+
+            <li>
+              <a href="../b*Socios/DIRECTORIO PREVIEW.htm">
+                Hazte Socio
+              </a>
+            </li>
+
+            <li>
+              <a href="#">
+                Recursos
+              </a>
+            </li>
+
+            <li>
+              <a href="#">
+                Cartelería
+              </a>
+            </li>
+
+            <li>
+              <a href="#">
+                Normativa
+              </a>
+            </li>
+
+            <li>
+              <a href="#">
+                Asamblea
+              </a>
+            </li>
+
           </ul>
+
         </div>
+
+
+        <!-- Contacto -->
+
+        <div class="footer-col">
+
+          <h4>
+            Contacto
+          </h4>
+
+          <ul class="footer-links">
+
+            <li>
+              <a href="mailto:info@consumoplacer.es">
+                info@consumoplacer.es
+              </a>
+            </li>
+
+            <li>
+              <a href="tel:+34968000000">
+                968 000 000
+              </a>
+            </li>
+
+            <li>
+              <a href="#">
+                Sede: C/ Mayor, Santomera
+              </a>
+            </li>
+
+            <li>
+              <a href="#">
+                Lu-Vi: 9h – 14h
+              </a>
+            </li>
+
+          </ul>
+
+        </div>
+
       </div>
+
 
       <div class="footer-bottom">
-        <span>© 2025 Consumo Placer – Asociación de Comerciantes de Santomera</span>
+
+        <span>
+          © 2025 Consumo Placer –
+          Asociación de Comerciantes de Santomera
+        </span>
+
         <div class="made-by">
-          Diseñado con ❤ por <strong>Limonlab</strong>
+          Diseñado con ❤ por
+          <strong>Limonlab</strong>
         </div>
+
       </div>
+
     </div>
+
   </footer>
 
-  <script src="/c*Contacto/contacto.js"></script>
+
+  <!-- JavaScript: está en la misma carpeta c*Contacto -->
+  <script src="./contacto.js"></script>
+
 </body>
 
 </html>

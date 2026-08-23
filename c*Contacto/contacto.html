@@ -4,39 +4,50 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>Contacto – Consumo Placer | Comerciantes de Santomera</title>
 
-  <!-- Estamos dentro de c*Contacto -->
+  <!-- CSS -->
   <link rel="stylesheet" href="./contacto.css">
 
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
   <link
     href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,700;0,9..144,900;1,0..144,300&family=DM+Sans:wght@300;400;500;600&family=Caveat:wght@600;700&display=swap"
-    rel="stylesheet" />
+    rel="stylesheet"
+  />
 </head>
 
 <body>
 
-  <!-- ===== NAV ===== -->
+  <!-- =====================================================
+       NAV
+  ====================================================== -->
+
   <nav>
     <div class="container">
       <div class="nav-inner">
 
         <!-- Logo -->
-        <!-- Desde c*Contacto subimos a la raíz -->
         <a href="../index.html" class="nav-logo">
 
-          <svg class="logo-mark" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <svg
+            class="logo-mark"
+            viewBox="0 0 100 100"
+            xmlns="http://www.w3.org/2000/svg"
+          >
 
             <path
               d="M50 85 C50 85 12 58 12 32 C12 20 22 12 34 12 C40 12 46 16 50 21 C54 16 60 12 66 12 C78 12 88 20 88 32 C88 58 50 85 50 85Z"
-              fill="#1B3A8A" />
+              fill="#1B3A8A"
+            />
 
             <path
               d="M50 78 C50 78 18 54 18 32 C18 23 26 18 34 18 C40 18 46 23 50 28 C54 23 60 18 66 18 C74 18 82 23 82 32 C82 54 50 78 50 78Z"
-              fill="#2ECECE" />
+              fill="#2ECECE"
+            />
 
             <ellipse
               cx="34"
@@ -44,7 +55,8 @@
               rx="11"
               ry="8"
               transform="rotate(-25,34,28)"
-              fill="#FFD700" />
+              fill="#FFD700"
+            />
 
           </svg>
 
@@ -98,17 +110,21 @@
           <a
             href="./contacto.html"
             class="btn btn-primary"
-            style="padding:.65rem 1.4rem;font-size:.9rem;">
-
+            style="padding:.65rem 1.4rem;font-size:.9rem;"
+          >
             Hazte Socio
-
           </a>
 
         </div>
 
 
-        <!-- Mobile -->
-        <button class="nav-hamburger" aria-label="Menú">
+        <!-- Menú móvil -->
+        <button
+          class="nav-hamburger"
+          type="button"
+          aria-label="Menú"
+          aria-expanded="false"
+        >
           <span></span>
           <span></span>
           <span></span>
@@ -119,7 +135,9 @@
   </nav>
 
 
-  <!-- ===== MAIN ===== -->
+  <!-- =====================================================
+       MAIN
+  ====================================================== -->
 
   <main>
 
@@ -140,9 +158,38 @@
           </p>
 
 
+          <!-- FORMULARIO -->
+
           <form id="contactForm" novalidate>
 
+            <!-- Campo oculto para compatibilidad con la plantilla EmailJS -->
+            <input
+              type="hidden"
+              name="name"
+              id="emailjsName"
+              value=""
+            />
+
+            <!-- Campo oculto para compatibilidad con la plantilla EmailJS -->
+            <input
+              type="hidden"
+              name="message"
+              id="emailjsMessage"
+              value=""
+            />
+
+            <!-- Campo oculto para la variable asunto de EmailJS -->
+            <input
+              type="hidden"
+              name="asunto"
+              id="emailjsAsunto"
+              value="Contacto desde la web"
+            />
+
+
             <div class="fields-2col">
+
+              <!-- NOMBRE -->
 
               <div class="field">
 
@@ -156,10 +203,13 @@
                   type="text"
                   name="nombre"
                   autocomplete="given-name"
-                  placeholder="Tu nombre" />
+                  placeholder="Tu nombre"
+                />
 
               </div>
 
+
+              <!-- APELLIDOS -->
 
               <div class="field">
 
@@ -172,10 +222,13 @@
                   type="text"
                   name="apellidos"
                   autocomplete="family-name"
-                  placeholder="Tus apellidos" />
+                  placeholder="Tus apellidos"
+                />
 
               </div>
 
+
+              <!-- TELÉFONO -->
 
               <div class="field">
 
@@ -189,10 +242,13 @@
                   type="tel"
                   name="telefono"
                   autocomplete="tel"
-                  placeholder="600 000 000" />
+                  placeholder="600 000 000"
+                />
 
               </div>
 
+
+              <!-- EMAIL -->
 
               <div class="field">
 
@@ -206,12 +262,15 @@
                   type="email"
                   name="email"
                   autocomplete="email"
-                  placeholder="tu@email.com" />
+                  placeholder="tu@email.com"
+                />
 
               </div>
 
             </div>
 
+
+            <!-- MENSAJE -->
 
             <div class="field field-textarea">
 
@@ -223,17 +282,21 @@
                 id="mensaje"
                 name="mensaje"
                 rows="5"
-                placeholder="Cuéntanos en qué podemos ayudarte…"></textarea>
+                placeholder="Cuéntanos en qué podemos ayudarte…"
+              ></textarea>
 
             </div>
 
+
+            <!-- PRIVACIDAD -->
 
             <label class="privacy-row">
 
               <input
                 type="checkbox"
                 id="privacy"
-                name="privacy" />
+                name="privacy"
+              />
 
               <span class="privacy-label">
                 He leído y acepto las
@@ -245,10 +308,13 @@
             </label>
 
 
+            <!-- BOTÓN -->
+
             <button
               type="submit"
               class="btn-send"
-              id="btnSend">
+              id="btnSend"
+            >
 
               <span class="btn-send-text">
                 enviar
@@ -259,7 +325,8 @@
                 fill="none"
                 stroke-width="2.2"
                 stroke-linecap="round"
-                stroke-linejoin="round">
+                stroke-linejoin="round"
+              >
 
                 <path d="M5 12h14M12 5l7 7-7 7" />
 
@@ -268,23 +335,29 @@
             </button>
 
 
+            <!-- MENSAJE DE ÉXITO -->
+
             <div
               class="form-success"
               id="formSuccess"
-              role="alert">
+              role="alert"
+            >
 
               <svg
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke-width="2.2"
                 stroke-linecap="round"
-                stroke-linejoin="round">
+                stroke-linejoin="round"
+              >
 
                 <path
-                  d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                  d="M22 11.08V12a10 10 0 1 1-5.93-9.14"
+                />
 
                 <polyline
-                  points="22 4 12 14.01 9 11.01" />
+                  points="22 4 12 14.01 9 11.01"
+                />
 
               </svg>
 
@@ -297,18 +370,20 @@
         </div>
 
 
-        <!-- DERECHA -->
+        <!-- =================================================
+             DERECHA
+        ================================================== -->
 
         <div class="contact-right">
 
           <div class="heart-stage">
 
-            <!-- Desde c*Contacto subimos a raíz y entramos en d*IMG -->
             <img
               class="heart-logo"
               src="../d*IMG/LOGOS AES ABRIL 2024_Mesa de trabajo 1 copia.png"
               alt="Corazón Consumo Placer – latiendo"
-              draggable="false" />
+              draggable="false"
+            />
 
           </div>
 
@@ -317,7 +392,9 @@
       </div>
 
 
-      <!-- INFORMACIÓN DE CONTACTO -->
+      <!-- =================================================
+           INFORMACIÓN DE CONTACTO
+      ================================================== -->
 
       <div class="contact-info-row">
 
@@ -396,7 +473,9 @@
   </main>
 
 
-  <!-- ===== FOOTER ===== -->
+  <!-- =====================================================
+       FOOTER
+  ====================================================== -->
 
   <footer id="contacto">
 
@@ -405,27 +484,31 @@
       <div class="footer-grid">
 
 
-        <!-- Brand -->
+        <!-- BRAND -->
 
         <div class="footer-brand">
 
           <div
-            style="display:flex;align-items:center;gap:.75rem;">
+            style="display:flex;align-items:center;gap:.75rem;"
+          >
 
             <svg
               width="44"
               height="44"
               viewBox="0 0 100 100"
-              xmlns="http://www.w3.org/2000/svg">
+              xmlns="http://www.w3.org/2000/svg"
+            >
 
               <path
                 d="M50 85 C50 85 12 58 12 32 C12 20 22 12 34 12 C40 12 46 16 50 21 C54 16 60 12 66 12 C78 12 88 20 88 32 C88 58 50 85 50 85Z"
-                fill="rgba(255,255,255,.15)" />
+                fill="rgba(255,255,255,.15)"
+              />
 
               <path
                 d="M50 78 C50 78 18 54 18 32 C18 23 26 18 34 18 C40 18 46 23 50 28 C54 23 60 18 66 18 C74 18 82 23 82 32 C82 54 50 78 50 78Z"
                 fill="#2ECECE"
-                opacity=".7" />
+                opacity=".7"
+              />
 
               <ellipse
                 cx="34"
@@ -434,7 +517,8 @@
                 ry="8"
                 transform="rotate(-25,34,28)"
                 fill="#FFD700"
-                opacity=".8" />
+                opacity=".8"
+              />
 
             </svg>
 
@@ -442,10 +526,9 @@
             <div>
 
               <strong
-                style="display:block;font-family:'Fraunces',serif;color:white;font-size:1.1rem;">
-
+                style="display:block;font-family:'Fraunces',serif;color:white;font-size:1.1rem;"
+              >
                 Consumo Placer
-
               </strong>
 
               <span style="font-size:.78rem;opacity:.6;">
@@ -467,25 +550,29 @@
 
             <div
               class="social-link"
-              title="Facebook">
+              title="Facebook"
+            >
               f
             </div>
 
             <div
               class="social-link"
-              title="Instagram">
+              title="Instagram"
+            >
               ig
             </div>
 
             <div
               class="social-link"
-              title="Twitter/X">
+              title="Twitter/X"
+            >
               𝕏
             </div>
 
             <div
               class="social-link"
-              title="WhatsApp">
+              title="WhatsApp"
+            >
               w
             </div>
 
@@ -494,7 +581,7 @@
         </div>
 
 
-        <!-- Navegación -->
+        <!-- NAVEGACIÓN -->
 
         <div class="footer-col">
 
@@ -533,9 +620,7 @@
         </div>
 
 
-
-
-        <!-- Contacto -->
+        <!-- CONTACTO -->
 
         <div class="footer-col">
 
@@ -576,6 +661,8 @@
       </div>
 
 
+      <!-- FOOTER BOTTOM -->
+
       <div class="footer-bottom">
 
         <span>
@@ -595,9 +682,18 @@
   </footer>
 
 
-  <!-- JavaScript: está en la misma carpeta c*Contacto -->
+  <!-- =====================================================
+       EMAILJS
+       IMPORTANTE: DEBE CARGARSE ANTES DE contacto.js
+  ====================================================== -->
+
+  <script
+    type="text/javascript"
+    src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
+  ></script>
+
+  <!-- JavaScript de contacto -->
   <script src="./contacto.js"></script>
 
 </body>
-
 </html>

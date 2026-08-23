@@ -1,27 +1,28 @@
-import { Resend } from "resend";
-
-const resend =
-    new Resend(
-        process.env.RESEND_API_KEY
-    );
-
+/* =========================================================
+   API CONTACT
+   Consumo Placer
+   Vercel + Resend
+========================================================= */
 
 function escapeHtml(value) {
-
     return String(value || "")
         .replace(/&/g, "&amp;")
         .replace(/</g, "&lt;")
         .replace(/>/g, "&gt;")
         .replace(/"/g, "&quot;")
         .replace(/'/g, "&#039;");
-
 }
 
 
-export default async function handler(
-    req,
-    res
-) {
+/* =========================================================
+   FUNCIÓN PRINCIPAL
+========================================================= */
+
+export default async function handler(req, res) {
+
+    /* -----------------------------------------------------
+       SOLO ACEPTAMOS POST
+    ----------------------------------------------------- */
 
     if (req.method !== "POST") {
 
@@ -35,191 +36,432 @@ export default async function handler(
 
     try {
 
-        const datos =
-            req.body || {};
+        /* -------------------------------------------------
+           API KEY DE RESEND
+        ------------------------------------------------- */
+
+        const apiKey =
+            process.env.RESEND_API_KEY;
 
 
-        const nombre =
-            String(
-                datos.nombre || ""
-            ).trim();
+        if (!apiKey) {
 
+            console.error(
+                "Falta la variable RESEND_API_KEY."
+            );
 
-        const telefono =
-            String(
-                datos.telefono || ""
-            ).trim();
-
-
-        const email =
-            String(
-                datos.email || ""
-            ).trim();
-
-
-        if (
-            !nombre ||
-            !telefono ||
-            !email
-        ) {
-
-            return res.status(400).json({
-
+            return res.status(500).json({
                 success: false,
-
                 error:
-                    "Faltan datos obligatorios."
-
+                    "El servicio de correo no está configurado."
             });
 
         }
 
 
+        /* -------------------------------------------------
+           RECIBIR DATOS
+        ------------------------------------------------- */
+
+        const body = req.body || {};
+
+
+        const nombre =
+            String(body.nombre || "").trim();
+
+        const telefono =
+            String(body.telefono || "").trim();
+
+        const email =
+            String(body.email || "").trim();
+
+        const asunto =
+            String(body.asunto || "").trim();
+
+        const mensaje =
+            String(body.mensaje || "").trim();
+
+
+        /* -------------------------------------------------
+           VALIDAR CAMPOS OBLIGATORIOS
+        ------------------------------------------------- */
+
+        if (!nombre || !telefono || !email) {
+
+            return res.status(400).json({
+                success: false,
+                error:
+                    "Faltan datos obligatorios."
+            });
+
+        }
+
+
+        /* -------------------------------------------------
+           VALIDAR EMAIL
+        ------------------------------------------------- */
+
+        const emailValido =
+            /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+
+
+        if (!emailValido) {
+
+            return res.status(400).json({
+                success: false,
+                error:
+                    "El correo electrónico no es válido."
+            });
+
+        }
+
+
+        /* =================================================
+           CREAR CUERPO DEL EMAIL
+        ================================================= */
+
         const html = `
 
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Nuevo contacto - Consumo Placer
+    </title>
+
+</head>
+
+
+<body style="
+    margin:0;
+    padding:0;
+    background:#f5f2e9;
+    font-family:Arial,Helvetica,sans-serif;
+    color:#203a38;
+">
+
+
+    <div style="
+        max-width:650px;
+        margin:40px auto;
+        background:#ffffff;
+        border-radius:16px;
+        overflow:hidden;
+        box-shadow:0 8px 30px rgba(0,0,0,0.08);
+    ">
+
+
+        <!-- CABECERA -->
+
+        <div style="
+            background:#0c807e;
+            padding:28px 30px;
+            color:#ffffff;
+        ">
+
+            <h1 style="
+                margin:0;
+                font-size:26px;
+            ">
+                Nuevo contacto
+            </h1>
+
+
+            <p style="
+                margin:8px 0 0;
+                font-size:15px;
+                opacity:.9;
+            ">
+                Consumo Placer
+            </p>
+
+        </div>
+
+
+        <!-- CONTENIDO -->
+
+        <div style="
+            padding:30px;
+        ">
+
+
+            <h2 style="
+                margin-top:0;
+                color:#203a38;
+                font-size:21px;
+            ">
+                Datos del contacto
+            </h2>
+
+
             <div style="
-                font-family:Arial,sans-serif;
-                max-width:650px;
-                margin:auto;
-                color:#222;
+                border:1px solid #e6e6e6;
+                border-radius:12px;
+                overflow:hidden;
             ">
 
-                <h1 style="
-                    color:#1B3A8A;
-                    margin-bottom:25px;
-                ">
-                    Nuevo contacto
-                    - Consumo Placer
-                </h1>
 
+                <!-- NOMBRE -->
 
                 <div style="
-                    background:#f5f7fa;
-                    padding:20px;
-                    border-radius:12px;
+                    padding:15px;
+                    border-bottom:1px solid #e6e6e6;
                 ">
 
-                    <p>
-                        <strong>Nombre:</strong>
-                        ${escapeHtml(nombre)}
-                    </p>
+                    <strong>
+                        Nombre
+                    </strong>
 
+                    <br>
 
-                    <p>
-                        <strong>Teléfono:</strong>
-                        ${escapeHtml(telefono)}
-                    </p>
-
-
-                    <p>
-                        <strong>Email:</strong>
-                        ${escapeHtml(email)}
-                    </p>
-
-                    ${
-                        datos.asunto
-                            ? `
-                                <p>
-                                    <strong>Asunto:</strong>
-                                    ${escapeHtml(datos.asunto)}
-                                </p>
-                            `
-                            : ""
-                    }
-
-
-                    ${
-                        datos.mensaje
-                            ? `
-                                <p>
-                                    <strong>Mensaje:</strong>
-                                </p>
-
-                                <div style="
-                                    background:white;
-                                    padding:15px;
-                                    border-radius:8px;
-                                    white-space:pre-wrap;
-                                ">
-                                    ${escapeHtml(
-                                        datos.mensaje
-                                    )}
-                                </div>
-                            `
-                            : ""
-                    }
+                    ${escapeHtml(nombre)}
 
                 </div>
 
 
-                <p style="
-                    margin-top:25px;
-                    color:#777;
-                    font-size:13px;
+                <!-- TELÉFONO -->
+
+                <div style="
+                    padding:15px;
+                    border-bottom:1px solid #e6e6e6;
                 ">
-                    Este mensaje ha sido enviado
-                    desde el formulario de contacto
-                    de Consumo Placer.
-                </p>
+
+                    <strong>
+                        Teléfono
+                    </strong>
+
+                    <br>
+
+                    ${escapeHtml(telefono)}
+
+                </div>
+
+
+                <!-- EMAIL -->
+
+                <div style="
+                    padding:15px;
+                    border-bottom:1px solid #e6e6e6;
+                ">
+
+                    <strong>
+                        Email
+                    </strong>
+
+                    <br>
+
+                    <a
+                        href="mailto:${escapeHtml(email)}"
+                        style="
+                            color:#0c807e;
+                        "
+                    >
+                        ${escapeHtml(email)}
+                    </a>
+
+                </div>
+
+
+                ${
+                    asunto
+                        ? `
+
+                            <!-- ASUNTO -->
+
+                            <div style="
+                                padding:15px;
+                                border-bottom:1px solid #e6e6e6;
+                            ">
+
+                                <strong>
+                                    Asunto
+                                </strong>
+
+                                <br>
+
+                                ${escapeHtml(asunto)}
+
+                            </div>
+
+                        `
+                        : ""
+                }
+
 
             </div>
 
-        `;
+
+            ${
+                mensaje
+                    ? `
+
+                        <!-- MENSAJE -->
+
+                        <h2 style="
+                            margin-top:30px;
+                            color:#203a38;
+                            font-size:21px;
+                        ">
+                            Mensaje
+                        </h2>
 
 
-        const { data, error } =
-            await resend.emails.send({
+                        <div style="
+                            background:#f7f7f4;
+                            border-radius:12px;
+                            padding:20px;
+                            white-space:pre-wrap;
+                            line-height:1.6;
+                        ">
+                            ${escapeHtml(mensaje)}
+                        </div>
 
-                from:
-                    "Consumo Placer <contacto@consumoplacer.es>",
-
-                to: [
-                    "info@consumoplacer.es"
-                ],
-
-                replyTo: email,
-
-                subject:
-                    "Nuevo contacto - " +
-                    nombre,
-
-                html
-
-            });
+                    `
+                    : ""
+            }
 
 
-        if (error) {
+            <!-- PIE -->
+
+            <div style="
+                margin-top:30px;
+                padding-top:20px;
+                border-top:1px solid #eeeeee;
+                color:#777777;
+                font-size:13px;
+            ">
+
+                Este mensaje ha sido enviado
+                desde el formulario de contacto
+                de Consumo Placer.
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+</body>
+
+</html>
+
+`;
+
+
+        /* =================================================
+           ENVIAR CORREO CON RESEND
+        ================================================= */
+
+        const resendResponse =
+            await fetch(
+                "https://api.resend.com/emails",
+                {
+
+                    method: "POST",
+
+                    headers: {
+
+                        "Authorization":
+                            `Bearer ${apiKey}`,
+
+                        "Content-Type":
+                            "application/json"
+
+                    },
+
+                    body: JSON.stringify({
+
+                        from:
+                            "Consumo Placer <contacto@consumoplacer.es>",
+
+                        to: [
+                            "info@limonlab.es"
+                        ],
+
+                        reply_to:
+                            email,
+
+                        subject:
+                            asunto
+                                ? `Nuevo contacto - ${asunto}`
+                                : `Nuevo contacto - ${nombre}`,
+
+                        html:
+                            html
+
+                    })
+
+                }
+            );
+
+
+        /* -------------------------------------------------
+           LEER RESPUESTA DE RESEND
+        ------------------------------------------------- */
+
+        const resendData =
+            await resendResponse
+                .json()
+                .catch(() => ({}));
+
+
+        /* -------------------------------------------------
+           ERROR DE RESEND
+        ------------------------------------------------- */
+
+        if (!resendResponse.ok) {
 
             console.error(
-                "Error Resend:",
-                error
+                "Error de Resend:",
+                resendData
             );
 
             return res.status(500).json({
-
                 success: false,
-
                 error:
                     "No se ha podido enviar el correo."
-
             });
 
         }
 
+
+        /* -------------------------------------------------
+           CORREO ENVIADO
+        ------------------------------------------------- */
 
         return res.status(200).json({
 
             success: true,
 
-            id: data?.id || null
+            message:
+                "Correo enviado correctamente.",
+
+            id:
+                resendData.id || null
 
         });
 
 
     } catch (error) {
 
+        /* -------------------------------------------------
+           ERROR GENERAL
+        ------------------------------------------------- */
+
         console.error(
-            "Error API contacto:",
+            "Error interno en /api/contact:",
             error
         );
 
@@ -229,7 +471,7 @@ export default async function handler(
             success: false,
 
             error:
-                "Error interno del servidor."
+                "Se ha producido un error al enviar el formulario."
 
         });
 

@@ -6,12 +6,11 @@
 (function () {
     "use strict";
 
-
     /* =====================================================
        CONFIGURACIÓN EMAILJS
     ===================================================== */
 
-    const EMAILJS_PUBLIC_KEY = "dYQDZgpllfxPHHPI";
+    const EMAILJS_PUBLIC_KEY = "P3BFxoTsF-3JRuSBN";
 
     const EMAILJS_SERVICE_ID = "service_cq2gbua";
 
@@ -416,9 +415,7 @@
             /* Validar */
 
             if (!validateForm()) {
-
                 return;
-
             }
 
 
@@ -448,7 +445,9 @@
             if (emailjsName) {
 
                 emailjsName.value =
-                    nombre.value.trim();
+                    nombre
+                        ? nombre.value.trim()
+                        : "";
 
             }
 
@@ -466,7 +465,7 @@
             if (emailjsAsunto) {
 
                 emailjsAsunto.value =
-                    "Contacto desde la web";
+                    "Nuevo contacto desde Consumo Placer";
 
             }
 
@@ -546,7 +545,7 @@
 
                         if (emailjsAsunto) {
                             emailjsAsunto.value =
-                                "Contacto desde la web";
+                                "Nuevo contacto desde Consumo Placer";
                         }
 
                     },

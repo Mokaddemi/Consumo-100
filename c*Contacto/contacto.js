@@ -1,511 +1,594 @@
 /* =========================================================
-   API CONTACT
-   Consumo Placer
-   Vercel + Resend
-========================================================= */
+   CONTACTO - CONSUMO PLACER
+   EmailJS
+   ========================================================= */
 
-
-/* =========================================================
-   ESCAPAR HTML
-========================================================= */
-
-function escapeHtml(value) {
-
-    return String(value || "")
-        .replace(/&/g, "&amp;")
-        .replace(/</g, "&lt;")
-        .replace(/>/g, "&gt;")
-        .replace(/"/g, "&quot;")
-        .replace(/'/g, "&#039;");
-
-}
-
-
-/* =========================================================
-   API
-========================================================= */
-
-export default async function handler(req, res) {
+(function () {
+    "use strict";
 
 
     /* =====================================================
-       SOLO POST
+       CONFIGURACIÓN EMAILJS
     ===================================================== */
 
-    if (req.method !== "POST") {
+    const EMAILJS_PUBLIC_KEY = "dYQDZgpllfxPHHPI";
 
-        return res.status(405).json({
+    const EMAILJS_SERVICE_ID = "service_cq2gbua";
 
-            success: false,
+    const EMAILJS_TEMPLATE_ID = "template_zb3i3ht";
 
-            error:
-                "Método no permitido."
 
+    /* =====================================================
+       INICIALIZAR EMAILJS
+    ===================================================== */
+
+    if (typeof emailjs !== "undefined") {
+
+        emailjs.init({
+            publicKey: EMAILJS_PUBLIC_KEY
         });
+
+    } else {
+
+        console.error(
+            "EmailJS no se ha cargado correctamente."
+        );
 
     }
 
 
-    try {
+    /* =====================================================
+       MENÚ MÓVIL
+    ===================================================== */
 
+    const navEl = document.querySelector("nav");
 
-        /* =================================================
-           COMPROBAR API KEY
-        ================================================= */
+    if (navEl) {
 
-        const apiKey =
-            process.env.RESEND_API_KEY;
-
-
-        if (!apiKey) {
-
-            console.error(
-                "Falta RESEND_API_KEY en Vercel."
+        const burger =
+            navEl.querySelector(
+                ".nav-hamburger, .nav-burger"
             );
 
+        if (burger) {
 
-            return res.status(500).json({
+            burger.addEventListener("click", function () {
 
-                success: false,
+                const isOpen =
+                    navEl.classList.toggle("mobile-open");
 
-                error:
-                    "El servicio de correo no está configurado."
+                burger.setAttribute(
+                    "aria-expanded",
+                    isOpen ? "true" : "false"
+                );
 
             });
 
+
+            navEl
+                .querySelectorAll(".nav-links a")
+                .forEach(function (link) {
+
+                    link.addEventListener(
+                        "click",
+                        function () {
+
+                            navEl.classList.remove(
+                                "mobile-open"
+                            );
+
+                            burger.setAttribute(
+                                "aria-expanded",
+                                "false"
+                            );
+
+                        }
+                    );
+
+                });
+
         }
 
-
-        /* =================================================
-           DATOS RECIBIDOS
-        ================================================= */
-
-        const body =
-            req.body || {};
+    }
 
 
-        const nombre =
-            String(
-                body.nombre || ""
-            ).trim();
+    /* =====================================================
+       ELEMENTOS DEL FORMULARIO
+    ===================================================== */
+
+    const form =
+        document.getElementById("contactForm");
+
+    const btn =
+        document.getElementById("btnSend");
+
+    const success =
+        document.getElementById("formSuccess");
 
 
-        const telefono =
-            String(
-                body.telefono || ""
-            ).trim();
+    if (!form || !btn) {
+
+        console.warn(
+            "No se encontró el formulario de contacto."
+        );
+
+        return;
+
+    }
 
 
-        const email =
-            String(
-                body.email || ""
-            ).trim();
+    /* =====================================================
+       CAMPOS
+    ===================================================== */
+
+    const nombre =
+        document.getElementById("nombre");
+
+    const apellidos =
+        document.getElementById("apellidos");
+
+    const telefono =
+        document.getElementById("telefono");
+
+    const email =
+        document.getElementById("email");
+
+    const mensaje =
+        document.getElementById("mensaje");
+
+    const privacy =
+        document.getElementById("privacy");
 
 
-        const asunto =
-            String(
-                body.asunto || ""
-            ).trim();
+    /* =====================================================
+       CAMPOS OCULTOS PARA EMAILJS
+    ===================================================== */
+
+    const emailjsName =
+        document.getElementById("emailjsName");
+
+    const emailjsMessage =
+        document.getElementById("emailjsMessage");
+
+    const emailjsAsunto =
+        document.getElementById("emailjsAsunto");
 
 
-        const mensaje =
-            String(
-                body.mensaje || ""
-            ).trim();
+    /* =====================================================
+       RIPPLE DEL BOTÓN
+    ===================================================== */
+
+    btn.addEventListener(
+        "pointerdown",
+        function (e) {
+
+            const ripple =
+                document.createElement("span");
+
+            ripple.classList.add("ripple");
+
+            const rect =
+                btn.getBoundingClientRect();
+
+            const size =
+                Math.max(
+                    btn.offsetWidth,
+                    btn.offsetHeight
+                );
+
+            Object.assign(
+                ripple.style,
+                {
+                    width: size + "px",
+                    height: size + "px",
+
+                    left:
+                        (
+                            e.clientX -
+                            rect.left -
+                            size / 2
+                        ) + "px",
+
+                    top:
+                        (
+                            e.clientY -
+                            rect.top -
+                            size / 2
+                        ) + "px"
+                }
+            );
+
+            btn.appendChild(ripple);
+
+            setTimeout(
+                function () {
+                    ripple.remove();
+                },
+                600
+            );
+
+        }
+    );
 
 
-        /* =================================================
-           VALIDACIÓN
-        ================================================= */
+    /* =====================================================
+       QUITAR ERROR DE UN CAMPO
+    ===================================================== */
+
+    function clearError(element) {
+
+        if (!element) {
+            return;
+        }
+
+        element.classList.remove("err");
+
+    }
+
+
+    /* =====================================================
+       MOSTRAR ERROR
+    ===================================================== */
+
+    function showError(element) {
+
+        if (!element) {
+            return;
+        }
+
+        element.classList.add("err");
+
+    }
+
+
+    /* =====================================================
+       VALIDAR EMAIL
+    ===================================================== */
+
+    function isValidEmail(value) {
+
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(
+            value
+        );
+
+    }
+
+
+    /* =====================================================
+       VALIDACIÓN
+    ===================================================== */
+
+    function validateForm() {
+
+        let valid = true;
+
+
+        /* Nombre */
 
         if (
             !nombre ||
-            !telefono ||
-            !email
+            !nombre.value.trim()
         ) {
 
-            return res.status(400).json({
+            showError(nombre);
 
-                success: false,
+            valid = false;
 
-                error:
-                    "Faltan datos obligatorios."
+        } else {
 
-            });
-
-        }
-
-
-        /* =================================================
-           VALIDACIÓN BÁSICA DEL EMAIL
-        ================================================= */
-
-        const emailValido =
-            /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-                .test(email);
-
-
-        if (!emailValido) {
-
-            return res.status(400).json({
-
-                success: false,
-
-                error:
-                    "El correo electrónico no es válido."
-
-            });
+            clearError(nombre);
 
         }
 
 
-        /* =================================================
-           HTML DEL CORREO
-        ================================================= */
+        /* Teléfono */
 
-        const html = `
+        if (
+            !telefono ||
+            !telefono.value.trim()
+        ) {
 
-<!DOCTYPE html>
+            showError(telefono);
 
-<html lang="es">
+            valid = false;
 
-<head>
+        } else {
 
-    <meta charset="UTF-8">
-
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
-
-    <title>
-        Nuevo contacto - Consumo Placer
-    </title>
-
-</head>
-
-
-<body style="
-    margin:0;
-    padding:0;
-    background:#f5f2e9;
-    font-family:Arial,Helvetica,sans-serif;
-    color:#203a38;
-">
-
-    <div style="
-        max-width:650px;
-        margin:40px auto;
-        background:#ffffff;
-        border-radius:16px;
-        overflow:hidden;
-        box-shadow:0 8px 30px rgba(0,0,0,0.08);
-    ">
-
-
-        <!-- CABECERA -->
-
-        <div style="
-            background:#0c807e;
-            padding:28px 30px;
-            color:#ffffff;
-        ">
-
-            <h1 style="
-                margin:0;
-                font-size:26px;
-            ">
-                Nuevo contacto
-            </h1>
-
-
-            <p style="
-                margin:8px 0 0;
-                font-size:15px;
-                opacity:.9;
-            ">
-                Consumo Placer
-            </p>
-
-        </div>
-
-
-        <!-- CONTENIDO -->
-
-        <div style="
-            padding:30px;
-        ">
-
-
-            <h2 style="
-                margin-top:0;
-                color:#203a38;
-                font-size:21px;
-            ">
-                Datos del contacto
-            </h2>
-
-
-            <div style="
-                border:1px solid #e6e6e6;
-                border-radius:12px;
-                overflow:hidden;
-            ">
-
-
-                <div style="
-                    padding:15px;
-                    border-bottom:1px solid #e6e6e6;
-                ">
-
-                    <strong>
-                        Nombre
-                    </strong>
-
-                    <br>
-
-                    ${escapeHtml(nombre)}
-
-                </div>
-
-
-                <div style="
-                    padding:15px;
-                    border-bottom:1px solid #e6e6e6;
-                ">
-
-                    <strong>
-                        Teléfono
-                    </strong>
-
-                    <br>
-
-                    ${escapeHtml(telefono)}
-
-                </div>
-
-
-                <div style="
-                    padding:15px;
-                    border-bottom:1px solid #e6e6e6;
-                ">
-
-                    <strong>
-                        Email
-                    </strong>
-
-                    <br>
-
-                    <a
-                        href="mailto:${escapeHtml(email)}"
-                        style="
-                            color:#0c807e;
-                        "
-                    >
-                        ${escapeHtml(email)}
-                    </a>
-
-                </div>
-
-
-                ${
-                    asunto
-                        ? `
-
-                            <div style="
-                                padding:15px;
-                                border-bottom:1px solid #e6e6e6;
-                            ">
-
-                                <strong>
-                                    Asunto
-                                </strong>
-
-                                <br>
-
-                                ${escapeHtml(asunto)}
-
-                            </div>
-
-                        `
-                        : ""
-                }
-
-
-            </div>
-
-
-            ${
-                mensaje
-                    ? `
-
-                        <h2 style="
-                            margin-top:30px;
-                            color:#203a38;
-                            font-size:21px;
-                        ">
-                            Mensaje
-                        </h2>
-
-
-                        <div style="
-                            background:#f7f7f4;
-                            border-radius:12px;
-                            padding:20px;
-                            white-space:pre-wrap;
-                            line-height:1.6;
-                        ">
-                            ${escapeHtml(mensaje)}
-                        </div>
-
-                    `
-                    : ""
-            }
-
-
-            <div style="
-                margin-top:30px;
-                padding-top:20px;
-                border-top:1px solid #eeeeee;
-                color:#777777;
-                font-size:13px;
-            ">
-
-                Este mensaje ha sido enviado
-                desde el formulario de contacto
-                de Consumo Placer.
-
-            </div>
-
-
-        </div>
-
-    </div>
-
-</body>
-
-</html>
-
-`;
-
-
-        /* =================================================
-           ENVIAR A RESEND
-        ================================================= */
-
-        const resendResponse =
-            await fetch(
-                "https://api.resend.com/emails",
-                {
-
-                    method: "POST",
-
-                    headers: {
-
-                        "Authorization":
-                            `Bearer ${apiKey}`,
-
-                        "Content-Type":
-                            "application/json"
-
-                    },
-
-                    body:
-                        JSON.stringify({
-
-                            from:
-                                "Consumo Placer <contacto@consumoplacer.es>",
-
-                            to: [
-                                "info@limonlab.es"
-                            ],
-
-                            reply_to:
-                                email,
-
-                            subject:
-                                asunto
-                                    ? `Nuevo contacto - ${asunto}`
-                                    : `Nuevo contacto - ${nombre}`,
-
-                            html:
-                                html
-
-                        })
-
-                }
-            );
-
-
-        /* =================================================
-           RESPUESTA RESEND
-        ================================================= */
-
-        const resendData =
-            await resendResponse
-                .json()
-                .catch(
-                    function () {
-                        return {};
-                    }
-                );
-
-
-        if (!resendResponse.ok) {
-
-            console.error(
-                "Error de Resend:",
-                resendData
-            );
-
-
-            return res.status(500).json({
-
-                success: false,
-
-                error:
-                    "No se ha podido enviar el correo."
-
-            });
+            clearError(telefono);
 
         }
 
 
-        /* =================================================
-           TODO CORRECTO
-        ================================================= */
+        /* Email */
 
-        return res.status(200).json({
+        if (
+            !email ||
+            !email.value.trim()
+        ) {
 
-            success: true,
+            showError(email);
 
-            message:
-                "Correo enviado correctamente.",
+            valid = false;
 
-            id:
-                resendData.id || null
+        } else if (
+            !isValidEmail(
+                email.value.trim()
+            )
+        ) {
 
-        });
+            showError(email);
+
+            valid = false;
+
+        } else {
+
+            clearError(email);
+
+        }
 
 
-    } catch (error) {
+        /* Privacidad */
+
+        if (
+            !privacy ||
+            !privacy.checked
+        ) {
+
+            showError(privacy);
+
+            valid = false;
+
+        } else {
+
+            clearError(privacy);
+
+        }
 
 
-        console.error(
-            "Error interno:",
-            error
-        );
-
-
-        return res.status(500).json({
-
-            success: false,
-
-            error:
-                "Se ha producido un error al enviar el formulario."
-
-        });
+        return valid;
 
     }
 
-}
+
+    /* =====================================================
+       QUITAR ERRORES AL ESCRIBIR
+    ===================================================== */
+
+    if (nombre) {
+
+        nombre.addEventListener(
+            "input",
+            function () {
+                clearError(nombre);
+            }
+        );
+
+    }
+
+
+    if (telefono) {
+
+        telefono.addEventListener(
+            "input",
+            function () {
+                clearError(telefono);
+            }
+        );
+
+    }
+
+
+    if (email) {
+
+        email.addEventListener(
+            "input",
+            function () {
+                clearError(email);
+            }
+        );
+
+    }
+
+
+    if (privacy) {
+
+        privacy.addEventListener(
+            "change",
+            function () {
+                clearError(privacy);
+            }
+        );
+
+    }
+
+
+    /* =====================================================
+       ENVIAR FORMULARIO
+    ===================================================== */
+
+    form.addEventListener(
+        "submit",
+        function (event) {
+
+            event.preventDefault();
+
+
+            /* Validar */
+
+            if (!validateForm()) {
+
+                return;
+
+            }
+
+
+            /* Comprobar EmailJS */
+
+            if (
+                typeof emailjs === "undefined"
+            ) {
+
+                console.error(
+                    "EmailJS no está disponible."
+                );
+
+                alert(
+                    "No se ha podido conectar con el servicio de correo. Inténtalo de nuevo."
+                );
+
+                return;
+
+            }
+
+
+            /* =============================================
+               PREPARAR DATOS PARA LA PLANTILLA
+            ============================================= */
+
+            if (emailjsName) {
+
+                emailjsName.value =
+                    nombre.value.trim();
+
+            }
+
+
+            if (emailjsMessage) {
+
+                emailjsMessage.value =
+                    mensaje
+                        ? mensaje.value.trim()
+                        : "";
+
+            }
+
+
+            if (emailjsAsunto) {
+
+                emailjsAsunto.value =
+                    "Contacto desde la web";
+
+            }
+
+
+            /* =============================================
+               ESTADO: ENVIANDO
+            ============================================= */
+
+            btn.disabled = true;
+
+            btn.classList.add("sending");
+
+            const btnText =
+                btn.querySelector(
+                    ".btn-send-text"
+                );
+
+            if (btnText) {
+
+                btnText.textContent =
+                    "enviando…";
+
+            }
+
+
+            /* =============================================
+               ENVIAR CON EMAILJS
+            ============================================= */
+
+            emailjs
+                .sendForm(
+                    EMAILJS_SERVICE_ID,
+                    EMAILJS_TEMPLATE_ID,
+                    form
+                )
+
+                .then(
+                    function (response) {
+
+                        console.log(
+                            "Correo enviado correctamente:",
+                            response
+                        );
+
+
+                        /* Ocultar botón */
+
+                        btn.style.display =
+                            "none";
+
+
+                        /* Mostrar éxito */
+
+                        if (success) {
+
+                            success.classList.add(
+                                "show"
+                            );
+
+                        }
+
+
+                        /* Limpiar formulario */
+
+                        form.reset();
+
+
+                        /* Limpiar campos ocultos */
+
+                        if (emailjsName) {
+                            emailjsName.value = "";
+                        }
+
+                        if (emailjsMessage) {
+                            emailjsMessage.value = "";
+                        }
+
+                        if (emailjsAsunto) {
+                            emailjsAsunto.value =
+                                "Contacto desde la web";
+                        }
+
+                    },
+
+                    function (error) {
+
+                        console.error(
+                            "Error de EmailJS:",
+                            error
+                        );
+
+
+                        /* Restaurar botón */
+
+                        btn.disabled = false;
+
+                        btn.classList.remove(
+                            "sending"
+                        );
+
+                        btn.style.display =
+                            "";
+
+
+                        if (btnText) {
+
+                            btnText.textContent =
+                                "enviar";
+
+                        }
+
+
+                        /* Mensaje */
+
+                        alert(
+                            "No se ha podido enviar el mensaje. Por favor, inténtalo de nuevo."
+                        );
+
+                    }
+                );
+
+        }
+    );
+
+})();

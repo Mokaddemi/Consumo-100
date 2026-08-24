@@ -6,7 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Directorio de Comercios – Consumo Placer</title>
 
-  <!-- CSS de Socios: estamos dentro de b*Socios -->
   <link rel="stylesheet" href="./socios.css">
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -16,158 +15,181 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,700;0,9..144,900;1,0..144,400&family=DM+Sans:wght@300;400;500;600&family=Caveat:wght@600&display=swap"
     rel="stylesheet" />
+
 </head>
 
 <body>
 
-  <!-- ===== NAV ===== -->
- <!-- ===== NAV ===== -->
-<nav>
-  <div class="container">
-    <div class="nav-inner">
+  <!-- ============================================================
+       NAV
+       ============================================================ -->
 
-      <!-- Links -->
-      <ul class="nav-links">
+  <nav>
 
-        <li>
-          <a href="../index.html">Inicio</a>
-        </li>
+    <div class="container">
 
-        <li>
-          <a href="./DIRECTORIO PREVIEW.htm" class="active">Socios</a>
-        </li>
+      <div
+        class="nav-inner"
+        style="display:flex;align-items:center;justify-content:space-between;">
 
-        <li>
-          <a href="../index.html#eventos">Campañas</a>
-        </li>
+        <!-- ======================================================
+             LOGO REAL
+             ====================================================== -->
 
-        <li>
-          <a href="../index.html#tablon">Tablón</a>
-        </li>
-
-        <li>
-          <a href="../c*Contacto/contacto.html">Contacto</a>
-        </li>
-
-      </ul>
-
-      <!-- CTA -->
-      <div class="nav-cta">
         <a
-          href="../c*Contacto/contacto.html"
-          class="btn btn-primary"
-          style="padding:.65rem 1.4rem;font-size:.9rem;">
-          Hazte Socio
-        </a>
-      </div>
-
-      <!-- Logo REAL -->
-      <a
-        href="../index.html"
-        class="nav-logo"
-        aria-label="Consumo Placer"
-        style="
-          margin-left:auto;
-          display:flex;
-          align-items:center;
-          justify-content:center;
-          text-decoration:none;
-        "
-      >
-        <img
-          src="../d*IMG/logo consumo 0.png"
-          alt="Consumo Placer"
+          href="../index.html"
+          class="nav-logo"
+          aria-label="Consumo Placer"
           style="
-            display:block;
-            width:170px;
-            height:auto;
-            max-height:65px;
-            object-fit:contain;
+            margin-left:0 !important;
+            margin-right:2rem !important;
+            order:1 !important;
+            display:flex !important;
+            align-items:center !important;
+            flex-shrink:0;
+            text-decoration:none !important;
           "
         >
-      </a>
 
-      <!-- Mobile -->
-      <button
-        class="nav-hamburger"
-        aria-label="Menú"
-        aria-expanded="false">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
+          <img
+            src="../d*IMG/logo consumo 0.png"
+            alt="Consumo Placer"
+            class="nav-logo-image"
+            style="
+              display:block !important;
+              width:170px !important;
+              height:auto !important;
+              max-height:65px !important;
+              object-fit:contain !important;
+            "
+          />
 
-    </div>
-  </div>
-</nav>
+        </a>
 
-        <!-- Links -->
-        <ul class="nav-links">
 
-          <!-- Volver a index.html -->
+        <!-- ======================================================
+             ENLACES
+             ====================================================== -->
+
+        <ul
+          class="nav-links"
+          style="order:2 !important;">
+
           <li>
-            <a href="../index.html">Inicio</a>
-          </li>
-
-          <!-- Página actual -->
-          <li>
-            <a href="./DIRECTORIO PREVIEW.htm" class="active">Socios</a>
-          </li>
-
-          <!-- Volver al index y saltar a la sección -->
-          <li>
-            <a href="../index.html#eventos">Campañas</a>
+            <a href="../index.html">
+              Inicio
+            </a>
           </li>
 
           <li>
-            <a href="../index.html#tablon">Tablón</a>
+            <a
+              href="./DIRECTORIO PREVIEW.htm"
+              class="active">
+              Socios
+            </a>
           </li>
 
-          <!-- Contacto está en c*Contacto -->
           <li>
-            <a href="../c*Contacto/contacto.html">Contacto</a>
+            <a href="../index.html#eventos">
+              Campañas
+            </a>
+          </li>
+
+          <li>
+            <a href="../index.html#tablon">
+              Tablón
+            </a>
+          </li>
+
+          <li>
+            <a href="../c*Contacto/contacto.html">
+              Contacto
+            </a>
           </li>
 
         </ul>
 
-        <!-- CTA -->
-        <div class="nav-cta">
+
+        <!-- ======================================================
+             CTA
+             ====================================================== -->
+
+        <div
+          class="nav-cta"
+          style="order:3 !important;">
+
           <a
             href="../c*Contacto/contacto.html"
             class="btn btn-primary"
-            style="padding:.65rem 1.4rem;font-size:.9rem;">
+            style="
+              padding:.65rem 1.4rem;
+              font-size:.9rem;
+            "
+          >
             Hazte Socio
           </a>
+
         </div>
 
-        <!-- Mobile -->
-        <button class="nav-hamburger" aria-label="Menú">
+
+        <!-- ======================================================
+             MENÚ MÓVIL
+             ====================================================== -->
+
+        <button
+          class="nav-hamburger"
+          aria-label="Menú"
+          aria-expanded="false">
+
           <span></span>
           <span></span>
           <span></span>
+
         </button>
 
       </div>
+
     </div>
+
   </nav>
 
 
-  <!-- ═══ MAIN ═══ -->
+  <!-- ============================================================
+       MAIN
+       ============================================================ -->
 
   <main>
+
     <div class="page">
+
+
+      <!-- ========================================================
+           CABECERA
+           ======================================================== -->
 
       <div class="page-header">
 
         <div class="eyebrow">
+
           <div class="eyebrow-line"></div>
-          <span class="eyebrow-text">Más de 120 establecimientos</span>
+
+          <span class="eyebrow-text">
+            Más de 120 establecimientos
+          </span>
+
         </div>
 
+
         <h1 class="page-title">
+
           Directorio de<br />
-          <em>Comercios</em>
+
+          <em>
+            Comercios
+          </em>
+
         </h1>
+
 
         <p class="page-subtitle">
           Descubre todos los negocios asociados de Santomera.
@@ -177,7 +199,14 @@
       </div>
 
 
+      <!-- ========================================================
+           CONTROLES
+           ======================================================== -->
+
       <div class="controls">
+
+
+        <!-- BUSCADOR -->
 
         <div class="search-wrap">
 
@@ -188,10 +217,16 @@
             stroke-linecap="round"
             stroke-linejoin="round">
 
-            <circle cx="11" cy="11" r="8" />
-            <path d="m21 21-4.35-4.35" />
+            <circle
+              cx="11"
+              cy="11"
+              r="8" />
+
+            <path
+              d="m21 21-4.35-4.35" />
 
           </svg>
+
 
           <input
             id="searchInput"
@@ -199,14 +234,20 @@
             placeholder="Busca por nombre, producto o zona…"
             autocomplete="off" />
 
+
           <button
             class="search-clear"
             id="searchClear"
             aria-label="Limpiar">
+
             ✕
+
           </button>
 
         </div>
+
+
+        <!-- FILTROS -->
 
         <div
           class="filters"
@@ -222,12 +263,18 @@
       </div>
 
 
+      <!-- ========================================================
+           RESULTADOS
+           ======================================================== -->
+
       <div class="results-meta">
+
 
         <p
           class="results-count"
           id="resultsCount">
         </p>
+
 
         <select
           class="sort-select"
@@ -247,6 +294,10 @@
       </div>
 
 
+      <!-- ========================================================
+           GRID DE COMERCIOS
+           ======================================================== -->
+
       <div
         class="commerce-grid ready"
         id="commerceGrid"
@@ -254,13 +305,22 @@
       </div>
 
 
+      <!-- ========================================================
+           PAGINACIÓN
+           ======================================================== -->
+
       <div
         class="pagination"
         id="pagination">
       </div>
 
 
+      <!-- ========================================================
+           BANNER
+           ======================================================== -->
+
       <div class="join-banner">
+
 
         <div class="join-banner-text">
 
@@ -275,7 +335,7 @@
 
         </div>
 
-        <!-- Desde b*Socios hacia c*Contacto -->
+
         <a
           href="../c*Contacto/contacto.html"
           class="join-banner-cta">
@@ -290,7 +350,8 @@
             stroke-linecap="round"
             stroke-linejoin="round">
 
-            <path d="M12 5v14M5 12h14" />
+            <path
+              d="M12 5v14M5 12h14" />
 
           </svg>
 
@@ -301,10 +362,13 @@
       </div>
 
     </div>
+
   </main>
 
 
-  <!-- ===== FOOTER ===== -->
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
 
   <footer id="contacto">
 
@@ -312,57 +376,39 @@
 
       <div class="footer-grid">
 
-        <!-- Brand -->
+
+        <!-- ======================================================
+             BRAND
+             ====================================================== -->
+
         <div class="footer-brand">
 
           <div
-            style="display:flex;align-items:center;gap:.75rem;">
+            style="
+              display:flex;
+              align-items:center;
+              gap:.75rem;
+            "
+          >
 
-            <svg
-              width="44"
-              height="44"
-              viewBox="0 0 100 100"
-              xmlns="http://www.w3.org/2000/svg">
-
-              <path
-                d="M50 85 C50 85 12 58 12 32 C12 20 22 12 34 12 C40 12 46 16 50 21 C54 16 60 12 66 12 C78 12 88 20 88 32 C88 58 50 85 50 85Z"
-                fill="rgba(255,255,255,.15)" />
-
-              <path
-                d="M50 78 C50 78 18 54 18 32 C18 23 26 18 34 18 C40 18 46 23 50 28 C54 23 60 18 66 18 C74 18 82 23 82 32 C82 54 50 78 50 78Z"
-                fill="#2ECECE"
-                opacity=".7" />
-
-              <ellipse
-                cx="34"
-                cy="28"
-                rx="11"
-                ry="8"
-                transform="rotate(-25,34,28)"
-                fill="#FFD700"
-                opacity=".8" />
-
-            </svg>
-
-            <div>
-
-              <strong
-                style="display:block;font-family:'Fraunces',serif;color:white;font-size:1.1rem;">
-                Consumo Placer
-              </strong>
-
-              <span style="font-size:.78rem;opacity:.6;">
-                Comerciantes de Santomera
-              </span>
-
-            </div>
+            <img
+              src="../d*IMG/logo consumo 0.png"
+              alt="Consumo Placer"
+              style="
+                width:120px;
+                height:auto;
+                display:block;
+              "
+            />
 
           </div>
+
 
           <p>
             Trabajamos cada día para que los negocios de Santomera
             prosperen y la comunidad elija lo local.
           </p>
+
 
           <div class="social-links">
 
@@ -395,11 +441,16 @@
         </div>
 
 
-        <!-- Nav cols -->
+        <!-- ======================================================
+             NAVEGACIÓN
+             ====================================================== -->
 
         <div class="footer-col">
 
-          <h4>Navegación</h4>
+          <h4>
+            Navegación
+          </h4>
+
 
           <ul class="footer-links">
 
@@ -432,10 +483,16 @@
         </div>
 
 
+        <!-- ======================================================
+             CONTACTO
+             ====================================================== -->
 
         <div class="footer-col">
 
-          <h4>Contacto</h4>
+          <h4>
+            Contacto
+          </h4>
+
 
           <ul class="footer-links">
 
@@ -445,17 +502,20 @@
               </a>
             </li>
 
+
             <li>
-              <a href="tel:+34968000000">
-              +34 611 350 538
+              <a href="tel:+34611350538">
+                +34 611 350 538
               </a>
             </li>
+
 
             <li>
               <a href="#">
                 Sede: Camino La Mina, 6, Santomera
               </a>
             </li>
+
 
             <li>
               <a href="#">
@@ -470,6 +530,10 @@
       </div>
 
 
+      <!-- ========================================================
+           FOOTER BOTTOM
+           ======================================================== -->
+
       <div class="footer-bottom">
 
         <span>
@@ -477,9 +541,15 @@
           Asociación de Comerciantes de Santomera
         </span>
 
+
         <div class="made-by">
+
           Diseñado con ❤ por
-          <strong>Limonlab</strong>
+
+          <strong>
+            Limonlab
+          </strong>
+
         </div>
 
       </div>
@@ -489,7 +559,10 @@
   </footer>
 
 
-  <!-- JS de Socios: está en la misma carpeta -->
+  <!-- ============================================================
+       JAVASCRIPT
+       ============================================================ -->
+
   <script src="./socios.js"></script>
 
 </body>

@@ -308,20 +308,6 @@ const COMERCIOS = [
     },
 
     {
-        id: 21,
-        nombre: "Cortinas el Metro",
-        categoria: "Moda",
-        direccion: "Calle Maestro Puig Valera 64",
-        telefono: "968 86 06 60",
-        correo: "Info@cortinaselmetro.com",
-        abreM: "10:00",
-        cierraM: "13:30",
-        abreT: "17:00",
-        cierraT: "20:30",
-        tag: "Hogar"
-    },
-
-    {
         id: 22,
         nombre: "optica davinci",
         categoria: "Moda",
@@ -654,7 +640,7 @@ const COMERCIOS = [
         cierraM: "14:00",
         abreT: "17:00",
         cierraT: "21:00",
-        tag: "Ropa & Accesorios"
+        tag: "Hostelería"
     },
 
     {

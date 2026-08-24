@@ -18,58 +18,72 @@
     href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,700;0,9..144,900;1,0..144,300&family=DM+Sans:wght@300;400;500;600&family=Caveat:wght@600;700&display=swap"
     rel="stylesheet"
   />
+
 </head>
 
 <body>
+
 
   <!-- =====================================================
        NAV
   ====================================================== -->
 
   <nav>
+
     <div class="container">
-      <div class="nav-inner">
 
-        <!-- Logo -->
-        <a href="../index.html" class="nav-logo">
+      <div
+        class="nav-inner"
+        style="
+          display:flex;
+          align-items:center;
+          justify-content:space-between;
+        "
+      >
 
-          <svg
-            class="logo-mark"
-            viewBox="0 0 100 100"
-            xmlns="http://www.w3.org/2000/svg"
-          >
 
-            <path
-              d="M50 85 C50 85 12 58 12 32 C12 20 22 12 34 12 C40 12 46 16 50 21 C54 16 60 12 66 12 C78 12 88 20 88 32 C88 58 50 85 50 85Z"
-              fill="#1B3A8A"
-            />
+        <!-- =================================================
+             LOGO REAL
+        ================================================== -->
 
-            <path
-              d="M50 78 C50 78 18 54 18 32 C18 23 26 18 34 18 C40 18 46 23 50 28 C54 23 60 18 66 18 C74 18 82 23 82 32 C82 54 50 78 50 78Z"
-              fill="#2ECECE"
-            />
+        <a
+          href="../index.html"
+          class="nav-logo"
+          aria-label="Consumo Placer"
+          style="
+            margin-left:0 !important;
+            margin-right:2rem !important;
+            order:1 !important;
+            display:flex !important;
+            align-items:center !important;
+            flex-shrink:0 !important;
+            text-decoration:none !important;
+          "
+        >
 
-            <ellipse
-              cx="34"
-              cy="28"
-              rx="11"
-              ry="8"
-              transform="rotate(-25,34,28)"
-              fill="#FFD700"
-            />
-
-          </svg>
-
-          <div class="logo-text">
-            <strong>Consumo Placer</strong>
-            <span>Comerciantes de Santomera</span>
-          </div>
+          <img
+            src="../d*IMG/logo consumo 0.png"
+            alt="Consumo Placer"
+            style="
+              display:block !important;
+              width:170px !important;
+              height:auto !important;
+              max-height:65px !important;
+              object-fit:contain !important;
+            "
+          />
 
         </a>
 
 
-        <!-- Links -->
-        <ul class="nav-links">
+        <!-- =================================================
+             LINKS
+        ================================================== -->
+
+        <ul
+          class="nav-links"
+          style="order:2 !important;"
+        >
 
           <li>
             <a href="../index.html">
@@ -77,11 +91,13 @@
             </a>
           </li>
 
+
           <li>
             <a href="../b*Socios/DIRECTORIO PREVIEW.htm">
               Socios
             </a>
           </li>
+
 
           <li>
             <a href="../index.html#eventos">
@@ -89,14 +105,19 @@
             </a>
           </li>
 
+
           <li>
             <a href="../index.html#tablon">
               Tablón
             </a>
           </li>
 
+
           <li>
-            <a href="./contacto.html" class="active">
+            <a
+              href="./contacto.html"
+              class="active"
+            >
               Contacto
             </a>
           </li>
@@ -104,13 +125,22 @@
         </ul>
 
 
-        <!-- CTA -->
-        <div class="nav-cta">
+        <!-- =================================================
+             CTA
+        ================================================== -->
+
+        <div
+          class="nav-cta"
+          style="order:3 !important;"
+        >
 
           <a
             href="./contacto.html"
             class="btn btn-primary"
-            style="padding:.65rem 1.4rem;font-size:.9rem;"
+            style="
+              padding:.65rem 1.4rem;
+              font-size:.9rem;
+            "
           >
             Hazte Socio
           </a>
@@ -118,21 +148,29 @@
         </div>
 
 
-        <!-- Menú móvil -->
+        <!-- =================================================
+             MENÚ MÓVIL
+        ================================================== -->
+
         <button
           class="nav-hamburger"
           type="button"
           aria-label="Menú"
           aria-expanded="false"
         >
+
           <span></span>
           <span></span>
           <span></span>
+
         </button>
 
       </div>
+
     </div>
+
   </nav>
+
 
 
   <!-- =====================================================
@@ -143,26 +181,43 @@
 
     <div class="page">
 
+
+      <!-- =================================================
+           CONTACT GRID
+      ================================================== -->
+
       <div class="contact-grid">
 
-        <!-- IZQUIERDA -->
+
+        <!-- =================================================
+             IZQUIERDA
+        ================================================== -->
 
         <div class="contact-left">
+
 
           <h1 class="contact-title">
             Contacto
           </h1>
+
 
           <p class="contact-subtitle">
             Escríbenos y nos pondremos en contacto contigo a la mayor brevedad posible. Gracias.
           </p>
 
 
-          <!-- FORMULARIO -->
+          <!-- =================================================
+               FORMULARIO
+          ================================================== -->
 
-          <form id="contactForm" novalidate>
+          <form
+            id="contactForm"
+            novalidate
+          >
 
-            <!-- Campo oculto para compatibilidad con la plantilla EmailJS -->
+
+            <!-- Campo oculto para compatibilidad con EmailJS -->
+
             <input
               type="hidden"
               name="name"
@@ -170,7 +225,9 @@
               value=""
             />
 
-            <!-- Campo oculto para compatibilidad con la plantilla EmailJS -->
+
+            <!-- Campo oculto para compatibilidad con EmailJS -->
+
             <input
               type="hidden"
               name="message"
@@ -178,7 +235,9 @@
               value=""
             />
 
-            <!-- Campo oculto para la variable asunto de EmailJS -->
+
+            <!-- Variable asunto -->
+
             <input
               type="hidden"
               name="asunto"
@@ -187,7 +246,12 @@
             />
 
 
+            <!-- =================================================
+                 CAMPOS
+            ================================================== -->
+
             <div class="fields-2col">
+
 
               <!-- NOMBRE -->
 
@@ -270,7 +334,9 @@
             </div>
 
 
-            <!-- MENSAJE -->
+            <!-- =================================================
+                 MENSAJE
+            ================================================== -->
 
             <div class="field field-textarea">
 
@@ -288,7 +354,9 @@
             </div>
 
 
-            <!-- PRIVACIDAD -->
+            <!-- =================================================
+                 PRIVACIDAD
+            ================================================== -->
 
             <label class="privacy-row">
 
@@ -299,16 +367,21 @@
               />
 
               <span class="privacy-label">
+
                 He leído y acepto las
+
                 <a href="#">
                   políticas de privacidad
                 </a>.
+
               </span>
 
             </label>
 
 
-            <!-- BOTÓN -->
+            <!-- =================================================
+                 BOTÓN
+            ================================================== -->
 
             <button
               type="submit"
@@ -320,6 +393,7 @@
                 enviar
               </span>
 
+
               <svg
                 viewBox="0 0 24 24"
                 fill="none"
@@ -328,14 +402,18 @@
                 stroke-linejoin="round"
               >
 
-                <path d="M5 12h14M12 5l7 7-7 7" />
+                <path
+                  d="M5 12h14M12 5l7 7-7 7"
+                />
 
               </svg>
 
             </button>
 
 
-            <!-- MENSAJE DE ÉXITO -->
+            <!-- =================================================
+                 MENSAJE DE ÉXITO
+            ================================================== -->
 
             <div
               class="form-success"
@@ -361,6 +439,7 @@
 
               </svg>
 
+
               ¡Mensaje enviado! Te respondemos en breve.
 
             </div>
@@ -368,6 +447,7 @@
           </form>
 
         </div>
+
 
 
         <!-- =================================================
@@ -392,11 +472,15 @@
       </div>
 
 
+
       <!-- =================================================
            INFORMACIÓN DE CONTACTO
       ================================================== -->
 
       <div class="contact-info-row">
+
+
+        <!-- DIRECCIÓN -->
 
         <div class="info-block">
 
@@ -416,6 +500,8 @@
         </div>
 
 
+        <!-- TELÉFONO -->
+
         <div class="info-block">
 
           <div class="info-icon">
@@ -433,6 +519,8 @@
         </div>
 
 
+        <!-- EMAIL -->
+
         <div class="info-block">
 
           <div class="info-icon">
@@ -449,6 +537,8 @@
 
         </div>
 
+
+        <!-- HORARIO -->
 
         <div class="info-block">
 
@@ -473,6 +563,7 @@
   </main>
 
 
+
   <!-- =====================================================
        FOOTER
   ====================================================== -->
@@ -484,58 +575,33 @@
       <div class="footer-grid">
 
 
-        <!-- BRAND -->
+        <!-- =================================================
+             BRAND
+        ================================================== -->
 
         <div class="footer-brand">
 
+
+          <!-- LOGO REAL -->
+
           <div
-            style="display:flex;align-items:center;gap:.75rem;"
+            style="
+              display:flex;
+              align-items:center;
+              gap:.75rem;
+            "
           >
 
-            <svg
-              width="44"
-              height="44"
-              viewBox="0 0 100 100"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-
-              <path
-                d="M50 85 C50 85 12 58 12 32 C12 20 22 12 34 12 C40 12 46 16 50 21 C54 16 60 12 66 12 C78 12 88 20 88 32 C88 58 50 85 50 85Z"
-                fill="rgba(255,255,255,.15)"
-              />
-
-              <path
-                d="M50 78 C50 78 18 54 18 32 C18 23 26 18 34 18 C40 18 46 23 50 28 C54 23 60 18 66 18 C74 18 82 23 82 32 C82 54 50 78 50 78Z"
-                fill="#2ECECE"
-                opacity=".7"
-              />
-
-              <ellipse
-                cx="34"
-                cy="28"
-                rx="11"
-                ry="8"
-                transform="rotate(-25,34,28)"
-                fill="#FFD700"
-                opacity=".8"
-              />
-
-            </svg>
-
-
-            <div>
-
-              <strong
-                style="display:block;font-family:'Fraunces',serif;color:white;font-size:1.1rem;"
-              >
-                Consumo Placer
-              </strong>
-
-              <span style="font-size:.78rem;opacity:.6;">
-                Comerciantes de Santomera
-              </span>
-
-            </div>
+            <img
+              src="../d*IMG/logo consumo 0.png"
+              alt="Consumo Placer"
+              style="
+                display:block;
+                width:120px;
+                height:auto;
+                object-fit:contain;
+              "
+            />
 
           </div>
 
@@ -555,6 +621,7 @@
               f
             </div>
 
+
             <div
               class="social-link"
               title="Instagram"
@@ -562,12 +629,14 @@
               ig
             </div>
 
+
             <div
               class="social-link"
               title="Twitter/X"
             >
               𝕏
             </div>
+
 
             <div
               class="social-link"
@@ -581,13 +650,17 @@
         </div>
 
 
-        <!-- NAVEGACIÓN -->
+
+        <!-- =================================================
+             NAVEGACIÓN
+        ================================================== -->
 
         <div class="footer-col">
 
           <h4>
             Navegación
           </h4>
+
 
           <ul class="footer-links">
 
@@ -597,17 +670,20 @@
               </a>
             </li>
 
+
             <li>
               <a href="../index.html#eventos">
                 Campañas
               </a>
             </li>
 
+
             <li>
               <a href="../index.html#tablon">
                 Tablón
               </a>
             </li>
+
 
             <li>
               <a href="./contacto.html">
@@ -620,13 +696,17 @@
         </div>
 
 
-        <!-- CONTACTO -->
+
+        <!-- =================================================
+             CONTACTO
+        ================================================== -->
 
         <div class="footer-col">
 
           <h4>
             Contacto
           </h4>
+
 
           <ul class="footer-links">
 
@@ -636,17 +716,20 @@
               </a>
             </li>
 
+
             <li>
-              <a href="tel:+34968000000">
-              +34 611 350 538
+              <a href="tel:+34611350538">
+                +34 611 350 538
               </a>
             </li>
+
 
             <li>
               <a href="#">
                 Sede: Camino La Mina, 6 Santomera
               </a>
             </li>
+
 
             <li>
               <a href="#">
@@ -661,7 +744,10 @@
       </div>
 
 
-      <!-- FOOTER BOTTOM -->
+
+      <!-- =================================================
+           FOOTER BOTTOM
+      ================================================== -->
 
       <div class="footer-bottom">
 
@@ -670,9 +756,15 @@
           Asociación de Comerciantes de Santomera
         </span>
 
+
         <div class="made-by">
+
           Diseñado con ❤ por
-          <strong>Limonlab</strong>
+
+          <strong>
+            Limonlab
+          </strong>
+
         </div>
 
       </div>
@@ -682,9 +774,10 @@
   </footer>
 
 
+
   <!-- =====================================================
        EMAILJS
-       IMPORTANTE: DEBE CARGARSE ANTES DE contacto.js
+       DEBE CARGARSE ANTES DE contacto.js
   ====================================================== -->
 
   <script
@@ -692,8 +785,12 @@
     src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
   ></script>
 
+
   <!-- JavaScript de contacto -->
+
   <script src="./contacto.js"></script>
 
+
 </body>
+
 </html>

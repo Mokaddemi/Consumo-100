@@ -863,20 +863,15 @@ const COMERCIOS = [
 /* ============================================================
    LOGOS DE SOCIOS
 ============================================================ */
-
 const LOGOS_SOCIOS = {
 
     "Viajes Sandratour":
-        "../d*IMG/logo viajes sandra tour.jpg"
-      
+        "../d*IMG/logo viajes sandra tour.jpg",
+
     "African Clinica Veterinaria":
         "../d*IMG/logo African Clinica Veterinaria.png"
 
 };
-
-};
-
-
 /* ============================================================
    CATEGORÍAS
 ============================================================ */

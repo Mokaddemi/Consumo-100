@@ -1,30 +1,33 @@
+/* ============================================================
+   MENÚ MÓVIL
+============================================================ */
+
 (function () {
-    const navEl = document.querySelector('nav');
+    const navEl = document.querySelector("nav");
+
     if (!navEl) return;
 
-    const burger = navEl.querySelector('.nav-hamburger, .nav-burger');
+    const burger = navEl.querySelector(
+        ".nav-hamburger, .nav-burger"
+    );
+
     if (!burger) return;
 
-    burger.addEventListener('click', () => {
-        navEl.classList.toggle('mobile-open');
+    burger.addEventListener("click", () => {
+        navEl.classList.toggle("mobile-open");
     });
 
-    navEl.querySelectorAll('.nav-links a').forEach(link => {
-        link.addEventListener('click', () => {
-            navEl.classList.remove('mobile-open');
+    navEl.querySelectorAll(".nav-links a").forEach(link => {
+        link.addEventListener("click", () => {
+            navEl.classList.remove("mobile-open");
         });
     });
 })();
 
 
-// ============================================================
-// COMERCIOS
-// ============================================================
-// IMPORTANTE:
-// - "categoria" se mantiene como dato original.
-// - "tag" es la ETIQUETA que aparece en la tarjeta.
-// - NO se modifican las etiquetas originales.
-// ============================================================
+/* ============================================================
+   COMERCIOS
+============================================================ */
 
 const COMERCIOS = [
 
@@ -857,21 +860,70 @@ const COMERCIOS = [
 ];
 
 
-// ============================================================
-// CATEGORÍAS / ETIQUETAS
-// ============================================================
+/* ============================================================
+   LOGOS DE SOCIOS
+============================================================ */
+
+const LOGOS_SOCIOS = {
+
+    "Viajes Sandratour":
+        "../d*IMG/logo viajes sandra tour.jpg"
+
+};
+
+
+/* ============================================================
+   CATEGORÍAS
+============================================================ */
 
 const CATEGORIES = [
-    { id: "todos", label: "Todos", emoji: null },
-    { id: "Hostelería", label: "Hostelería", emoji: "" },
-    { id: "Belleza", label: "Belleza", emoji: "" },
-    { id: "Ropa & Accesorios", label: "Ropa & Accesorios", emoji: "" },
-    { id: "Servicios", label: "Servicios", emoji: "" },
-    { id: "Hogar", label: "Hogar", emoji: "" },
-    { id: "Alimentación", label: "Alimentación", emoji: "" },
-    { id: "Librería", label: "Librería", emoji: "" },
-    { id: "Marketing", label: "Marketing", emoji: "" }
+    {
+        id: "todos",
+        label: "Todos",
+        emoji: null
+    },
+    {
+        id: "Hostelería",
+        label: "Hostelería",
+        emoji: ""
+    },
+    {
+        id: "Belleza",
+        label: "Belleza",
+        emoji: ""
+    },
+    {
+        id: "Ropa & Accesorios",
+        label: "Ropa & Accesorios",
+        emoji: ""
+    },
+    {
+        id: "Servicios",
+        label: "Servicios",
+        emoji: ""
+    },
+    {
+        id: "Hogar",
+        label: "Hogar",
+        emoji: ""
+    },
+    {
+        id: "Alimentación",
+        label: "Alimentación",
+        emoji: ""
+    },
+    {
+        id: "Librería",
+        label: "Librería",
+        emoji: ""
+    },
+    {
+        id: "Marketing",
+        label: "Marketing",
+        emoji: ""
+    }
 ];
+
 
 let activeCategory = "todos";
 let searchQuery = "";
@@ -881,74 +933,109 @@ let currentPage = 1;
 const PER_PAGE = 24;
 
 
-// ============================================================
-// UTILIDADES
-// ============================================================
+/* ============================================================
+   NORMALIZAR TEXTO
+============================================================ */
 
 function normalizeText(str) {
+
     return String(str || "")
         .toLowerCase()
         .normalize("NFD")
         .replace(/[\u0300-\u036f]/g, "");
+
 }
 
 
-// ============================================================
-// FILTRADO
-// ============================================================
+/* ============================================================
+   FILTRAR
+============================================================ */
 
 function getFiltered() {
 
     let list = [...COMERCIOS];
 
+
     if (activeCategory !== "todos") {
 
-        const wantedTag = normalizeText(activeCategory);
+        const wantedTag =
+            normalizeText(activeCategory);
 
         list = list.filter(comercio => {
-            return normalizeText(comercio.tag) === wantedTag;
+
+            return normalizeText(
+                comercio.tag
+            ) === wantedTag;
+
         });
+
     }
+
 
     if (searchQuery.trim()) {
 
-        const q = normalizeText(searchQuery);
+        const q =
+            normalizeText(searchQuery);
 
         list = list.filter(comercio => {
 
             return (
-                normalizeText(comercio.nombre).includes(q) ||
-                normalizeText(comercio.categoria).includes(q) ||
-                normalizeText(comercio.tag).includes(q) ||
-                normalizeText(comercio.direccion).includes(q) ||
-                normalizeText(comercio.telefono).includes(q) ||
-                normalizeText(comercio.correo).includes(q)
+                normalizeText(comercio.nombre)
+                    .includes(q) ||
+
+                normalizeText(comercio.categoria)
+                    .includes(q) ||
+
+                normalizeText(comercio.tag)
+                    .includes(q) ||
+
+                normalizeText(comercio.direccion)
+                    .includes(q) ||
+
+                normalizeText(comercio.telefono)
+                    .includes(q) ||
+
+                normalizeText(comercio.correo)
+                    .includes(q)
             );
 
         });
+
     }
+
 
     if (sortOrder === "nombre") {
 
         list.sort((a, b) =>
-            a.nombre.localeCompare(b.nombre, "es")
+            a.nombre.localeCompare(
+                b.nombre,
+                "es"
+            )
         );
 
     } else {
 
         list.sort((a, b) =>
-            a.tag.localeCompare(b.tag, "es") ||
-            a.nombre.localeCompare(b.nombre, "es")
+            a.tag.localeCompare(
+                b.tag,
+                "es"
+            ) ||
+            a.nombre.localeCompare(
+                b.nombre,
+                "es"
+            )
         );
+
     }
+
 
     return list;
 }
 
 
-// ============================================================
-// ESTADO DEL COMERCIO
-// ============================================================
+/* ============================================================
+   HORARIOS
+============================================================ */
 
 function calcularEstado(
     abreM,
@@ -963,32 +1050,39 @@ function calcularEstado(
         ahora.getHours() * 60 +
         ahora.getMinutes();
 
+
     const aMin = str => {
 
         if (!str || str === "null") {
             return null;
         }
 
-        const [h, m] =
+        const partes =
             str.split(":").map(Number);
 
         if (
-            Number.isNaN(h) ||
-            Number.isNaN(m)
+            partes.length !== 2 ||
+            Number.isNaN(partes[0]) ||
+            Number.isNaN(partes[1])
         ) {
             return null;
         }
 
-        return h * 60 + m;
+        return partes[0] * 60 +
+            partes[1];
+
     };
+
 
     const amAbre = aMin(abreM);
     const amCierra = aMin(cierraM);
     const pmAbre = aMin(abreT);
     const pmCierra = aMin(cierraT);
 
+
     let isOpen = false;
     let texto = "";
+
 
     if (
         amAbre !== null &&
@@ -1002,7 +1096,9 @@ function calcularEstado(
         texto =
             `Abierto · Cierra a las ${cierraM}`;
 
-    } else if (
+    }
+
+    else if (
         pmAbre !== null &&
         pmCierra !== null &&
         minutosActuales >= pmAbre &&
@@ -1014,9 +1110,12 @@ function calcularEstado(
         texto =
             `Abierto · Cierra a las ${cierraT}`;
 
-    } else {
+    }
+
+    else {
 
         isOpen = false;
+
 
         if (
             amAbre !== null &&
@@ -1026,7 +1125,9 @@ function calcularEstado(
             texto =
                 `Cerrado · Abre a las ${abreM}`;
 
-        } else if (
+        }
+
+        else if (
             pmAbre !== null &&
             pmCierra !== null &&
             minutosActuales >= amCierra &&
@@ -1036,25 +1137,29 @@ function calcularEstado(
             texto =
                 `Cerrado · Abre a las ${abreT}`;
 
-        } else {
-
-            texto = "Cerrado por hoy";
         }
+
+        else {
+
+            texto =
+                "Cerrado por hoy";
+
+        }
+
     }
+
 
     return {
         open: isOpen,
-        texto
+        texto: texto
     };
+
 }
 
 
-// ============================================================
-// COLORES DE RESPALDO
-// ============================================================
-// Se siguen utilizando únicamente cuando el socio todavía
-// no tiene logo.
-// ============================================================
+/* ============================================================
+   COLORES DE RESPALDO
+============================================================ */
 
 function getCardColor(id) {
 
@@ -1075,156 +1180,106 @@ function getCardColor(id) {
 
     ];
 
+
     return colores[
-        (Number(id) - 1) % colores.length
+        (Number(id) - 1) %
+        colores.length
     ];
+
 }
 
 
-// ============================================================
-// LOGOS DE LOS SOCIOS
-// ============================================================
-//
-// CARPETA:
-//
-// ../d*IMG/logos-socios/
-//
-// Ejemplo:
-//
-// ../d*IMG/logos-socios/viajes-sandratour.png
-//
-// El nombre se genera automáticamente.
-//
-// "Viajes Sandratour"
-//       ↓
-// "viajes-sandratour.png"
-//
-// Extensiones admitidas:
-// PNG
-// JPG
-// JPEG
-// WEBP
-//
-// Si no existe el logo, se conserva el fondo de color.
-// ============================================================
+/* ============================================================
+   OBTENER LOGO
+============================================================ */
 
-const LOGOS_BASE_PATH = "../d*IMG/logos-socios/";
+function getLogo(comercio) {
 
+    return LOGOS_SOCIOS[
+        comercio.nombre
+    ] || null;
 
-function slugifyLogoName(nombre) {
-
-    return String(nombre || "")
-        .normalize("NFD")
-        .replace(/[\u0300-\u036f]/g, "")
-        .toLowerCase()
-        .replace(/&/g, " y ")
-        .replace(/[^a-z0-9]+/g, "-")
-        .replace(/^-+|-+$/g, "");
 }
 
 
-function getLogoCandidates(comercio) {
+/* ============================================================
+   PARTE SUPERIOR DE LA TARJETA
+============================================================ */
 
-    const slug =
-        slugifyLogoName(comercio.nombre);
+function renderCardThumb(comercio) {
 
-    return [
-        `${LOGOS_BASE_PATH}${slug}.png`,
-        `${LOGOS_BASE_PATH}${slug}.jpg`,
-        `${LOGOS_BASE_PATH}${slug}.jpeg`,
-        `${LOGOS_BASE_PATH}${slug}.webp`
-    ];
-}
+    const cardColor =
+        getCardColor(comercio.id);
+
+    const logo =
+        getLogo(comercio);
 
 
-function renderLogo(comercio, cardColor) {
+    if (logo) {
 
-    const candidates =
-        getLogoCandidates(comercio);
+        return `
+            <div
+                class="card-thumb"
+                style="
+                    background:${cardColor};
+                    position:relative;
+                    overflow:hidden;
+                "
+            >
+
+                <img
+                    src="${logo}"
+                    alt="Logo de ${comercio.nombre}"
+                    class="card-logo"
+                    loading="lazy"
+                    onerror="this.style.display='none';"
+                    style="
+                        position:absolute;
+                        inset:0;
+                        width:100%;
+                        height:100%;
+                        object-fit:cover;
+                        object-position:center;
+                        display:block;
+                        z-index:2;
+                    "
+                >
+
+                <div
+                    class="card-thumb-inner"
+                    aria-hidden="true"
+                ></div>
+
+            </div>
+        `;
+
+    }
+
 
     return `
         <div
             class="card-thumb"
             style="
+                background:${cardColor};
                 position:relative;
                 overflow:hidden;
-                background:${cardColor};
-                width:100%;
-                height:100%;
             "
         >
-
-            <img
-                src="${candidates[0]}"
-                data-logo-candidates='${JSON.stringify(candidates)}'
-                data-logo-index="0"
-                alt="Logo de ${comercio.nombre}"
-                loading="lazy"
-                decoding="async"
-                style="
-                    position:absolute;
-                    inset:0;
-                    width:100%;
-                    height:100%;
-                    display:block;
-                    object-fit:cover;
-                    object-position:center center;
-                    z-index:2;
-                "
-                onerror="
-                    const img = this;
-
-                    let list = [];
-
-                    try {
-                        list = JSON.parse(
-                            img.dataset.logoCandidates || '[]'
-                        );
-                    } catch (e) {
-                        list = [];
-                    }
-
-                    let nextIndex =
-                        Number(img.dataset.logoIndex || 0) + 1;
-
-                    if (nextIndex < list.length) {
-
-                        img.dataset.logoIndex =
-                            nextIndex;
-
-                        img.src =
-                            list[nextIndex];
-
-                    } else {
-
-                        img.remove();
-                    }
-                "
-            >
-
-            <div
-                class="card-thumb-inner"
-                aria-hidden="true"
-                style="
-                    position:absolute;
-                    inset:0;
-                    z-index:1;
-                "
-            ></div>
-
+            <div class="card-thumb-inner"></div>
         </div>
     `;
+
 }
 
 
-// ============================================================
-// TARJETA
-// ============================================================
+/* ============================================================
+   TARJETA COMPLETA
+============================================================ */
 
-function renderCard(comercio, index) {
-
-    const cardColor =
-        getCardColor(comercio.id);
+function renderCard(
+    comercio,
+    index
+) {
 
     const estado =
         calcularEstado(
@@ -1234,12 +1289,15 @@ function renderCard(comercio, index) {
             comercio.cierraT
         );
 
+
     const hoursClass =
         estado.open
             ? "open"
             : "closed";
 
+
     let contactoHtml = "";
+
 
     if (
         comercio.telefono ||
@@ -1262,6 +1320,7 @@ function renderCard(comercio, index) {
             >
         `;
 
+
         if (comercio.telefono) {
 
             contactoHtml += `
@@ -1283,16 +1342,20 @@ function renderCard(comercio, index) {
                         stroke-linecap="round"
                         stroke-linejoin="round"
                     >
+
                         <path
                             d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
                         ></path>
+
                     </svg>
 
                     ${comercio.telefono}
 
                 </span>
             `;
+
         }
+
 
         if (comercio.correo) {
 
@@ -1334,27 +1397,26 @@ function renderCard(comercio, index) {
 
                 </span>
             `;
+
         }
+
 
         contactoHtml += `
             </div>
         `;
 
-    } else {
+    }
+
+    else {
 
         contactoHtml =
             `<div style="flex:1;"></div>`;
+
     }
 
 
-    // ========================================================
-    // ETIQUETA
-    // ========================================================
-
     const etiqueta =
-        comercio.tag
-            ? comercio.tag
-            : "";
+        comercio.tag || "";
 
 
     return `
@@ -1365,7 +1427,7 @@ function renderCard(comercio, index) {
             aria-label="${comercio.nombre}"
         >
 
-            ${renderLogo(comercio, cardColor)}
+            ${renderCardThumb(comercio)}
 
             <div class="card-body">
 
@@ -1436,7 +1498,9 @@ function renderCard(comercio, index) {
 
                         <span
                             style="
-                                color:${estado.open ? "#22c55e" : "#ef4444"};
+                                color:${estado.open
+                                    ? "#22c55e"
+                                    : "#ef4444"};
                                 font-weight:600;
                             "
                         >
@@ -1444,6 +1508,7 @@ function renderCard(comercio, index) {
                         </span>
 
                     </span>
+
 
                     <span
                         class="card-cta"
@@ -1459,7 +1524,7 @@ function renderCard(comercio, index) {
                         >
 
                             <path
-                                d="M5 12h14M12 5l7 7-7-7"
+                                d="M5 12h14M12 5l7 7-7 7"
                             />
 
                         </svg>
@@ -1472,12 +1537,13 @@ function renderCard(comercio, index) {
 
         </article>
     `;
+
 }
 
 
-// ============================================================
-// GRID
-// ============================================================
+/* ============================================================
+   GRID
+============================================================ */
 
 function renderGrid() {
 
@@ -1491,24 +1557,32 @@ function renderGrid() {
             "resultsCount"
         );
 
+
     if (!grid || !countEl) {
         return;
     }
 
+
     const filtered =
         getFiltered();
 
+
     const totalPages =
         Math.ceil(
-            filtered.length / PER_PAGE
+            filtered.length /
+            PER_PAGE
         ) || 1;
+
 
     if (currentPage > totalPages) {
         currentPage = totalPages;
     }
 
+
     const start =
-        (currentPage - 1) * PER_PAGE;
+        (currentPage - 1) *
+        PER_PAGE;
+
 
     const end =
         Math.min(
@@ -1516,11 +1590,22 @@ function renderGrid() {
             filtered.length
         );
 
-    const pageItems =
-        filtered.slice(start, end);
 
-    grid.classList.remove("ready");
-    grid.classList.add("filtering");
+    const pageItems =
+        filtered.slice(
+            start,
+            end
+        );
+
+
+    grid.classList.remove(
+        "ready"
+    );
+
+    grid.classList.add(
+        "filtering"
+    );
+
 
     setTimeout(() => {
 
@@ -1544,22 +1629,31 @@ function renderGrid() {
                 </div>
             `;
 
-        } else {
+        }
+
+        else {
 
             grid.innerHTML =
                 pageItems
-                    .map((c, i) =>
-                        renderCard(c, i)
+                    .map((comercio, i) =>
+                        renderCard(
+                            comercio,
+                            i
+                        )
                     )
                     .join("");
+
         }
+
 
         if (filtered.length === 0) {
 
             countEl.innerHTML =
                 `<strong>0</strong> comercios`;
 
-        } else {
+        }
+
+        else {
 
             const from =
                 start + 1;
@@ -1567,44 +1661,63 @@ function renderGrid() {
             const to =
                 end;
 
+
             countEl.innerHTML =
-                filtered.length === COMERCIOS.length
+                filtered.length ===
+                COMERCIOS.length
 
                     ? `Mostrando <strong>${from}–${to}</strong> de <strong>${filtered.length}</strong> comercios`
 
                     : `Mostrando <strong>${from}–${to}</strong> de <strong>${filtered.length}</strong> coincidencias`;
+
         }
 
-        grid.classList.remove("filtering");
-        grid.classList.add("ready");
 
-        renderPagination(totalPages);
+        grid.classList.remove(
+            "filtering"
+        );
+
+        grid.classList.add(
+            "ready"
+        );
+
+
+        renderPagination(
+            totalPages
+        );
 
     }, 140);
+
 }
 
 
-// ============================================================
-// FILTROS
-// ============================================================
+/* ============================================================
+   FILTROS
+============================================================ */
 
 function renderFilters() {
 
     const wrap =
-        document.querySelector(".filters");
+        document.querySelector(
+            ".filters"
+        );
+
 
     if (!wrap) {
         return;
     }
+
 
     const label =
         wrap.querySelector(
             ".filter-label"
         );
 
+
     if (!label) {
         return;
     }
+
 
     const pills =
         CATEGORIES
@@ -1625,13 +1738,16 @@ function renderFilters() {
                                 )
                         ).length;
 
+
                 if (count === 0) {
                     return "";
                 }
 
+
                 const isActive =
                     activeCategory ===
                     cat.id;
+
 
                 return `
                     <button
@@ -1657,8 +1773,10 @@ function renderFilters() {
 
                     </button>
                 `;
+
             })
             .join("");
+
 
     wrap.innerHTML = "";
 
@@ -1669,8 +1787,11 @@ function renderFilters() {
         pills
     );
 
+
     wrap
-        .querySelectorAll(".filter-btn")
+        .querySelectorAll(
+            ".filter-btn"
+        )
         .forEach(btn => {
 
             btn.addEventListener(
@@ -1682,6 +1803,7 @@ function renderFilters() {
 
                     currentPage = 1;
 
+
                     wrap
                         .querySelectorAll(
                             ".filter-btn"
@@ -1692,32 +1814,40 @@ function renderFilters() {
                                 b.dataset.cat ===
                                 activeCategory;
 
+
                             b.classList.toggle(
                                 "active",
                                 active
                             );
 
+
                             b.setAttribute(
                                 "aria-pressed",
                                 active
                             );
+
                         });
 
+
                     renderGrid();
+
                 }
             );
+
         });
+
 }
 
 
-// ============================================================
-// BUSCADOR
-// ============================================================
+/* ============================================================
+   BUSCADOR
+============================================================ */
 
 const searchInput =
     document.getElementById(
         "searchInput"
     );
+
 
 const searchClear =
     document.getElementById(
@@ -1736,17 +1866,22 @@ if (searchInput) {
 
             currentPage = 1;
 
+
             if (searchClear) {
 
                 searchClear.classList.toggle(
                     "visible",
                     searchQuery.length > 0
                 );
+
             }
 
+
             renderGrid();
+
         }
     );
+
 }
 
 
@@ -1761,25 +1896,31 @@ if (searchClear) {
                 searchInput.value = "";
 
                 searchInput.focus();
+
             }
+
 
             searchQuery = "";
 
             currentPage = 1;
 
+
             searchClear.classList.remove(
                 "visible"
             );
 
+
             renderGrid();
+
         }
     );
+
 }
 
 
-// ============================================================
-// ORDENAR
-// ============================================================
+/* ============================================================
+   ORDENAR
+============================================================ */
 
 const sortSelect =
     document.getElementById(
@@ -1799,14 +1940,16 @@ if (sortSelect) {
             currentPage = 1;
 
             renderGrid();
+
         }
     );
+
 }
 
 
-// ============================================================
-// PAGINACIÓN
-// ============================================================
+/* ============================================================
+   PAGINACIÓN
+============================================================ */
 
 function renderPagination(
     totalPages
@@ -1817,9 +1960,11 @@ function renderPagination(
             "pagination"
         );
 
+
     if (!pg) {
         return;
     }
+
 
     if (totalPages <= 1) {
 
@@ -1842,7 +1987,9 @@ function renderPagination(
                 },
                 (_, i) => i + 1
             );
+
         }
+
 
         const pages =
             new Set([
@@ -1851,26 +1998,33 @@ function renderPagination(
                 current
             ]);
 
+
         if (current > 1) {
 
             pages.add(
                 current - 1
             );
+
         }
+
 
         if (current < total) {
 
             pages.add(
                 current + 1
             );
+
         }
+
 
         const sorted =
             [...pages].sort(
                 (a, b) => a - b
             );
 
+
         const result = [];
+
 
         for (
             let i = 0;
@@ -1885,14 +2039,19 @@ function renderPagination(
             ) {
 
                 result.push("...");
+
             }
+
 
             result.push(
                 sorted[i]
             );
+
         }
 
+
         return result;
+
     }
 
 
@@ -1904,7 +2063,11 @@ function renderPagination(
             stroke-linecap="round"
             stroke-linejoin="round"
         >
-            <path d="M15 18l-6-6 6-6"/>
+
+            <path
+                d="M15 18l-6-6 6-6"
+            />
+
         </svg>
     `;
 
@@ -1917,7 +2080,11 @@ function renderPagination(
             stroke-linecap="round"
             stroke-linejoin="round"
         >
-            <path d="M9 18l6-6-6-6"/>
+
+            <path
+                d="M9 18l6-6-6-6"
+            />
+
         </svg>
     `;
 
@@ -1941,18 +2108,22 @@ function renderPagination(
         </button>
 
         ${pageNums
-            .map(p =>
+            .map(page =>
 
-                p === "..."
+                page === "..."
 
-                    ? `<span class="page-ellipsis">…</span>`
+                    ? `
+                        <span class="page-ellipsis">
+                            …
+                        </span>
+                    `
 
                     : `
                         <button
-                            class="page-btn${p === currentPage ? " active" : ""}"
-                            data-page="${p}"
+                            class="page-btn${page === currentPage ? " active" : ""}"
+                            data-page="${page}"
                         >
-                            ${p}
+                            ${page}
                         </button>
                     `
             )
@@ -1988,19 +2159,24 @@ function renderPagination(
 
                         currentPage--;
 
-                    } else if (
+                    }
+
+                    else if (
                         btn.dataset.action ===
                         "next"
                     ) {
 
                         currentPage++;
 
-                    } else {
+                    }
+
+                    else {
 
                         currentPage =
                             Number(
                                 btn.dataset.page
                             );
+
                     }
 
 
@@ -2016,19 +2192,23 @@ function renderPagination(
                             behavior: "smooth",
                             block: "start"
                         });
+
                     }
 
 
                     renderGrid();
+
                 }
             );
+
         });
+
 }
 
 
-// ============================================================
-// INICIO
-// ============================================================
+/* ============================================================
+   INICIAR
+============================================================ */
 
 renderFilters();
 renderGrid();

@@ -871,6 +871,9 @@ const LOGOS_SOCIOS = {
     "African Clinica Veterinaria":
         "../d*IMG/logo African Clinica Veterinaria.jpg"
 
+    "Amarillo Limón Mercería y Lencería":
+        "../d*IMG/logo Amarillo Limón Mercería y Lencería.jpg"
+
 };
 /* ============================================================
    CATEGORÍAS

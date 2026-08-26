@@ -19,6 +19,7 @@
 
 // ============================================================
 // COMERCIOS
+// ============================================================
 // IMPORTANTE:
 // - "categoria" se mantiene como dato original.
 // - "tag" es la ETIQUETA que aparece en la tarjeta.
@@ -900,12 +901,6 @@ function getFiltered() {
 
     let list = [...COMERCIOS];
 
-    /*
-     * IMPORTANTE:
-     * Los filtros se hacen por "tag".
-     * No se modifica categoria.
-     */
-
     if (activeCategory !== "todos") {
 
         const wantedTag = normalizeText(activeCategory);
@@ -1003,6 +998,7 @@ function calcularEstado(
     ) {
 
         isOpen = true;
+
         texto =
             `Abierto · Cierra a las ${cierraM}`;
 
@@ -1014,6 +1010,7 @@ function calcularEstado(
     ) {
 
         isOpen = true;
+
         texto =
             `Abierto · Cierra a las ${cierraT}`;
 
@@ -1053,7 +1050,10 @@ function calcularEstado(
 
 
 // ============================================================
-// COLORES
+// COLORES DE RESPALDO
+// ============================================================
+// Se siguen utilizando únicamente cuando el socio todavía
+// no tiene logo.
 // ============================================================
 
 function getCardColor(id) {
@@ -1078,6 +1078,142 @@ function getCardColor(id) {
     return colores[
         (Number(id) - 1) % colores.length
     ];
+}
+
+
+// ============================================================
+// LOGOS DE LOS SOCIOS
+// ============================================================
+//
+// CARPETA:
+//
+// ../d*IMG/logos-socios/
+//
+// Ejemplo:
+//
+// ../d*IMG/logos-socios/viajes-sandratour.png
+//
+// El nombre se genera automáticamente.
+//
+// "Viajes Sandratour"
+//       ↓
+// "viajes-sandratour.png"
+//
+// Extensiones admitidas:
+// PNG
+// JPG
+// JPEG
+// WEBP
+//
+// Si no existe el logo, se conserva el fondo de color.
+// ============================================================
+
+const LOGOS_BASE_PATH = "../d*IMG/logos-socios/";
+
+
+function slugifyLogoName(nombre) {
+
+    return String(nombre || "")
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .toLowerCase()
+        .replace(/&/g, " y ")
+        .replace(/[^a-z0-9]+/g, "-")
+        .replace(/^-+|-+$/g, "");
+}
+
+
+function getLogoCandidates(comercio) {
+
+    const slug =
+        slugifyLogoName(comercio.nombre);
+
+    return [
+        `${LOGOS_BASE_PATH}${slug}.png`,
+        `${LOGOS_BASE_PATH}${slug}.jpg`,
+        `${LOGOS_BASE_PATH}${slug}.jpeg`,
+        `${LOGOS_BASE_PATH}${slug}.webp`
+    ];
+}
+
+
+function renderLogo(comercio, cardColor) {
+
+    const candidates =
+        getLogoCandidates(comercio);
+
+    return `
+        <div
+            class="card-thumb"
+            style="
+                position:relative;
+                overflow:hidden;
+                background:${cardColor};
+                width:100%;
+                height:100%;
+            "
+        >
+
+            <img
+                src="${candidates[0]}"
+                data-logo-candidates='${JSON.stringify(candidates)}'
+                data-logo-index="0"
+                alt="Logo de ${comercio.nombre}"
+                loading="lazy"
+                decoding="async"
+                style="
+                    position:absolute;
+                    inset:0;
+                    width:100%;
+                    height:100%;
+                    display:block;
+                    object-fit:cover;
+                    object-position:center center;
+                    z-index:2;
+                "
+                onerror="
+                    const img = this;
+
+                    let list = [];
+
+                    try {
+                        list = JSON.parse(
+                            img.dataset.logoCandidates || '[]'
+                        );
+                    } catch (e) {
+                        list = [];
+                    }
+
+                    let nextIndex =
+                        Number(img.dataset.logoIndex || 0) + 1;
+
+                    if (nextIndex < list.length) {
+
+                        img.dataset.logoIndex =
+                            nextIndex;
+
+                        img.src =
+                            list[nextIndex];
+
+                    } else {
+
+                        img.remove();
+                    }
+                "
+            >
+
+            <div
+                class="card-thumb-inner"
+                aria-hidden="true"
+                style="
+                    position:absolute;
+                    inset:0;
+                    z-index:1;
+                "
+            ></div>
+
+        </div>
+    `;
 }
 
 
@@ -1136,6 +1272,7 @@ function renderCard(comercio, index) {
                         gap:.4rem;
                     "
                 >
+
                     <svg
                         viewBox="0 0 24 24"
                         width="14"
@@ -1146,10 +1283,13 @@ function renderCard(comercio, index) {
                         stroke-linecap="round"
                         stroke-linejoin="round"
                     >
-                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                        <path
+                            d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
+                        ></path>
                     </svg>
 
                     ${comercio.telefono}
+
                 </span>
             `;
         }
@@ -1164,6 +1304,7 @@ function renderCard(comercio, index) {
                         gap:.4rem;
                     "
                 >
+
                     <svg
                         viewBox="0 0 24 24"
                         width="14"
@@ -1174,6 +1315,7 @@ function renderCard(comercio, index) {
                         stroke-linecap="round"
                         stroke-linejoin="round"
                     >
+
                         <rect
                             width="20"
                             height="16"
@@ -1182,15 +1324,21 @@ function renderCard(comercio, index) {
                             rx="2"
                         ></rect>
 
-                        <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+                        <path
+                            d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"
+                        ></path>
+
                     </svg>
 
                     ${comercio.correo}
+
                 </span>
             `;
         }
 
-        contactoHtml += `</div>`;
+        contactoHtml += `
+            </div>
+        `;
 
     } else {
 
@@ -1200,7 +1348,7 @@ function renderCard(comercio, index) {
 
 
     // ========================================================
-    // AQUÍ ES DONDE APARECE LA ETIQUETA REAL DEL ARCHIVO
+    // ETIQUETA
     // ========================================================
 
     const etiqueta =
@@ -1217,12 +1365,7 @@ function renderCard(comercio, index) {
             aria-label="${comercio.nombre}"
         >
 
-            <div
-                class="card-thumb"
-                style="background:${cardColor};"
-            >
-                <div class="card-thumb-inner"></div>
-            </div>
+            ${renderLogo(comercio, cardColor)}
 
             <div class="card-body">
 
@@ -1264,6 +1407,7 @@ function renderCard(comercio, index) {
                         stroke-linecap="round"
                         stroke-linejoin="round"
                     >
+
                         <path
                             d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0Z"
                         />
@@ -1273,6 +1417,7 @@ function renderCard(comercio, index) {
                             cy="10"
                             r="3"
                         />
+
                     </svg>
 
                     ${comercio.direccion}
@@ -1304,6 +1449,7 @@ function renderCard(comercio, index) {
                         class="card-cta"
                         aria-label="Ver más sobre ${comercio.nombre}"
                     >
+
                         <svg
                             viewBox="0 0 24 24"
                             fill="none"
@@ -1311,10 +1457,13 @@ function renderCard(comercio, index) {
                             stroke-linecap="round"
                             stroke-linejoin="round"
                         >
+
                             <path
                                 d="M5 12h14M12 5l7 7-7-7"
                             />
+
                         </svg>
+
                     </span>
 
                 </div>
@@ -1608,7 +1757,9 @@ if (searchClear) {
         () => {
 
             if (searchInput) {
+
                 searchInput.value = "";
+
                 searchInput.focus();
             }
 
@@ -1701,12 +1852,14 @@ function renderPagination(
             ]);
 
         if (current > 1) {
+
             pages.add(
                 current - 1
             );
         }
 
         if (current < total) {
+
             pages.add(
                 current + 1
             );

@@ -872,7 +872,7 @@ const LOGOS_SOCIOS = {
         "../d*IMG/logo African Clinica Veterinaria.jpg",
 
     "Amarillo Limón Mercería y Lencería":
-        "../d*IMG/logo Amarillo Limón Mercería y Lencería.jpg"
+        "../d*IMG/logo Amarillo Limón Mercería y Lencería .jpg"
 
 };
 /* ============================================================

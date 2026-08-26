@@ -869,7 +869,7 @@ const LOGOS_SOCIOS = {
         "../d*IMG/logo viajes sandra tour.jpg",
 
     "African Clinica Veterinaria":
-        "../d*IMG/logo African Clinica Veterinaria.png"
+        "../d*IMG/logo African Clinica Veterinaria.jpg"
 
 };
 /* ============================================================

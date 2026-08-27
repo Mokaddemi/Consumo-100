@@ -932,6 +932,18 @@ const LOGOS_SOCIOS = {
        "Estética y peluquería L&mami":
   "../d*IMG/LOGO LYMAMI.jpg",
 
+         "Genesis Boutique":
+  "../d*IMG/logo genesis.jpg",
+   
+    "Frutería Hnos Ortín Ayllón":
+  "../d*IMG/LOGO FRUTERIA.jpg",
+   
+     "Esthilinea":
+  "../d*IMG/LOGO ESTILINIA.jpg",
+
+       "FCO.ALCARAZ TOMAS E HIJOS(OPEL SANTOMERA)":
+  "../d*IMG/LOGO OPEL.jpg",
+
 };
 /* ============================================================
    CATEGORÍAS

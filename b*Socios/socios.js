@@ -886,6 +886,9 @@ const LOGOS_SOCIOS = {
    
  "Camisería Vicente":
   "../d*IMG/logo Camisera Vicente.jpg",
+   
+    "Carnicería Baca":
+  "../d*IMG/logo Carniceria Baca.jpg",
 
 };
 /* ============================================================

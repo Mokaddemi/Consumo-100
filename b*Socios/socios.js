@@ -956,6 +956,30 @@ const LOGOS_SOCIOS = {
        "Hotel Santos":
   "../d*IMG/Hotel Santos.jpg",
 
+            "La despensa de Pedro bodega":
+  "../d*IMG/La despensa de Pedro bodega.jpg",
+   
+    "Inmobiliaria Mundicasa":
+  "../d*IMG/Inmobiliaria Mundicasa.jpg",
+   
+     "Huellamoda":
+  "../d*IMG/Huellamoda.jpg",
+
+       "Imprenta Joaquin cascales":
+  "../d*IMG/Imprenta Joaquin cascales.jpg",
+
+         "Lavadero Rapiz Santomera":
+  "../d*IMG/Lavadero Rapiz Santomera.jpg",
+   
+    "La Pelu de Lola 2.0":
+  "../d*IMG/La Pelu de Lola 2.0.jpg",
+   
+     "LIBRERIA CIRCULO":
+  "../d*IMG/LIBRERIA CIRCULO.jpg",
+
+       "Lidia Pelu":
+  "../d*IMG/Lidia Pelu.jpg",
+
 
 };
 /* ============================================================

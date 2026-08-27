@@ -1003,6 +1003,19 @@ const LOGOS_SOCIOS = {
 
     "NEO Peluqueros":
   "../d*IMG/NEO Peluqueros.jpg",
+   
+          "optica davinci":
+  "../d*IMG/optica davinci.jpg",
+   
+    "OPTICA TESSA":
+  "../d*IMG/OPTICA TESSA.jpg",
+   
+     "Pintauñas":
+  "../d*IMG/Pintaunas.jpg",
+
+    "pizzería pinocho":
+  "../d*IMG/pizzeria pinocho.jpg",
+
 
 
 };

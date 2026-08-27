@@ -889,6 +889,10 @@ const LOGOS_SOCIOS = {
    
     "Carnicería Baca":
   "../d*IMG/logo Carniceria Baca.jpg",
+   
+     "CENTRO DE NUTRICION MIELGO":
+  "../d*IMG/logo CENTRO DE NUTRICION MIELGO.jpg",
+
 
 };
 /* ============================================================

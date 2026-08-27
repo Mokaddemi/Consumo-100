@@ -879,7 +879,10 @@ const LOGOS_SOCIOS = {
         "../d*IMG/logo Amarillo Limon Merceria y Lenceria.jpg",
    
     "AMPARO BORRÁS":
-        "../d*IMG/logo AMPARO BORRaS.jpg"
+        "../d*IMG/logo AMPARO BORRaS.jpg",
+
+    "AUTOMATICOS JERONIMO, SL":
+        "../d*IMG/logo grupo jeronimo automatismos.jpg"
 
 };
 /* ============================================================

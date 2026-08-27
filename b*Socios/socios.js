@@ -912,7 +912,7 @@ const LOGOS_SOCIOS = {
   "../d*IMG/LOGO DIEGO FRICLIMA.jpg",
    
     "DÑA ENGRACIA":
-  "../d*IMG/LOGO DÑA ENGRACIA.jpg",
+  "../d*IMG/LOGO DNA ENGRACIA.jpg",
    
      "Dsastre Santomera":
   "../d*IMG/LOGO DESASTRE.jpg",

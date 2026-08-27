@@ -876,7 +876,7 @@ const LOGOS_SOCIOS = {
         "../d*IMG/logo African Clinica Veterinaria.jpg",
 
     "Amarillo Limón Mercería y Lencería":
-        "../d*IMG/logo Amarillo Limon Merceria y Lenceria.jpg"
+        "../d*IMG/logo Amarillo Limon Merceria y Lenceria.jpg",
    
     "AMPARO BORRÁS":
         "../d*IMG/logo AMPARO BORRaS.jpg"

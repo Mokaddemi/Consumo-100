@@ -955,6 +955,8 @@ const LOGOS_SOCIOS = {
 
        "Hotel Santos":
   "../d*IMG/Hotel Santos.jpg",
+
+
 };
 /* ============================================================
    CATEGORÍAS

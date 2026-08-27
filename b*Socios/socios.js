@@ -908,6 +908,29 @@ const LOGOS_SOCIOS = {
        "Deportes Alextani":
   "../d*IMG/LOGO ALEXTAIN.jpg",
 
+      "Diego Friclima s.l.":
+  "../d*IMG/LOGO DIEGO FICLIMA.jpg",
+   
+    "DÑA ENGRACIA":
+  "../d*IMG/LOGO DÑA ENGRACIA.jpg",
+   
+     "Dsastre Santomera":
+  "../d*IMG/LOGO DESASTRE.jpg",
+
+       "EL KIOSKO":
+  "../d*IMG/LOGO EL KIOSKO.jpg",
+
+        "El Metro Hombre":
+  "../d*IMG/LOGO EL METRO HOMBRE.jpg",
+   
+    "Encarna Ortíz Estética Integral":
+  "../d*IMG/LOGO ENCARNA ORTIZ.jpg",
+   
+     "Estación de Servicio Alhama":
+  "../d*IMG/LOGO REPSOL LA ALHAMA.jpg",
+
+       "Estética y peluquería L&mami":
+  "../d*IMG/LOGO LYMAMI.jpg",
 
 };
 /* ============================================================

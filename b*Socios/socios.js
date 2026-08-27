@@ -893,6 +893,9 @@ const LOGOS_SOCIOS = {
      "CENTRO DE NUTRICION MIELGO":
   "../d*IMG/logo CENTRO DE NUTRICION MIELGO.jpg",
 
+       "CLÍNICA SINCROST":
+  "../d*IMG/logo CLINICA SINCROST.jpg",
+
 
 };
 /* ============================================================

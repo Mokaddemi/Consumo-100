@@ -991,6 +991,18 @@ const LOGOS_SOCIOS = {
 
     "Limón gastrobar santomera":
   "../d*IMG/Limon gastrobar santomera.jpg",
+   
+          "María Torres. Peluquería y estética":
+  "../d*IMG/Maria Torres. Peluqueria y estetica.jpg",
+   
+    "Mercería Alarcon":
+  "../d*IMG/Merceria Alarcon.jpg",
+   
+     "Moda y Complementos ISALA":
+  "../d*IMG/Moda y Complementos ISALA.jpg",
+
+    "NEO Peluqueros":
+  "../d*IMG/NEO Peluqueros.jpg",
 
 
 };

@@ -877,6 +877,9 @@ const LOGOS_SOCIOS = {
 
     "Amarillo Limón Mercería y Lencería":
         "../d*IMG/logo Amarillo Limon Merceria y Lenceria.jpg"
+   
+    "AMPARO BORRÁS":
+        "../d*IMG/logo AMPARO BORRaS.jpg"
 
 };
 /* ============================================================

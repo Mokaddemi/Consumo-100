@@ -885,7 +885,7 @@ const LOGOS_SOCIOS = {
         "../d*IMG/logo grupo jeronimo automatismos.jpg",
    
     "Camisería Vicente":
-        "../d*IMG/logo Camiseria Vicente.jpg"
+        "../d*IMG/logo Camisera Vicente.jpg"
 
 };
 /* ============================================================

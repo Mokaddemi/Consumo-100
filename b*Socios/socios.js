@@ -882,7 +882,7 @@ const LOGOS_SOCIOS = {
         "../d*IMG/logo AMPARO BORRaS.jpg",
 
     "AUTOMATICOS JERONIMO, SL":
-        "../d*IMG/logo grupo jeronimo automatismos.jpg"
+        "../d*IMG/logo grupo jeronimo automatismos.jpg",
    
     "Camisería Vicente":
         "../d*IMG/logo Camisería Vicente.jpg"

@@ -965,7 +965,7 @@ const LOGOS_SOCIOS = {
      "Huellamoda":
   "../d*IMG/Huellamoda.jpg",
 
-       "Imprenta Joaquin cascales":
+       "Imprenta Joaquín cascales":
   "../d*IMG/Imprenta Joaquin cascales.jpg",
 
          "Lavadero Rapiz Santomera":
@@ -974,7 +974,7 @@ const LOGOS_SOCIOS = {
     "La Pelu de Lola 2.0":
   "../d*IMG/La Pelu de Lola 2.0.jpg",
    
-     "LIBRERIA CIRCULO":
+     "LIBRERÍA CIRCULO":
   "../d*IMG/LIBRERIA CIRCULO.jpg",
 
        "Lidia Pelu":

@@ -896,6 +896,18 @@ const LOGOS_SOCIOS = {
        "CLÍNICA SINCROST":
   "../d*IMG/logo CLINICA SINCROST.jpg",
 
+    "Confitería Salmerón":
+  "../d*IMG/LOGO SALMERON.jpg",
+   
+    "Cortinas el metro":
+  "../d*IMG/LOGO EL METRO.jpg",
+   
+     "D'Mia Collection Passione":
+  "../d*IMG/LOGO D MIA.jpg",
+
+       "Deportes Alextani":
+  "../d*IMG/LOGO ALEXTAIN.jpg",
+
 
 };
 /* ============================================================

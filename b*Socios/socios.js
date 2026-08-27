@@ -980,6 +980,18 @@ const LOGOS_SOCIOS = {
        "Lidia Pelu":
   "../d*IMG/Lidia Pelu.jpg",
 
+          "Lubespa Distribuciónes del Levante SL":
+  "../d*IMG/Lubespa Distribuciones del Levante SL.jpg",
+   
+    "Marce Soto Clinic Terapias Alternativas":
+  "../d*IMG/Marce Soto Clinic Terapias Alternativas.jpg",
+   
+     "Limonlab":
+  "../d*IMG/Limonlab.jpg",
+
+    "Limón gastrobar santomera":
+  "../d*IMG/Limon gastrobar santomera.jpg",
+
 
 };
 /* ============================================================

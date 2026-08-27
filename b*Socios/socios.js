@@ -944,6 +944,17 @@ const LOGOS_SOCIOS = {
        "FCO.ALCARAZ TOMAS E HIJOS(OPEL SANTOMERA)":
   "../d*IMG/LOGO OPEL.jpg",
 
+         "Gestoria Ruiz Garcia":
+  "../d*IMG/Gestoria Ruiz Garcia.jpg",
+   
+    "HERBOSANA":
+  "../d*IMG/HERBOSANA.jpg",
+   
+     "Hokuhome":
+  "../d*IMG/Hokuhome.jpg",
+
+       "Hotel Santos":
+  "../d*IMG/Hotel Santos.jpg",
 };
 /* ============================================================
    CATEGORÍAS

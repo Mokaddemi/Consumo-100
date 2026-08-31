@@ -1040,6 +1040,11 @@ const LOGOS_SOCIOS = {
     "SEXYSHOP Juguetería para Adultos":
   "../d*IMG/SEXYSHOP.jpg",
 
+     "Tamara Bellot Estilistas":
+  "../d*IMG/Tamara Bellot Estilistas.jpg",
+
+    "TIVIPARK":
+  "../d*IMG/TIVIPARK.jpg",
 
 
 };

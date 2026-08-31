@@ -1026,7 +1026,19 @@ const LOGOS_SOCIOS = {
   "../d*IMG/Reche.jpg",
 
     "Recordarte Fotografía":
-  "../d*IMG/Recordarte.jpg",
+  "../d*IMG/Recordarte .jpg",
+
+            "REGUERPC":
+  "../d*IMG/REGUERPC.jpg",
+   
+    "Sergio Planes peluqueros":
+  "../d*IMG/Sergio Planes peluqueros.jpg",
+   
+     "SERVIPIZZA":
+  "../d*IMG/SERVIPIZZA.jpg",
+
+    "SEXYSHOP Juguetería para Adultos":
+  "../d*IMG/SEXYSHOP.jpg",
 
 
 

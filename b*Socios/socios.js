@@ -1016,6 +1016,18 @@ const LOGOS_SOCIOS = {
     "pizzería pinocho":
   "../d*IMG/pizzeria pinocho.jpg",
 
+           "RADIO SURESTE COPE":
+  "../d*IMG/RADIO SURESTE COPE.jpg",
+   
+    "RB Mª Dolores Rejuvenecimiento & Bienestar":
+  "../d*IMG/RB M.jpg",
+   
+     "Reche":
+  "../d*IMG/Reche.jpg",
+
+    "Recordarte Fotografía":
+  "../d*IMG/Recordarte.jpg",
+
 
 
 };

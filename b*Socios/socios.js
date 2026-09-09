@@ -130,20 +130,6 @@ const COMERCIOS = [
     },
 
     {
-        id: 8,
-        nombre: "La despensa de Pedro bodega",
-        categoria: "Moda",
-        direccion: "Avd Juan Carlos I N 51 bajo . Cp 30140 Santomera Murcia",
-        telefono: "620 34 06 93",
-        correo: "Salazonespedro@hotmail.com",
-        abreM: "07:30",
-        cierraM: "19:00",
-        abreT: "null",
-        cierraT: "null",
-        tag: "Hostelería"
-    },
-
-    {
         id: 9,
         nombre: "Diego Friclima s.l.",
         categoria: "Moda",
@@ -995,6 +981,188 @@ const COMERCIOS = [
         abreT: "",
         cierraT: "",
         tag: "Servicios"
+    },
+
+   {
+        id: 71,
+        nombre: "Joakiw Asesores De Imagen",
+        categoria: "Belleza",
+        direccion: "Calle Dr. Fleming, 2,",
+        telefono: "968 86 00 98",
+        correo: "",
+        abreM: "",
+        cierraM: "",
+        abreT: "",
+        cierraT: "",
+        tag: "Belleza"
+    },
+
+    {
+        id: 72,
+        nombre: "MESAN Metalmecánica Santomera",
+        categoria: "Servicios",
+        direccion: "Ctra. Alicante, carril Borregueras, 6",
+        telefono: "968 86 41 51",
+        correo: "administracion@mmecanica.com",
+        abreM: "",
+        cierraM: "",
+        abreT: "",
+        cierraT: "",
+        tag: "Servicios"
+    },
+
+   {
+        id: 73,
+        nombre: "Multiusos MD",
+        categoria: "Servicios",
+        direccion: "Cam. Viejo de Orihuela, 10,",
+        telefono: "686 95 36 98",
+        correo: "info@multiusosmd.com",
+        abreM: "",
+        cierraM: "",
+        abreT: "",
+        cierraT: "",
+        tag: "Servicios"
+    },
+
+   {
+        id: 74,
+        nombre: "Nicolás y Valero",
+        categoria: "Hostelería",
+        direccion: "Ctra. de Abanilla, Km 1, 6, ",
+        telefono: "968 86 30 34",
+        correo: "nicolasyvalero@nicolasyvalero.es",
+        abreM: "",
+        cierraM: "",
+        abreT: "",
+        cierraT: "",
+        tag: "Hostelería"
+    },
+
+    {
+        id: 75,
+        nombre: "PANADERIA SIMON",
+        categoria: "Hostelería",
+        direccion: "C. del Rosario,",
+        telefono: "968 86 14 13",
+        correo: "",
+        abreM: "",
+        cierraM: "",
+        abreT: "",
+        cierraT: "",
+        tag: "Hostelería"
+    },
+
+   {
+        id: 75,
+        nombre: "Rodri Joyeria Y Relojeria",
+        categoria: "Servicios",
+        direccion: "C. del Rosario,",
+        telefono: "968 86 41 46",
+        correo: "",
+        abreM: "",
+        cierraM: "",
+        abreT: "",
+        cierraT: "",
+        tag: "Servicios"
+    },
+
+   {
+        id: 76,
+        nombre: "SANIDAD AGRÍCOLA ECONEX",
+        categoria: "Servicios",
+        direccion: "C. Mayor, Nº 15 Bis, Edificio ECONEX",
+        telefono: "900 502 401",
+        correo: "",
+        abreM: "",
+        cierraM: "",
+        abreT: "",
+        cierraT: "",
+        tag: "Servicios"
+    },
+
+   {
+        id: 77,
+        nombre: "Treintaytantos",
+        categoria: "Hostelería",
+        direccion: "C. las Calderas, 1,",
+        telefono: "968 86 01 56",
+        correo: "treintaytantos.shop@gmail.com",
+        abreM: "",
+        cierraM: "",
+        abreT: "",
+        cierraT: "",
+        tag: "Hostelería"
+    },
+
+    {
+        id: 78,
+        nombre: "Natural Nails Studio",
+        categoria: "Belleza",
+        direccion: "C. las Calderas, 1,",
+        telefono: "604 80 21 12",
+        correo: "",
+        abreM: "",
+        cierraM: "",
+        abreT: "",
+        cierraT: "",
+        tag: "Belleza"
+    },
+
+   {
+        id: 79,
+        nombre: "PPS Paco Pérez Serigrafía",
+        categoria: "Servicios",
+        direccion: "C. San León, 23, Bajo,",
+        telefono: "968 86 13 01",
+        correo: "",
+        abreM: "",
+        cierraM: "",
+        abreT: "",
+        cierraT: "",
+        tag: "Servicios"
+    },
+
+   {
+        id: 80,
+        nombre: "Vjsbeauty",
+        categoria: "Belleza",
+        direccion: "El Siscar",
+        telefono: "",
+        correo: "",
+        abreM: "",
+        cierraM: "",
+        abreT: "",
+        cierraT: "",
+        tag: "Belleza"
+    },
+
+   {
+        id: 81,
+        nombre: "Pura Vida",
+        categoria: "Alimentación",
+        direccion: "Av. Juan Carlos I, 36,",
+        telefono: " 968 86 13 36",
+        correo: "",
+        abreM: "",
+        cierraM: "",
+        abreT: "",
+        cierraT: "",
+        tag: "Alimentación"
+    },
+
+   {
+        id: 82,
+        nombre: "L&mami",
+        categoria: "Belleza",
+        direccion: "C. los Almendros, 4, bajo E,",
+        telefono: "968 86 40 79",
+        correo: "",
+        abreM: "",
+        cierraM: "",
+        abreT: "",
+        cierraT: "",
+        tag: "Belleza"
     },
 
 

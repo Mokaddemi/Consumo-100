@@ -886,7 +886,7 @@ const COMERCIOS = [
     },
 
     {
-        id: 62,
+        id: 63,
         nombre: "Automóviles Santomera",
         categoria: "Servicios",
         direccion: "Carretera de Alicante, 36, C. de la Aserradora, 2",
@@ -898,6 +898,105 @@ const COMERCIOS = [
         cierraT: "",
         tag: "Servicios"
     },
+
+   {
+        id: 64,
+        nombre: "Restaurante El Puerto",
+        categoria: "Hostelería",
+        direccion: "Ctra. de Abanilla, 0,",
+        telefono: "968 86 03 51",
+        correo: "",
+        abreM: "",
+        cierraM: "",
+        abreT: "",
+        cierraT: "",
+        tag: "Hostelería"
+    },
+
+   {
+        id: 65,
+        nombre: "Bar Luisa",
+        categoria: "Hostelería",
+        direccion: "C. los Pasos, 36,",
+        telefono: "639 07 42 68",
+        correo: "",
+        abreM: "",
+        cierraM: "",
+        abreT: "",
+        cierraT: "",
+        tag: "Hostelería"
+    },
+
+   {
+        id: 66,
+        nombre: "Berma Levante",
+        categoria: "Servicios",
+        direccion: "C. los Pasos, 36,",
+        telefono: "629 790 096",
+        correo: "info@bermalevante.com",
+        abreM: "",
+        cierraM: "",
+        abreT: "",
+        cierraT: "",
+        tag: "Servicios"
+    },
+
+   {
+        id: 67,
+        nombre: "Grupo Asesant Consultores",
+        categoria: "Servicios",
+        direccion: "Av. Comisión Pro-Ayuntamiento, 6, BAJO,",
+        telefono: "968 86 21 22",
+        correo: "",
+        abreM: "",
+        cierraM: "",
+        abreT: "",
+        cierraT: "",
+        tag: "Servicios"
+    },
+
+    {
+        id: 68,
+        nombre: "Copesan",
+        categoria: "Servicios",
+        direccion: "Cam. Viejo de Orihuela, 1,",
+        telefono: "968 86 52 53",
+        correo: "info@copesan.es",
+        abreM: "",
+        cierraM: "",
+        abreT: "",
+        cierraT: "",
+        tag: "Servicios"
+    },
+
+   {
+        id: 69,
+        nombre: "Fisioterapia Ignacio Galera",
+        categoria: "Servicios",
+        direccion: "C. San León, 30,",
+        telefono: "968 86 75 97",
+        correo: "fisioterapiaignaciogalera@gmail.com",
+        abreM: "",
+        cierraM: "",
+        abreT: "",
+        cierraT: "",
+        tag: "Servicios"
+    },
+
+    {
+        id: 70,
+        nombre: "Muebles Laura",
+        categoria: "Servicios",
+        direccion: "Ctra. de Alicante, Km. 15,",
+        telefono: "968 86 01 11",
+        correo: "info@muebleslaura.com",
+        abreM: "",
+        cierraM: "",
+        abreT: "",
+        cierraT: "",
+        tag: "Servicios"
+    },
+
 
 ];
 

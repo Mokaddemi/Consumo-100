@@ -855,7 +855,7 @@ const COMERCIOS = [
         abreT: "17:00",
         cierraT: "21:00",
         tag: "Ropa & Accesorios"
-    }
+    },
 
    {
         id: 61,

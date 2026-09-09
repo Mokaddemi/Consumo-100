@@ -871,6 +871,34 @@ const COMERCIOS = [
         tag: "Servicios"
     },
 
+   {
+        id: 62,
+        nombre: "Asesoría de Empresas Manrique",
+        categoria: "Servicios",
+        direccion: "C. Maestro Puig Valera, 41,",
+        telefono: "968 86 12 56",
+        correo: "info@asesoriadeempresasmanrique.es",
+        abreM: "",
+        cierraM: "",
+        abreT: "",
+        cierraT: "",
+        tag: "Servicios"
+    },
+
+    {
+        id: 62,
+        nombre: "Automóviles Santomera",
+        categoria: "Servicios",
+        direccion: "Carretera de Alicante, 36, C. de la Aserradora, 2",
+        telefono: "968 861 909",
+        correo: "info@automovilessantomera.com",
+        abreM: "",
+        cierraM: "",
+        abreT: "",
+        cierraT: "",
+        tag: "Servicios"
+    },
+
 ];
 
 

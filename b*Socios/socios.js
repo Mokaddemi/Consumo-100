@@ -857,6 +857,20 @@ const COMERCIOS = [
         tag: "Ropa & Accesorios"
     }
 
+   {
+        id: 61,
+        nombre: "ARROW AUDITORES",
+        categoria: "Servicios",
+        direccion: "Pasaje D. Antonio, Don Antonio Prior, nº4,",
+        telefono: "968 86 11 01",
+        correo: "arrow@arrowauditores.com",
+        abreM: "",
+        cierraM: "",
+        abreT: "",
+        cierraT: "",
+        tag: "Servicios"
+    },
+
 ];
 
 

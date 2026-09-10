@@ -1151,20 +1151,6 @@ const COMERCIOS = [
         tag: "Alimentación"
     },
 
-   {
-        id: 82,
-        nombre: "L&mami",
-        categoria: "Belleza",
-        direccion: "C. los Almendros, 4, bajo E,",
-        telefono: "968 86 40 79",
-        correo: "",
-        abreM: "",
-        cierraM: "",
-        abreT: "",
-        cierraT: "",
-        tag: "Belleza"
-    },
-
 
 ];
 
@@ -1361,7 +1347,7 @@ const LOGOS_SOCIOS = {
           "Asesoría de Empresas Manrique":
   "../d*IMG/Asesoria de Empresas Manrique.jpg",
 
-             "Automóviles Santomerae":
+             "Automóviles Santomera":
   "../d*IMG/Automoviles Santomera.jpg",
 
       "Bar Luisa":
@@ -1386,7 +1372,7 @@ const LOGOS_SOCIOS = {
   "../d*IMG/L&mami.jpg",
 
                      "MESAN Metalmecánica Santomera":
-  "../d*IMG/LMESAN.jpg",
+  "../d*IMG/MESAN.jpg",
 
             "Muebles Laura":
   "../d*IMG/Muebles Laura.jpg",

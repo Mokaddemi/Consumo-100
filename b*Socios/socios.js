@@ -1355,6 +1355,75 @@ const LOGOS_SOCIOS = {
     "TIVIPARK":
   "../d*IMG/TIVIPARK.jpg",
 
+       "ARROW AUDITORES":
+  "../d*IMG/ARROW AUDITORES.jpg",
+
+          "Asesoría de Empresas Manrique":
+  "../d*IMG/Asesoria de Empresas Manrique.jpg",
+
+             "Automóviles Santomerae":
+  "../d*IMG/Automoviles Santomera.jpg",
+
+      "Bar Luisa":
+  "../d*IMG/Bar Luisa.jpg",
+
+         "Berma Levante":
+  "../d*IMG/Berma Levante.jpg",
+
+            "Copesan":
+  "../d*IMG/Copesan.jpg",
+
+               "Fisioterapia Ignacio Galera":
+  "../d*IMG/Fisioterapia Ignacio Galera.jpg",
+
+                  "Grupo Asesant Consultores":
+  "../d*IMG/Grupo Asesant Consultores.jpg",
+
+               "Joakiw Asesores De Imagen":
+  "../d*IMG/Joakiw.jpg",
+
+                  "L&mami":
+  "../d*IMG/L&mami.jpg",
+
+                     "MESAN Metalmecánica Santomera":
+  "../d*IMG/LMESAN.jpg",
+
+            "Muebles Laura":
+  "../d*IMG/Muebles Laura.jpg",
+
+               "Multiusos MD":
+  "../d*IMG/Multiusos MD.jpg",
+
+                  "Natural Nails Studio":
+  "../d*IMG/Natural Nails Studio.jpg",
+
+                     "Nicolás y Valero":
+  "../d*IMG/Nicolas y Valero.jpg",
+
+                  "PANADERIA SIMON":
+  "../d*IMG/PANADERIA SIMON.jpg",
+
+                     "PPS Paco Pérez Serigrafía":
+  "../d*IMG/PPS Paco.jpg",
+
+                     "Pura Vida":
+  "../d*IMG/Pura Vida.jpg",
+
+                        "Restaurante El Puerto":
+  "../d*IMG/Restaurante El Puerto.jpg",
+
+                 "Rodri Joyeria Y Relojeria":
+  "../d*IMG/Rodri Joyeria Y Relojeria.jpg",
+
+                    "SANIDAD AGRÍCOLA ECONEX":
+  "../d*IMG/ECONEX.jpg",
+
+                    "Treintaytantos":
+  "../d*IMG/Treintaytantos.jpg",
+
+                       "Vjsbeauty":
+  "../d*IMG/Vjsbeauty.jpg",
+
 
 };
 /* ============================================================
